@@ -1,0 +1,39 @@
+[{
+	"MSGTYPE": "LOGIN_REQUEST",
+	"USERNAME": "vaibz",
+	"PASSWORD": "12345"
+}
+,
+{
+	"MSGTYPE": "LOGIN_RESPONSE",
+	"STATUS": "Error or Success",
+	"USERID": -1 for error, userid for success
+}
+
+,
+{
+	"MSGTYPE": "SIGNIN_REQUEST",
+	"USERNAME": "vaibz",
+	"PASSWORD": "12345",
+	"FULLNAME":"name surname",
+	"GENDER": "M/F/O",
+	"DOB":"DD-MM-YYYY",
+	"EMAIL":"test@test.com",
+	"PHONE":"1234567890"
+}
+,
+{
+	"MSGTYPE":"SIGNIN_RESPONSE",
+	"STATUS":"Error or Success",
+	"USERID": -1 for error, userid for success
+}
+,
+
+{
+	"MSGTYPE":"CHAT_MESSAGE",
+	"MESSAGE":"Hello, World",
+	"TO":"user2",
+	"FROM":"user1",
+	"TIME": "09.00PM",
+	"DATE": "11-12-2025"
+}]
