@@ -1,14 +1,8 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-// #define QUEUE_BUFFER_SIZE 4096
-
 #include <queue>
 #include <mutex>
-
-// #pragma pack(push, 2)
-//
-// #pragma pack(pop)
 
 template <typename T>
 class MutexQueue

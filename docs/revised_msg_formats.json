@@ -1,0 +1,41 @@
+[ {
+    "message_type": "login_request",
+    "username": "vaibhav",
+    "password": "12345",
+    "timestamp": "2025-06-14T00:30:00Z"
+  }
+,
+  {
+    "message_type": "login_response",
+    "status": "error or success",
+    "user_id": "",
+    "error_code": 0
+  }
+  ,
+  {
+    "message_type": "signup_request",
+    "username": "testuser",
+    "password": "1312",
+    "fullname": "testname testsurname",
+    "gender": "m/f/o",
+    "dob": "dd-mm-yyyy",
+    "email": "test@gmail.com",
+    "phone": "1234567890",
+    "timestamp": "2025-06-14T00:30:00Z"
+  }
+  ,
+  {
+    "message_type": "signup_response",
+    "status": "error or success",
+    "user_id": "",
+    "error_code": 0
+  }
+  ,
+  {
+    "message_type": "chat_message",
+    "to": "client2",
+    "from": "client1",
+    "sender_user_id": "21",
+    "timestamp": "2025-06-14T00:30:00Z"
+  }
+]

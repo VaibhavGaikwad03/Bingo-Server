@@ -8,6 +8,7 @@
 #include <condition_variable>
 
 #include "../include/mutex_queue.h"
+#include "../include/authenticator.h"
 #include "../include/message_processor.h"
 #include "../include/message_structures.h"
 
@@ -16,6 +17,8 @@ class MessageProcessor
     std::mutex _mtx;
     std::condition_variable &_cv;
     MutexQueue<DataPacket> &_mtx_queue;
+
+    Authenticator _authenticator;
 public:
     explicit MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv);
     ~MessageProcessor();

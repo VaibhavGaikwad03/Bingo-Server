@@ -6,7 +6,7 @@
 
 Server::Server()
 {
-    _message_processor = new MessageProcessor(_mtx_queue, _cv);
+    _message_processor = std::make_unique<MessageProcessor>(_mtx_queue, _cv);
 
     uWS::App::WebSocketBehavior<std::string> behavior;
     behavior.open = [this](auto *ws)

@@ -44,15 +44,3 @@
 [2025-06-11 23:01:58][ERROR] [json.exception.type_error.305] cannot use operator[] with a string argument with array
 [2025-06-11 23:02:19][ERROR] [json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing object key - unexpected number literal; expected string literal
 
-INSERT INTO user_credentials (
-    username, password, fullname, dob, gender, email, phone
-) VALUES 
-(
-    'vaibz',
-    '$2y$10$w',  -- example bcrypt hash
-    'Vaibhav Gaikwad',
-    '2002-03-20',
-    'Male',
-    'vaibhav@google.com',
-    '+91-7887401312'
-);

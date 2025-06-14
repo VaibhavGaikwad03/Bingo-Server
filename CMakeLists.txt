@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.21)
 project(BingoServer)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -15,7 +15,9 @@ add_executable(BingoServer main.cpp
         src/time.cpp
         include/message_structures.h
         include/message_processor.h
-        src/message_processor.cpp)
+        src/message_processor.cpp
+        include/authenticator.h
+        src/authenticator.cpp)
 
 # Link the required libraries
 target_link_libraries(BingoServer
@@ -25,4 +27,5 @@ target_link_libraries(BingoServer
         crypto                      # OpenSSL
         uv                          # libuv
         pthread
+        mysqlcppconnx
 )
