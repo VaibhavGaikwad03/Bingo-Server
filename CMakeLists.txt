@@ -1,23 +1,23 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.31)
 project(BingoServer)
 
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(BingoServer main.cpp
-        src/server.cpp
-        include/server.h
-        include/nlohmann/json.hpp
-        include/mutex_queue.h
-        src/log.cpp
-        include/log.h
-        include/utils.h
-        include/time.h
         src/time.cpp
-        include/message_structures.h
-        include/message_processor.h
+        src/server.cpp
+        src/authenticator.cpp
+        src/log.cpp
         src/message_processor.cpp
+        include/nlohmann/json.hpp
         include/authenticator.h
-        src/authenticator.cpp)
+        include/log.h
+        include/message_processor.h
+        include/message_structures.h
+        include/mutex_queue.h
+        include/server.h
+        include/time.h
+        include/utils.h)
 
 # Link the required libraries
 target_link_libraries(BingoServer

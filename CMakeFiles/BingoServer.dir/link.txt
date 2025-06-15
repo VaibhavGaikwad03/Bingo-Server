@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/BingoServer.dir/main.cpp.o CMakeFiles/BingoServer.dir/src/server.cpp.o CMakeFiles/BingoServer.dir/src/log.cpp.o CMakeFiles/BingoServer.dir/src/time.cpp.o CMakeFiles/BingoServer.dir/src/message_processor.cpp.o CMakeFiles/BingoServer.dir/src/authenticator.cpp.o -o BingoServer  /usr/local/lib/uSockets.a -lz -lssl -lcrypto -luv -lpthread 

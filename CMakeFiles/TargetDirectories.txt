@@ -1,3 +1,0 @@
-/home/vaibz/CLionProjects/BingoServer/CMakeFiles/BingoServer.dir
-/home/vaibz/CLionProjects/BingoServer/CMakeFiles/edit_cache.dir
-/home/vaibz/CLionProjects/BingoServer/CMakeFiles/rebuild_cache.dir

@@ -1,39 +1,41 @@
-[{
-	"MSGTYPE": "LOGIN_REQUEST",
-	"USERNAME": "vaibz",
-	"PASSWORD": "12345"
+[ {
+  "message_type": "login_request",
+  "username": "vaibhav",
+  "password": "12345",
+  "timestamp": "2025-06-14T00:30:00Z"
 }
 ,
-{
-	"MSGTYPE": "LOGIN_RESPONSE",
-	"STATUS": "Error or Success",
-	"USERID": -1 for error, userid for success
-}
-
+  {
+    "message_type": "login_response",
+    "status": "error or success",
+    "user_id": "",
+    "error_code": 0
+  }
 ,
-{
-	"MSGTYPE": "SIGNIN_REQUEST",
-	"USERNAME": "vaibz",
-	"PASSWORD": "12345",
-	"FULLNAME":"name surname",
-	"GENDER": "M/F/O",
-	"DOB":"DD-MM-YYYY",
-	"EMAIL":"test@test.com",
-	"PHONE":"1234567890"
-}
+  {
+    "message_type": "signup_request",
+    "username": "testuser",
+    "password": "1312",
+    "fullname": "testname testsurname",
+    "gender": "m/f/o",
+    "dob": "dd-mm-yyyy",
+    "email": "test@gmail.com",
+    "phone": "1234567890",
+    "timestamp": "2025-06-14T00:30:00Z"
+  }
 ,
-{
-	"MSGTYPE":"SIGNIN_RESPONSE",
-	"STATUS":"Error or Success",
-	"USERID": -1 for error, userid for success
-}
+  {
+    "message_type": "signup_response",
+    "status": "error or success",
+    "user_id": "",
+    "error_code": 0
+  }
 ,
-
-{
-	"MSGTYPE":"CHAT_MESSAGE",
-	"MESSAGE":"Hello, World",
-	"TO":"user2",
-	"FROM":"user1",
-	"TIME": "09.00PM",
-	"DATE": "11-12-2025"
-}]
+  {
+    "message_type": "chat_message",
+    "to": "client2",
+    "from": "client1",
+    "sender_user_id": "21",
+    "timestamp": "2025-06-14T00:30:00Z"
+  }
+]
