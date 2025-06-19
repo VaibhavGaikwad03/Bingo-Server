@@ -17,7 +17,10 @@ add_executable(BingoServer main.cpp
         include/mutex_queue.h
         include/server.h
         include/time.h
-        include/utils.h)
+        include/utils.h
+        include/error_codes.h
+        include/message_types.h
+)
 
 # Link the required libraries
 target_link_libraries(BingoServer

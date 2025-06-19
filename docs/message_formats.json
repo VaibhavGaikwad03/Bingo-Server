@@ -1,5 +1,5 @@
 [ {
-  "message_type": "login_request",
+  "message_type": 101,
   "username": "vaibhav",
   "password": "12345",
   "timestamp": "2025-06-14T00:30:00Z"

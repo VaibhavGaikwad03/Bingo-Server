@@ -15,8 +15,8 @@ public:
     Authenticator();
     ~Authenticator();
 
-    UserID login(const std::string &username, const std::string &password) const;
-    UserID signup(const std::string& username, const std::string& password, const std::string& fullname, const std::string& gender, const std::string& dob, const std::string& email, const std::string& phone, const std::string& timestamp);
+    [[nodiscard]] UserID login(const std::string &username, const std::string &password) const;
+    UserID signup(const std::string& username, const std::string& password, const std::string& fullname, const std::string& gender, const std::string& dob, const std::string& email, const std::string& phone, const std::string& timestamp) const;
 };
 
 #endif //AUTHENTICATOR_H
