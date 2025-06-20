@@ -21,9 +21,4 @@ struct DataPacket
     uWS::OpCode opCode;
 };
 
-struct Session
-{
-    uWS::WebSocket<false, uWS::SERVER, std::string> *ws;
-};
-
 #endif //MESSAGE_STRUCTURES_H

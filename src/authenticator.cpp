@@ -51,7 +51,7 @@ UserID Authenticator::signup(const std::string &username, const std::string &pas
                              const std::string &phone, const std::string &timestamp) const
 // if successful returns user id else returns error code
 {
-    // Check if username exists
+    // check if username exists
     auto result_username = _user_credentials_table->select("user_id")
             .where("username = :username")
             .bind("username", username)
@@ -63,7 +63,7 @@ UserID Authenticator::signup(const std::string &username, const std::string &pas
         return utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS); // user already exists
     }
 
-    // Check if email exists
+    // check if email exists
     auto result_email = _user_credentials_table->select("user_id")
             .where("email = :email")
             .bind("email", email)
@@ -75,7 +75,7 @@ UserID Authenticator::signup(const std::string &username, const std::string &pas
         return utils::to_underlying(SignupErrorCodes::EMAIL_ALREADY_EXISTS);
     }
 
-    // Check if phone exists
+    // check if phone exists
     auto result_phone = _user_credentials_table->select("user_id")
             .where("phone = :phone")
             .bind("phone", phone)

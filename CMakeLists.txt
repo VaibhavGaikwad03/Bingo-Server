@@ -20,6 +20,9 @@ add_executable(BingoServer main.cpp
         include/utils.h
         include/error_codes.h
         include/message_types.h
+        include/session_manager.h
+        src/session_manager.cpp
+        include/session.h
 )
 
 # Link the required libraries

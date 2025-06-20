@@ -9,6 +9,8 @@
 #include "../include/nlohmann/json.hpp"
 #include "../include/message_processor.h"
 
+#include "../include/session_manager.h"
+
 
 MessageProcessor::MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv) : _cv(cv),
                                                                                                  _mtx_queue(queue)
@@ -72,6 +74,8 @@ void MessageProcessor::process()
                     login_response["user_id"] = result;
                     login_response["error_code"] = LoginErrorCodes::NONE;
 
+                    SessionManager::instance()->create_session(result, parsed_message["username"], packet.ws); // session created
+                    SessionManager::instance()->display_sessions(); // debug purpose
                     packet.ws->send(login_response.dump(), uWS::TEXT);
                 }
             }
