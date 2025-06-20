@@ -6,8 +6,8 @@
 #define SERVER_H
 
 #include <unordered_map>
-#include <uWebSockets/App.h>
 #include "../include/mutex_queue.h"
+#include "../include/uWebSockets/App.h"
 #include "../include/message_processor.h"
 #include "../include/message_structures.h"
 

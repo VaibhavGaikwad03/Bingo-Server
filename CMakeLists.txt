@@ -24,7 +24,7 @@ add_executable(BingoServer main.cpp
 
 # Link the required libraries
 target_link_libraries(BingoServer
-        /usr/local/lib/uSockets.a   # static uSockets library
+        ${CMAKE_SOURCE_DIR}/lib/uSockets.a   # static uSockets library
         z                           # zlib
         ssl                         # OpenSSL
         crypto                      # OpenSSL

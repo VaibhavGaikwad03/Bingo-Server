@@ -5,7 +5,7 @@
 #ifndef MESSAGE_STRUCTURES_H
 #define MESSAGE_STRUCTURES_H
 
-#include <uWebSockets/App.h>
+#include "../include/uWebSockets/App.h"
 
 enum class UserCredentialsTableIndex : uint8_t
 {
