@@ -1,11 +1,8 @@
-#include  "../include/log.h"
-#include "../include/authenticator.h"
-
-#include <uWebSockets/Utilities.h>
-
-#include "../include/error_codes.h"
-#include "../include/message_structures.h"
+#include "../include/log.h"
 #include "../include/utils.h"
+#include "../include/error_codes.h"
+#include "../include/authenticator.h"
+#include "../include/message_structures.h"
 
 Authenticator::Authenticator()
 {
@@ -93,7 +90,7 @@ UserID Authenticator::signup(const std::string &username, const std::string &pas
     auto insert_result = _user_credentials_table->insert("username", "password", "fullname", "gender", "dob", "email",
                                                          "phone"
                                                          /*, "signup_timestamp" client kadun ghyaycha ki mysql madhe auto generate karaycha??*/)
-            .values(username, password, fullname, "Male" /*change it later*/, dob, email, phone/*, timestamp*/)
+            .values(username, password, fullname, gender, dob, email, phone/*, timestamp*/)
             .execute();
 
     return static_cast<UserID>(insert_result.getAutoIncrementValue());

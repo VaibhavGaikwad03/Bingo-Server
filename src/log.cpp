@@ -4,7 +4,6 @@
 
 #include "../include/log.h"
 #include "../include/time.h"
-#include "../include/utils.h"
 
 void log(Log log_type, const std::string& function_name, const std::string& message)
 {

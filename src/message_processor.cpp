@@ -85,9 +85,9 @@ void MessageProcessor::process()
                 std::cout << parsed_message["dob"] << std::endl;
                 std::cout << parsed_message["email"] << std::endl;
                 std::cout << parsed_message["phone"] << std::endl;
-                std::cout << parsed_message["signup_timestamp"] << std::endl;
+                std::cout << parsed_message["timestamp"] << std::endl;
 
-                UserID result =  _authenticator.signup(parsed_message["username"], parsed_message["password"], parsed_message["fullname"], parsed_message["gender"], parsed_message["dob"], parsed_message["email"], parsed_message["phone"], parsed_message["signup_timestamp"]);
+                UserID result =  _authenticator.signup(parsed_message["username"], parsed_message["password"], parsed_message["fullname"], parsed_message["gender"], parsed_message["dob"], parsed_message["email"], parsed_message["phone"], parsed_message["timestamp"]);
                 if (result == utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS))
                 {
                     log(Log::ERROR, "", "Username already exists: " + std::string(parsed_message["username"]));
