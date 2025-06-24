@@ -1,0 +1,1 @@
+1. use factory design pattern for creating different types of messages to send responses

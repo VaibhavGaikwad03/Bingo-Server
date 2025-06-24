@@ -1,6 +1,12 @@
 #ifndef ERROR_CODES_H
 #define ERROR_CODES_H
 
+enum class ErrorCodes // generic error codes
+{
+    INVALID_USER_ID= -1
+};
+
+// specific error codes
 enum class LoginErrorCodes
 {
     NONE = 0,

@@ -1,7 +1,5 @@
 #include "../include/session_manager.h"
 
-#include <ranges>
-
 SessionManager *SessionManager::_instance = nullptr;
 
 SessionManager::SessionManager()

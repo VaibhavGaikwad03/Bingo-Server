@@ -23,6 +23,8 @@ add_executable(BingoServer main.cpp
         include/session_manager.h
         src/session_manager.cpp
         include/session.h
+        include/debug.h
+        src/debug.cpp
 )
 
 # Link the required libraries

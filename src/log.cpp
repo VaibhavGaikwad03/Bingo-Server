@@ -5,7 +5,7 @@
 #include "../include/log.h"
 #include "../include/time.h"
 
-void log(Log log_type, const std::string& function_name, const std::string& message)
+void log(Log log_type, const std::string &function_name, const std::string &message)
 {
     std::string log_type_str, current_time;
     std::filesystem::path fs_log_file_path = std::string("../logs/") + get_date() + std::string(".log");
@@ -50,9 +50,11 @@ void log(Log log_type, const std::string& function_name, const std::string& mess
     current_time = get_time();
 
     if (!function_name.empty())
-        log_file << "[" << current_time << "]" << "[" << log_type_str << "][" << function_name << "] " << message << std::endl;
+        log_file << "[" << current_time << "]" << "[" << log_type_str << "][" << function_name << "] " << message <<
+                std::endl;
     else
-        log_file << "[" << current_time << "]" << "[" << log_type_str << "]" << function_name << " " << message << std::endl;
+        log_file << "[" << current_time << "]" << "[" << log_type_str << "]" << function_name << " " << message <<
+                std::endl;
 
     log_file.close();
 }

@@ -1,22 +1,22 @@
 [ {
-  "message_type": 101,
+  "message_type":Login_Request
   "username": "vaibhav",
   "password": "12345",
   "timestamp": "2025-06-14T00:30:00Z"
 }
 ,
   {
-    "message_type": "login_response",
+    "message_type": Login_Response
     "status": "error or success",
     "user_id": "",
     "error_code": 0
   }
 ,
   {
-    "message_type": "signup_request",
+    "Message_type":Signup_Request
     "username": "testuser",
     "password": "1312",
-    "fullname": "testname testsurname",
+    "fullname": "testname",
     "gender": "m/f/o",
     "dob": "dd-mm-yyyy",
     "email": "test@gmail.com",
@@ -25,11 +25,12 @@
   }
 ,
   {
-    "message_type": "signup_response",
+    "message_type": Signup_Response
     "status": "error or success",
     "user_id": "",
     "error_code": 0
   }
+
 ,
   {
     "message_type": "chat_message",
@@ -37,5 +38,28 @@
     "from": "client1",
     "sender_user_id": "21",
     "timestamp": "2025-06-14T00:30:00Z"
+  }
+  ,
+
+  {
+    "message_type": SEARCH_USER_REQUEST,
+    "username": "vaibz"
+  }
+  ,
+  {
+    "message_type": SEARCH_USER_RESPONSE,
+    "count": 2,
+    "users" : [
+      {
+        "user_id"     : "21",
+        "username"    : "vaibhav.g",
+        "display_name": "Vaibhav Gaikwad"
+      },
+      {
+        "user_id"     : "3",
+        "username"    : "test",
+        "display_name": "test user"
+      }
+    ]
   }
 ]

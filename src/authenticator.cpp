@@ -11,7 +11,8 @@ Authenticator::Authenticator()
         _session = std::make_unique<mysqlx::Session>("localhost", 33060, "vaibz", "p@ssw0rd", "bingo_server_db");
         _database = std::make_unique<mysqlx::Schema>(_session->getSchema("bingo_server_db"));
         _user_credentials_table = std::make_unique<mysqlx::Table>(_database->getTable("user_credentials"));
-    } catch (const std::exception &e)
+    }
+    catch (const std::exception &e)
     {
         log(Log::ERROR, "", e.what());
     }
@@ -31,18 +32,15 @@ UserID Authenticator::login(const std::string &username, const std::string &pass
     mysqlx::Row row = result.fetchOne();
     if (!row)
     {
-        log(Log::ERROR, "", "Invalid username: " + username);
         return utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND); // invalid username
     }
 
     std::string db_password = row[utils::to_underlying(UserCredentialsTableIndex::PASSWORD)].get<std::string>();
     if (db_password != password)
     {
-        log(Log::ERROR, "", "Invalid password for user: " + username);
         return utils::to_underlying(LoginErrorCodes::PASSWORD_IS_INCORRECT); // invalid password
     }
 
-    log(Log::INFO, "", "User '" + username + "' logged in successfully");
     return row[utils::to_underlying(UserCredentialsTableIndex::USER_ID)].get<UserID>();
 }
 
@@ -59,7 +57,6 @@ UserID Authenticator::signup(const std::string &username, const std::string &pas
 
     if (result_username.count() > 0)
     {
-        log(Log::ERROR, "", "Username already exists: " + username);
         return utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS); // user already exists
     }
 
@@ -71,7 +68,6 @@ UserID Authenticator::signup(const std::string &username, const std::string &pas
 
     if (result_email.count() > 0)
     {
-        log(Log::ERROR, "", "Email already exists: " + email);
         return utils::to_underlying(SignupErrorCodes::EMAIL_ALREADY_EXISTS);
     }
 
@@ -83,7 +79,6 @@ UserID Authenticator::signup(const std::string &username, const std::string &pas
 
     if (result_phone.count() > 0)
     {
-        log(Log::ERROR, "", "Phone already exists: " + phone);
         return utils::to_underlying(SignupErrorCodes::PHONE_ALREADY_EXISTS);
     }
 

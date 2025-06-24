@@ -27,12 +27,12 @@ Server::Server()
 
     _app.ws<std::string>("/*", std::move(behavior));
 
-    log(Log::INFO, "","Server started...");
+    log(Log::INFO, "", "Server started...");
 }
 
 Server::~Server()
 {
-    log(Log::INFO, "","Server stopped...");
+    log(Log::INFO, "", "Server stopped...");
 }
 
 void Server::run()
@@ -42,7 +42,8 @@ void Server::run()
         _message_processor->process();
     });
 
-    _app.listen(2121, [](const auto *token) {
+    _app.listen(2121, [](const auto *token)
+    {
         if (token)
         {
             std::cout << "Server listening on port: 2121" << std::endl;
@@ -61,17 +62,18 @@ void Server::connection_opened(uWS::WebSocket<false, uWS::SERVER, std::string> *
     log(Log::INFO, "", "Client connected with IP: " + std::string(ws->getRemoteAddressAsText()));
 }
 
-void Server::connection_closed(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, const int code, const std::string_view reason)
+void Server::connection_closed(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, const int code,
+                               const std::string_view reason)
 {
     SessionManager::instance()->delete_session(ws); // if user disconnects, it destroys the session
     SessionManager::instance()->display_sessions(); // debug purpose
     log(Log::INFO, "", "Client disconnected. Code: " + std::to_string(code) + ", Reason: " + std::string(reason));
 }
 
-void Server::message_received(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, std::string_view data, uWS::OpCode opCode)
+void Server::message_received(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, std::string_view data,
+                              uWS::OpCode opCode)
 {
-
-    std::cout << data << std::endl;
+    std::cout << data << std::endl; // debug
 
     const DataPacket data_packet = {ws, data, opCode};
 
