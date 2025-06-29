@@ -1,2 +1,3 @@
 [2025-06-24 00:10:23][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
 [2025-06-24 00:10:23][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-06-24 23:52:31][INFO] Server started...

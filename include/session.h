@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include "authenticator.h"
-#include "../include/uWebSockets/App.h"
+#include "message_handler.h"
+#include "uWebSockets/App.h"
 
 struct Session
 {

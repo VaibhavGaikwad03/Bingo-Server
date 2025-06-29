@@ -7,6 +7,19 @@ enum class Status
     ERROR = 1,
 };
 
+enum class Flag
+{
+    NO = 0,
+    YES = 1
+};
+
+enum class FriendshipStatus
+{
+    FRIEND = 0,
+    PENDING = 1,
+    NOT_FRIEND = 2,
+};
+
 enum class MessageTypes
 {
     LOGIN_REQUEST = 101,
@@ -17,6 +30,8 @@ enum class MessageTypes
     LOGOUT_RESPONSE = 106,
     SEARCH_USER_REQUEST = 107,
     SEARCH_USER_RESPONSE = 108,
+    FRIEND_REQ_REQUEST = 109,
+    FRIEND_REQ_RESPONSE = 110,
 };
 
 #endif //MESSAGE_TYPES_H

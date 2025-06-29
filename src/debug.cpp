@@ -26,4 +26,5 @@ void print_search_user_request(nlohmann::json message)
 {
     std::cout << message["message_type"] << std::endl;
     std::cout << message["username"] << std::endl;
+    std::cout << message["requested_by"] << std::endl;
 }

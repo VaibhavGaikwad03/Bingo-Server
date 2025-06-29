@@ -3,7 +3,7 @@
 
 enum class ErrorCodes // generic error codes
 {
-    INVALID_USER_ID= -1
+    INVALID_USER_ID = -1
 };
 
 // specific error codes

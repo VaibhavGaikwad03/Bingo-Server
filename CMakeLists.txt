@@ -25,6 +25,10 @@ add_executable(BingoServer main.cpp
         include/session.h
         include/debug.h
         src/debug.cpp
+        include/message_handler.h
+        src/message_handler.cpp
+        include/message_parser.h
+        src/message_parser.cpp
 )
 
 # Link the required libraries
