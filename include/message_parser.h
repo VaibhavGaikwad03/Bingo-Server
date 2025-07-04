@@ -21,6 +21,7 @@ public:
     static LoginMessageRequest login_message_request(const nlohmann::json &message);
     static SignUpMessageRequest signup_message_request(const nlohmann::json &message);
     static SearchUserRequest search_user_request(const nlohmann::json &message);
+    static FriendReqRequest friend_req_request(const nlohmann::json &message);
 };
 
 #endif //MESSAGE_PARSER_H

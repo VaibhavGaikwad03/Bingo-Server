@@ -13,6 +13,12 @@ enum class Flag
     YES = 1
 };
 
+enum class FriendRequestStatus
+{
+    REJECTED = 0,
+    ACCEPTED = 1,
+};
+
 enum class FriendshipStatus
 {
     FRIEND = 0,

@@ -1,0 +1,131 @@
+[2025-07-03 21:18:48][INFO] Server started...
+[2025-07-03 21:18:58][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-03 21:18:58][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-03 21:19:06][ERROR] Username does not exists: sdfsf
+[2025-07-03 21:25:20][INFO] User 'vaibz' logged in successfully
+[2025-07-03 21:28:44][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 21:28:44][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 21:28:50][INFO] User 'rutuja' logged in successfully
+[2025-07-03 21:30:11][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 21:30:11][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 21:30:11][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 21:30:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 21:30:16][INFO] User 'rutuja' logged in successfully
+[2025-07-03 21:34:31][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 21:34:31][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 21:34:32][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 21:34:33][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 21:34:38][INFO] User 'rutuja' logged in successfully
+[2025-07-03 22:18:12][INFO] Client disconnected. Code: 1006, Reason: WebSocket timed out from inactivity
+[2025-07-03 22:18:20][INFO] Client disconnected. Code: 1006, Reason: WebSocket timed out from inactivity
+[2025-07-03 22:44:17][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 22:44:18][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 22:44:32][INFO] User 'rutuja' logged in successfully
+[2025-07-03 22:46:16][INFO] Client disconnected. Code: 1006, Reason: WebSocket timed out from inactivity
+[2025-07-03 22:46:31][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 22:46:31][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 22:46:32][INFO] Client disconnected. Code: 1006, Reason: WebSocket timed out from inactivity
+[2025-07-03 22:46:36][INFO] User 'rutuja' logged in successfully
+[2025-07-03 22:54:02][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 22:54:14][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 22:54:14][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 22:55:02][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 22:55:02][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 22:55:02][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:13:46][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:13:46][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:13:47][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:13:47][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:13:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:13:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:14:11][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:14:11][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:14:11][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:14:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:14:20][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:16:18][INFO] Server started...
+[2025-07-03 23:16:27][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:16:27][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:16:33][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:17:46][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:17:46][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:17:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:17:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:17:53][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:18:03][ERROR] [json.exception.type_error.302] type must be number, but is null
+[2025-07-03 23:20:32][INFO] Server started...
+[2025-07-03 23:20:52][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:20:52][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:20:57][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:21:08][ERROR] [json.exception.type_error.302] type must be number, but is null
+[2025-07-03 23:22:46][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:22:46][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:22:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:22:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:22:53][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:24:25][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:24:25][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:24:26][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:24:26][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:24:33][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:30:10][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:30:10][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:30:11][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:30:11][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:30:17][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:39:19][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 23:39:19][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:40:17][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:40:17][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:40:18][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:40:19][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:40:23][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:42:17][INFO] Server started...
+[2025-07-03 23:42:28][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:42:28][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:42:35][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:43:02][INFO] Server started...
+[2025-07-03 23:43:11][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:43:11][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:43:21][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:44:05][INFO] Server started...
+[2025-07-03 23:44:08][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:44:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:44:14][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:44:17][ERROR] [json.exception.type_error.302] type must be string, but is object
+[2025-07-03 23:44:30][ERROR] [json.exception.type_error.302] type must be string, but is object
+[2025-07-03 23:44:31][ERROR] [json.exception.type_error.302] type must be string, but is object
+[2025-07-03 23:44:53][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 23:44:53][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:44:58][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 23:44:58][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:45:09][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 23:45:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:45:31][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:45:31][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:45:32][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:45:32][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:45:37][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:47:31][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:47:31][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:47:32][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:47:32][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:47:38][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:48:53][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 23:48:55][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:48:55][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:48:57][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 23:48:57][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:50:08][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:50:08][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:50:08][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:50:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:50:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:50:28][INFO] User 'rutuja' logged in successfully
+[2025-07-03 23:53:03][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-03 23:53:03][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:53:06][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:53:06][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-03 23:53:07][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:53:07][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-03 23:53:14][INFO] User 'rutuja' logged in successfully

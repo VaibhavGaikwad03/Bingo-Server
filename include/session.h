@@ -11,6 +11,7 @@ struct Session
     UserID user_id;
     std::string username;
     uWS::WebSocket<false, uWS::SERVER, std::string> *ws;
+    int reference_count;
 };
 
 #endif //SESSION_H

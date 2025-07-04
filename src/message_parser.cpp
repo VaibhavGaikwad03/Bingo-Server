@@ -1,3 +1,4 @@
+#include "../include/message_keys.h"
 #include "../include/message_parser.h"
 
 // MessageParser *MessageParser::_instance = nullptr;
@@ -8,33 +9,14 @@ MessageParser::MessageParser()
 MessageParser::~MessageParser()
 = default;
 
-// MessageParser *MessageParser::instance()
-// {
-//     if (_instance == nullptr)
-//     {
-//         _instance = new MessageParser();
-//         return _instance;
-//     }
-//     return _instance;
-// }
-
-// void MessageParser::destroy_instance()
-// {
-//     if (_instance != nullptr)
-//     {
-//         delete _instance;
-//         _instance = nullptr;
-//     }
-// }
-
 LoginMessageRequest MessageParser::login_message_request(const nlohmann::json &message)
 {
     LoginMessageRequest parsed_message;
 
-    parsed_message.message_type = message["message_type"];
-    parsed_message.username = message["username"];
-    parsed_message.password = message["password"];
-    parsed_message.timestamp = message["timestamp"];
+    parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+    parsed_message.username = message[MessageKeys::USERNAME];
+    parsed_message.password = message[MessageKeys::PASSWORD];
+    parsed_message.timestamp = message[MessageKeys::TIMESTAMP];
 
     return parsed_message;
 }
@@ -43,15 +25,15 @@ SignUpMessageRequest MessageParser::signup_message_request(const nlohmann::json 
 {
     SignUpMessageRequest parsed_message;
 
-    parsed_message.message_type = message["message_type"];
-    parsed_message.username = message["username"];
-    parsed_message.password = message["password"];
-    parsed_message.fullname = message["fullname"];
-    parsed_message.gender = message["gender"];
-    parsed_message.dob = message["dob"];
-    parsed_message.email = message["email"];
-    parsed_message.phone = message["phone"];
-    parsed_message.timestamp = message["timestamp"];
+    parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+    parsed_message.username = message[MessageKeys::USERNAME];
+    parsed_message.password = message[MessageKeys::PASSWORD];
+    parsed_message.fullname = message[MessageKeys::FULLNAME];
+    parsed_message.gender = message[MessageKeys::GENDER];
+    parsed_message.dob = message[MessageKeys::DOB];
+    parsed_message.email = message[MessageKeys::EMAIL];
+    parsed_message.phone = message[MessageKeys::PHONE];
+    parsed_message.timestamp = message[MessageKeys::TIMESTAMP];
 
     return parsed_message;
 }
@@ -60,9 +42,23 @@ SearchUserRequest MessageParser::search_user_request(const nlohmann::json &messa
 {
     SearchUserRequest parsed_message;
 
-    parsed_message.message_type = message["message_type"];
-    parsed_message.username = message["username"];
-    parsed_message.requested_by = message["requested_by"];
+    parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+    parsed_message.username = message[MessageKeys::USERNAME];
+    parsed_message.requested_by = message[MessageKeys::REQUESTED_BY];
+
+    return parsed_message;
+}
+
+FriendReqRequest MessageParser::friend_req_request(const nlohmann::json &message)
+{
+    FriendReqRequest parsed_message;
+
+    parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+    parsed_message.sender_id = message[MessageKeys::SENDER_ID];
+    parsed_message.sender = message[MessageKeys::SENDER];
+    parsed_message.receiver_id = message[MessageKeys::RECEIVER_ID];
+    parsed_message.receiver = message[MessageKeys::RECEIVER];
+    parsed_message.timestamp = message[MessageKeys::TIMESTAMP];
 
     return parsed_message;
 }

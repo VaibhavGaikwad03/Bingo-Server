@@ -146,3 +146,21 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
 
     return users; // 5. All good → hand results to caller
 }
+
+void MessageHandler::friend_request(const nlohmann::json &message) const
+{
+    const FriendReqRequest parsed_request = MessageParser::friend_req_request(message);
+
+    try
+    {
+
+    }
+    catch (const mysqlx::Error &err)
+    {
+
+    }
+    catch (const std::exception &ex)
+    {
+
+    }
+}

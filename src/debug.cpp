@@ -1,30 +1,46 @@
 #include <iostream>
 #include "../include/debug.h"
+#include "../include/message_keys.h"
 
-void print_login_request(nlohmann::json message)
+static void print_key_value(std::string_view key, const nlohmann::json& message)
 {
-    std::cout << message["message_type"] << std::endl;
-    std::cout << message["username"] << std::endl;
-    std::cout << message["password"] << std::endl;
-    std::cout << message["timestamp"] << std::endl;
+    std::cout << key << ": " << message[key] << std::endl;
 }
 
-void print_signup_request(nlohmann::json message)
+void print_login_request(const nlohmann::json& message)
 {
-    std::cout << message["message_type"] << std::endl;
-    std::cout << message["username"] << std::endl;
-    std::cout << message["password"] << std::endl;
-    std::cout << message["fullname"] << std::endl;
-    std::cout << message["gender"] << std::endl;
-    std::cout << message["dob"] << std::endl;
-    std::cout << message["email"] << std::endl;
-    std::cout << message["phone"] << std::endl;
-    std::cout << message["timestamp"] << std::endl;
+    print_key_value(MessageKeys::MESSAGE_TYPE, message);
+    print_key_value(MessageKeys::USERNAME, message);
+    print_key_value(MessageKeys::PASSWORD, message);
+    print_key_value(MessageKeys::TIMESTAMP, message);
 }
 
-void print_search_user_request(nlohmann::json message)
+void print_signup_request(const nlohmann::json& message)
 {
-    std::cout << message["message_type"] << std::endl;
-    std::cout << message["username"] << std::endl;
-    std::cout << message["requested_by"] << std::endl;
+    print_key_value(MessageKeys::MESSAGE_TYPE, message);
+    print_key_value(MessageKeys::USERNAME, message);
+    print_key_value(MessageKeys::PASSWORD, message);
+    print_key_value(MessageKeys::FULLNAME, message);
+    print_key_value(MessageKeys::GENDER, message);
+    print_key_value(MessageKeys::DOB, message);
+    print_key_value(MessageKeys::EMAIL, message);
+    print_key_value(MessageKeys::PHONE, message);
+    print_key_value(MessageKeys::TIMESTAMP, message);
+}
+
+void print_search_user_request(const nlohmann::json& message)
+{
+    print_key_value(MessageKeys::MESSAGE_TYPE, message);
+    print_key_value(MessageKeys::USERNAME, message);
+    print_key_value(MessageKeys::REQUESTED_BY, message);
+}
+
+void print_friend_req_request(const nlohmann::json& message)
+{
+    print_key_value(MessageKeys::MESSAGE_TYPE, message);
+    print_key_value(MessageKeys::SENDER_ID, message);
+    print_key_value(MessageKeys::SENDER, message);
+    print_key_value(MessageKeys::RECEIVER_ID, message);
+    print_key_value(MessageKeys::RECEIVER, message);
+    print_key_value(MessageKeys::TIMESTAMP, message);
 }

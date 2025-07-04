@@ -34,6 +34,7 @@ public:
     [[nodiscard]] UserID login(const nlohmann::json &message) const;
     [[nodiscard]] UserID signup(const nlohmann::json &message) const;
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
+    void friend_request(const nlohmann::json &message) const;
 };
 
 

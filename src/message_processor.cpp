@@ -10,6 +10,7 @@
 #include "../include/message_processor.h"
 
 #include "../include/debug.h"
+#include "../include/message_keys.h"
 #include "../include/session_manager.h"
 
 
@@ -37,7 +38,7 @@ void MessageProcessor::process()
         {
             nlohmann::json packet_data = nlohmann::json::parse(packet.data);
 
-            switch (MessageTypes message_type = packet_data["message_type"])
+            switch (MessageTypes message_type = packet_data[MessageKeys::MESSAGE_TYPE])
             {
                 case MessageTypes::LOGIN_REQUEST:
                 {
@@ -47,13 +48,13 @@ void MessageProcessor::process()
                     UserID result = _message_handler.login(packet_data);
                     if (result == utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND))
                     {
-                        log(Log::ERROR, "", "Username does not exists: " + std::string(packet_data["username"]));
+                        log(Log::ERROR, "", "Username does not exists: " + std::string(packet_data[MessageKeys::USERNAME]));
 
                         nlohmann::json login_response = {
-                            {"message_type", MessageTypes::LOGIN_RESPONSE},
-                            {"status", Status::ERROR},
-                            {"user_id", ErrorCodes::INVALID_USER_ID},
-                            {"error_code", LoginErrorCodes::USERNAME_NOT_FOUND}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+                            {MessageKeys::STATUS, Status::ERROR},
+                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+                            {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
                         };
 
                         packet.ws->send(login_response.dump(), uWS::TEXT);
@@ -61,13 +62,13 @@ void MessageProcessor::process()
                     else if (result == utils::to_underlying(LoginErrorCodes::PASSWORD_IS_INCORRECT))
                     {
                         log(Log::ERROR, "",
-                            "Password is incorrect for user: " + std::string(packet_data["username"]));
+                            "Password is incorrect for user: " + std::string(packet_data[MessageKeys::USERNAME]));
 
                         nlohmann::json login_response = {
-                            {"message_type", MessageTypes::LOGIN_RESPONSE},
-                            {"status", Status::ERROR},
-                            {"user_id", ErrorCodes::INVALID_USER_ID},
-                            {"error_code", LoginErrorCodes::PASSWORD_IS_INCORRECT}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+                            {MessageKeys::STATUS, Status::ERROR},
+                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+                            {MessageKeys::ERROR_CODE, LoginErrorCodes::PASSWORD_IS_INCORRECT}
                         };
 
                         packet.ws->send(login_response.dump(), uWS::TEXT);
@@ -75,19 +76,18 @@ void MessageProcessor::process()
                     else
                     {
                         log(Log::INFO, "",
-                            "User '" + std::string(packet_data["username"]) + "' logged in successfully");
+                            "User '" + std::string(packet_data[MessageKeys::USERNAME]) + "' logged in successfully");
 
                         nlohmann::json login_response = {
-                            {"message_type", MessageTypes::LOGIN_RESPONSE},
-                            {"status", Status::SUCCESS},
-                            {"user_id", result},
-                            {"error_code", LoginErrorCodes::NONE}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+                            {MessageKeys::STATUS, Status::SUCCESS},
+                            {MessageKeys::USER_ID, result},
+                            {MessageKeys::ERROR_CODE, LoginErrorCodes::NONE}
                         };
 
                         SessionManager *session_manager = SessionManager::instance();
 
-                        session_manager->create_session(result, packet_data["username"], packet.ws);
-                        // session created
+                        session_manager->create_session(result, packet_data[MessageKeys::USERNAME], packet.ws); // session created
 
                         SessionManager::instance()->display_sessions(); // debug purpose
 
@@ -103,26 +103,26 @@ void MessageProcessor::process()
                     UserID result = _message_handler.signup(packet_data);
                     if (result == utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS))
                     {
-                        log(Log::ERROR, "", "Username already exists: " + std::string(packet_data["username"]));
+                        log(Log::ERROR, "", "Username already exists: " + std::string(packet_data[MessageKeys::USERNAME]));
 
                         nlohmann::json signup_response = {
-                            {"message_type", MessageTypes::SIGN_UP_RESPONSE},
-                            {"status", Status::ERROR},
-                            {"user_id", ErrorCodes::INVALID_USER_ID},
-                            {"error_code", SignupErrorCodes::USERNAME_ALREADY_EXISTS}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+                            {MessageKeys::STATUS, Status::ERROR},
+                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+                            {MessageKeys::ERROR_CODE, SignupErrorCodes::USERNAME_ALREADY_EXISTS}
                         };
 
                         packet.ws->send(signup_response.dump(), uWS::TEXT);
                     }
                     else if (result == utils::to_underlying(SignupErrorCodes::EMAIL_ALREADY_EXISTS))
                     {
-                        log(Log::ERROR, "", "Email already exists: " + std::string(packet_data["email"]));
+                        log(Log::ERROR, "", "Email already exists: " + std::string(packet_data[MessageKeys::EMAIL]));
 
                         nlohmann::json signup_response = {
-                            {"message_type", MessageTypes::SIGN_UP_RESPONSE},
-                            {"status", Status::ERROR},
-                            {"user_id", ErrorCodes::INVALID_USER_ID},
-                            {"error_code", SignupErrorCodes::EMAIL_ALREADY_EXISTS}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+                            {MessageKeys::STATUS, Status::ERROR},
+                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+                            {MessageKeys::ERROR_CODE, SignupErrorCodes::EMAIL_ALREADY_EXISTS}
                         };
 
                         packet.ws->send(signup_response.dump(), uWS::TEXT);
@@ -132,10 +132,10 @@ void MessageProcessor::process()
                         log(Log::ERROR, "", "Phone already exists: " + std::string(packet_data["phone"]));
 
                         nlohmann::json signup_response = {
-                            {"message_type", MessageTypes::SIGN_UP_RESPONSE},
-                            {"status", Status::ERROR},
-                            {"user_id", ErrorCodes::INVALID_USER_ID},
-                            {"error_code", SignupErrorCodes::PHONE_ALREADY_EXISTS}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+                            {MessageKeys::STATUS, Status::ERROR},
+                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+                            {MessageKeys::ERROR_CODE, SignupErrorCodes::PHONE_ALREADY_EXISTS}
                         };
 
                         packet.ws->send(signup_response.dump(), uWS::TEXT);
@@ -143,10 +143,10 @@ void MessageProcessor::process()
                     else
                     {
                         nlohmann::json signup_response = {
-                            {"message_type", MessageTypes::SIGN_UP_RESPONSE},
-                            {"status", Status::SUCCESS},
-                            {"user_id", result},
-                            {"error_code", SignupErrorCodes::NONE}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+                            {MessageKeys::STATUS, Status::SUCCESS},
+                            {MessageKeys::USER_ID, result},
+                            {MessageKeys::ERROR_CODE, SignupErrorCodes::NONE}
                         };
 
                         packet.ws->send(signup_response.dump(), uWS::TEXT);
@@ -162,9 +162,9 @@ void MessageProcessor::process()
                     if (found_users.empty())
                     {
                         nlohmann::json search_user_response = {
-                            {"message_type", MessageTypes::SEARCH_USER_RESPONSE},
-                            {"count", 0},
-                            {"users", nlohmann::json::array()}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},
+                            {MessageKeys::COUNT, 0},
+                            {MessageKeys::USERS, nlohmann::json::array()}
                         };
 
                         packet.ws->send(search_user_response.dump(), uWS::TEXT);
@@ -172,27 +172,31 @@ void MessageProcessor::process()
                     else
                     {
                         nlohmann::json search_user_response = {
-                            {"message_type", MessageTypes::SEARCH_USER_RESPONSE},
-                            {"count", found_users.size()},
-                            {"users", nlohmann::json::array()}
+                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},
+                            {MessageKeys::COUNT, found_users.size()},
+                            {MessageKeys::USERS, nlohmann::json::array()}
                         };
 
                         for (const auto &found_user: found_users)
                         {
-                            search_user_response["users"].push_back({
-                                {"user_id", found_user.user_id},
-                                {"username", found_user.username},
-                                {"display_name", found_user.name},
-                                {"is_friend", FriendshipStatus::NOT_FRIEND}
+                            search_user_response[MessageKeys::USERS].push_back({
+                                {MessageKeys::USER_ID, found_user.user_id},
+                                {MessageKeys::USERNAME, found_user.username},
+                                {MessageKeys::DISPLAY_NAME, found_user.name},
+                                {MessageKeys::FRIENDSHIP_STATUS, FriendshipStatus::NOT_FRIEND}
                             });
                         }
 
-                        std::cout << search_user_response.dump() << std::endl;
+                        // std::cout << search_user_response.dump() << std::endl;
 
                         packet.ws->send(search_user_response.dump(), uWS::TEXT);
                     }
                 }
                 break;
+
+                case MessageTypes::FRIEND_REQ_REQUEST:
+                    print_friend_req_request(packet_data);
+                    break;
 
                 default:
                     log(Log::ERROR, "", "Invalid Message Type");

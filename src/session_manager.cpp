@@ -30,26 +30,40 @@ void SessionManager::destroy_instance()
 void SessionManager::create_session(const UserID &user_id, const std::string &username,
                                     uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
 {
-    Session session;
-    session.user_id = user_id;
-    session.username = username;
-    session.ws = ws;
+    if (!_sessions.contains(user_id)) // if not in map, create new session
+    {
+        Session session;
+        session.user_id = user_id;
+        session.username = username;
+        session.ws = ws;
+        session.reference_count = 1;
 
-    _sessions[user_id] = session;
+        _sessions[user_id] = session;
+    }
+    else // if already in map, just increment the reference count
+    {
+        Session *session = get_session(user_id);
+        session->reference_count++;
+    }
 }
 
 void SessionManager::delete_session(const UserID user_id)
 {
-    _sessions.erase(user_id);
+    Session *session = get_session(user_id);
+    if (session->reference_count >= 1)
+        session->reference_count--;
+    else
+        _sessions.erase(user_id);
 }
 
 void SessionManager::delete_session(const uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
 {
     for (auto it = _sessions.begin(); it != _sessions.end(); ++it)
     {
+        std::cout << "ws1:" << it->second.ws << " ws2: " << ws << std::endl;
         if (it->second.ws == ws)
         {
-            _sessions.erase(it);
+            delete_session(it->second.user_id);
             break;
         }
     }
@@ -57,10 +71,11 @@ void SessionManager::delete_session(const uWS::WebSocket<false, uWS::SERVER, std
 
 void SessionManager::display_sessions() const
 {
+    std::cout << "Count: " << _sessions.size() << std::endl;
     std::cout << "Users are: ";
     for (auto &session: _sessions)
     {
-        std::cout << session.second.username << ':' << session.second.user_id << ", ";
+        std::cout << session.second.username << ':' << session.second.user_id << ": " << session.second.reference_count << ", " << std::endl;
     }
     std::cout << std::endl;
 }

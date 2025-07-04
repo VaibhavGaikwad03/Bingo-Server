@@ -56,4 +56,14 @@ struct SearchUserRequest
     std::string requested_by;
 };
 
+struct FriendReqRequest
+{
+    MessageTypes message_type;
+    std::string sender_id;
+    std::string sender;
+    std::string receiver_id;
+    std::string receiver;
+    std::string timestamp;
+};
+
 #endif //MESSAGE_STRUCTURES_H
