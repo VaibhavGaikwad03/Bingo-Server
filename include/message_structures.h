@@ -59,9 +59,9 @@ struct SearchUserRequest
 struct FriendReqRequest
 {
     MessageTypes message_type;
-    std::string sender_id;
+    int sender_id;
     std::string sender;
-    std::string receiver_id;
+    int receiver_id;
     std::string receiver;
     std::string timestamp;
 };

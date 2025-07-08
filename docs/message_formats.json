@@ -83,7 +83,20 @@
     "sender": "testuser1",
     "receiver_id": 22,
     "receiver": "testuser2",
-    "friend_request_status": ACCEPTED, REJECTED
+    "request_status": ACCEPTED, REJECTED
     "timestamp": "2025-06-14T00:30:00Z"
+  }
+  ,
+  {
+    "message_type": LOGOUT_REQUEST,
+    "user_id": 21,
+    "username": "testuser"
+  }
+  ,
+  {
+    "message_type": LOGOUT_RESPONSE,
+    "user_id": 21,
+    "username": "testuser",
+    "status": SUCCESS, ERROR
   }
 ]

@@ -2,7 +2,6 @@
 #include "../include/utils.h"
 #include "../include/error_codes.h"
 #include "../include/message_handler.h"
-
 #include "../include/message_parser.h"
 #include "../include/message_structures.h"
 
@@ -109,7 +108,7 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
     const SearchUserRequest parsed_request = MessageParser::search_user_request(message);
 
     if (parsed_request.username.empty())
-        return users;
+        return {};
 
     try
     {
@@ -135,32 +134,66 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
     catch (const mysqlx::Error &err)
     {
         log(Log::ERROR, "", std::string("Database error in search_user: ") + err.what());
-        throw; // or return {};  ↩ choose your policy
+        //throw; // or return {};  ↩ choose your policy
+        return {};
     }
     catch (const std::exception &ex)
     {
         // Safety net for JSON / std errors
         log(Log::ERROR, "", std::string("Unexpected error in search_user: ") + ex.what());
-        throw;
+        //throw;
+        return {};
     }
 
     return users; // 5. All good → hand results to caller
 }
 
-void MessageHandler::friend_request(const nlohmann::json &message) const
+/*
+ *
+* const auto result = tbl
+    .select("request_id")
+    .where("sender_id = :sid AND receiver_id = :rid "
+           "AND request_status = 'pending'")
+    .bind("sid", sender_id)
+    .bind("rid", receiver_id)
+    .lockExclusive()
+    .execute();
+
+ */
+
+bool MessageHandler::has_pending_friend_request(const int sender_id, const int receiver_id) const
+{
+    auto result = _friend_request_table->select("request_id")
+    .where("sender_id = :sender_id AND receiver_id = :receiver_id AND request_status = 'pending'")
+    .bind("sender_id", sender_id)
+    .bind("receiver_id", receiver_id)
+    .execute();
+
+    if (result.count() > 0)
+        return true;
+    return false;
+}
+
+void MessageHandler::friend_req_request(const nlohmann::json &message) const
 {
     const FriendReqRequest parsed_request = MessageParser::friend_req_request(message);
 
     try
     {
+        if (has_pending_friend_request(parsed_request.sender_id, parsed_request.receiver_id))
+            return; // already have pending friend request. entry nko karu jaa bhau parat.
 
+        _friend_request_table->insert("sender_id", "sender", "receiver_id", "receiver", "request_status")
+                .values(parsed_request.sender_id, parsed_request.sender, parsed_request.receiver_id,
+                        parsed_request.receiver, "pending")
+                .execute();
     }
     catch (const mysqlx::Error &err)
     {
-
+        log(Log::ERROR, "", std::string("Database error in MessageHandler::friend_req_request: ") + err.what());
     }
     catch (const std::exception &ex)
     {
-
+        log(Log::ERROR, "", std::string("Unexpected error in MessageHandler::friend_req_request: ") + ex.what());
     }
 }

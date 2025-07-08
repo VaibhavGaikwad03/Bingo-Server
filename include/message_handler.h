@@ -26,6 +26,8 @@ class MessageHandler
     std::unique_ptr<mysqlx::Table> _message_history_table;
     std::unique_ptr<mysqlx::Table> _user_credentials_table;
 
+    [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
+
 public:
     MessageHandler();
 
@@ -34,7 +36,7 @@ public:
     [[nodiscard]] UserID login(const nlohmann::json &message) const;
     [[nodiscard]] UserID signup(const nlohmann::json &message) const;
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
-    void friend_request(const nlohmann::json &message) const;
+    void friend_req_request(const nlohmann::json &message) const;
 };
 
 

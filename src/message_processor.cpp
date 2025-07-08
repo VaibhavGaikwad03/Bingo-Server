@@ -48,7 +48,8 @@ void MessageProcessor::process()
                     UserID result = _message_handler.login(packet_data);
                     if (result == utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND))
                     {
-                        log(Log::ERROR, "", "Username does not exists: " + std::string(packet_data[MessageKeys::USERNAME]));
+                        log(Log::ERROR, "",
+                            "Username does not exists: " + std::string(packet_data[MessageKeys::USERNAME]));
 
                         nlohmann::json login_response = {
                             {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
@@ -87,7 +88,8 @@ void MessageProcessor::process()
 
                         SessionManager *session_manager = SessionManager::instance();
 
-                        session_manager->create_session(result, packet_data[MessageKeys::USERNAME], packet.ws); // session created
+                        session_manager->create_session(result, packet_data[MessageKeys::USERNAME], packet.ws);
+                        // session created
 
                         SessionManager::instance()->display_sessions(); // debug purpose
 
@@ -103,7 +105,8 @@ void MessageProcessor::process()
                     UserID result = _message_handler.signup(packet_data);
                     if (result == utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS))
                     {
-                        log(Log::ERROR, "", "Username already exists: " + std::string(packet_data[MessageKeys::USERNAME]));
+                        log(Log::ERROR, "",
+                            "Username already exists: " + std::string(packet_data[MessageKeys::USERNAME]));
 
                         nlohmann::json signup_response = {
                             {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
@@ -195,8 +198,25 @@ void MessageProcessor::process()
                 break;
 
                 case MessageTypes::FRIEND_REQ_REQUEST:
+                {
                     print_friend_req_request(packet_data);
-                    break;
+
+                    _message_handler.friend_req_request(packet_data);
+
+                    try
+                    {
+                        Session *session = SessionManager::instance()->get_session(std::atoi(packet_data[MessageKeys::RECEIVER_ID].dump().c_str()));
+                        if (session) // session found
+                        {
+                            session->ws->send(packet_data.dump(), uWS::TEXT);
+                        }
+                    }
+                    catch (std::exception &e)
+                    {
+                        log(Log::ERROR, "", e.what());
+                    }
+                }
+                break;
 
                 default:
                     log(Log::ERROR, "", "Invalid Message Type");

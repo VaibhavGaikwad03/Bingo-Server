@@ -10,7 +10,7 @@ struct Session
 {
     UserID user_id;
     std::string username;
-    uWS::WebSocket<false, uWS::SERVER, std::string> *ws;
+    uWS::WebSocket<false, uWS::SERVER, std::string> *ws; // if we want to give feature of multiple device login.. then here we need to maintain list of websockets
     int reference_count;
 };
 
