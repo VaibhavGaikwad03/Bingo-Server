@@ -99,4 +99,21 @@
     "username": "testuser",
     "status": SUCCESS, ERROR
   }
+  ,
+  {
+    "message_type": PROFILE_INFORMATION,
+
+  }
+  ,
+  {
+    "message_type": FRIENDS_LIST
+  }
+  ,
+  {
+    "message_type": PENDING_FRIEND_REQUESTS_LIST
+  }
+  ,
+  {
+    "message_type": MESSAGE_HISTORY
+  }
 ]

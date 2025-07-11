@@ -66,4 +66,48 @@ struct FriendReqRequest
     std::string timestamp;
 };
 
+/// send to the user when logged in
+struct UserProfile
+{
+    std::string name;
+    std::string username;
+    std::string dob;
+    std::string gender;
+    std::string email;
+    std::string phone;
+};
+
+struct Friend
+{
+    // int user_id;
+    // std::string user;
+    // std::string name_of_user;
+    int friend_id;
+    std::string friend_username;
+    std::string friend_name;
+};
+
+struct PendingFriendRequest
+{
+    int sender_id;
+    std::string sender;
+    std::string sender_name;
+    int receiver_id;
+    std::string receiver;
+    std::string request_status;
+    std::string timestamp;
+};
+
+struct ChatMessage
+{
+    int sender_id;
+    std::string sender;
+    int receiver_id;
+    std::string receiver;
+    std::string message;
+    std::string message_status;
+    std::string timestamp;
+};
+///
+
 #endif //MESSAGE_STRUCTURES_H

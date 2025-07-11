@@ -208,6 +208,7 @@ void MessageProcessor::process()
                         Session *session = SessionManager::instance()->get_session(std::atoi(packet_data[MessageKeys::RECEIVER_ID].dump().c_str()));
                         if (session) // session found
                         {
+                            std::cout << packet_data.dump() << std::endl;
                             session->ws->send(packet_data.dump(), uWS::TEXT);
                         }
                     }
@@ -228,4 +229,9 @@ void MessageProcessor::process()
             log(Log::ERROR, "", e.what());
         }
     }
+}
+
+void MessageProcessor::send_user_login_payloads(uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
+{
+
 }

@@ -50,7 +50,7 @@ void SessionManager::create_session(const UserID &user_id, const std::string &us
 void SessionManager::delete_session(const UserID user_id)
 {
     Session *session = get_session(user_id);
-    if (session->reference_count >= 1)
+    if (session->reference_count > 1)
         session->reference_count--;
     else
         _sessions.erase(user_id);
@@ -71,11 +71,11 @@ void SessionManager::delete_session(const uWS::WebSocket<false, uWS::SERVER, std
 
 void SessionManager::display_sessions() const
 {
-    std::cout << "Count: " << _sessions.size() << std::endl;
+    std::cout << "Users Count: " << _sessions.size() << std::endl;
     std::cout << "Users are: ";
     for (auto &session: _sessions)
     {
-        std::cout << session.second.username << ':' << session.second.user_id << ": " << session.second.reference_count << ", " << std::endl;
+        std::cout << session.second.username << ':' << session.second.user_id << " Reference count: " << session.second.reference_count << ", " << std::endl;
     }
     std::cout << std::endl;
 }

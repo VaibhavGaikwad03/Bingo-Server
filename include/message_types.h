@@ -38,6 +38,13 @@ enum class MessageTypes
     SEARCH_USER_RESPONSE = 108,
     FRIEND_REQ_REQUEST = 109,
     FRIEND_REQ_RESPONSE = 110,
+
+    ///// server will send this messages when user logged into the account
+    USER_PROFILE_INFORMATION = 111,
+    USER_FRIENDS_LIST = 112,
+    USER_PENDING_FRIEND_REQUESTS_LIST = 113,
+    USER_MESSAGE_HISTORY = 114,
+    /////
 };
 
 #endif //MESSAGE_TYPES_H

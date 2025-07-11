@@ -20,6 +20,8 @@ class MessageProcessor
 
     MessageHandler _message_handler;
 
+    void send_user_login_payloads(uWS::WebSocket<false, uWS::SERVER, std::string> *ws);
+
 public:
     explicit MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv);
 
