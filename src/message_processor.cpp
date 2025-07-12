@@ -231,7 +231,7 @@ void MessageProcessor::process()
     }
 }
 
-void MessageProcessor::send_user_login_payloads(uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
+void MessageProcessor::send_user_login_payloads(UserID user_id, uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
 {
-
+    UserProfile user_profile = _message_handler.get_user_profile(user_id);
 }
