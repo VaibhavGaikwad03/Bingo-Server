@@ -5,7 +5,6 @@
 #include "message_types.h"
 #include <mysqlx/xdevapi.h>
 
-// #include "message_processor.h"
 #include "message_structures.h"
 #include "nlohmann/json.hpp"
 
@@ -16,7 +15,7 @@ struct FoundUser
     UserID user_id;
     std::string name;
     std::string username;
-    Flag is_friend;
+    FriendshipStatus friendship_status;
 };
 
 class MessageHandler
@@ -30,9 +29,9 @@ class MessageHandler
     std::unique_ptr<mysqlx::Table> _user_credentials_table;
 
     [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
-    std::optional<UserProfile> get_user_profile(UserID user_id) const;
-    std::vector<Friend> get_user_friends(UserID user_id) const;
-    std::vector<PendingFriendRequest> get_pending_friend_requests(UserID user_id) const;
+    [[nodiscard]] std::optional<UserProfile> get_user_profile(UserID user_id) const;
+    [[nodiscard]] std::vector<Friend> get_user_friends(UserID user_id) const;
+    [[nodiscard]] std::vector<PendingFriendRequest> get_pending_friend_requests(UserID user_id) const;
     std::vector<ChatMessage> get_chat_messages(UserID user_id);
 
 public:
@@ -45,7 +44,7 @@ public:
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
     void friend_req_request(const nlohmann::json &message) const;
 
-    // friend void MessageProcessor::send_user_login_payloads();
+    friend class MessageProcessor;
 };
 
 

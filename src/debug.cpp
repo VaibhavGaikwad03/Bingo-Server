@@ -40,7 +40,22 @@ void print_friend_req_request(const nlohmann::json& message)
     print_key_value(MessageKeys::MESSAGE_TYPE, message);
     print_key_value(MessageKeys::SENDER_ID, message);
     print_key_value(MessageKeys::SENDER, message);
+    // print_key_value(MessageKeys::NAME_OF_SENDER, message);
     print_key_value(MessageKeys::RECEIVER_ID, message);
     print_key_value(MessageKeys::RECEIVER, message);
+    // print_key_value(MessageKeys::NAME_OF_RECEIVER, message);
+    print_key_value(MessageKeys::TIMESTAMP, message);
+}
+
+void print_friend_req_response(const nlohmann::json& message)
+{
+    print_key_value(MessageKeys::MESSAGE_TYPE, message);
+    print_key_value(MessageKeys::SENDER_ID, message);
+    print_key_value(MessageKeys::SENDER, message);
+    // print_key_value(MessageKeys::NAME_OF_SENDER, message);
+    print_key_value(MessageKeys::RECEIVER_ID, message);
+    print_key_value(MessageKeys::RECEIVER, message);
+    // print_key_value(MessageKeys::NAME_OF_RECEIVER, message);
+    print_key_value(MessageKeys::REQUEST_STATUS, message);
     print_key_value(MessageKeys::TIMESTAMP, message);
 }

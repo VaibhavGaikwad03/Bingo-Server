@@ -72,8 +72,10 @@
     "message_type": FRIEND_REQ_REQUEST,
     "sender_id": 21,
     "sender": "senderusername",
+    "name_of_sender": "sendername",
     "receiver_id": 32,
     "receiver": "receiverusername",
+    "name_of_receiver": "receivername",
     "timestamp": "2025-06-14T00:30:00Z"
   }
 ,
@@ -81,8 +83,10 @@
     "message_type": FRIEND_REQ_RESPONSE,
     "sender_id": 21,
     "sender": "testuser1",
+    "name_of_sender": "sendername",
     "receiver_id": 22,
     "receiver": "testuser2",
+    "name_of_receiver": "receivername",
     "request_status": ACCEPTED, REJECTED
     "timestamp": "2025-06-14T00:30:00Z"
   }
@@ -102,6 +106,7 @@
   ,
   {
     "message_type": PROFILE_INFORMATION,
+    ""
 
   }
   ,

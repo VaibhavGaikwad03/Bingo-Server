@@ -31,6 +31,9 @@ namespace MessageKeys
     inline constexpr auto SENDER_ID = "sender_id";
     inline constexpr auto RECEIVER_ID = "receiver_id";
     inline constexpr auto FRIEND_REQUEST_STATUS = "friend_request_status";
+    inline constexpr auto NAME_OF_SENDER = "name_of_sender";
+    inline constexpr auto NAME_OF_RECEIVER = "name_of_receiver";
+    inline constexpr auto REQUEST_STATUS = "request_status";
 };
 
 #endif //MESSAGE_KEYS_H

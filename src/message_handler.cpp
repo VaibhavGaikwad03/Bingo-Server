@@ -115,8 +115,9 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
         mysqlx::RowResult result =
                 _user_credentials_table
                 ->select("*")
-                .where("username LIKE :pattern")
-                .bind("pattern", "%" + parsed_request.username + "%") // "vai%" pattern
+                .where("username LIKE :pattern AND username != :current_username")
+                .bind("pattern", "%" + parsed_request.username + "%")
+                .bind("current_username", parsed_request.requested_by) // Set this properly
                 .execute();
 
         for (const mysqlx::Row &row: result)
@@ -125,7 +126,39 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
             found_user.user_id = row[utils::to_underlying(UserCredentialsTableIndex::USER_ID)];
             found_user.username = row[utils::to_underlying(UserCredentialsTableIndex::USERNAME)].get<std::string>();
             found_user.name = row[utils::to_underlying(UserCredentialsTableIndex::FULLNAME)].get<std::string>();
-            found_user.is_friend = Flag::NO; // change this later
+
+            mysqlx::Row request_status_result = _friend_request_table
+                    ->select("request_status")
+                    .where("sender = :sender AND receiver = :receiver")
+                    .orderBy("timestamp DESC")
+                    .limit(1)
+                    .bind("sender", parsed_request.requested_by)
+                    .bind("receiver", found_user.username)
+                    .execute()
+                    .fetchOne();
+
+            if (request_status_result.isNull())
+            {
+                found_user.friendship_status = FriendshipStatus::NOT_FRIEND;
+            }
+            else
+            {
+                auto request_result = request_status_result[0].get<std::string>();
+                std::cout << found_user.username << ": " <<  request_result << std::endl;
+
+                if (request_result == "rejected")
+                {
+                    found_user.friendship_status = FriendshipStatus::NOT_FRIEND;
+                }
+                else if (request_result == "pending")
+                {
+                    found_user.friendship_status = FriendshipStatus::PENDING;
+                }
+                else
+                {
+                    found_user.friendship_status = FriendshipStatus::FRIEND;
+                }
+            }
             users.push_back(found_user);
             //std::cout << "search result: " << found_user.username << std::endl;
         }
@@ -183,9 +216,10 @@ void MessageHandler::friend_req_request(const nlohmann::json &message) const
         if (has_pending_friend_request(parsed_request.sender_id, parsed_request.receiver_id))
             return; // already have pending friend request. entry nko karu jaa bhau parat.
 
-        _friend_request_table->insert("sender_id", "sender", "receiver_id", "receiver", "request_status")
-                .values(parsed_request.sender_id, parsed_request.sender, parsed_request.receiver_id,
-                        parsed_request.receiver, "pending")
+        _friend_request_table->insert("sender_id", "sender", "name_of_sender", "receiver_id", "receiver",
+                                      "name_of_receiver", "request_status")
+                .values(parsed_request.sender_id, parsed_request.sender, "test_sender", parsed_request.receiver_id,
+                        parsed_request.receiver, "test_receiver", "pending")
                 .execute();
     }
     catch (const mysqlx::Error &err)
@@ -200,25 +234,37 @@ void MessageHandler::friend_req_request(const nlohmann::json &message) const
 
 std::optional<UserProfile> MessageHandler::get_user_profile(const UserID user_id) const
 {
-    mysqlx::Row result = _user_credentials_table->select("username", "fullname", "dob",
-                                                         "gender", "email", "phone")
-            .where("user_id = :user_id")
-            .bind("user_id", user_id)
-            .execute()
-            .fetchOne();
-
-    if (!result.isNull())
+    try
     {
-        UserProfile user_profile;
-        user_profile.username = result[0].get<std::string>();
-        user_profile.name = result[1].get<std::string>();
-        user_profile.dob = result[2].get<std::string>();
-        user_profile.gender = result[3].get<std::string>();
-        user_profile.email = result[4].get<std::string>();
-        user_profile.phone = result[5].get<std::string>();
+        mysqlx::Row result = _user_credentials_table->select("username", "fullname", "CAST(dob AS CHAR)",
+                                                             "gender", "email", "phone")
+                .where("user_id = :user_id")
+                .bind("user_id", user_id)
+                .execute()
+                .fetchOne();
 
-        return user_profile;
+        if (!result.isNull())
+        {
+            UserProfile user_profile;
+            user_profile.username = result[0].get<std::string>();
+            user_profile.name = result[1].get<std::string>();
+            user_profile.dob = result[2].get<std::string>();
+            user_profile.gender = result[3].get<std::string>();
+            user_profile.email = result[4].get<std::string>();
+            user_profile.phone = result[5].get<std::string>();
+
+            return user_profile;
+        }
     }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, "", std::string("Database error in MessageHandler::get_user_profile: ") + err.what());
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, "", std::string("Unexpected error in MessageHandler::get_user_profile: ") + ex.what());
+    }
+
     return std::nullopt;
 }
 
@@ -237,7 +283,7 @@ std::vector<Friend> MessageHandler::get_user_friends(const UserID user_id) const
 
         friend_obj.friend_id = row[0].get<int>();
         friend_obj.friend_username = row[1].get<std::string>();
-        friend_obj.friend_name = row[2].get<std::string>();
+        friend_obj.name_of_friend = row[2].get<std::string>();
 
         friends.push_back(friend_obj);
     }
@@ -275,5 +321,5 @@ std::vector<PendingFriendRequest> MessageHandler::get_pending_friend_requests(co
 
 std::vector<ChatMessage> MessageHandler::get_chat_messages(UserID user_id)
 {
-    return std::vector<ChatMessage>();
+    return {};
 }

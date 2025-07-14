@@ -84,7 +84,7 @@ struct Friend
     // std::string name_of_user;
     int friend_id;
     std::string friend_username;
-    std::string friend_name;
+    std::string name_of_friend;
 };
 
 struct PendingFriendRequest

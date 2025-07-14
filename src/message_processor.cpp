@@ -94,6 +94,8 @@ void MessageProcessor::process()
                         SessionManager::instance()->display_sessions(); // debug purpose
 
                         packet.ws->send(login_response.dump(), uWS::TEXT);
+
+                        send_user_login_payloads(result, packet.ws);
                     }
                 }
                 break;
@@ -186,12 +188,13 @@ void MessageProcessor::process()
                                 {MessageKeys::USER_ID, found_user.user_id},
                                 {MessageKeys::USERNAME, found_user.username},
                                 {MessageKeys::DISPLAY_NAME, found_user.name},
-                                {MessageKeys::FRIENDSHIP_STATUS, FriendshipStatus::NOT_FRIEND}
+                                {MessageKeys::FRIENDSHIP_STATUS, found_user.friendship_status}
                             });
                         }
 
                         // std::cout << search_user_response.dump() << std::endl;
 
+                        std::cout << "sent: " << search_user_response.dump() << std::endl;
                         packet.ws->send(search_user_response.dump(), uWS::TEXT);
                     }
                 }
@@ -205,7 +208,8 @@ void MessageProcessor::process()
 
                     try
                     {
-                        Session *session = SessionManager::instance()->get_session(std::atoi(packet_data[MessageKeys::RECEIVER_ID].dump().c_str()));
+                        Session *session = SessionManager::instance()->get_session(
+                            std::atoi(packet_data[MessageKeys::RECEIVER_ID].dump().c_str()));
                         if (session) // session found
                         {
                             std::cout << packet_data.dump() << std::endl;
@@ -216,6 +220,12 @@ void MessageProcessor::process()
                     {
                         log(Log::ERROR, "", e.what());
                     }
+                }
+                break;
+
+                case MessageTypes::FRIEND_REQ_RESPONSE:
+                {
+                    print_friend_req_response(packet_data);
                 }
                 break;
 
@@ -231,7 +241,33 @@ void MessageProcessor::process()
     }
 }
 
-void MessageProcessor::send_user_login_payloads(UserID user_id, uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
+void MessageProcessor::send_user_login_payloads(const UserID user_id,
+                                                uWS::WebSocket<false, uWS::SERVER, std::string> *ws) const
 {
-    UserProfile user_profile = _message_handler.get_user_profile(user_id);
+    auto user_profile = _message_handler.get_user_profile(user_id);
+    if (!user_profile)
+    {
+        log(Log::ERROR, __func__, "User profile not found");
+        return;
+    }
+
+    try
+    {
+        const nlohmann::json user_profile_message = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PROFILE_INFORMATION},
+            {MessageKeys::FULLNAME, user_profile->name},
+            {MessageKeys::USERNAME, user_profile->username},
+            {MessageKeys::DOB, user_profile->dob},
+            {MessageKeys::GENDER, user_profile->gender},
+            {MessageKeys::EMAIL, user_profile->email},
+            {MessageKeys::PHONE, user_profile->phone},
+        };
+        std::cout << user_profile_message.dump() << std::endl;
+
+        ws->send(user_profile_message.dump(), uWS::TEXT);
+    }
+    catch (nlohmann::detail::exception &ex)
+    {
+        log(Log::ERROR, "", ex.what());
+    }
 }
