@@ -106,8 +106,12 @@
   ,
   {
     "message_type": PROFILE_INFORMATION,
-    ""
-
+    "name": "test name",
+    "username": "testuser",
+    "dob": "some date",
+    "gender": "some gender",
+    "email": "test@test.com",
+    "phone": "1234567890"
   }
   ,
   {
@@ -115,7 +119,29 @@
   }
   ,
   {
-    "message_type": PENDING_FRIEND_REQUESTS_LIST
+    "message_type": PENDING_FRIEND_REQUESTS_LIST,
+    "pending_friend_requests_list":
+    [
+      {
+        "sender_id": 21,
+        "sender": "senderusername",
+        "name_of_sender": "sendername",
+        "receiver_id": 32,
+        "receiver": "receiverusername",
+        "name_of_receiver": "receivername",
+        "timestamp": "2025-06-14T00:30:00Z"
+      }
+      ,
+      {
+        "sender_id": 21,
+        "sender": "senderusername",
+        "name_of_sender": "sendername",
+        "receiver_id": 32,
+        "receiver": "receiverusername",
+        "name_of_receiver": "receivername",
+        "timestamp": "2025-06-14T00:30:00Z"
+      }
+    ]
   }
   ,
   {

@@ -244,15 +244,17 @@ void MessageProcessor::process()
 void MessageProcessor::send_user_login_payloads(const UserID user_id,
                                                 uWS::WebSocket<false, uWS::SERVER, std::string> *ws) const
 {
-    auto user_profile = _message_handler.get_user_profile(user_id);
-    if (!user_profile)
-    {
-        log(Log::ERROR, __func__, "User profile not found");
-        return;
-    }
-
     try
     {
+        // fetch user profile
+        auto user_profile = _message_handler.get_user_profile(user_id);
+        if (!user_profile)
+        {
+            log(Log::ERROR, __func__, "User profile not found");
+            return;
+        }
+
+
         const nlohmann::json user_profile_message = {
             {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PROFILE_INFORMATION},
             {MessageKeys::FULLNAME, user_profile->name},
@@ -265,6 +267,37 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
         std::cout << user_profile_message.dump() << std::endl;
 
         ws->send(user_profile_message.dump(), uWS::TEXT);
+
+        // fetch pending friend request list
+        std::vector<PendingFriendRequest> pending_friend_requests = _message_handler.
+                get_pending_friend_requests(user_id);
+        if (!pending_friend_requests.empty())
+        {
+            nlohmann::json request_list = nlohmann::json::array();
+            for (const auto &pending_friend_request: pending_friend_requests)
+            {
+                request_list.push_back({
+                    {MessageKeys::SENDER_ID, pending_friend_request.sender_id},
+                    {MessageKeys::SENDER, pending_friend_request.sender},
+                    {MessageKeys::NAME_OF_SENDER, pending_friend_request.name_of_sender},
+                    {MessageKeys::RECEIVER_ID, pending_friend_request.receiver_id},
+                    {MessageKeys::RECEIVER, pending_friend_request.receiver},
+                    {MessageKeys::NAME_OF_RECEIVER, pending_friend_request.name_of_receiver},
+                    {MessageKeys::REQUEST_STATUS, pending_friend_request.request_status},
+                    {MessageKeys::TIMESTAMP, pending_friend_request.timestamp}
+                });
+                std::cout << request_list.dump() << std::endl;
+            }
+
+            nlohmann::json pending_friend_requests_list = {
+                {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PENDING_FRIEND_REQUESTS_LIST},
+                {MessageKeys::PENDING_FRIEND_REQUESTS_LIST, request_list}
+            };
+
+            std::cout << pending_friend_requests_list.dump() << std::endl;
+
+            ws->send(pending_friend_requests_list.dump(), uWS::TEXT);
+        }
     }
     catch (nlohmann::detail::exception &ex)
     {

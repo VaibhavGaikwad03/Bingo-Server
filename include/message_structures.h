@@ -91,9 +91,10 @@ struct PendingFriendRequest
 {
     int sender_id;
     std::string sender;
-    std::string sender_name;
+    std::string name_of_sender;
     int receiver_id;
     std::string receiver;
+    std::string name_of_receiver;
     std::string request_status;
     std::string timestamp;
 };

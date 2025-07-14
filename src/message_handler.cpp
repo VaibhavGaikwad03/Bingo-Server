@@ -144,7 +144,7 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
             else
             {
                 auto request_result = request_status_result[0].get<std::string>();
-                std::cout << found_user.username << ": " <<  request_result << std::endl;
+                std::cout << found_user.username << ": " << request_result << std::endl;
 
                 if (request_result == "rejected")
                 {
@@ -272,20 +272,31 @@ std::vector<Friend> MessageHandler::get_user_friends(const UserID user_id) const
 {
     std::vector<Friend> friends;
 
-    mysqlx::RowResult results = _friendship_table->select("friend_id", "friend", "friend_name")
-            .where("user_id = :user_id")
-            .bind("user_id", user_id)
-            .execute();
-
-    for (auto row: results)
+    try
     {
-        Friend friend_obj;
+        mysqlx::RowResult results = _friendship_table->select("friend_id", "friend", "friend_name")
+                .where("user_id = :user_id")
+                .bind("user_id", user_id)
+                .execute();
 
-        friend_obj.friend_id = row[0].get<int>();
-        friend_obj.friend_username = row[1].get<std::string>();
-        friend_obj.name_of_friend = row[2].get<std::string>();
+        for (auto row: results)
+        {
+            Friend friend_obj;
 
-        friends.push_back(friend_obj);
+            friend_obj.friend_id = row[0].get<int>();
+            friend_obj.friend_username = row[1].get<std::string>();
+            friend_obj.name_of_friend = row[2].get<std::string>();
+
+            friends.push_back(friend_obj);
+        }
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, "", std::string("Database error in MessageHandler::get_user_friends: ") + err.what());
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, "", std::string("Unexpected error in MessageHandler::get_user_friends: ") + ex.what());
     }
 
     return friends;
@@ -295,25 +306,41 @@ std::vector<PendingFriendRequest> MessageHandler::get_pending_friend_requests(co
 {
     std::vector<PendingFriendRequest> pending_friend_requests;
 
-    mysqlx::RowResult results = _friendship_table->select("sender_id", "sender", "sender_name", "receiver_id",
-                                                          "receiver", "request_status", "timestamp")
-            .where("receiver_id = :receiver_id AND request_status = 'pending'")
-            .bind("receiver_id", user_id)
-            .execute();
-
-    for (auto row: results)
+    try
     {
-        PendingFriendRequest pending_friend_request;
+        mysqlx::RowResult results = _friend_request_table->select("sender_id", "sender", "name_of_sender",
+                                                                  "receiver_id",
+                                                                  "receiver", "name_of_receiver", "request_status",
+                                                                  "CAST(timestamp AS CHAR)")
+                .where("receiver_id = :receiver_id AND request_status = 'pending'")
+                .bind("receiver_id", user_id)
+                .execute();
 
-        pending_friend_request.sender_id = row[0].get<int>();
-        pending_friend_request.sender = row[1].get<std::string>();
-        pending_friend_request.sender_name = row[2].get<std::string>();
-        pending_friend_request.receiver_id = row[3].get<int>();
-        pending_friend_request.receiver = row[4].get<std::string>();
-        pending_friend_request.request_status = row[5].get<std::string>();
-        pending_friend_request.timestamp = row[6].get<std::string>();
+        for (auto row: results)
+        {
+            PendingFriendRequest pending_friend_request;
 
-        pending_friend_requests.push_back(pending_friend_request);
+            pending_friend_request.sender_id = row[0].get<int>();
+            pending_friend_request.sender = row[1].get<std::string>();
+            pending_friend_request.name_of_sender = row[2].get<std::string>();
+            pending_friend_request.receiver_id = row[3].get<int>();
+            pending_friend_request.receiver = row[4].get<std::string>();
+            pending_friend_request.name_of_receiver = row[5].get<std::string>();
+            pending_friend_request.request_status = row[6].get<std::string>();
+            pending_friend_request.timestamp = row[7].get<std::string>();
+
+            pending_friend_requests.push_back(pending_friend_request);
+        }
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, "",
+            std::string("Database error in MessageHandler::get_pending_friend_requests: ") + err.what());
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, "",
+            std::string("Unexpected error in MessageHandler::get_pending_friend_requests: ") + ex.what());
     }
 
     return pending_friend_requests;
