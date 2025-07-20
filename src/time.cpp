@@ -1,6 +1,8 @@
 #include <ctime>
 #include "../include/time.h"
 
+#include <chrono>
+
 std::string get_time()
 {
     time_t now;
@@ -19,9 +21,22 @@ std::string get_date()
     const std::time_t current_time = std::time(nullptr);
     const std::tm *now = std::localtime(&current_time);
 
-    const int year = now->tm_year + 1900;
-    const int month = now->tm_mon + 1;
-    const int day = now->tm_mday;
+    const int y = now->tm_year + 1900;
+    const int m = now->tm_mon + 1;
+    const int d = now->tm_mday;
 
-    return std::string(std::to_string(year) + "-" + std::to_string(month) + "-" + std::to_string(day));
+    const std::string year = std::to_string(y);
+    std::string month = std::to_string(m);
+    if (month.length() < 2)
+    {
+        month = "0" + month;
+    }
+
+    std::string day = std::to_string(d);
+    if (day.length() < 2)
+    {
+        day = "0" + day;
+    }
+
+    return std::string(year + "-" + month + "-" + day);
 }

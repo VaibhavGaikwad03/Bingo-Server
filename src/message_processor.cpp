@@ -105,6 +105,16 @@ void MessageProcessor::process()
                     print_logout_request(packet_data);
 
                     Status status = _message_handler.logout_request(packet_data);
+                    if (status == Status::ERROR)
+                    {
+                        log(Log::ERROR, "",
+                            "Failed to log out user \'" + std::string(packet_data[MessageKeys::USERNAME]) + "\'");
+                    }
+                    else
+                    {
+                        log(Log::INFO, "",
+                            "User \'" + std::string(packet_data[MessageKeys::USERNAME]) + "\' logged out successfully");
+                    }
 
                     nlohmann::json logout_response = {
                         {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
