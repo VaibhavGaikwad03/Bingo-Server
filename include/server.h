@@ -17,7 +17,7 @@
 //     std::string packet;
 // };
 
-typedef int UserID;
+// typedef int UserID;
 
 class Server
 {

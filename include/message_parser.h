@@ -19,6 +19,7 @@ public:
     MessageParser& operator=(const MessageParser&) = delete;
 
     static LoginMessageRequest login_message_request(const nlohmann::json &message);
+    static LogoutMessageRequest logout_message_request(const nlohmann::json &message);
     static SignUpMessageRequest signup_message_request(const nlohmann::json &message);
     static SearchUserRequest search_user_request(const nlohmann::json &message);
     static FriendReqRequest friend_req_request(const nlohmann::json &message);

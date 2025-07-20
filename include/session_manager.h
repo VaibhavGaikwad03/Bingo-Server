@@ -22,8 +22,7 @@ public:
     void create_session(const UserID &user_id, const std::string &username,
                                     uWS::WebSocket<false, uWS::SERVER, std::string> *ws);
 
-    void delete_session(UserID user_id);
-    void delete_session(const uWS::WebSocket<false, uWS::SERVER, std::string> *ws);
+    void delete_session(Session *session);
 
     void display_sessions() const;
 

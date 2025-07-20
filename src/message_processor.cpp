@@ -100,6 +100,21 @@ void MessageProcessor::process()
                 }
                 break;
 
+                case MessageTypes::LOGOUT_REQUEST:
+                {
+                    print_logout_request(packet_data);
+
+                    Status status = _message_handler.logout_request(packet_data);
+
+                    nlohmann::json logout_response = {
+                        {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
+                        {MessageKeys::STATUS, status}
+                    };
+
+                    packet.ws->send(logout_response.dump(), uWS::TEXT);
+                }
+                break;
+
                 case MessageTypes::SIGN_UP_REQUEST:
                 {
                     // print_signup_request(parsed_message); // debug

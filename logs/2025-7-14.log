@@ -74,3 +74,22 @@
 [2025-07-14 22:42:59][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
 [2025-07-14 22:42:59][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
 [2025-07-14 22:43:09][INFO] User 'rutuja' logged in successfully
+[2025-07-14 22:50:57][INFO] Server started...
+[2025-07-14 22:51:05][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:51:16][INFO] User 'vaibz' logged in successfully
+[2025-07-14 22:51:23][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-14 22:51:23][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:51:30][INFO] User 'vaibz' logged in successfully
+[2025-07-14 22:53:01][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-14 22:53:01][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:53:23][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-14 22:53:23][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:53:27][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-14 22:53:27][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:53:37][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-14 22:53:37][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:53:37][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:53:39][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-14 22:53:47][INFO] User 'vaibz' logged in successfully
+[2025-07-14 22:55:46][INFO] Client connected with IP: 0000:0000:0000:0000:0000:0000:0000:0001
+[2025-07-14 22:55:52][INFO] User 'vaibz12' logged in successfully

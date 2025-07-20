@@ -1,0 +1,170 @@
+[2025-07-19 12:11:44][INFO] Server started...
+[2025-07-19 12:16:02][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 12:16:19][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 12:16:19][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 12:16:23][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 12:16:24][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 12:16:28][ERROR] Username does not exists: s
+[2025-07-19 12:16:36][INFO] User 'rutuja' logged in successfully
+[2025-07-19 12:16:44][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 12:16:52][INFO] User 'vaibz' logged in successfully
+[2025-07-19 12:32:40][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:26:34][INFO] Server started...
+[2025-07-19 21:39:51][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:39:51][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:39:52][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:39:52][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:39:52][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:39:53][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:39:53][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:39:53][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:39:54][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:39:54][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:39:58][ERROR] Username does not exists: dfgn
+[2025-07-19 21:40:10][INFO] User 'chetanap' logged in successfully
+[2025-07-19 21:40:11][INFO] User 'chetanap' logged in successfully
+[2025-07-19 21:40:12][INFO] User 'chetanap' logged in successfully
+[2025-07-19 21:40:13][INFO] User 'chetanap' logged in successfully
+[2025-07-19 21:40:13][INFO] User 'chetanap' logged in successfully
+[2025-07-19 21:40:42][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:40:42][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:40:43][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:40:43][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:41:02][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:41:02][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:43:17][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:43:36][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:43:37][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:43:54][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 21:44:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:44:21][INFO] User 'vaibz' logged in successfully
+[2025-07-19 21:46:32][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:46:32][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:46:33][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:46:33][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:49:33][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 21:49:54][INFO] User 'vaishnavi10' logged in successfully
+[2025-07-19 21:50:48][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:09][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:09][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:11][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:11][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:11][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:12][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:12][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:12][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:15][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:15][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:15][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:15][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:19][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:19][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:19][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:19][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:20][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:20][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:24][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:25][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:26][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:26][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:30][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:31][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:51][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:51][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:52][INFO] User 'chetanap' logged in successfully
+[2025-07-19 21:51:56][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:56][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:56][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:56][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:56][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:56][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:56][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:56][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:56][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:56][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:51:57][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:57][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:57][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:57][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:51:57][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:51:57][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:52:09][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 21:52:36][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:52:36][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:52:37][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:52:38][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:52:47][INFO] User 'vaibz12' logged in successfully
+[2025-07-19 21:53:03][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-19 21:53:08][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:53:30][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:53:30][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:53:41][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:53:41][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:53:41][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:53:41][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:53:49][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:53:49][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:53:49][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:53:50][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:54:03][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 21:54:57][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 21:54:58][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 21:55:09][INFO] User 'vaibz12' logged in successfully
+[2025-07-19 21:57:18][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:57:18][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 21:57:18][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:17:09][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:17:09][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:18:02][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:18:02][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:18:04][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:18:04][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:18:04][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:18:04][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:18:23][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 22:25:10][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:25:10][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:25:10][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:25:10][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:25:27][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 22:30:51][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:30:51][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:31:32][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:31:32][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:31:57][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:31:57][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:48:03][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:48:03][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:48:12][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 22:48:19][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:48:19][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:48:19][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:48:20][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:48:29][INFO] User 'so_sasssy' logged in successfully
+[2025-07-19 22:52:06][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:52:06][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:52:07][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:52:07][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:52:17][INFO] User 'chetanap' logged in successfully
+[2025-07-19 22:52:44][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:52:44][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 22:56:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:56:47][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-19 22:56:51][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:56:51][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-19 22:59:41][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-19 23:00:47][INFO] Server started...

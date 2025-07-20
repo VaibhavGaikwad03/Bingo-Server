@@ -6,6 +6,7 @@
 static void print_key_value(std::string_view key, const nlohmann::json& message);
 
 void print_login_request(const nlohmann::json& message);
+void print_logout_request(const nlohmann::json& message);
 void print_signup_request(const nlohmann::json& message);
 void print_search_user_request(const nlohmann::json& message);
 void print_friend_req_request(const nlohmann::json& message);

@@ -15,6 +15,13 @@ void print_login_request(const nlohmann::json& message)
     print_key_value(MessageKeys::TIMESTAMP, message);
 }
 
+void print_logout_request(const nlohmann::json& message)
+{
+    print_key_value(MessageKeys::MESSAGE_TYPE, message);
+    print_key_value(MessageKeys::USER_ID, message);
+    print_key_value(MessageKeys::USERNAME, message);
+}
+
 void print_signup_request(const nlohmann::json& message)
 {
     print_key_value(MessageKeys::MESSAGE_TYPE, message);

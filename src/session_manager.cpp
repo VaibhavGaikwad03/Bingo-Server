@@ -47,26 +47,15 @@ void SessionManager::create_session(const UserID &user_id, const std::string &us
     }
 }
 
-void SessionManager::delete_session(const UserID user_id)
+void SessionManager::delete_session(Session *session)
 {
-    Session *session = get_session(user_id);
+    if ((session == nullptr) || (!_sessions.contains(session->user_id)))
+        return;
+
     if (session->reference_count > 1)
         session->reference_count--;
     else
-        _sessions.erase(user_id);
-}
-
-void SessionManager::delete_session(const uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
-{
-    for (auto it = _sessions.begin(); it != _sessions.end(); ++it)
-    {
-        std::cout << "ws1:" << it->second.ws << " ws2: " << ws << std::endl;
-        if (it->second.ws == ws)
-        {
-            delete_session(it->second.user_id);
-            break;
-        }
-    }
+        _sessions.erase(session->user_id);
 }
 
 void SessionManager::display_sessions() const

@@ -65,7 +65,11 @@ void Server::connection_opened(uWS::WebSocket<false, uWS::SERVER, std::string> *
 void Server::connection_closed(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, const int code,
                                const std::string_view reason)
 {
-    SessionManager::instance()->delete_session(ws); // if user disconnects, it destroys the session
+    Session *session = SessionManager::instance()->get_session(ws);
+    if (session == nullptr)
+        return;
+
+    SessionManager::instance()->delete_session(session); // if user disconnects, destroy the session
     SessionManager::instance()->display_sessions(); // debug purpose
     log(Log::INFO, "", "Client disconnected. Code: " + std::to_string(code) + ", Reason: " + std::string(reason));
 }

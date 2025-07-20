@@ -21,6 +21,17 @@ LoginMessageRequest MessageParser::login_message_request(const nlohmann::json &m
     return parsed_message;
 }
 
+LogoutMessageRequest MessageParser::logout_message_request(const nlohmann::json &message)
+{
+    LogoutMessageRequest parsed_message;
+
+    parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+    parsed_message.user_id = message[MessageKeys::USER_ID];
+    parsed_message.username = message[MessageKeys::USERNAME];
+
+    return parsed_message;
+}
+
 SignUpMessageRequest MessageParser::signup_message_request(const nlohmann::json &message)
 {
     SignUpMessageRequest parsed_message;

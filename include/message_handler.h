@@ -8,7 +8,7 @@
 #include "message_structures.h"
 #include "nlohmann/json.hpp"
 
-typedef int UserID;
+typedef unsigned int UserID;
 
 struct FoundUser
 {
@@ -40,6 +40,7 @@ public:
     ~MessageHandler();
 
     [[nodiscard]] UserID login(const nlohmann::json &message) const;
+    [[nodiscard]] Status logout_request(const nlohmann::json &message) const;
     [[nodiscard]] UserID signup(const nlohmann::json &message) const;
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
     void friend_req_request(const nlohmann::json &message) const;

@@ -99,8 +99,6 @@
   ,
   {
     "message_type": LOGOUT_RESPONSE,
-    "user_id": 21,
-    "username": "testuser",
     "status": SUCCESS, ERROR
   }
   ,

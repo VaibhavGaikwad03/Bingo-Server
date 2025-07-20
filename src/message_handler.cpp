@@ -4,6 +4,7 @@
 #include "../include/message_handler.h"
 #include "../include/message_parser.h"
 #include "../include/message_structures.h"
+#include "../include/session_manager.h"
 
 
 MessageHandler::MessageHandler()
@@ -52,6 +53,18 @@ UserID MessageHandler::login(const nlohmann::json &message) const
     }
 
     return row[utils::to_underlying(UserCredentialsTableIndex::USER_ID)].get<UserID>();
+}
+
+Status MessageHandler::logout_request(const nlohmann::json &message) const
+{
+    LogoutMessageRequest parsed_message = MessageParser::logout_message_request(message);
+    Session *session = SessionManager::instance()->get_session(parsed_message.user_id);
+    if (session == nullptr)
+        return Status::ERROR;
+
+    SessionManager::instance()->delete_session(session);
+
+    return Status::SUCCESS;
 }
 
 UserID MessageHandler::signup(const nlohmann::json &message) const

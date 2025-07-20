@@ -36,6 +36,13 @@ struct LoginMessageRequest
     std::string timestamp;
 };
 
+struct LogoutMessageRequest
+{
+    MessageTypes message_type;
+    int user_id;
+    std::string username;
+};
+
 struct SignUpMessageRequest
 {
     MessageTypes message_type;
