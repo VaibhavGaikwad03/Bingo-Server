@@ -21,6 +21,9 @@
 
 class Server
 {
+    std::string _ip;
+    int _port;
+
     uWS::App _app;
     MutexQueue<DataPacket> _mtx_queue;
     // MessageProcessor *_message_processor;
@@ -49,7 +52,7 @@ class Server
                           uWS::OpCode opCode);
 
 public:
-    Server();
+    Server(const std::string& ip, int port);
 
     ~Server();
 
