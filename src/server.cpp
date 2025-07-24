@@ -5,8 +5,11 @@
 #include "../include/message_structures.h"
 #include "../include/session_manager.h"
 
-Server::Server()
+Server::Server(const std::string& ip, int port)
 {
+    _ip = ip;
+    _port = port;
+
     _message_processor = std::make_unique<MessageProcessor>(_mtx_queue, _cv);
 
     uWS::App::WebSocketBehavior<std::string> behavior;
@@ -42,15 +45,17 @@ void Server::run()
         _message_processor->process();
     });
 
-    _app.listen(2121, [](const auto *token)
+    _app.listen(_ip, _port, [this](const auto *token)
     {
         if (token)
         {
-            std::cout << "Server listening on port: 2121" << std::endl;
+            log(Log::INFO, "", "Listening on port: " + std::to_string(_port));
+            std::cout << "Listening on port: " + std::to_string(_port) << std::endl;
         }
         else
         {
-            std::cout << "Server stopped" << std::endl;
+            log(Log::CRITICAL, "", "Failed to start server on port: " + std::to_string(_port));
+            std::cerr << "Failed to start server on port: " + std::to_string(_port) << std::endl;
         }
     }).run();
 
