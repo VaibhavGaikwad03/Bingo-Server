@@ -73,8 +73,10 @@ Status MessageHandler::logout_request(const nlohmann::json &message) const
         return Status::ERROR;
     }
 
-    SessionManager::instance()->delete_session(session);
-
+    if (!SessionManager::instance()->delete_session(session))
+    {
+        return Status::ERROR;
+    }
     return Status::SUCCESS;
 }
 

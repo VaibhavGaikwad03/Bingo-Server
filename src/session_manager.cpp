@@ -47,15 +47,22 @@ void SessionManager::create_session(const UserID &user_id, const std::string &us
     }
 }
 
-void SessionManager::delete_session(Session *session)
+bool SessionManager::delete_session(Session *session)
 {
     if ((session == nullptr) || (!_sessions.contains(session->user_id)))
-        return;
+    {
+        return false;
+    }
 
     if (session->reference_count > 1)
+    {
         session->reference_count--;
+    }
     else
+    {
         _sessions.erase(session->user_id);
+    }
+    return true;
 }
 
 void SessionManager::display_sessions() const
@@ -64,7 +71,8 @@ void SessionManager::display_sessions() const
     std::cout << "Users are: ";
     for (auto &session: _sessions)
     {
-        std::cout << session.second.username << ':' << session.second.user_id << " Reference count: " << session.second.reference_count << ", " << std::endl;
+        std::cout << session.second.username << ':' << session.second.user_id << " Reference count: " << session.second.
+                reference_count << ", " << std::endl;
     }
     std::cout << std::endl;
 }
