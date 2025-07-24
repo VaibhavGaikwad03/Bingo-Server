@@ -77,7 +77,7 @@ void Server::connection_closed(uWS::WebSocket<false, uWS::SERVER, std::string> *
 void Server::message_received(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, std::string_view data,
                               uWS::OpCode opCode)
 {
-    std::cout << data << std::endl; // debug
+    log(Log::DEBUG, "", "Message received from client" + std::string(data));
 
     const DataPacket data_packet = {ws, data, opCode};
 

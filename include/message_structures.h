@@ -68,8 +68,10 @@ struct FriendReqRequest
     MessageTypes message_type;
     int sender_id;
     std::string sender;
+    std::string name_of_sender;
     int receiver_id;
     std::string receiver;
+    std::string name_of_receiver;
     std::string timestamp;
 };
 

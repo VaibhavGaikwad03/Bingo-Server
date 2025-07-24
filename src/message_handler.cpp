@@ -33,11 +33,15 @@ MessageHandler::~MessageHandler()
 UserID MessageHandler::login(const nlohmann::json &message) const
 // if successful returns user id else returns error code
 {
-    LoginMessageRequest parsed_message = MessageParser::login_message_request(message);
+    std::optional<LoginMessageRequest> parsed_message = MessageParser::login_message_request(message);
+    if (!parsed_message.has_value())
+    {
+        return utils::to_underlying(LoginErrorCodes::SOMETHING_WENT_WRONG);
+    }
 
     auto result = _user_credentials_table->select("user_id", "username", "password")
             .where("username = :username")
-            .bind("username", parsed_message.username)
+            .bind("username", parsed_message->username)
             .execute();
 
     mysqlx::Row row = result.fetchOne();
@@ -46,8 +50,8 @@ UserID MessageHandler::login(const nlohmann::json &message) const
         return utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND); // invalid username
     }
 
-    std::string db_password = row[utils::to_underlying(UserCredentialsTableIndex::PASSWORD)].get<std::string>();
-    if (db_password != parsed_message.password)
+    auto db_password = row[utils::to_underlying(UserCredentialsTableIndex::PASSWORD)].get<std::string>();
+    if (db_password != parsed_message->password)
     {
         return utils::to_underlying(LoginErrorCodes::PASSWORD_IS_INCORRECT); // invalid password
     }
@@ -57,10 +61,17 @@ UserID MessageHandler::login(const nlohmann::json &message) const
 
 Status MessageHandler::logout_request(const nlohmann::json &message) const
 {
-    LogoutMessageRequest parsed_message = MessageParser::logout_message_request(message);
-    Session *session = SessionManager::instance()->get_session(parsed_message.user_id);
-    if (session == nullptr)
+    std::optional<LogoutMessageRequest> parsed_message = MessageParser::logout_message_request(message);
+    if (!parsed_message.has_value())
+    {
         return Status::ERROR;
+    }
+
+    Session *session = SessionManager::instance()->get_session(parsed_message->user_id);
+    if (session == nullptr)
+    {
+        return Status::ERROR;
+    }
 
     SessionManager::instance()->delete_session(session);
 
@@ -70,12 +81,16 @@ Status MessageHandler::logout_request(const nlohmann::json &message) const
 UserID MessageHandler::signup(const nlohmann::json &message) const
 // if successful returns user id else returns error code
 {
-    SignUpMessageRequest parsed_message = MessageParser::signup_message_request(message);
+    std::optional<SignUpMessageRequest> parsed_message = MessageParser::signup_message_request(message);
+    if (!parsed_message.has_value())
+    {
+        return utils::to_underlying(SignupErrorCodes::SOMETHING_WENT_WRONG);
+    }
 
     // check if username exists
     auto result_username = _user_credentials_table->select("user_id")
             .where("username = :username")
-            .bind("username", parsed_message.username)
+            .bind("username", parsed_message->username)
             .execute();
 
     if (result_username.count() > 0)
@@ -86,7 +101,7 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
     // check if email exists
     auto result_email = _user_credentials_table->select("user_id")
             .where("email = :email")
-            .bind("email", parsed_message.email)
+            .bind("email", parsed_message->email)
             .execute();
 
     if (result_email.count() > 0)
@@ -97,7 +112,7 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
     // check if phone exists
     auto result_phone = _user_credentials_table->select("user_id")
             .where("phone = :phone")
-            .bind("phone", parsed_message.phone)
+            .bind("phone", parsed_message->phone)
             .execute();
 
     if (result_phone.count() > 0)
@@ -108,8 +123,9 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
     auto insert_result = _user_credentials_table->insert("username", "password", "fullname", "gender", "dob", "email",
                                                          "phone"
                                                          /*, "signup_timestamp" client kadun ghyaycha ki mysql madhe auto generate karaycha??*/)
-            .values(parsed_message.username, parsed_message.password, parsed_message.fullname, parsed_message.gender,
-                    parsed_message.dob, parsed_message.email, parsed_message.phone/*, timestamp*/)
+            .values(parsed_message->username, parsed_message->password, parsed_message->fullname,
+                    parsed_message->gender,
+                    parsed_message->dob, parsed_message->email, parsed_message->phone/*, timestamp*/)
             .execute();
 
     return static_cast<UserID>(insert_result.getAutoIncrementValue());
@@ -118,9 +134,14 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
 std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message) const
 {
     std::vector<FoundUser> users;
-    const SearchUserRequest parsed_request = MessageParser::search_user_request(message);
 
-    if (parsed_request.username.empty())
+    std::optional<SearchUserRequest> parsed_request = MessageParser::search_user_request(message);
+    if (!parsed_request.has_value())
+    {
+        return {};
+    }
+
+    if (parsed_request->username.empty())
         return {};
 
     try
@@ -129,8 +150,8 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
                 _user_credentials_table
                 ->select("*")
                 .where("username LIKE :pattern AND username != :current_username")
-                .bind("pattern", "%" + parsed_request.username + "%")
-                .bind("current_username", parsed_request.requested_by) // Set this properly
+                .bind("pattern", "%" + parsed_request->username + "%")
+                .bind("current_username", parsed_request->requested_by) // Set this properly
                 .execute();
 
         for (const mysqlx::Row &row: result)
@@ -145,7 +166,7 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
                     .where("sender = :sender AND receiver = :receiver")
                     .orderBy("timestamp DESC")
                     .limit(1)
-                    .bind("sender", parsed_request.requested_by)
+                    .bind("sender", parsed_request->requested_by)
                     .bind("receiver", found_user.username)
                     .execute()
                     .fetchOne();
@@ -173,39 +194,23 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
                 }
             }
             users.push_back(found_user);
-            //std::cout << "search result: " << found_user.username << std::endl;
         }
         std::cout << std::endl;
     }
     catch (const mysqlx::Error &err)
     {
         log(Log::ERROR, "", std::string("Database error in search_user: ") + err.what());
-        //throw; // or return {};  ↩ choose your policy
         return {};
     }
     catch (const std::exception &ex)
     {
         // Safety net for JSON / std errors
         log(Log::ERROR, "", std::string("Unexpected error in search_user: ") + ex.what());
-        //throw;
         return {};
     }
 
     return users; // 5. All good → hand results to caller
 }
-
-/*
- *
-* const auto result = tbl
-    .select("request_id")
-    .where("sender_id = :sid AND receiver_id = :rid "
-           "AND request_status = 'pending'")
-    .bind("sid", sender_id)
-    .bind("rid", receiver_id)
-    .lockExclusive()
-    .execute();
-
- */
 
 bool MessageHandler::has_pending_friend_request(const int sender_id, const int receiver_id) const
 {
@@ -222,17 +227,22 @@ bool MessageHandler::has_pending_friend_request(const int sender_id, const int r
 
 void MessageHandler::friend_req_request(const nlohmann::json &message) const
 {
-    const FriendReqRequest parsed_request = MessageParser::friend_req_request(message);
+    std::optional<FriendReqRequest> parsed_request = MessageParser::friend_req_request(message);
+    if (!parsed_request.has_value())
+    {
+        return;
+    }
 
     try
     {
-        if (has_pending_friend_request(parsed_request.sender_id, parsed_request.receiver_id))
+        if (has_pending_friend_request(parsed_request->sender_id, parsed_request->receiver_id))
             return; // already have pending friend request. entry nko karu jaa bhau parat.
 
         _friend_request_table->insert("sender_id", "sender", "name_of_sender", "receiver_id", "receiver",
                                       "name_of_receiver", "request_status")
-                .values(parsed_request.sender_id, parsed_request.sender, "test_sender", parsed_request.receiver_id,
-                        parsed_request.receiver, "test_receiver", "pending")
+                .values(parsed_request->sender_id, parsed_request->sender, parsed_request->name_of_sender,
+                        parsed_request->receiver_id,
+                        parsed_request->receiver, parsed_request->name_of_receiver, "pending")
                 .execute();
     }
     catch (const mysqlx::Error &err)

@@ -1,0 +1,82 @@
+[2025-07-21 22:08:41][INFO] Server started...
+[2025-07-21 22:08:53][INFO] Server started...
+[2025-07-21 22:09:05][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:09:14][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-21T16:39:05.498Z"}
+[2025-07-21 22:09:14][INFO] User 'rutuja' logged in successfully
+[2025-07-21 22:11:27][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 22:11:28][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:14:23][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:14:45][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:14:54][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-21T16:44:46.575Z"}
+[2025-07-21 22:14:54][INFO] User 'rutuja' logged in successfully
+[2025-07-21 22:16:00][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 22:16:01][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:16:14][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-21T16:46:02.482Z"}
+[2025-07-21 22:16:14][INFO] User 'rutuja' logged in successfully
+[2025-07-21 22:16:40][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-21 22:16:40][INFO] User 'rutuja' logged out successfully
+[2025-07-21 22:19:52][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:19:55][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:20:00][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:27:17][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-21T16:57:08.494Z"}
+[2025-07-21 22:27:17][INFO] User 'rutuja' logged in successfully
+[2025-07-21 22:27:24][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-21 22:27:24][INFO] User 'rutuja' logged out successfully
+[2025-07-21 22:29:28][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:29:38][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:29:43][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:29:54][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-21T16:59:44.913Z"}
+[2025-07-21 22:29:54][INFO] User 'rutuja' logged in successfully
+[2025-07-21 22:30:01][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-21 22:30:01][INFO] User 'rutuja' logged out successfully
+[2025-07-21 22:38:07][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 22:38:21][DEBUG] Message received from client{"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-07-21T17:08:08.645Z"}
+[2025-07-21 22:38:21][INFO] User 'so_sasssy' logged in successfully
+[2025-07-21 22:38:27][DEBUG] Message received from client{"message_type":110,"sender_id":1244,"sender":"so_sasssy","name_of_sender":"test_receiver","receiver_id":1245,"receiver":"chetanap","name_of_receiver":"test_sender","request_status":1,"timestamp":"2025-07-21T17:08:20.342Z"}
+[2025-07-21 22:38:31][DEBUG] Message received from client{"message_type":110,"sender_id":1244,"sender":"so_sasssy","name_of_sender":"test_receiver","receiver_id":1245,"receiver":"chetanap","name_of_receiver":"test_sender","request_status":1,"timestamp":"2025-07-21T17:08:23.837Z"}
+[2025-07-21 23:01:06][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:01:28][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:02:08][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 23:02:10][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:02:18][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:04:16][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:05:48][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:06:20][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:07:03][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:09:14][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:09:17][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:09:30][DEBUG] Message received from client{"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-07-21T17:39:16.646Z"}
+[2025-07-21 23:09:30][INFO] User 'so_sasssy' logged in successfully
+[2025-07-21 23:09:35][DEBUG] Message received from client{"message_type":110,"sender_id":1244,"sender":"so_sasssy","name_of_sender":"test_receiver","receiver_id":1245,"receiver":"chetanap","name_of_receiver":"test_sender","request_status":1,"timestamp":"2025-07-21T17:39:29.190Z"}
+[2025-07-21 23:13:27][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 23:13:28][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:13:41][DEBUG] Message received from client{"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-07-21T17:43:28.932Z"}
+[2025-07-21 23:13:41][INFO] User 'so_sasssy' logged in successfully
+[2025-07-21 23:17:29][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 23:17:30][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:18:18][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:19:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:20:00][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:20:05][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:20:14][DEBUG] Message received from client{"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-07-21T17:50:03.621Z"}
+[2025-07-21 23:20:14][INFO] User 'so_sasssy' logged in successfully
+[2025-07-21 23:22:16][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 23:22:17][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:22:19][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:22:31][DEBUG] Message received from client{"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-07-21T17:52:19.278Z"}
+[2025-07-21 23:22:31][INFO] User 'so_sasssy' logged in successfully
+[2025-07-21 23:29:54][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 23:29:54][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:31:05][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:31:17][DEBUG] Message received from client{"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-07-21T18:01:04.808Z"}
+[2025-07-21 23:31:17][INFO] User 'so_sasssy' logged in successfully
+[2025-07-21 23:41:04][INFO] Client disconnected. Code: 1006, Reason: Received TCP FIN before WebSocket close frame
+[2025-07-21 23:41:37][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:44:12][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:44:23][DEBUG] Message received from client{"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-07-21T18:14:08.918Z"}
+[2025-07-21 23:44:23][INFO] User 'so_sasssy' logged in successfully
+[2025-07-21 23:44:29][DEBUG] Message received from client{"message_type":110,"sender_id":1244,"sender":"so_sasssy","name_of_sender":"test_receiver","receiver_id":1245,"receiver":"chetanap","name_of_receiver":"test_sender","request_status":1,"timestamp":"2025-07-21T18:14:22.174Z"}
+[2025-07-21 23:57:33][INFO] Client disconnected. Code: 1001, Reason: 
+[2025-07-21 23:57:34][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:58:09][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001
+[2025-07-21 23:58:54][INFO] Client connected with IP: 0000:0000:0000:0000:0000:ffff:7f00:0001

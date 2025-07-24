@@ -12,6 +12,7 @@ enum class LoginErrorCodes
     NONE = 0,
     USERNAME_NOT_FOUND = 1001,
     PASSWORD_IS_INCORRECT = 1002,
+    SOMETHING_WENT_WRONG = 1003,
 };
 
 enum class SignupErrorCodes
@@ -20,6 +21,7 @@ enum class SignupErrorCodes
     USERNAME_ALREADY_EXISTS = 2001,
     EMAIL_ALREADY_EXISTS = 2002,
     PHONE_ALREADY_EXISTS = 2003,
+    SOMETHING_WENT_WRONG = 2004,
 };
 
 #endif //ERROR_CODES_H
