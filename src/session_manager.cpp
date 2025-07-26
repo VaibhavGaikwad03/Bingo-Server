@@ -28,7 +28,7 @@ void SessionManager::destroy_instance()
 }
 
 void SessionManager::create_session(const UserID &user_id, const std::string &username,
-                                    uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
+                                    WebSocket *ws)
 {
     if (!_sessions.contains(user_id)) // if not in map, create new session
     {
@@ -96,7 +96,7 @@ Session *SessionManager::get_session(const std::string &username)
     return nullptr;
 }
 
-Session *SessionManager::get_session(uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
+Session *SessionManager::get_session(const WebSocket *ws)
 {
     for (auto &session: _sessions)
     {
@@ -106,4 +106,19 @@ Session *SessionManager::get_session(uWS::WebSocket<false, uWS::SERVER, std::str
         }
     }
     return nullptr;
+}
+
+bool SessionManager::is_session_exists(const UserID user_id)
+{
+    return (get_session(user_id) != nullptr);
+}
+
+bool SessionManager::is_session_exists(const std::string &username)
+{
+    return (get_session(username) != nullptr);
+}
+
+bool SessionManager::is_session_exists(const WebSocket *ws)
+{
+    return (get_session(ws) != nullptr);
 }

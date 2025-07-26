@@ -43,12 +43,12 @@ class Server
 
     std::condition_variable _cv; // for notifying the message processor thread
 
-    static void connection_opened(uWS::WebSocket<false, uWS::SERVER, std::string> *ws);
+    static void connection_opened(WebSocket *ws);
 
-    static void connection_closed(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, int code,
+    static void connection_closed(const WebSocket *ws, int code,
                                   std::string_view reason);
 
-    void message_received(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, std::string_view data,
+    void message_received(WebSocket *ws, std::string_view data,
                           uWS::OpCode opCode);
 
 public:

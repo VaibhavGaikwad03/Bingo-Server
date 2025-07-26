@@ -5,7 +5,7 @@
 #include "../include/message_structures.h"
 #include "../include/session_manager.h"
 
-Server::Server(const std::string& ip, int port)
+Server::Server(const std::string& ip, const int port)
 {
     _ip = ip;
     _port = port;
@@ -62,12 +62,12 @@ void Server::run()
     message_processor_thread.join();
 }
 
-void Server::connection_opened(uWS::WebSocket<false, uWS::SERVER, std::string> *ws)
+void Server::connection_opened(WebSocket *ws)
 {
     log(Log::INFO, "", "Client connected with IP: " + std::string(ws->getRemoteAddressAsText()));
 }
 
-void Server::connection_closed(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, const int code,
+void Server::connection_closed(const WebSocket *ws, const int code,
                                const std::string_view reason)
 {
     Session *session = SessionManager::instance()->get_session(ws);
@@ -79,8 +79,8 @@ void Server::connection_closed(uWS::WebSocket<false, uWS::SERVER, std::string> *
     log(Log::INFO, "", "Client disconnected. Code: " + std::to_string(code) + ", Reason: " + std::string(reason));
 }
 
-void Server::message_received(uWS::WebSocket<false, uWS::SERVER, std::string> *ws, std::string_view data,
-                              uWS::OpCode opCode)
+void Server::message_received(WebSocket *ws, const std::string_view data,
+                              const uWS::OpCode opCode)
 {
     log(Log::DEBUG, "", "Message received from client" + std::string(data));
 

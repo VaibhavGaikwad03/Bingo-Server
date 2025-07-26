@@ -20,7 +20,13 @@ class MessageProcessor
 
     MessageHandler _message_handler;
 
-    void send_user_login_payloads(UserID user_id, uWS::WebSocket<false, uWS::SERVER, std::string> *ws) const;
+    void process_login_request(WebSocket *ws, nlohmann::json &data) const;
+    void process_logout_request(WebSocket *ws, nlohmann::json &data) const;
+    void process_signup_request(WebSocket *ws, nlohmann::json &data) const;
+    void process_search_user_request(WebSocket *ws, nlohmann::json &data) const;
+    void process_friend_req_request(WebSocket *ws, nlohmann::json &data) const;
+    void process_friend_req_response(WebSocket *ws, nlohmann::json &data);
+    void send_user_login_payloads(UserID user_id, WebSocket *ws) const;
 
 public:
     explicit MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv);

@@ -7,8 +7,7 @@
 
 #include "message_structures.h"
 #include "nlohmann/json.hpp"
-
-typedef unsigned int UserID;
+#include "typedefs.h"
 
 struct FoundUser
 {

@@ -30,6 +30,7 @@ add_executable(BingoServer main.cpp
         include/message_parser.h
         src/message_parser.cpp
         include/message_keys.h
+        include/typedefs.h
 )
 
 # Link the required libraries

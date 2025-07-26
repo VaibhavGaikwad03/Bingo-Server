@@ -1,0 +1,85 @@
+[2025-07-27 01:44:03][INFO] Server started...
+[2025-07-27 01:44:03][INFO] Listening on port: 2121
+[2025-07-27 01:45:20][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 01:45:27][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:15:21.885Z"}
+[2025-07-27 01:45:27][INFO] User 'vaibz' logged in successfully
+[2025-07-27 01:45:45][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"vaibz"}
+[2025-07-27 01:45:45][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-07-27 01:45:45][DEBUG] Message received from client{"message_type":107,"username":"vas","requested_by":"vaibz"}
+[2025-07-27 01:45:45][DEBUG] Message received from client{"message_type":107,"username":"vasi","requested_by":"vaibz"}
+[2025-07-27 01:45:46][DEBUG] Message received from client{"message_type":107,"username":"vas","requested_by":"vaibz"}
+[2025-07-27 01:45:46][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-07-27 01:45:47][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"vaibz"}
+[2025-07-27 01:45:47][DEBUG] Message received from client{"message_type":107,"username":"","requested_by":"vaibz"}
+[2025-07-27 01:45:56][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-07-27 01:45:56][INFO] User 'vaibz' logged out successfully
+[2025-07-27 01:57:32][INFO] Server started...
+[2025-07-27 01:57:32][INFO] Listening on port: 2121
+[2025-07-27 01:57:36][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 01:57:42][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:27:36.896Z"}
+[2025-07-27 01:57:42][INFO] User 'vaibz' logged in successfully
+[2025-07-27 01:57:56][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 01:58:01][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:27:56.531Z"}
+[2025-07-27 01:58:01][INFO] User 'vaibz' logged in successfully
+[2025-07-27 01:58:01][INFO] Client disconnected. Code: 1006, Reason: 
+[2025-07-27 01:58:10][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 01:58:15][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:28:10.679Z"}
+[2025-07-27 01:58:15][INFO] User 'vaibz' logged in successfully
+[2025-07-27 01:59:03][INFO] Server started...
+[2025-07-27 01:59:03][INFO] Listening on port: 2121
+[2025-07-27 01:59:05][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 01:59:08][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 01:59:13][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:29:05.685Z"}
+[2025-07-27 01:59:13][INFO] User 'vaibz' logged in successfully
+[2025-07-27 01:59:18][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:29:08.486Z"}
+[2025-07-27 01:59:18][INFO] User 'vaibz' logged in successfully
+[2025-07-27 01:59:34][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:29:30.097Z"}
+[2025-07-27 01:59:34][INFO] User 'vaibz' logged in successfully
+[2025-07-27 01:59:34][INFO] Client disconnected. Code: 1005, Reason: 
+[2025-07-27 02:00:01][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:00:11][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:00:13][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:00:21][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:30:13.521Z"}
+[2025-07-27 02:00:21][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:00:32][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:30:11.784Z"}
+[2025-07-27 02:00:32][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:00:53][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:30:42.603Z"}
+[2025-07-27 02:00:53][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:01:05][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"123435","timestamp":"2025-07-26T20:31:00.035Z"}
+[2025-07-27 02:01:05][ERROR] Password is incorrect for user: vaibz
+[2025-07-27 02:01:11][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:31:10.664Z"}
+[2025-07-27 02:01:11][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:01:23][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:31:19.658Z"}
+[2025-07-27 02:01:23][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:02:02][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:32:00.067Z"}
+[2025-07-27 02:02:02][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:02:15][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:32:12.620Z"}
+[2025-07-27 02:02:15][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:02:26][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:32:23.068Z"}
+[2025-07-27 02:02:26][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:05:41][INFO] Server started...
+[2025-07-27 02:05:41][INFO] Listening on port: 2121
+[2025-07-27 02:05:45][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:05:49][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:05:55][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:35:49.967Z"}
+[2025-07-27 02:05:55][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:06:07][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:35:45.058Z"}
+[2025-07-27 02:06:07][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:06:20][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-07-27 02:06:20][INFO] User 'vaibz' logged out successfully
+[2025-07-27 02:07:40][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:07:45][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:37:40.514Z"}
+[2025-07-27 02:07:45][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:07:48][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-07-27 02:07:48][INFO] User 'vaibz' logged out successfully
+[2025-07-27 02:07:54][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:11:16][INFO] Server started...
+[2025-07-27 02:11:16][INFO] Listening on port: 2121
+[2025-07-27 02:11:16][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:11:16][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:11:21][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:41:16.792Z"}
+[2025-07-27 02:11:21][INFO] User 'vaibz' logged in successfully
+[2025-07-27 02:11:39][INFO] Client connected with IP: 127.0.0.1
+[2025-07-27 02:11:43][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-26T20:41:39.031Z"}
+[2025-07-27 02:11:43][INFO] User 'vaibz' logged out forcefully
+[2025-07-27 02:11:43][INFO] User 'vaibz' logged in successfully

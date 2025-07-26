@@ -20,7 +20,7 @@ public:
     SessionManager& operator=(const SessionManager&) = delete;
 
     void create_session(const UserID &user_id, const std::string &username,
-                                    uWS::WebSocket<false, uWS::SERVER, std::string> *ws);
+                                    WebSocket *ws);
 
     bool delete_session(Session *session);
 
@@ -28,7 +28,12 @@ public:
 
     Session* get_session(UserID user_id);
     Session* get_session(const std::string &username);
-    Session* get_session(uWS::WebSocket<false, uWS::SERVER, std::string> *ws);
+    Session* get_session(const WebSocket *ws);
+
+    bool is_session_exists(UserID user_id);
+    bool is_session_exists(const std::string &username);
+    bool is_session_exists(const WebSocket *ws);
+
 };
 
 #endif //SESSION_MANAGER_H

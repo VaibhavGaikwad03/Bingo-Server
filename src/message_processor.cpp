@@ -42,215 +42,37 @@ void MessageProcessor::process()
             {
                 case MessageTypes::LOGIN_REQUEST:
                 {
-                    // print_login_request(parsed_message); // debug
-
-                    // for now it will send response from current thread
-                    UserID result = _message_handler.login(packet_data);
-                    if (result == utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND))
-                    {
-                        log(Log::ERROR, "",
-                            "Username does not exists: " + std::string(packet_data[MessageKeys::USERNAME]));
-
-                        nlohmann::json login_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-                            {MessageKeys::STATUS, Status::ERROR},
-                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-                            {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
-                        };
-
-                        packet.ws->send(login_response.dump(), uWS::TEXT);
-                    }
-                    else if (result == utils::to_underlying(LoginErrorCodes::PASSWORD_IS_INCORRECT))
-                    {
-                        log(Log::ERROR, "",
-                            "Password is incorrect for user: " + std::string(packet_data[MessageKeys::USERNAME]));
-
-                        nlohmann::json login_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-                            {MessageKeys::STATUS, Status::ERROR},
-                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-                            {MessageKeys::ERROR_CODE, LoginErrorCodes::PASSWORD_IS_INCORRECT}
-                        };
-
-                        packet.ws->send(login_response.dump(), uWS::TEXT);
-                    }
-                    else
-                    {
-                        log(Log::INFO, "",
-                            "User '" + std::string(packet_data[MessageKeys::USERNAME]) + "' logged in successfully");
-
-                        nlohmann::json login_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-                            {MessageKeys::STATUS, Status::SUCCESS},
-                            {MessageKeys::USER_ID, result},
-                            {MessageKeys::ERROR_CODE, LoginErrorCodes::NONE}
-                        };
-
-                        SessionManager *session_manager = SessionManager::instance();
-
-                        session_manager->create_session(result, packet_data[MessageKeys::USERNAME], packet.ws);
-                        // session created
-
-                        SessionManager::instance()->display_sessions(); // debug purpose
-
-                        packet.ws->send(login_response.dump(), uWS::TEXT);
-
-                        send_user_login_payloads(result, packet.ws);
-                    }
+                    process_login_request(packet.ws, packet_data);
                 }
                 break;
 
                 case MessageTypes::LOGOUT_REQUEST:
                 {
-                    print_logout_request(packet_data);
-
-                    Status status = _message_handler.logout_request(packet_data);
-                    if (status == Status::ERROR)
-                    {
-                        log(Log::ERROR, "",
-                            "Failed to log out user \'" + std::string(packet_data[MessageKeys::USERNAME]) + "\'");
-                    }
-                    else
-                    {
-                        log(Log::INFO, "",
-                            "User \'" + std::string(packet_data[MessageKeys::USERNAME]) + "\' logged out successfully");
-                    }
-
-                    nlohmann::json logout_response = {
-                        {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
-                        {MessageKeys::STATUS, status}
-                    };
-
-                    packet.ws->send(logout_response.dump(), uWS::TEXT);
+                    process_logout_request(packet.ws, packet_data);
                 }
                 break;
 
                 case MessageTypes::SIGN_UP_REQUEST:
                 {
-                    // print_signup_request(parsed_message); // debug
-
-                    UserID result = _message_handler.signup(packet_data);
-                    if (result == utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS))
-                    {
-                        log(Log::ERROR, "",
-                            "Username already exists: " + std::string(packet_data[MessageKeys::USERNAME]));
-
-                        nlohmann::json signup_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
-                            {MessageKeys::STATUS, Status::ERROR},
-                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-                            {MessageKeys::ERROR_CODE, SignupErrorCodes::USERNAME_ALREADY_EXISTS}
-                        };
-
-                        packet.ws->send(signup_response.dump(), uWS::TEXT);
-                    }
-                    else if (result == utils::to_underlying(SignupErrorCodes::EMAIL_ALREADY_EXISTS))
-                    {
-                        log(Log::ERROR, "", "Email already exists: " + std::string(packet_data[MessageKeys::EMAIL]));
-
-                        nlohmann::json signup_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
-                            {MessageKeys::STATUS, Status::ERROR},
-                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-                            {MessageKeys::ERROR_CODE, SignupErrorCodes::EMAIL_ALREADY_EXISTS}
-                        };
-
-                        packet.ws->send(signup_response.dump(), uWS::TEXT);
-                    }
-                    else if (result == utils::to_underlying(SignupErrorCodes::PHONE_ALREADY_EXISTS))
-                    {
-                        log(Log::ERROR, "", "Phone already exists: " + std::string(packet_data["phone"]));
-
-                        nlohmann::json signup_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
-                            {MessageKeys::STATUS, Status::ERROR},
-                            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-                            {MessageKeys::ERROR_CODE, SignupErrorCodes::PHONE_ALREADY_EXISTS}
-                        };
-
-                        packet.ws->send(signup_response.dump(), uWS::TEXT);
-                    }
-                    else
-                    {
-                        nlohmann::json signup_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
-                            {MessageKeys::STATUS, Status::SUCCESS},
-                            {MessageKeys::USER_ID, result},
-                            {MessageKeys::ERROR_CODE, SignupErrorCodes::NONE}
-                        };
-
-                        packet.ws->send(signup_response.dump(), uWS::TEXT);
-                    }
+                    process_signup_request(packet.ws, packet_data);
                 }
                 break;
 
                 case MessageTypes::SEARCH_USER_REQUEST:
                 {
-                    //print_search_user_request(packet_data); // debug
-
-                    std::vector<FoundUser> found_users = _message_handler.search_user(packet_data);
-                    if (found_users.empty())
-                    {
-                        nlohmann::json search_user_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},
-                            {MessageKeys::COUNT, 0},
-                            {MessageKeys::USERS, nlohmann::json::array()}
-                        };
-
-                        packet.ws->send(search_user_response.dump(), uWS::TEXT);
-                    }
-                    else
-                    {
-                        nlohmann::json search_user_response = {
-                            {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},
-                            {MessageKeys::COUNT, found_users.size()},
-                            {MessageKeys::USERS, nlohmann::json::array()}
-                        };
-
-                        for (const auto &found_user: found_users)
-                        {
-                            search_user_response[MessageKeys::USERS].push_back({
-                                {MessageKeys::USER_ID, found_user.user_id},
-                                {MessageKeys::USERNAME, found_user.username},
-                                {MessageKeys::DISPLAY_NAME, found_user.name},
-                                {MessageKeys::FRIENDSHIP_STATUS, found_user.friendship_status}
-                            });
-                        }
-
-                        // std::cout << search_user_response.dump() << std::endl;
-
-                        std::cout << "sent: " << search_user_response.dump() << std::endl;
-                        packet.ws->send(search_user_response.dump(), uWS::TEXT);
-                    }
+                    process_search_user_request(packet.ws, packet_data);
                 }
                 break;
 
                 case MessageTypes::FRIEND_REQ_REQUEST:
                 {
-                    print_friend_req_request(packet_data);
-
-                    _message_handler.friend_req_request(packet_data);
-
-                    try
-                    {
-                        Session *session = SessionManager::instance()->get_session(
-                            std::atoi(packet_data[MessageKeys::RECEIVER_ID].dump().c_str()));
-                        if (session) // session found
-                        {
-                            std::cout << packet_data.dump() << std::endl;
-                            session->ws->send(packet_data.dump(), uWS::TEXT);
-                        }
-                    }
-                    catch (std::exception &e)
-                    {
-                        log(Log::ERROR, "", e.what());
-                    }
+                    process_friend_req_request(packet.ws, packet_data);
                 }
                 break;
 
                 case MessageTypes::FRIEND_REQ_RESPONSE:
                 {
-                    print_friend_req_response(packet_data);
+                    process_friend_req_response(packet.ws, packet_data);
                 }
                 break;
 
@@ -267,7 +89,7 @@ void MessageProcessor::process()
 }
 
 void MessageProcessor::send_user_login_payloads(const UserID user_id,
-                                                uWS::WebSocket<false, uWS::SERVER, std::string> *ws) const
+                                                WebSocket *ws) const
 {
     try
     {
@@ -328,4 +150,232 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
     {
         log(Log::ERROR, "", ex.what());
     }
+}
+
+void MessageProcessor::process_login_request(WebSocket *ws,
+                                             nlohmann::json &data) const
+{
+    // print_login_request(parsed_message); // debug
+
+    // for now, it will send response from current thread
+    UserID result = _message_handler.login(data);
+    if (result == utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND))
+    {
+        log(Log::ERROR, "",
+            "Username does not exists: " + std::string(data[MessageKeys::USERNAME]));
+
+        const nlohmann::json login_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+            {MessageKeys::STATUS, Status::ERROR},
+            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+            {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
+        };
+
+        ws->send(login_response.dump(), uWS::TEXT);
+    }
+    else if (result == utils::to_underlying(LoginErrorCodes::PASSWORD_IS_INCORRECT))
+    {
+        log(Log::ERROR, "",
+            "Password is incorrect for user: " + std::string(data[MessageKeys::USERNAME]));
+
+        const nlohmann::json login_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+            {MessageKeys::STATUS, Status::ERROR},
+            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+            {MessageKeys::ERROR_CODE, LoginErrorCodes::PASSWORD_IS_INCORRECT}
+        };
+
+        ws->send(login_response.dump(), uWS::TEXT);
+    }
+    else
+    {
+        nlohmann::json login_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+            {MessageKeys::STATUS, Status::SUCCESS},
+            {MessageKeys::USER_ID, result},
+            {MessageKeys::ERROR_CODE, LoginErrorCodes::NONE}
+        };
+
+        // Only one active session is allowed per user across all devices.
+        SessionManager *session_manager = SessionManager::instance();
+        if (session_manager->is_session_exists(result)) // if session already exists
+        {
+            Session *session = session_manager->get_session(result);
+
+            const nlohmann::json logout_response = {
+                {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
+                {MessageKeys::STATUS, Status::SUCCESS}
+            };
+
+            log(Log::INFO, "",
+            "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out forcefully");
+            session->ws->send(logout_response.dump(), uWS::TEXT);
+            session->ws = ws;
+        }
+        else
+        {
+            // new session created
+            session_manager->create_session(result, data[MessageKeys::USERNAME], ws);
+        }
+
+        SessionManager::instance()->display_sessions(); // debug purpose
+
+        log(Log::INFO, "",
+            "User '" + std::string(data[MessageKeys::USERNAME]) + "' logged in successfully");
+
+        ws->send(login_response.dump(), uWS::TEXT);
+
+        send_user_login_payloads(result, ws);
+    }
+}
+
+void MessageProcessor::process_logout_request(WebSocket *ws,
+                                              nlohmann::json &data) const
+{
+    print_logout_request(data);
+
+    Status status = _message_handler.logout_request(data);
+    if (status == Status::ERROR)
+    {
+        log(Log::ERROR, "",
+            "Failed to log out user \'" + std::string(data[MessageKeys::USERNAME]) + "\'");
+    }
+    else
+    {
+        log(Log::INFO, "",
+            "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out successfully");
+    }
+
+    const nlohmann::json logout_response = {
+        {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
+        {MessageKeys::STATUS, status}
+    };
+
+    ws->send(logout_response.dump(), uWS::TEXT);
+}
+
+void MessageProcessor::process_signup_request(WebSocket *ws, nlohmann::json &data) const
+{
+    // print_signup_request(parsed_message); // debug
+
+    UserID result = _message_handler.signup(data);
+    if (result == utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS))
+    {
+        log(Log::ERROR, "",
+            "Username already exists: " + std::string(data[MessageKeys::USERNAME]));
+
+        const nlohmann::json signup_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+            {MessageKeys::STATUS, Status::ERROR},
+            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+            {MessageKeys::ERROR_CODE, SignupErrorCodes::USERNAME_ALREADY_EXISTS}
+        };
+
+        ws->send(signup_response.dump(), uWS::TEXT);
+    }
+    else if (result == utils::to_underlying(SignupErrorCodes::EMAIL_ALREADY_EXISTS))
+    {
+        log(Log::ERROR, "", "Email already exists: " + std::string(data[MessageKeys::EMAIL]));
+
+        const nlohmann::json signup_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+            {MessageKeys::STATUS, Status::ERROR},
+            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+            {MessageKeys::ERROR_CODE, SignupErrorCodes::EMAIL_ALREADY_EXISTS}
+        };
+
+        ws->send(signup_response.dump(), uWS::TEXT);
+    }
+    else if (result == utils::to_underlying(SignupErrorCodes::PHONE_ALREADY_EXISTS))
+    {
+        log(Log::ERROR, "", "Phone already exists: " + std::string(data["phone"]));
+
+        const nlohmann::json signup_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+            {MessageKeys::STATUS, Status::ERROR},
+            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+            {MessageKeys::ERROR_CODE, SignupErrorCodes::PHONE_ALREADY_EXISTS}
+        };
+
+        ws->send(signup_response.dump(), uWS::TEXT);
+    }
+    else
+    {
+        const nlohmann::json signup_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+            {MessageKeys::STATUS, Status::SUCCESS},
+            {MessageKeys::USER_ID, result},
+            {MessageKeys::ERROR_CODE, SignupErrorCodes::NONE}
+        };
+
+        ws->send(signup_response.dump(), uWS::TEXT);
+    }
+}
+
+void MessageProcessor::process_search_user_request(WebSocket *ws,
+                                                   nlohmann::json &data) const
+{
+    //print_search_user_request(packet_data); // debug
+
+    std::vector<FoundUser> found_users = _message_handler.search_user(data);
+    if (found_users.empty())
+    {
+        const nlohmann::json search_user_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},
+            {MessageKeys::COUNT, 0},
+            {MessageKeys::USERS, nlohmann::json::array()}
+        };
+
+        ws->send(search_user_response.dump(), uWS::TEXT);
+    }
+    else
+    {
+        nlohmann::json search_user_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},
+            {MessageKeys::COUNT, found_users.size()},
+            {MessageKeys::USERS, nlohmann::json::array()}
+        };
+
+        for (const auto &found_user: found_users)
+        {
+            search_user_response[MessageKeys::USERS].push_back({
+                {MessageKeys::USER_ID, found_user.user_id},
+                {MessageKeys::USERNAME, found_user.username},
+                {MessageKeys::DISPLAY_NAME, found_user.name},
+                {MessageKeys::FRIENDSHIP_STATUS, found_user.friendship_status}
+            });
+        }
+
+        std::cout << "sent: " << search_user_response.dump() << std::endl;
+        ws->send(search_user_response.dump(), uWS::TEXT);
+    }
+}
+
+void MessageProcessor::process_friend_req_request(WebSocket *ws,
+                                                  nlohmann::json &data) const
+{
+    print_friend_req_request(data);
+
+    _message_handler.friend_req_request(data);
+
+    try
+    {
+        const Session *session = SessionManager::instance()->get_session(
+            std::atoi(data[MessageKeys::RECEIVER_ID].dump().c_str()));
+        if (session) // session found
+        {
+            std::cout << data.dump() << std::endl;
+            session->ws->send(data.dump(), uWS::TEXT);
+        }
+    }
+    catch (std::exception &e)
+    {
+        log(Log::ERROR, "", e.what());
+    }
+}
+
+void MessageProcessor::process_friend_req_response(WebSocket *ws,
+                                                   nlohmann::json &data)
+{
+    print_friend_req_response(data);
 }

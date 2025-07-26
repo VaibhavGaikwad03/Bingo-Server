@@ -7,6 +7,7 @@
 
 #include "message_types.h"
 #include "uWebSockets/App.h"
+#include "typedefs.h"
 
 enum class UserCredentialsTableIndex : uint8_t
 {
@@ -23,7 +24,7 @@ enum class UserCredentialsTableIndex : uint8_t
 
 struct DataPacket
 {
-    uWS::WebSocket<false, uWS::SERVER, std::string> *ws;
+    WebSocket *ws;
     std::string_view data;
     uWS::OpCode opCode;
 };
