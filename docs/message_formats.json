@@ -145,4 +145,17 @@
   {
     "message_type": MESSAGE_HISTORY
   }
+  ,
+  {
+    "message_type": CHANGE_PASSWORD_REQUEST,
+    "user_id": 234,
+    "old_password": "old_password",
+    "new_password": "new_password"
+  }
+  ,
+  {
+    "message_type": CHANGE_PASSWORD_RESPONSE,
+    "status": ERROR or SUCCESS,
+    "error_code": use ChangePasswordErrorCodes here
+  }
 ]

@@ -1,0 +1,71 @@
+[2025-07-26 00:04:41][INFO] Client connected with IP: 127.0.0.1
+[2025-07-26 00:04:54][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-25T18:34:43.760Z"}
+[2025-07-26 00:04:54][INFO] User 'vaibz' logged in successfully
+[2025-07-26 00:05:02][DEBUG] Message received from client{"message_type":107,"username":"d","requested_by":"vaibz"}
+[2025-07-26 00:05:05][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1043,"receiver":"mdeshmukh402","name_of_receiver":"Manasi Deshmukh","timestamp":"2025-07-25T18:35:02.179Z"}
+[2025-07-26 00:05:07][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1043,"receiver":"mdeshmukh402","name_of_receiver":"Manasi Deshmukh","timestamp":"2025-07-25T18:35:02.179Z"}
+[2025-07-26 00:05:09][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1047,"receiver":"mjadhav670","name_of_receiver":"Meghna Jadhav","timestamp":"2025-07-25T18:35:02.179Z"}
+[2025-07-26 00:05:48][INFO] Client connected with IP: 127.0.0.1
+[2025-07-26 00:05:56][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-25T18:35:51.995Z"}
+[2025-07-26 00:05:56][INFO] User 'vaibz' logged in successfully
+[2025-07-26 00:05:59][DEBUG] Message received from client{"message_type":107,"username":"d","requested_by":"vaibz"}
+[2025-07-26 00:06:03][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1049,"receiver":"adeshmukh629","name_of_receiver":"Ashwini Deshmukh","timestamp":"2025-07-25T18:35:59.601Z"}
+[2025-07-26 00:06:56][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1051,"receiver":"rjadhav009","name_of_receiver":"Rutuja Jadhav","timestamp":"2025-07-25T18:35:59.601Z"}
+[2025-07-26 00:06:57][INFO] Client connected with IP: 127.0.0.1
+[2025-07-26 00:07:02][INFO] Client connected with IP: 127.0.0.1
+[2025-07-26 00:07:04][INFO] Client connected with IP: 127.0.0.1
+[2025-07-26 00:07:10][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-25T18:37:06.001Z"}
+[2025-07-26 00:07:10][INFO] User 'vaibz' logged in successfully
+[2025-07-26 00:07:13][DEBUG] Message received from client{"message_type":107,"username":"d","requested_by":"vaibz"}
+[2025-07-26 00:07:17][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1052,"receiver":"pinamdar233","name_of_receiver":"Pooja Inamdar","timestamp":"2025-07-25T18:37:13.275Z"}
+[2025-07-26 00:08:38][INFO] Client connected with IP: 127.0.0.1
+[2025-07-26 00:08:48][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-25T18:38:42.495Z"}
+[2025-07-26 00:08:48][INFO] User 'vaibz' logged in successfully
+[2025-07-26 00:08:51][DEBUG] Message received from client{"message_type":107,"username":"j","requested_by":"vaibz"}
+[2025-07-26 00:08:56][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1048,"receiver":"tjoshi211","name_of_receiver":"Tejas Joshi","timestamp":"2025-07-25T18:38:51.239Z"}
+[2025-07-26 00:09:04][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1048,"receiver":"tjoshi211","name_of_receiver":"Tejas Joshi","timestamp":"2025-07-25T18:38:51.239Z"}
+[2025-07-26 00:09:09][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1048,"receiver":"tjoshi211","name_of_receiver":"Tejas Joshi","timestamp":"2025-07-25T18:38:51.239Z"}
+[2025-07-26 00:09:09][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1048,"receiver":"tjoshi211","name_of_receiver":"Tejas Joshi","timestamp":"2025-07-25T18:38:51.239Z"}
+[2025-07-26 00:09:10][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1048,"receiver":"tjoshi211","name_of_receiver":"Tejas Joshi","timestamp":"2025-07-25T18:38:51.239Z"}
+[2025-07-26 00:11:20][INFO] Client connected with IP: 127.0.0.1
+[2025-07-26 00:11:25][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-25T18:41:20.755Z"}
+[2025-07-26 00:11:25][INFO] User 'vaibz' logged in successfully
+[2025-07-26 00:11:28][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:11:29][DEBUG] Message received from client{"message_type":107,"username":"lj","requested_by":"vaibz"}
+[2025-07-26 00:11:31][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:11:32][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1044,"receiver":"rsalunkhe058","name_of_receiver":"Rohit Salunkhe","timestamp":"2025-07-25T18:41:31.359Z"}
+[2025-07-26 00:12:11][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1044,"receiver":"rsalunkhe058","name_of_receiver":"Rohit Salunkhe","timestamp":"2025-07-25T18:41:31.359Z"}
+[2025-07-26 00:12:11][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:11][ERROR] [json.exception.parse_error.101] parse error at line 1, column 59: syntax error while parsing value - invalid literal; last read: '"vaibz"}©'; expected end of input
+[2025-07-26 00:12:13][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1056,"receiver":"ssalunkhe404","name_of_receiver":"Sayali Salunkhe","timestamp":"2025-07-25T18:42:11.378Z"}
+[2025-07-26 00:12:13][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:14][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1060,"receiver":"abhosale733","name_of_receiver":"Ashwini Bhosale","timestamp":"2025-07-25T18:42:13.630Z"}
+[2025-07-26 00:12:14][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:15][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1061,"receiver":"skulkarni201","name_of_receiver":"Smita Kulkarni","timestamp":"2025-07-25T18:42:15.232Z"}
+[2025-07-26 00:12:15][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:16][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1062,"receiver":"ybhosale217","name_of_receiver":"Yogesh Bhosale","timestamp":"2025-07-25T18:42:15.232Z"}
+[2025-07-26 00:12:16][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:16][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1062,"receiver":"ybhosale217","name_of_receiver":"Yogesh Bhosale","timestamp":"2025-07-25T18:42:15.232Z"}
+[2025-07-26 00:12:16][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:19][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1106,"receiver":"alokhande653","name_of_receiver":"Aishwarya Lokhande","timestamp":"2025-07-25T18:42:16.531Z"}
+[2025-07-26 00:12:19][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:20][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1109,"receiver":"sbhosale271","name_of_receiver":"Smita Bhosale","timestamp":"2025-07-25T18:42:20.148Z"}
+[2025-07-26 00:12:20][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:21][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1113,"receiver":"kkulkarni684","name_of_receiver":"Kunal Kulkarni","timestamp":"2025-07-25T18:42:20.148Z"}
+[2025-07-26 00:12:21][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:21][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1117,"receiver":"skamble579","name_of_receiver":"Shraddha Kamble","timestamp":"2025-07-25T18:42:21.119Z"}
+[2025-07-26 00:12:21][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:21][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1118,"receiver":"slokhande328","name_of_receiver":"Saurabh Lokhande","timestamp":"2025-07-25T18:42:21.119Z"}
+[2025-07-26 00:12:21][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:24][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1084,"receiver":"skamble173","name_of_receiver":"Siddhesh Kamble","timestamp":"2025-07-25T18:42:22.192Z"}
+[2025-07-26 00:12:24][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:25][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1074,"receiver":"mkamble148","name_of_receiver":"Mayur Kamble","timestamp":"2025-07-25T18:42:24.785Z"}
+[2025-07-26 00:12:25][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:25][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1069,"receiver":"pkulkarni824","name_of_receiver":"Prachi Kulkarni","timestamp":"2025-07-25T18:42:25.165Z"}
+[2025-07-26 00:12:25][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:26][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1088,"receiver":"ckamble454","name_of_receiver":"Chinmay Kamble","timestamp":"2025-07-25T18:42:25.574Z"}
+[2025-07-26 00:12:26][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:12:27][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1090,"receiver":"clokhande723","name_of_receiver":"Chinmay Lokhande","timestamp":"2025-07-25T18:42:26.883Z"}
+[2025-07-26 00:12:27][DEBUG] Message received from client{"message_type":107,"username":"l","requested_by":"vaibz"}
+[2025-07-26 00:44:29][INFO] Server started...
+[2025-07-26 00:44:29][INFO] Listening on port: 2121

@@ -24,4 +24,10 @@ enum class SignupErrorCodes
     SOMETHING_WENT_WRONG = 2004,
 };
 
+enum class ChangePasswordErrorCodes
+{
+    NONE = 0,
+    NEW_PASSWORD_MUST_BE_DIFFERENT = 3001,
+};
+
 #endif //ERROR_CODES_H
