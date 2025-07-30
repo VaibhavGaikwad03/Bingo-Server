@@ -116,3 +116,28 @@ std::optional<FriendReqRequest> MessageParser::friend_req_request(const nlohmann
         return std::nullopt;
     }
 }
+
+std::optional<FriendReqResponse> MessageParser::friend_req_response(const nlohmann::json &message)
+{
+    try
+    {
+        FriendReqResponse parsed_message;
+
+        parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+        parsed_message.sender_id = message[MessageKeys::SENDER_ID];
+        parsed_message.sender = message[MessageKeys::SENDER];
+        parsed_message.name_of_sender = message[MessageKeys::NAME_OF_SENDER];
+        parsed_message.receiver_id = message[MessageKeys::RECEIVER_ID];
+        parsed_message.receiver = message[MessageKeys::RECEIVER];
+        parsed_message.name_of_receiver = message[MessageKeys::NAME_OF_RECEIVER];
+        parsed_message.status = message[MessageKeys::REQUEST_STATUS];
+        parsed_message.timestamp = message[MessageKeys::TIMESTAMP];
+
+        return parsed_message;
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return std::nullopt;
+    }
+}

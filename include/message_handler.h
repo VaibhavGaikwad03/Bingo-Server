@@ -43,6 +43,7 @@ public:
     [[nodiscard]] UserID signup(const nlohmann::json &message) const;
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
     void friend_req_request(const nlohmann::json &message) const;
+    void friend_req_response(const nlohmann::json &message) const;
 
     friend class MessageProcessor;
 };

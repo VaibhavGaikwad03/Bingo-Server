@@ -375,7 +375,12 @@ void MessageProcessor::process_friend_req_request(WebSocket *ws,
 }
 
 void MessageProcessor::process_friend_req_response(WebSocket *ws,
-                                                   nlohmann::json &data)
+                                                   const nlohmann::json &data) const
 {
+        log(Log::DEBUG, "", "Test");
+
     print_friend_req_response(data);
+        log(Log::DEBUG, "", "Test");
+
+    _message_handler.friend_req_response(data);
 }

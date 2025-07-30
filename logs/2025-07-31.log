@@ -1,0 +1,37 @@
+[2025-07-31 00:04:19][INFO] Client disconnected. Client is going away, Reason: 
+[2025-07-31 00:04:19][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 00:05:04][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"vaibz"}
+[2025-07-31 00:05:04][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-07-31 00:05:04][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"vaibz"}
+[2025-07-31 00:05:08][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":39,"receiver":"vaishnavi10","name_of_receiver":"Vaishnavi ","timestamp":"2025-07-30T18:35:04.214Z"}
+[2025-07-31 00:05:08][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:05:14][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-07-31 00:05:14][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"vaibz"}
+[2025-07-31 00:05:16][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-07-31 00:05:16][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"vaibz"}
+[2025-07-31 00:05:18][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":39,"receiver":"vaishnavi10","name_of_receiver":"Vaishnavi ","timestamp":"2025-07-30T18:35:16.392Z"}
+[2025-07-31 00:05:18][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:05:45][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":39,"receiver":"vaishnavi10","name_of_receiver":"Vaishnavi ","timestamp":"2025-07-30T18:35:16.392Z"}
+[2025-07-31 00:05:45][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:05:52][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-07-31 00:05:53][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"vaibz"}
+[2025-07-31 00:08:35][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"vaibz"}
+[2025-07-31 00:08:35][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-07-31 00:08:35][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"vaibz"}
+[2025-07-31 00:08:38][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1242,"receiver":"vaibhav","name_of_receiver":"Vaibhav","timestamp":"2025-07-30T18:38:36.066Z"}
+[2025-07-31 00:08:38][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:08:41][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1243,"receiver":"vaibz21","name_of_receiver":"Vaibhav Gaikwad","timestamp":"2025-07-30T18:38:36.066Z"}
+[2025-07-31 00:08:41][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:09:04][DEBUG] Message received from client{"message_type":107,"username":"c","requested_by":"vaibz"}
+[2025-07-31 00:09:06][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1042,"receiver":"mchavan882","name_of_receiver":"Mandar Chavan","timestamp":"2025-07-30T18:39:05.019Z"}
+[2025-07-31 00:09:06][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:09:07][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1046,"receiver":"cchavan838","name_of_receiver":"Chinmay Chavan","timestamp":"2025-07-30T18:39:05.019Z"}
+[2025-07-31 00:09:07][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:09:08][DEBUG] Message received from client{"message_type":109,"sender_id":"21","sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1070,"receiver":"schavan386","name_of_receiver":"Shraddha Chavan","timestamp":"2025-07-30T18:39:05.019Z"}
+[2025-07-31 00:09:08][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 00:09:44][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 00:09:46][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 00:09:55][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-30T18:39:47.492Z"}
+[2025-07-31 00:09:55][INFO] User 'vaibz' logged in successfully
+[2025-07-31 00:10:05][DEBUG] Message received from client{"message_type":107,"username":"c","requested_by":"vaibz"}
+[2025-07-31 00:10:07][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1042,"receiver":"mchavan882","name_of_receiver":"Mandar Chavan","timestamp":"2025-07-30T18:40:05.201Z"}

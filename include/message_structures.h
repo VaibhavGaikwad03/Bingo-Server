@@ -76,6 +76,19 @@ struct FriendReqRequest
     std::string timestamp;
 };
 
+struct FriendReqResponse
+{
+    MessageTypes message_type;
+    int sender_id;
+    std::string sender;
+    std::string name_of_sender;
+    int receiver_id;
+    std::string receiver;
+    std::string name_of_receiver;
+    FriendRequestStatus status;
+    std::string timestamp;
+};
+
 /// send to the user when logged in
 struct UserProfile
 {

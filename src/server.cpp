@@ -5,7 +5,7 @@
 #include "../include/message_structures.h"
 #include "../include/session_manager.h"
 
-Server::Server(const std::string& ip, const int port)
+Server::Server(const std::string &ip, const int port)
 {
     _ip = ip;
     _port = port;
@@ -76,7 +76,7 @@ void Server::connection_closed(const WebSocket *ws, const int code,
 
     SessionManager::instance()->delete_session(session); // if user disconnects, destroy the session
     SessionManager::instance()->display_sessions(); // debug purpose
-    log(Log::INFO, "", "Client disconnected. Code: " + std::to_string(code) + ", Reason: " + std::string(reason));
+    log(Log::INFO, "", "Client disconnected. " + get_websocket_close_reason(code) + ", Reason: " + std::string(reason));
 }
 
 void Server::message_received(WebSocket *ws, const std::string_view data,
@@ -89,4 +89,43 @@ void Server::message_received(WebSocket *ws, const std::string_view data,
     _mtx_queue.enqueue(data_packet);
 
     _cv.notify_one();
+}
+
+std::string Server::get_websocket_close_reason(const int code)
+{
+    switch (code)
+    {
+        case 1000:
+            return "Normal closure";
+        case 1001:
+            return "Client is going away";
+        case 1002:
+            return "Protocol error";
+        case 1003:
+            return "Unsupported data";
+        case 1005:
+            return "No status received (no close frame)";
+        case 1006:
+            return "Abnormal closure (no close frame received)";
+        case 1007:
+            return "Invalid payload data";
+        case 1008:
+            return "Policy violation";
+        case 1009:
+            return "Message too big";
+        case 1010:
+            return "Extension required";
+        case 1011:
+            return "Internal server error";
+        case 1012:
+            return "Service restart";
+        case 1013:
+            return "Try again later";
+        case 1014:
+            return "Bad gateway";
+        case 1015:
+            return "TLS handshake failed";
+        default:
+            return "Unknown or reserved code";
+    }
 }

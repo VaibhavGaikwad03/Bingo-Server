@@ -51,6 +51,8 @@ class Server
     void message_received(WebSocket *ws, std::string_view data,
                           uWS::OpCode opCode);
 
+    static std::string get_websocket_close_reason(int code);
+
 public:
     Server(const std::string& ip, int port);
 

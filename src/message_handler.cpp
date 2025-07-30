@@ -257,6 +257,80 @@ void MessageHandler::friend_req_request(const nlohmann::json &message) const
     }
 }
 
+void MessageHandler::friend_req_response(const nlohmann::json &message) const
+{
+        log(Log::DEBUG, "", "Test");
+
+    std::optional<FriendReqResponse> parsed_request = MessageParser::friend_req_response(message);
+    if (!parsed_request.has_value())
+    {
+        return;
+    }
+
+        log(Log::DEBUG, "", "Test");
+
+
+    try
+    {
+        std::string request_status;
+
+        if (parsed_request->status == FriendRequestStatus::ACCEPTED)
+        {
+            request_status = "accepted";
+        }
+        else
+        {
+            request_status = "rejected";
+        }
+
+        _friend_request_table->update()
+                .set("request_status", request_status)
+                .where("sender_id = :sender_id AND receiver_id = :receiver_id")
+                .bind("sender_id", parsed_request->receiver_id)
+                .bind("receiver_id", parsed_request->sender_id)
+                .execute();
+
+        auto result = _friend_request_table->select("request_id")
+                .where("sender_id = :sender_id AND receiver_id = :receiver_id")
+                .bind("sender_id", parsed_request->receiver_id)
+                .bind("receiver_id", parsed_request->sender_id)
+                .execute()
+                .fetchOne();
+
+        int request_id = -1;
+        if (!result.isNull())
+        {
+            request_id = result[0].get<int>();
+        }
+
+        if ((parsed_request->status == FriendRequestStatus::ACCEPTED) && (request_id != -1))
+        {
+            _friendship_table->insert("friendship_id", "user_id", "user", "name_of_user",
+                                      "friend_id", "friend", "name_of_friend")
+                    .values(request_id, parsed_request->sender_id, parsed_request->sender,
+                            parsed_request->name_of_sender, parsed_request->receiver_id, parsed_request->receiver,
+                            parsed_request->name_of_receiver)
+            .execute();
+
+            _friendship_table->insert("friendship_id", "user_id", "user", "name_of_user",
+                                      "friend_id", "friend", "name_of_friend")
+                    .values(request_id, parsed_request->receiver_id, parsed_request->receiver,
+                    parsed_request->name_of_receiver, parsed_request->sender_id, parsed_request->sender,
+                    parsed_request->name_of_sender)
+            .execute();
+        }
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, "", std::string("Database error in MessageHandler::friend_req_response: ") + err.what());
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, "", std::string("Unexpected error in MessageHandler::friend_req_response: ") + ex.what());
+    }
+}
+
+
 std::optional<UserProfile> MessageHandler::get_user_profile(const UserID user_id) const
 {
     try
