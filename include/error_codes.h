@@ -26,8 +26,9 @@ enum class SignupErrorCodes
 
 enum class ChangePasswordErrorCodes
 {
-    NONE = 0,
-    NEW_PASSWORD_MUST_BE_DIFFERENT = 3001,
+    SUCCESS = 0,
+    SOMETHING_WENT_WRONG = 3001,
+    NEW_PASSWORD_MUST_BE_DIFFERENT = 3002,
 };
 
 #endif //ERROR_CODES_H

@@ -1,0 +1,22 @@
+[2025-08-10 21:35:57][INFO] Server started...
+[2025-08-10 21:35:57][INFO] Listening on port: 2121
+[2025-08-10 21:36:06][INFO] Client connected with IP: 127.0.0.1
+[2025-08-10 21:36:12][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-08-10T16:06:08.320Z"}
+[2025-08-10 21:36:12][INFO] User 'vaibz' logged in successfully
+[2025-08-10 21:37:12][DEBUG] Message received from client{"message_type":107,"username":"c","requested_by":"vaibz"}
+[2025-08-10 21:37:12][DEBUG] Message received from client{"message_type":107,"username":"ch","requested_by":"vaibz"}
+[2025-08-10 21:37:14][DEBUG] Message received from client{"message_type":107,"username":"c","requested_by":"vaibz"}
+[2025-08-10 21:37:14][DEBUG] Message received from client{"message_type":107,"username":"","requested_by":"vaibz"}
+[2025-08-10 21:37:15][DEBUG] Message received from client{"message_type":107,"username":"c","requested_by":"vaibz"}
+[2025-08-10 21:37:16][DEBUG] Message received from client{"message_type":107,"username":"ch","requested_by":"vaibz"}
+[2025-08-10 21:37:17][DEBUG] Message received from client{"message_type":107,"username":"che","requested_by":"vaibz"}
+[2025-08-10 21:37:19][DEBUG] Message received from client{"message_type":107,"username":"ch","requested_by":"vaibz"}
+[2025-08-10 21:37:19][DEBUG] Message received from client{"message_type":107,"username":"c","requested_by":"vaibz"}
+[2025-08-10 21:37:19][DEBUG] Message received from client{"message_type":107,"username":"","requested_by":"vaibz"}
+[2025-08-10 22:16:13][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-08-10 22:16:13][INFO] User 'vaibz' logged out successfully
+[2025-08-10 22:19:00][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-08-10T16:48:46.514Z"}
+[2025-08-10 22:19:00][INFO] User 'vaibz' logged in successfully
+[2025-08-10 22:19:14][DEBUG] Message received from client{"message_type":107,"username":"g","requested_by":"vaibz"}
+[2025-08-10 22:22:34][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-08-10 22:22:34][INFO] User 'vaibz' logged out successfully

@@ -25,6 +25,7 @@ public:
     static std::optional<SearchUserRequest> search_user_request(const nlohmann::json &message);
     static std::optional<FriendReqRequest> friend_req_request(const nlohmann::json &message);
     static std::optional<FriendReqResponse> friend_req_response(const nlohmann::json &message);
+    static std::optional<ChangePassword> change_password_request(const nlohmann::json &message);
 };
 
 #endif //MESSAGE_PARSER_H

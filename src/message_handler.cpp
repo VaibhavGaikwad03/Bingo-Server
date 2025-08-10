@@ -2,6 +2,8 @@
 #include "../include/utils.h"
 #include "../include/error_codes.h"
 #include "../include/message_handler.h"
+
+#include "../include/message_keys.h"
 #include "../include/message_parser.h"
 #include "../include/message_structures.h"
 #include "../include/session_manager.h"
@@ -259,16 +261,11 @@ void MessageHandler::friend_req_request(const nlohmann::json &message) const
 
 void MessageHandler::friend_req_response(const nlohmann::json &message) const
 {
-        log(Log::DEBUG, "", "Test");
-
     std::optional<FriendReqResponse> parsed_request = MessageParser::friend_req_response(message);
     if (!parsed_request.has_value())
     {
         return;
     }
-
-        log(Log::DEBUG, "", "Test");
-
 
     try
     {
@@ -448,4 +445,57 @@ std::vector<PendingFriendRequest> MessageHandler::get_pending_friend_requests(co
 std::vector<ChatMessage> MessageHandler::get_chat_messages(UserID user_id)
 {
     return {};
+}
+
+ChangePasswordErrorCodes MessageHandler::change_password_request(const nlohmann::json &message) const
+{
+    std::optional<ChangePassword> parsed_request = MessageParser::change_password_request(message);
+    if (!parsed_request.has_value())
+    {
+        return ChangePasswordErrorCodes::SOMETHING_WENT_WRONG;
+    }
+
+    try
+    {
+        auto result = _user_credentials_table->select("password")
+        .where("user_id = :user_id")
+        .bind("user_id", parsed_request->user_id)
+        .execute()
+        .fetchOne();
+
+        if (result)
+        {
+            auto db_password = result[0].get<std::string>();
+
+            if (parsed_request->new_password != db_password)
+            {
+                _user_credentials_table->update()
+                .set("password", parsed_request->new_password)
+                .where("user_id = :user_id")
+                .bind("user_id", parsed_request->user_id)
+                .execute();
+
+                return ChangePasswordErrorCodes::SUCCESS;
+            }
+            else
+            {
+                return ChangePasswordErrorCodes::NEW_PASSWORD_MUST_BE_DIFFERENT;
+            }
+        }
+        else
+        {
+            return ChangePasswordErrorCodes::SOMETHING_WENT_WRONG;
+        }
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, "",
+            std::string("Database error in MessageHandler::change_password_request: ") + err.what());
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, "",
+            std::string("Unexpected error in MessageHandler::change_password_request: ") + ex.what());
+    }
+    return ChangePasswordErrorCodes::SOMETHING_WENT_WRONG;
 }

@@ -35,3 +35,219 @@
 [2025-07-31 00:09:55][INFO] User 'vaibz' logged in successfully
 [2025-07-31 00:10:05][DEBUG] Message received from client{"message_type":107,"username":"c","requested_by":"vaibz"}
 [2025-07-31 00:10:07][DEBUG] Message received from client{"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1042,"receiver":"mchavan882","name_of_receiver":"Mandar Chavan","timestamp":"2025-07-30T18:40:05.201Z"}
+[2025-07-31 21:45:51][INFO] Server started...
+[2025-07-31 21:45:51][INFO] Listening on port: 2121
+[2025-07-31 21:46:09][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:47:03][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:47:13][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-31T16:17:07.782Z"}
+[2025-07-31 21:47:13][INFO] User 'rutuja' logged in successfully
+[2025-07-31 21:48:08][DEBUG] Message received from client{"message_type":110,"sender_id":34,"sender":"Rutuja","name_of_sender":"Rutuja Dabhade","receiver_id":39,"receiver":"vaishnavi10","name_of_receiver":"Vaishnavi ","request_status":1,"timestamp":"2025-07-31T16:17:27.768Z"}
+[2025-07-31 21:48:08][DEBUG] Test
+[2025-07-31 21:48:08][DEBUG] Test
+[2025-07-31 21:48:08][DEBUG] Test
+[2025-07-31 21:48:08][DEBUG] Test
+[2025-07-31 21:48:17][INFO] Client disconnected. Client is going away, Reason: 
+[2025-07-31 21:48:18][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:48:42][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:48:50][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-31T16:18:43.190Z"}
+[2025-07-31 21:48:50][INFO] User 'rutuja' logged in successfully
+[2025-07-31 21:49:05][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:49:09][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:49:19][DEBUG] Message received from client{"message_type":101,"username":"vaishnavi10","password":"1234","timestamp":"2025-07-31T16:19:10.928Z"}
+[2025-07-31 21:49:19][INFO] User 'vaishnavi10' logged in successfully
+[2025-07-31 21:50:06][DEBUG] Message received from client{"message_type":110,"sender_id":39,"sender":"vaishnavi10","name_of_sender":"Vaishnavi ","receiver_id":34,"receiver":"rutuja","name_of_receiver":"Rutuja Dabhade","request_status":1,"timestamp":"2025-07-31T16:19:22.243Z"}
+[2025-07-31 21:50:06][DEBUG] Test
+[2025-07-31 21:50:06][DEBUG] Test
+[2025-07-31 21:50:06][DEBUG] Test
+[2025-07-31 21:50:06][DEBUG] Test
+[2025-07-31 21:50:26][DEBUG] Message received from client{"message_type":107,"username":"r","requested_by":"vaishnavi10"}
+[2025-07-31 21:50:27][DEBUG] Message received from client{"message_type":107,"username":"ru","requested_by":"vaishnavi10"}
+[2025-07-31 21:50:27][DEBUG] Message received from client{"message_type":107,"username":"rut","requested_by":"vaishnavi10"}
+[2025-07-31 21:50:27][DEBUG] Message received from client{"message_type":107,"username":"rutu","requested_by":"vaishnavi10"}
+[2025-07-31 21:50:27][DEBUG] Message received from client{"message_type":107,"username":"rutuj","requested_by":"vaishnavi10"}
+[2025-07-31 21:50:27][ERROR] [json.exception.parse_error.101] parse error at line 1, column 7: syntax error while parsing object key - invalid string: ill-formed UTF-8 byte; last read: '"m$[@¢'; expected string literal
+[2025-07-31 21:50:27][ERROR] [json.exception.parse_error.101] parse error at line 1, column 1: syntax error while parsing value - invalid literal; last read: 'y'
+[2025-07-31 21:50:34][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"rutuja"}
+[2025-07-31 21:50:35][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"rutuja"}
+[2025-07-31 21:50:35][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"rutuja"}
+[2025-07-31 21:51:08][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:51:14][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 21:51:27][DEBUG] Message received from client{"message_type":101,"username":"kuhu","password":"Kuhu@1234","timestamp":"2025-07-31T16:21:14.775Z"}
+[2025-07-31 21:51:27][INFO] User 'kuhu' logged in successfully
+[2025-07-31 21:51:31][DEBUG] Message received from client{"message_type":107,"username":"r","requested_by":"kuhu"}
+[2025-07-31 21:51:31][DEBUG] Message received from client{"message_type":107,"username":"ru","requested_by":"kuhu"}
+[2025-07-31 21:51:31][DEBUG] Message received from client{"message_type":107,"username":"rut","requested_by":"kuhu"}
+[2025-07-31 21:51:31][DEBUG] Message received from client{"message_type":107,"username":"rutu","requested_by":"kuhu"}
+[2025-07-31 21:51:34][DEBUG] Message received from client{"message_type":109,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":34,"receiver":"Rutuja","name_of_receiver":"Rutuja Dabhade","timestamp":"2025-07-31T16:21:32.347Z"}
+[2025-07-31 21:51:46][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"rutuja"}
+[2025-07-31 21:51:46][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"rutuja"}
+[2025-07-31 21:51:46][DEBUG] Message received from client{"message_type":107,"username":"","requested_by":"rutuja"}
+[2025-07-31 21:51:47][DEBUG] Message received from client{"message_type":107,"username":"k","requested_by":"rutuja"}
+[2025-07-31 21:51:48][DEBUG] Message received from client{"message_type":107,"username":"ku","requested_by":"rutuja"}
+[2025-07-31 21:51:48][DEBUG] Message received from client{"message_type":107,"username":"kuh","requested_by":"rutuja"}
+[2025-07-31 21:51:48][DEBUG] Message received from client{"message_type":107,"username":"kuhu","requested_by":"rutuja"}
+[2025-07-31 21:51:57][DEBUG] Message received from client{"message_type":107,"username":"k","requested_by":"rutuja"}
+[2025-07-31 21:51:57][DEBUG] Message received from client{"message_type":107,"username":"ku","requested_by":"rutuja"}
+[2025-07-31 21:51:57][DEBUG] Message received from client{"message_type":107,"username":"kuh","requested_by":"rutuja"}
+[2025-07-31 21:51:58][DEBUG] Message received from client{"message_type":107,"username":"kuhu","requested_by":"rutuja"}
+[2025-07-31 21:56:46][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-31 21:56:46][INFO] User 'rutuja' logged out successfully
+[2025-07-31 21:57:15][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-31T16:27:08.240Z"}
+[2025-07-31 21:57:15][INFO] User 'rutuja' logged in successfully
+[2025-07-31 21:59:50][INFO] Client disconnected. Client is going away, Reason: 
+[2025-07-31 21:59:50][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:00:03][DEBUG] Message received from client{"message_type":107,"username":"k","requested_by":"rutuja"}
+[2025-07-31 22:00:03][DEBUG] Message received from client{"message_type":107,"username":"ku","requested_by":"rutuja"}
+[2025-07-31 22:00:03][DEBUG] Message received from client{"message_type":107,"username":"kuh","requested_by":"rutuja"}
+[2025-07-31 22:00:03][DEBUG] Message received from client{"message_type":107,"username":"kuhu","requested_by":"rutuja"}
+[2025-07-31 22:00:19][DEBUG] Message received from client{"message_type":109,"sender_id":"34","sender":"rutuja","name_of_sender":"Rutuja Dabhade","receiver_id":1247,"receiver":"kuhu","name_of_receiver":"Anvi Dabhade","timestamp":"2025-07-31T16:30:11.171Z"}
+[2025-07-31 22:00:19][ERROR][friend_req_request] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 22:04:00][INFO] Client disconnected. Abnormal closure (no close frame received), Reason: Received TCP FIN before WebSocket close frame
+[2025-07-31 22:04:00][INFO] Client disconnected. Abnormal closure (no close frame received), Reason: Received TCP FIN before WebSocket close frame
+[2025-07-31 22:05:49][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:05:52][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:05:54][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:07:13][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:07:27][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:08:19][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:08:26][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:08:28][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:08:45][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:08:45][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:08:46][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:11][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:12][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:13][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:54][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:55][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:56][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:59][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:09:59][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:10:00][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:10:23][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:11:01][DEBUG] Message received from client{"message_type":110,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":"34","receiver":"rutuja","name_of_receiver":"Rutuja Dabhade","request_status":1,"timestamp":"2025-07-31T16:40:25.233Z"}
+[2025-07-31 22:11:01][DEBUG] Test
+[2025-07-31 22:11:01][DEBUG] Test
+[2025-07-31 22:11:01][DEBUG] Test
+[2025-07-31 22:11:01][ERROR][friend_req_response] [json.exception.type_error.302] type must be number, but is string
+[2025-07-31 22:11:57][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:12:13][DEBUG] Message received from client{"message_type":107,"username":"r","requested_by":"rutuja"}
+[2025-07-31 22:12:13][DEBUG] Message received from client{"message_type":107,"username":"ru","requested_by":"rutuja"}
+[2025-07-31 22:12:13][DEBUG] Message received from client{"message_type":107,"username":"rut","requested_by":"rutuja"}
+[2025-07-31 22:12:13][DEBUG] Message received from client{"message_type":107,"username":"rutu","requested_by":"rutuja"}
+[2025-07-31 22:12:41][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:13:15][DEBUG] Message received from client{"message_type":101,"username":"kuhu","password":"Kuhu@1234","timestamp":"2025-07-31T16:42:43.237Z"}
+[2025-07-31 22:13:15][INFO] User 'kuhu' logged in successfully
+[2025-07-31 22:13:19][DEBUG] Message received from client{"message_type":107,"username":"r","requested_by":"kuhu"}
+[2025-07-31 22:13:19][DEBUG] Message received from client{"message_type":107,"username":"ru","requested_by":"kuhu"}
+[2025-07-31 22:13:19][DEBUG] Message received from client{"message_type":107,"username":"rut","requested_by":"kuhu"}
+[2025-07-31 22:13:19][DEBUG] Message received from client{"message_type":107,"username":"rutu","requested_by":"kuhu"}
+[2025-07-31 22:13:43][DEBUG] Message received from client{"message_type":105,"user_id":1247,"username":"kuhu"}
+[2025-07-31 22:13:43][INFO] User 'kuhu' logged out successfully
+[2025-07-31 22:13:46][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:13:52][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-31T16:43:46.895Z"}
+[2025-07-31 22:13:52][INFO] User 'rutuja' logged in successfully
+[2025-07-31 22:13:58][DEBUG] Message received from client{"message_type":110,"sender_id":34,"sender":"Rutuja","name_of_sender":"Rutuja Dabhade","receiver_id":1247,"receiver":"kuhu","name_of_receiver":"Anvi Dabhade","request_status":1,"timestamp":"2025-07-31T16:43:56.739Z"}
+[2025-07-31 22:13:58][DEBUG] Test
+[2025-07-31 22:13:58][DEBUG] Test
+[2025-07-31 22:13:58][DEBUG] Test
+[2025-07-31 22:13:58][DEBUG] Test
+[2025-07-31 22:14:22][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:14:27][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-31 22:14:27][INFO] User 'rutuja' logged out successfully
+[2025-07-31 22:14:36][DEBUG] Message received from client{"message_type":101,"username":"kuhu","password":"Kuhu@1234","timestamp":"2025-07-31T16:44:27.972Z"}
+[2025-07-31 22:14:36][INFO] User 'kuhu' logged in successfully
+[2025-07-31 22:14:40][DEBUG] Message received from client{"message_type":107,"username":"r","requested_by":"kuhu"}
+[2025-07-31 22:14:40][DEBUG] Message received from client{"message_type":107,"username":"ru","requested_by":"kuhu"}
+[2025-07-31 22:14:40][DEBUG] Message received from client{"message_type":107,"username":"rut","requested_by":"kuhu"}
+[2025-07-31 22:14:56][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:14:57][INFO] Client disconnected. Client is going away, Reason: 
+[2025-07-31 22:19:27][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:19:29][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:19:36][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:19:50][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:20:15][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"kuhu"}
+[2025-07-31 22:20:15][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"kuhu"}
+[2025-07-31 22:20:15][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}
+[2025-07-31 22:20:15][DEBUG] Message received from client{"message_type":107,"username":"vais","requested_by":"kuhu"}
+[2025-07-31 22:20:18][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}
+[2025-07-31 22:20:20][DEBUG] Message received from client{"message_type":107,"username":"vais","requested_by":"kuhu"}
+[2025-07-31 22:20:21][DEBUG] Message received from client{"message_type":107,"username":"vaish","requested_by":"kuhu"}
+[2025-07-31 22:20:24][DEBUG] Message received from client{"message_type":109,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":39,"receiver":"vaishnavi10","name_of_receiver":"Vaishnavi ","timestamp":"2025-07-31T16:50:21.534Z"}
+[2025-07-31 22:20:34][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:20:38][DEBUG] Message received from client{"message_type":105,"user_id":1247,"username":"kuhu"}
+[2025-07-31 22:20:38][ERROR] Failed to log out user 'kuhu'
+[2025-07-31 22:21:13][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:21:15][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:21:19][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:21:27][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-31T16:51:20.377Z"}
+[2025-07-31 22:21:27][INFO] User 'rutuja' logged in successfully
+[2025-07-31 22:21:45][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"rutuja"}
+[2025-07-31 22:21:45][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"rutuja"}
+[2025-07-31 22:21:46][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"rutuja"}
+[2025-07-31 22:21:46][DEBUG] Message received from client{"message_type":107,"username":"vaib","requested_by":"rutuja"}
+[2025-07-31 22:21:46][DEBUG] Message received from client{"message_type":107,"username":"vaibh","requested_by":"rutuja"}
+[2025-07-31 22:21:46][DEBUG] Message received from client{"message_type":107,"username":"vaibha","requested_by":"rutuja"}
+[2025-07-31 22:21:48][DEBUG] Message received from client{"message_type":109,"sender_id":34,"sender":"rutuja","name_of_sender":"Rutuja Dabhade","receiver_id":1242,"receiver":"vaibhav","name_of_receiver":"Vaibhav","timestamp":"2025-07-31T16:51:47.050Z"}
+[2025-07-31 22:21:59][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-31 22:21:59][INFO] User 'rutuja' logged out successfully
+[2025-07-31 22:22:20][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-31T16:52:00.481Z"}
+[2025-07-31 22:22:20][INFO] User 'rutuja' logged in successfully
+[2025-07-31 22:22:25][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"rutuja"}
+[2025-07-31 22:22:25][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"rutuja"}
+[2025-07-31 22:22:25][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"rutuja"}
+[2025-07-31 22:22:30][DEBUG] Message received from client{"message_type":109,"sender_id":34,"sender":"rutuja","name_of_sender":"Rutuja Dabhade","receiver_id":21,"receiver":"vaibz","name_of_receiver":"Vaibhav Gaikwad","timestamp":"2025-07-31T16:52:25.787Z"}
+[2025-07-31 22:22:37][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-31 22:22:37][INFO] User 'rutuja' logged out successfully
+[2025-07-31 22:22:45][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-07-31T16:52:39.023Z"}
+[2025-07-31 22:22:45][INFO] User 'vaibz' logged in successfully
+[2025-07-31 22:22:50][INFO] Client disconnected. Client is going away, Reason: 
+[2025-07-31 22:22:51][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:22:56][DEBUG] Message received from client{"message_type":110,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":34,"receiver":"rutuja","name_of_receiver":"Rutuja Dabhade","request_status":1,"timestamp":"2025-07-31T16:52:54.152Z"}
+[2025-07-31 22:22:56][DEBUG] Test
+[2025-07-31 22:22:56][DEBUG] Test
+[2025-07-31 22:22:56][DEBUG] Test
+[2025-07-31 22:22:56][DEBUG] Test
+[2025-07-31 22:23:58][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-07-31 22:23:58][ERROR] Failed to log out user 'vaibz'
+[2025-07-31 22:24:58][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:25:00][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:25:07][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-07-31T16:55:01.259Z"}
+[2025-07-31 22:25:07][INFO] User 'rutuja' logged in successfully
+[2025-07-31 22:25:58][INFO] Client disconnected. Client is going away, Reason: 
+[2025-07-31 22:26:00][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:26:16][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-31 22:26:16][ERROR] Failed to log out user 'rutuja'
+[2025-07-31 22:39:38][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"rutuja"}
+[2025-07-31 22:39:39][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"rutuja"}
+[2025-07-31 22:39:39][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"rutuja"}
+[2025-07-31 22:39:44][DEBUG] Message received from client{"message_type":107,"username":"k","requested_by":"rutuja"}
+[2025-07-31 22:39:44][DEBUG] Message received from client{"message_type":107,"username":"ku","requested_by":"rutuja"}
+[2025-07-31 22:39:45][DEBUG] Message received from client{"message_type":107,"username":"kuh","requested_by":"rutuja"}
+[2025-07-31 22:39:47][DEBUG] Message received from client{"message_type":109,"sender_id":34,"sender":"rutuja","name_of_sender":"Rutuja Dabhade","receiver_id":1247,"receiver":"kuhu","name_of_receiver":"Anvi Dabhade","timestamp":"2025-07-31T17:09:45.850Z"}
+[2025-07-31 22:39:57][DEBUG] Message received from client{"message_type":105,"user_id":34,"username":"rutuja"}
+[2025-07-31 22:39:57][ERROR] Failed to log out user 'rutuja'
+[2025-07-31 22:40:08][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:40:10][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:40:20][DEBUG] Message received from client{"message_type":101,"username":"kuhu","password":"Kuhu@1234","timestamp":"2025-07-31T17:10:11.752Z"}
+[2025-07-31 22:40:20][INFO] User 'kuhu' logged in successfully
+[2025-07-31 22:40:46][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"kuhu"}
+[2025-07-31 22:40:47][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"kuhu"}
+[2025-07-31 22:40:47][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}
+[2025-07-31 22:40:53][DEBUG] Message received from client{"message_type":109,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":21,"receiver":"vaibz","name_of_receiver":"Vaibhav Gaikwad","timestamp":"2025-07-31T17:10:48.313Z"}
+[2025-07-31 22:42:35][DEBUG] Message received from client{"message_type":105,"user_id":1247,"username":"kuhu"}
+[2025-07-31 22:42:35][INFO] User 'kuhu' logged out successfully
+[2025-07-31 22:42:39][INFO] Client connected with IP: 127.0.0.1
+[2025-07-31 22:42:49][DEBUG] Message received from client{"message_type":101,"username":"kuhu","password":"Kuhu@1234","timestamp":"2025-07-31T17:12:40.012Z"}
+[2025-07-31 22:42:49][INFO] User 'kuhu' logged in successfully
+[2025-07-31 22:43:01][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"kuhu"}
+[2025-07-31 22:43:02][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"kuhu"}
+[2025-07-31 22:43:02][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}
+[2025-07-31 22:43:05][DEBUG] Message received from client{"message_type":109,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":39,"receiver":"vaishnavi10","name_of_receiver":"Vaishnavi ","timestamp":"2025-07-31T17:13:02.961Z"}
+[2025-07-31 22:43:05][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}
+[2025-07-31 22:43:33][DEBUG] Message received from client{"message_type":109,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":41,"receiver":"vaibz12","name_of_receiver":"vaibhav","timestamp":"2025-07-31T17:13:06.303Z"}
+[2025-07-31 22:43:33][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}
+[2025-07-31 22:43:35][DEBUG] Message received from client{"message_type":109,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":1242,"receiver":"vaibhav","name_of_receiver":"Vaibhav","timestamp":"2025-07-31T17:13:34.698Z"}
+[2025-07-31 22:43:35][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}
+[2025-07-31 22:43:37][DEBUG] Message received from client{"message_type":109,"sender_id":1247,"sender":"kuhu","name_of_sender":"Anvi Dabhade","receiver_id":1243,"receiver":"vaibz21","name_of_receiver":"Vaibhav Gaikwad","timestamp":"2025-07-31T17:13:36.478Z"}
+[2025-07-31 22:43:37][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"kuhu"}

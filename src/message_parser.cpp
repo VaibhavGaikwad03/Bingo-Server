@@ -141,3 +141,23 @@ std::optional<FriendReqResponse> MessageParser::friend_req_response(const nlohma
         return std::nullopt;
     }
 }
+
+std::optional<ChangePassword> MessageParser::change_password_request(const nlohmann::json &message)
+{
+    try
+    {
+        ChangePassword parsed_message;
+
+        parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+        parsed_message.user_id = message[MessageKeys::USER_ID];
+        parsed_message.old_password = message[MessageKeys::OLD_PASSWORD];
+        parsed_message.new_password = message[MessageKeys::NEW_PASSWORD];
+
+        return parsed_message;
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return std::nullopt;
+    }
+}

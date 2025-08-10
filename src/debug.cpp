@@ -109,3 +109,18 @@ void print_friend_req_response(const nlohmann::json &message)
         log(Log::ERROR, __func__, e.what());
     }
 }
+
+void print_change_password_request(const nlohmann::json &message)
+{
+    try
+    {
+        print_key_value(MessageKeys::MESSAGE_TYPE, message);
+        print_key_value(MessageKeys::USER_ID, message);
+        print_key_value(MessageKeys::OLD_PASSWORD, message);
+        print_key_value(MessageKeys::NEW_PASSWORD, message);
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+    }
+}

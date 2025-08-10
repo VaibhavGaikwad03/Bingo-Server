@@ -8,6 +8,7 @@
 #include "message_structures.h"
 #include "nlohmann/json.hpp"
 #include "typedefs.h"
+#include "error_codes.h"
 
 struct FoundUser
 {
@@ -44,6 +45,8 @@ public:
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
     void friend_req_request(const nlohmann::json &message) const;
     void friend_req_response(const nlohmann::json &message) const;
+    [[nodiscard]] ChangePasswordErrorCodes change_password_request(const nlohmann::json &message) const;
+
 
     friend class MessageProcessor;
 };

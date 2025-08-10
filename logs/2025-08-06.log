@@ -1,0 +1,37 @@
+[2025-08-06 23:17:51][INFO] Server started...
+[2025-08-06 23:17:51][INFO] Listening on port: 2121
+[2025-08-06 23:26:33][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:26:42][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-08-06T17:56:38.309Z"}
+[2025-08-06 23:26:42][INFO] User 'vaibz' logged in successfully
+[2025-08-06 23:26:59][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:27:03][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:27:08][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"vaibz"}
+[2025-08-06 23:27:09][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-08-06 23:27:11][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"vaibz"}
+[2025-08-06 23:27:41][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:28:25][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:28:34][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:28:51][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:29:06][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:29:26][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:29:31][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:31:24][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:31:31][DEBUG] Message received from client{"message_type":101,"username":"vaibz12","password":"12345","timestamp":"2025-08-06T18:01:24.892Z"}
+[2025-08-06 23:31:31][INFO] User 'vaibz12' logged in successfully
+[2025-08-06 23:31:38][DEBUG] Message received from client{"message_type":107,"username":"v","requested_by":"vaibz12"}
+[2025-08-06 23:31:38][DEBUG] Message received from client{"message_type":107,"username":"va","requested_by":"vaibz12"}
+[2025-08-06 23:31:38][DEBUG] Message received from client{"message_type":107,"username":"vai","requested_by":"vaibz12"}
+[2025-08-06 23:31:38][DEBUG] Message received from client{"message_type":107,"username":"vaib","requested_by":"vaibz12"}
+[2025-08-06 23:31:38][DEBUG] Message received from client{"message_type":107,"username":"vaibz","requested_by":"vaibz12"}
+[2025-08-06 23:31:41][DEBUG] Message received from client{"message_type":109,"sender_id":41,"sender":"vaibz12","name_of_sender":"vaibhav","receiver_id":21,"receiver":"vaibz","name_of_receiver":"Vaibhav Gaikwad","timestamp":"2025-08-06T18:01:38.958Z"}
+[2025-08-06 23:31:41][DEBUG] Message received from client{"message_type":107,"username":"vaibz","requested_by":"vaibz12"}
+[2025-08-06 23:31:57][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-08-06 23:31:57][INFO] User 'vaibz' logged out successfully
+[2025-08-06 23:32:01][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:32:04][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:32:05][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:32:05][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:32:05][INFO] Client connected with IP: 127.0.0.1
+[2025-08-06 23:32:33][DEBUG] Message received from client{"message_type":105,"user_id":41,"username":"vaibz12"}
+[2025-08-06 23:32:33][INFO] User 'vaibz12' logged out successfully
+[2025-08-06 23:32:40][INFO] Client connected with IP: 127.0.0.1

@@ -76,6 +76,12 @@ void MessageProcessor::process()
                 }
                 break;
 
+                case MessageTypes::CHANGE_PASSWORD_REQUEST:
+                {
+                    process_change_password_request(packet.ws, packet_data);
+                }
+                break;
+
                 default:
                     log(Log::ERROR, "", "Invalid Message Type");
                     break;
@@ -208,7 +214,7 @@ void MessageProcessor::process_login_request(WebSocket *ws,
             };
 
             log(Log::INFO, "",
-            "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out forcefully");
+                "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out forcefully");
             session->ws->send(logout_response.dump(), uWS::TEXT);
             session->ws = ws;
         }
@@ -374,13 +380,52 @@ void MessageProcessor::process_friend_req_request(WebSocket *ws,
     }
 }
 
-void MessageProcessor::process_friend_req_response(WebSocket *ws,
-                                                   const nlohmann::json &data) const
+void MessageProcessor::process_friend_req_response(WebSocket *ws, const nlohmann::json &data) const
 {
-        log(Log::DEBUG, "", "Test");
-
     print_friend_req_response(data);
-        log(Log::DEBUG, "", "Test");
 
     _message_handler.friend_req_response(data);
+}
+
+void MessageProcessor::process_change_password_request(WebSocket *ws, const nlohmann::json &data) const
+{
+    print_change_password_request(data);
+
+    ChangePasswordErrorCodes result = _message_handler.change_password_request(data);
+    if (result == ChangePasswordErrorCodes::SOMETHING_WENT_WRONG)
+    {
+        const nlohmann::json change_password_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
+            {MessageKeys::STATUS, Status::ERROR},
+            {MessageKeys::ERROR_CODE, result}
+        };
+
+        log(Log::ERROR, "", "Something went wrong while changing the password");
+
+        ws->send(change_password_response.dump(), uWS::TEXT);
+    }
+    else if (result == ChangePasswordErrorCodes::NEW_PASSWORD_MUST_BE_DIFFERENT)
+    {
+        const nlohmann::json change_password_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
+            {MessageKeys::STATUS, Status::ERROR},
+            {MessageKeys::ERROR_CODE, result}
+        };
+
+        log(Log::ERROR, "", "New password must be different that old password");
+
+        ws->send(change_password_response.dump(), uWS::TEXT);
+    }
+    else
+    {
+        const nlohmann::json change_password_response = {
+            {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
+            {MessageKeys::STATUS, Status::SUCCESS},
+            {MessageKeys::ERROR_CODE, result}
+        };
+
+        log(Log::ERROR, "", "Password changed successfully");
+
+        ws->send(change_password_response.dump(), uWS::TEXT);
+    }
 }

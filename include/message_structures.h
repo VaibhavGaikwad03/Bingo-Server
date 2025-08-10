@@ -134,4 +134,12 @@ struct ChatMessage
 };
 ///
 
+struct ChangePassword
+{
+    MessageTypes message_type;
+    int user_id;
+    std::string old_password;
+    std::string new_password;
+};
+
 #endif //MESSAGE_STRUCTURES_H

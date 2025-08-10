@@ -27,6 +27,7 @@ class MessageProcessor
     void process_friend_req_request(WebSocket *ws, nlohmann::json &data) const;
     void process_friend_req_response(WebSocket *ws, const nlohmann::json &data) const;
     void send_user_login_payloads(UserID user_id, WebSocket *ws) const;
+    void process_change_password_request(WebSocket *ws, const nlohmann::json &data) const;
 
 public:
     explicit MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv);
