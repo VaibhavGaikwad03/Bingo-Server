@@ -1,0 +1,63 @@
+1. Server-Side Implementation
+- The server will be developed using C++.
+- It will utilize the uWebSocket library to manage WebSocket connections efficiently.
+- The server will handle multiple concurrent client connections using asynchronous I/O.
+- It will manage user sessions, maintain connection states, and route messages appropriately.
+
+2. Client-Side Platform
+- The client will be web-based, built using HTML, CSS, and JavaScript.
+- It will connect to the C++ server using WebSocket.
+- The UI will support sending and receiving real-time chat messages.
+- Optionally, support for features like message timestamps, typing indicators, and message history display can be added.
+
+3. Communication Protocol
+- The protocol used for communication between the client and the server will be WebSocket, which allows for low-latency, full-duplex communication.
+- WebSocket connection lifecycle will be managed by the server (onOpen, onMessage, onClose).
+
+4. Message Format
+- Messages will be exchanged in JSON format to ensure easy parsing and structured data exchange.
+- A typical message might contain:
+
+json
+{
+    "type": "message",
+    "sender": "Vaibhav",
+    "receiver": "Rituja",
+    "content": "Hello, world!",
+    "timestamp": "2025-06-04T19:00:00Z"
+}
+
+5. JSON Parsing
+- On the server side, JSON messages will be parsed using the nlohmann/json library.
+- On the client side, the browsers native JSON methods (JSON.parse() and JSON.stringify()) will be used.
+
+6. Build System
+- The server will use CMake as the build system to manage project dependencies, compiler settings, and build configurations.
+
+7. Local to Internet Access (Development)
+- During development and testing, Ngrok will be used to expose the local server to the internet securely via HTTPS.
+- This allows real-time testing on remote devices and sharing with collaborators.
+
+8. Error Handling & Validation
+- The server will validate incoming JSON messages to ensure correct format and required fields.
+- Proper error handling will be implemented to handle unexpected disconnects, malformed messages, and protocol violations.
+
+9. Security Considerations
+- WebSocket connections will be secured using WSS (WebSocket over TLS) in production.
+- Input validation will be done to prevent common vulnerabilities like injection attacks.
+- User authentication (optional for future versions) can be added using token-based systems (e.g., JWT).
+
+10. Logging and Monitoring
+- Basic logging will be implemented on the server side to track user connections, disconnections, and message flow.
+- This can later be extended for analytics or debugging.
+
+11. Scalability and Extensibility
+- The architecture will allow future features like:
+- Private messaging
+- Chat rooms / channels
+- User authentication and profiles
+- Message persistence using a database (e.g., SQLite, PostgreSQL)
+- File or image sharing
+
+12. Development and Deployment
+- Initially, the application will be run locally for testing.

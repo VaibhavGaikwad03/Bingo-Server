@@ -20,3 +20,8 @@
 [2025-08-10 22:19:14][DEBUG] Message received from client{"message_type":107,"username":"g","requested_by":"vaibz"}
 [2025-08-10 22:22:34][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
 [2025-08-10 22:22:34][INFO] User 'vaibz' logged out successfully
+[2025-08-10 22:27:20][INFO] Server started...
+[2025-08-10 22:27:20][INFO] Listening on port: 2121
+[2025-08-10 22:27:53][INFO] Client connected with IP: 127.0.0.1
+[2025-08-10 22:28:03][DEBUG] Message received from client{"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-08-10T16:57:55.091Z"}
+[2025-08-10 22:28:03][INFO] User 'rutuja' logged in successfully
