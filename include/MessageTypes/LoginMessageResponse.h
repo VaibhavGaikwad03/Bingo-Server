@@ -5,9 +5,9 @@
 #ifndef LOGINMESSAGERESPONSE_H
 #define LOGINMESSAGERESPONSE_H
 #include "IMessageResponse.h"
-#include "../../include/error_codes.h"
-#include "../../include/message_types.h"
-#include "../../include/typedefs.h"
+#include "../error_codes.h"
+#include "../message_types.h"
+#include "../typedefs.h"
 
 class LoginMessageResponse final : public IMessageResponse
 {

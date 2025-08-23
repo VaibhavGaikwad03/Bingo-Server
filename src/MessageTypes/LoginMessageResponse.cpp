@@ -2,7 +2,7 @@
 // Created by vaibz on 23/08/25.
 //
 
-#include "LoginMessageResponse.h"
+#include "../../include/MessageTypes/LoginMessageResponse.h"
 #include "../../include/message_keys.h"
 
 LoginMessageResponse::LoginMessageResponse(const Status status, const UserID user_id,

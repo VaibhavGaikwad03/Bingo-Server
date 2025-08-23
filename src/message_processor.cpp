@@ -12,8 +12,8 @@
 #include "../include/debug.h"
 #include "../include/message_keys.h"
 #include "../include/session_manager.h"
-#include "MessageTypes/LoginMessageResponse.h"
-#include "MessageTypes/LogoutMessageResponse.h"
+#include "../include/MessageTypes/LoginMessageResponse.h"
+#include "../include/MessageTypes/LogoutMessageResponse.h"
 
 
 MessageProcessor::MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv) : _cv(cv),

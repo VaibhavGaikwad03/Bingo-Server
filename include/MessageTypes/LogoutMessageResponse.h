@@ -5,7 +5,7 @@
 #ifndef LOGOUTMESSAGERESPONSE_H
 #define LOGOUTMESSAGERESPONSE_H
 #include "IMessageResponse.h"
-#include "../../include/message_types.h"
+#include "../message_types.h"
 
 class LogoutMessageResponse final : public IMessageResponse
 {

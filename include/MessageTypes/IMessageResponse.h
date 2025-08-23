@@ -4,7 +4,7 @@
 
 #ifndef IMESSAGERESPONSE_H
 #define IMESSAGERESPONSE_H
-#include "../../include/nlohmann/json.hpp"
+#include "../nlohmann/json.hpp"
 
 
 class IMessageResponse

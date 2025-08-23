@@ -31,11 +31,11 @@ add_executable(BingoServer main.cpp
         src/message_parser.cpp
         include/message_keys.h
         include/typedefs.h
-        src/MessageTypes/IMessageResponse.h
+        include/MessageTypes/IMessageResponse.h
         src/MessageTypes/LoginMessageResponse.cpp
-        src/MessageTypes/LoginMessageResponse.h
+        include/MessageTypes/LoginMessageResponse.h
         src/MessageTypes/LogoutMessageResponse.cpp
-        src/MessageTypes/LogoutMessageResponse.h
+        include/MessageTypes/LogoutMessageResponse.h
 )
 
 # Link the required libraries
