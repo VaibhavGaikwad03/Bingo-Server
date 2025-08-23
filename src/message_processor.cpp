@@ -12,6 +12,8 @@
 #include "../include/debug.h"
 #include "../include/message_keys.h"
 #include "../include/session_manager.h"
+#include "MessageTypes/LoginMessageResponse.h"
+#include "MessageTypes/LogoutMessageResponse.h"
 
 
 MessageProcessor::MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv) : _cv(cv),
@@ -170,12 +172,17 @@ void MessageProcessor::process_login_request(WebSocket *ws,
         log(Log::ERROR, "",
             "Username does not exists: " + std::string(data[MessageKeys::USERNAME]));
 
-        const nlohmann::json login_response = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-            {MessageKeys::STATUS, Status::ERROR},
-            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-            {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
-        };
+        const LoginMessageResponse login_message_response(Status::ERROR,
+                                                          static_cast<UserID>(ErrorCodes::INVALID_USER_ID),
+                                                          LoginErrorCodes::USERNAME_NOT_FOUND);
+        const nlohmann::json login_response = login_message_response.to_json();
+
+        // const nlohmann::json login_response = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+        //     {MessageKeys::STATUS, Status::ERROR},
+        //     {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+        //     {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
+        // };
 
         ws->send(login_response.dump(), uWS::TEXT);
     }
@@ -184,23 +191,31 @@ void MessageProcessor::process_login_request(WebSocket *ws,
         log(Log::ERROR, "",
             "Password is incorrect for user: " + std::string(data[MessageKeys::USERNAME]));
 
-        const nlohmann::json login_response = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-            {MessageKeys::STATUS, Status::ERROR},
-            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-            {MessageKeys::ERROR_CODE, LoginErrorCodes::PASSWORD_IS_INCORRECT}
-        };
+        const LoginMessageResponse login_message_response(Status::ERROR,
+                                                          static_cast<UserID>(ErrorCodes::INVALID_USER_ID),
+                                                          LoginErrorCodes::PASSWORD_IS_INCORRECT);
+        const nlohmann::json login_response = login_message_response.to_json();
+        // const nlohmann::json login_response = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+        //     {MessageKeys::STATUS, Status::ERROR},
+        //     {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+        //     {MessageKeys::ERROR_CODE, LoginErrorCodes::PASSWORD_IS_INCORRECT}
+        // };
 
         ws->send(login_response.dump(), uWS::TEXT);
     }
     else
     {
-        nlohmann::json login_response = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-            {MessageKeys::STATUS, Status::SUCCESS},
-            {MessageKeys::USER_ID, result},
-            {MessageKeys::ERROR_CODE, LoginErrorCodes::NONE}
-        };
+        const LoginMessageResponse login_message_response(Status::SUCCESS,
+                                                          result,
+                                                          LoginErrorCodes::NONE);
+        const nlohmann::json login_response = login_message_response.to_json();
+        // nlohmann::json login_response = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+        //     {MessageKeys::STATUS, Status::SUCCESS},
+        //     {MessageKeys::USER_ID, result},
+        //     {MessageKeys::ERROR_CODE, LoginErrorCodes::NONE}
+        // };
 
         // Only one active session is allowed per user across all devices.
         SessionManager *session_manager = SessionManager::instance();
@@ -208,10 +223,13 @@ void MessageProcessor::process_login_request(WebSocket *ws,
         {
             Session *session = session_manager->get_session(result);
 
-            const nlohmann::json logout_response = {
-                {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
-                {MessageKeys::STATUS, Status::SUCCESS}
-            };
+            const LogoutMessageResponse logout_message_response(Status::SUCCESS);
+            const nlohmann::json logout_response = logout_message_response.to_json();
+
+            // const nlohmann::json logout_response = {
+            //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
+            //     {MessageKeys::STATUS, Status::SUCCESS}
+            // };
 
             log(Log::INFO, "",
                 "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out forcefully");
@@ -240,7 +258,7 @@ void MessageProcessor::process_logout_request(WebSocket *ws,
 {
     print_logout_request(data);
 
-    Status status = _message_handler.logout_request(data);
+    const Status status = _message_handler.logout_request(data);
     if (status == Status::ERROR)
     {
         log(Log::ERROR, "",
@@ -252,10 +270,13 @@ void MessageProcessor::process_logout_request(WebSocket *ws,
             "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out successfully");
     }
 
-    const nlohmann::json logout_response = {
-        {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
-        {MessageKeys::STATUS, status}
-    };
+    const LogoutMessageResponse logout_message_response(status);
+    const nlohmann::json logout_response = logout_message_response.to_json();
+
+    // const nlohmann::json logout_response = {
+    //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGOUT_RESPONSE},
+    //     {MessageKeys::STATUS, status}
+    // };
 
     ws->send(logout_response.dump(), uWS::TEXT);
 }
