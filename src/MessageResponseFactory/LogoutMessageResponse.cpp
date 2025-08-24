@@ -2,7 +2,7 @@
 // Created by vaibz on 23/08/25.
 //
 
-#include "../../include/MessageTypes/LogoutMessageResponse.h"
+#include "../../include/MessageResponseFactory/LogoutMessageResponse.h"
 #include "../../include/message_keys.h"
 
 LogoutMessageResponse::LogoutMessageResponse(const Status status) : _status(status)
