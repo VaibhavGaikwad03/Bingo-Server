@@ -10,10 +10,10 @@
 class SearchUserRequestResponse final : public IMessageResponse
 {
     int _count;
-    nlohmann::json::array_t _users;
+    nlohmann::json _users;
 
 public:
-    SearchUserRequestResponse(int count, nlohmann::json::array_t users);
+    SearchUserRequestResponse(int count, nlohmann::json users);
     [[nodiscard]] nlohmann::json to_json() const override;
 };
 

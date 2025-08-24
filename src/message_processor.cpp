@@ -392,10 +392,11 @@ void MessageProcessor::process_search_user_request(WebSocket *ws,
         //     {MessageKeys::USERS, nlohmann::json::array()}
         // };
 
-        nlohmann::json::array_t users;
+        nlohmann::json users = nlohmann::json::array();
 
         for (const auto &found_user: found_users)
         {
+            // search_user_response[MessageKeys::USERS].push_back({
             users.push_back({
                 {MessageKeys::USER_ID, found_user.user_id},
                 {MessageKeys::USERNAME, found_user.username},
@@ -406,6 +407,8 @@ void MessageProcessor::process_search_user_request(WebSocket *ws,
 
         const SearchUserRequestResponse search_user_request_response(static_cast<int>(found_users.size()), users);
         const nlohmann::json search_user_response = search_user_request_response.to_json();
+
+        log(Log::DEBUG, "", search_user_response.dump());
 
         std::cout << "sent: " << search_user_response.dump() << std::endl;
         ws->send(search_user_response.dump(), uWS::TEXT);

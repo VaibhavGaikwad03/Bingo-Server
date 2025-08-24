@@ -9,7 +9,7 @@
 #include "../../include/message_keys.h"
 #include "../../include/message_types.h"
 
-SearchUserRequestResponse::SearchUserRequestResponse(const int count, nlohmann::json::array_t users) : _count(count),
+SearchUserRequestResponse::SearchUserRequestResponse(const int count, nlohmann::json users) : _count(count),
     _users(std::move(users))
 {
 }
@@ -17,7 +17,7 @@ SearchUserRequestResponse::SearchUserRequestResponse(const int count, nlohmann::
 nlohmann::json SearchUserRequestResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+        {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},
         {MessageKeys::COUNT, _count},
         {MessageKeys::USERS, _users}
     };
