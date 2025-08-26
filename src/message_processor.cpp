@@ -12,6 +12,7 @@
 #include "../include/debug.h"
 #include "../include/message_keys.h"
 #include "../include/session_manager.h"
+#include "../include/MessageResponseFactory/ChangePasswordResponse.h"
 #include "../include/MessageResponseFactory/LoginMessageResponse.h"
 #include "../include/MessageResponseFactory/LogoutMessageResponse.h"
 #include "../include/MessageResponseFactory/SearchUserRequestResponse.h"
@@ -174,17 +175,17 @@ void MessageProcessor::process_login_request(WebSocket *ws,
         log(Log::ERROR, "",
             "Username does not exists: " + std::string(data[MessageKeys::USERNAME]));
 
-        // const LoginMessageResponse login_message_response(Status::ERROR,
-        //                                                   static_cast<UserID>(ErrorCodes::INVALID_USER_ID),
-        //                                                   LoginErrorCodes::USERNAME_NOT_FOUND);
-        // const nlohmann::json login_response = login_message_response.to_json();
+        const LoginMessageResponse login_message_response(Status::ERROR,
+                                                          static_cast<UserID>(ErrorCodes::INVALID_USER_ID),
+                                                          LoginErrorCodes::USERNAME_NOT_FOUND);
+        const nlohmann::json login_response = login_message_response.to_json();
 
-        const nlohmann::json login_response = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-            {MessageKeys::STATUS, Status::ERROR},
-            {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-            {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
-        };
+        // const nlohmann::json login_response = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+        //     {MessageKeys::STATUS, Status::ERROR},
+        //     {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
+        //     {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
+        // };
 
         ws->send(login_response.dump(), uWS::TEXT);
     }
@@ -452,38 +453,47 @@ void MessageProcessor::process_change_password_request(WebSocket *ws, const nloh
     ChangePasswordErrorCodes result = _message_handler.change_password_request(data);
     if (result == ChangePasswordErrorCodes::SOMETHING_WENT_WRONG)
     {
-        const nlohmann::json change_password_response = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
-            {MessageKeys::STATUS, Status::ERROR},
-            {MessageKeys::ERROR_CODE, result}
-        };
+        // const nlohmann::json change_password_response = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
+        //     {MessageKeys::STATUS, Status::ERROR},
+        //     {MessageKeys::ERROR_CODE, result}
+        // };
+
+        const ChangePasswordResponse change_password_response(Status::ERROR,  result);
+        const nlohmann::json change_password = change_password_response.to_json();
 
         log(Log::ERROR, "", "Something went wrong while changing the password");
 
-        ws->send(change_password_response.dump(), uWS::TEXT);
+        ws->send(change_password.dump(), uWS::TEXT);
     }
     else if (result == ChangePasswordErrorCodes::NEW_PASSWORD_MUST_BE_DIFFERENT)
     {
-        const nlohmann::json change_password_response = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
-            {MessageKeys::STATUS, Status::ERROR},
-            {MessageKeys::ERROR_CODE, result}
-        };
+        // const nlohmann::json change_password_response = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
+        //     {MessageKeys::STATUS, Status::ERROR},
+        //     {MessageKeys::ERROR_CODE, result}
+        // };
+
+        const ChangePasswordResponse change_password_response(Status::ERROR,  result);
+        const nlohmann::json change_password = change_password_response.to_json();
 
         log(Log::ERROR, "", "New password must be different that old password");
 
-        ws->send(change_password_response.dump(), uWS::TEXT);
+        ws->send(change_password.dump(), uWS::TEXT);
     }
     else
     {
-        const nlohmann::json change_password_response = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
-            {MessageKeys::STATUS, Status::SUCCESS},
-            {MessageKeys::ERROR_CODE, result}
-        };
+        // const nlohmann::json change_password_response = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
+        //     {MessageKeys::STATUS, Status::SUCCESS},
+        //     {MessageKeys::ERROR_CODE, result}
+        // };
+
+        const ChangePasswordResponse change_password_response(Status::SUCCESS,  result);
+        const nlohmann::json change_password = change_password_response.to_json();
 
         log(Log::ERROR, "", "Password changed successfully");
 
-        ws->send(change_password_response.dump(), uWS::TEXT);
+        ws->send(change_password.dump(), uWS::TEXT);
     }
 }

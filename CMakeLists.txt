@@ -40,6 +40,8 @@ add_executable(BingoServer main.cpp
         include/MessageResponseFactory/SignupMessageResponse.h
         src/MessageResponseFactory/SearchUserRequestResponse.cpp
         include/MessageResponseFactory/SearchUserRequestResponse.h
+        include/MessageResponseFactory/ChangePasswordResponse.h
+        src/MessageResponseFactory/ChangePasswordResponse.cpp
 )
 
 # Link the required libraries
