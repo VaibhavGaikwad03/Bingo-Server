@@ -1,4 +1,6 @@
 #include <fstream>
+
+#include "include/handle_signals.h"
 #include "include/log.h"
 #include "include/server.h"
 
@@ -23,6 +25,9 @@ int main()
         int port = parsed_config["port"];
 
         Server server(ip, port);
+
+        // init signal handlers
+        init_signal_handler();
 
         server.run();
     }
