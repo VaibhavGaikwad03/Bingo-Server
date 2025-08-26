@@ -17,6 +17,7 @@
 #include "../include/MessageResponseFactory/LogoutMessageResponse.h"
 #include "../include/MessageResponseFactory/SearchUserRequestResponse.h"
 #include "../include/MessageResponseFactory/SignupMessageResponse.h"
+#include "../include/MessageResponseFactory/UserProfileMessage.h"
 
 
 MessageProcessor::MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv) : _cv(cv),
@@ -112,19 +113,23 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
             return;
         }
 
+        // const nlohmann::json user_profile_message = {
+        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PROFILE_INFORMATION},
+        //     {MessageKeys::FULLNAME, user_profile->name},
+        //     {MessageKeys::USERNAME, user_profile->username},
+        //     {MessageKeys::DOB, user_profile->dob},
+        //     {MessageKeys::GENDER, user_profile->gender},
+        //     {MessageKeys::EMAIL, user_profile->email},
+        //     {MessageKeys::PHONE, user_profile->phone},
+        // };
 
-        const nlohmann::json user_profile_message = {
-            {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PROFILE_INFORMATION},
-            {MessageKeys::FULLNAME, user_profile->name},
-            {MessageKeys::USERNAME, user_profile->username},
-            {MessageKeys::DOB, user_profile->dob},
-            {MessageKeys::GENDER, user_profile->gender},
-            {MessageKeys::EMAIL, user_profile->email},
-            {MessageKeys::PHONE, user_profile->phone},
-        };
-        std::cout << user_profile_message.dump() << std::endl;
+        UserProfileMessage user_profile_message(user_profile->name, user_profile->username, user_profile->dob,
+                                                user_profile->gender, user_profile->email, user_profile->phone);
+        nlohmann::json user_profile_payload = user_profile_message.to_json();
 
-        ws->send(user_profile_message.dump(), uWS::TEXT);
+        std::cout << user_profile_payload.dump() << std::endl;
+
+        ws->send(user_profile_payload.dump(), uWS::TEXT);
 
         // fetch pending friend request list
         std::vector<PendingFriendRequest> pending_friend_requests = _message_handler.
@@ -459,7 +464,7 @@ void MessageProcessor::process_change_password_request(WebSocket *ws, const nloh
         //     {MessageKeys::ERROR_CODE, result}
         // };
 
-        const ChangePasswordResponse change_password_response(Status::ERROR,  result);
+        const ChangePasswordResponse change_password_response(Status::ERROR, result);
         const nlohmann::json change_password = change_password_response.to_json();
 
         log(Log::ERROR, "", "Something went wrong while changing the password");
@@ -474,7 +479,7 @@ void MessageProcessor::process_change_password_request(WebSocket *ws, const nloh
         //     {MessageKeys::ERROR_CODE, result}
         // };
 
-        const ChangePasswordResponse change_password_response(Status::ERROR,  result);
+        const ChangePasswordResponse change_password_response(Status::ERROR, result);
         const nlohmann::json change_password = change_password_response.to_json();
 
         log(Log::ERROR, "", "New password must be different that old password");
@@ -489,7 +494,7 @@ void MessageProcessor::process_change_password_request(WebSocket *ws, const nloh
         //     {MessageKeys::ERROR_CODE, result}
         // };
 
-        const ChangePasswordResponse change_password_response(Status::SUCCESS,  result);
+        const ChangePasswordResponse change_password_response(Status::SUCCESS, result);
         const nlohmann::json change_password = change_password_response.to_json();
 
         log(Log::ERROR, "", "Password changed successfully");
