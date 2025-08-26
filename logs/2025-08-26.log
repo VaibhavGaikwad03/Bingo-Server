@@ -25,3 +25,9 @@
 [2025-08-26 22:58:27][INFO] Server started...
 [2025-08-26 22:58:27][INFO] Listening on port: 2121
 [2025-08-26 22:58:30][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-08-26 23:01:53][INFO] Server started...
+[2025-08-26 23:01:53][INFO] Listening on port: 2121
+[2025-08-26 23:01:56][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-08-26 23:01:59][INFO] Server started...
+[2025-08-26 23:01:59][INFO] Listening on port: 2121
+[2025-08-26 23:02:01][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.

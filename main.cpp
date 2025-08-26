@@ -1,6 +1,6 @@
 #include <fstream>
 
-#include "include/handle_signals.h"
+#include "include/SignalHandler/handle_signals.h"
 #include "include/log.h"
 #include "include/server.h"
 

@@ -46,8 +46,8 @@ add_executable(BingoServer main.cpp
         src/MessageResponseFactory/UserProfileMessage.cpp
         include/MessageResponseFactory/PendingFriendRequests.h
         src/MessageResponseFactory/PendingFriendRequests.cpp
-        src/handle_signals.cpp
-        include/handle_signals.h
+        src/SignalHandler/handle_signals.cpp
+        include/SignalHandler/handle_signals.h
 )
 
 # Link the required libraries

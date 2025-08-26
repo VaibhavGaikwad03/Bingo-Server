@@ -3,8 +3,8 @@
 //
 
 #include <csignal>
-#include "../include/handle_signals.h"
-#include "../include/log.h"
+#include "../../include/SignalHandler/handle_signals.h"
+#include "../../include/log.h"
 
 void init_signal_handler()
 {
