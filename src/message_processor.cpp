@@ -15,6 +15,7 @@
 #include "../include/MessageResponseFactory/ChangePasswordResponse.h"
 #include "../include/MessageResponseFactory/LoginMessageResponse.h"
 #include "../include/MessageResponseFactory/LogoutMessageResponse.h"
+#include "../include/MessageResponseFactory/PendingFriendRequests.h"
 #include "../include/MessageResponseFactory/SearchUserRequestResponse.h"
 #include "../include/MessageResponseFactory/SignupMessageResponse.h"
 #include "../include/MessageResponseFactory/UserProfileMessage.h"
@@ -152,10 +153,13 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
                 std::cout << request_list.dump() << std::endl;
             }
 
-            nlohmann::json pending_friend_requests_list = {
-                {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PENDING_FRIEND_REQUESTS_LIST},
-                {MessageKeys::PENDING_FRIEND_REQUESTS_LIST, request_list}
-            };
+            // nlohmann::json pending_friend_requests_list = {
+            //     {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PENDING_FRIEND_REQUESTS_LIST},
+            //     {MessageKeys::PENDING_FRIEND_REQUESTS_LIST, request_list}
+            // };
+
+            PendingFriendRequests pending_frnd_requests(request_list);
+            nlohmann::json pending_friend_requests_list = pending_frnd_requests.to_json();
 
             std::cout << pending_friend_requests_list.dump() << std::endl;
 
