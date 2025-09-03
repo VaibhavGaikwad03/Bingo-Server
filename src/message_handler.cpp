@@ -153,7 +153,8 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
         mysqlx::RowResult result =
                 _user_credentials_table
                 ->select("*")
-                .where("username LIKE :pattern AND username != :current_username")
+                .where("(username LIKE :pattern OR fullname LIKE :pattern) AND username != :current_username")
+                .limit(30)
                 .bind("pattern", "%" + parsed_request->username + "%")
                 .bind("current_username", parsed_request->requested_by) // Set this properly
                 .execute();
@@ -182,7 +183,6 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
             else
             {
                 auto request_result = request_status_result[0].get<std::string>();
-                std::cout << found_user.username << ": " << request_result << std::endl;
 
                 if (request_result == "rejected")
                 {
@@ -199,17 +199,16 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
             }
             users.push_back(found_user);
         }
-        std::cout << std::endl;
     }
     catch (const mysqlx::Error &err)
     {
-        log(Log::ERROR, "", std::string("Database error in search_user: ") + err.what());
+        log(Log::ERROR, __func__, std::string("Database error in search_user: ") + err.what());
         return {};
     }
     catch (const std::exception &ex)
     {
         // Safety net for JSON / std errors
-        log(Log::ERROR, "", std::string("Unexpected error in search_user: ") + ex.what());
+        log(Log::ERROR, __func__, std::string("Unexpected error in search_user: ") + ex.what());
         return {};
     }
 

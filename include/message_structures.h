@@ -25,7 +25,7 @@ enum class UserCredentialsTableIndex : uint8_t
 struct DataPacket
 {
     WebSocket *ws;
-    std::string_view data;
+    std::string data;
     uWS::OpCode opCode;
 };
 

@@ -45,7 +45,11 @@ void MessageProcessor::process()
         {
             nlohmann::json packet_data = nlohmann::json::parse(packet.data);
 
-            switch (MessageTypes message_type = packet_data[MessageKeys::MESSAGE_TYPE])
+            log(Log::DEBUG, __func__,  std::string("in process func: ") + packet_data.dump());
+
+            auto message_type = static_cast<MessageTypes>(packet_data[MessageKeys::MESSAGE_TYPE].get<int>());
+
+            switch (message_type)
             {
                 case MessageTypes::LOGIN_REQUEST:
                 {
@@ -96,7 +100,7 @@ void MessageProcessor::process()
         }
         catch (const std::exception &e)
         {
-            log(Log::ERROR, "", e.what());
+            log(Log::ERROR, __func__, e.what());
         }
     }
 }
@@ -128,7 +132,7 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
                                                 user_profile->gender, user_profile->email, user_profile->phone);
         nlohmann::json user_profile_payload = user_profile_message.to_json();
 
-        std::cout << user_profile_payload.dump() << std::endl;
+        // std::cout << user_profile_payload.dump() << std::endl;
 
         ws->send(user_profile_payload.dump(), uWS::TEXT);
 
@@ -150,7 +154,7 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
                     {MessageKeys::REQUEST_STATUS, pending_friend_request.request_status},
                     {MessageKeys::TIMESTAMP, pending_friend_request.timestamp}
                 });
-                std::cout << request_list.dump() << std::endl;
+                // std::cout << request_list.dump() << std::endl;
             }
 
             // nlohmann::json pending_friend_requests_list = {
@@ -161,7 +165,7 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
             PendingFriendRequests pending_frnd_requests(request_list);
             nlohmann::json pending_friend_requests_list = pending_frnd_requests.to_json();
 
-            std::cout << pending_friend_requests_list.dump() << std::endl;
+            // std::cout << pending_friend_requests_list.dump() << std::endl;
 
             ws->send(pending_friend_requests_list.dump(), uWS::TEXT);
         }
@@ -378,7 +382,7 @@ void MessageProcessor::process_signup_request(WebSocket *ws, nlohmann::json &dat
 void MessageProcessor::process_search_user_request(WebSocket *ws,
                                                    nlohmann::json &data) const
 {
-    //print_search_user_request(packet_data); // debug
+    print_search_user_request(data); // debug
 
     std::vector<FoundUser> found_users = _message_handler.search_user(data);
     if (found_users.empty())
@@ -420,7 +424,7 @@ void MessageProcessor::process_search_user_request(WebSocket *ws,
 
         log(Log::DEBUG, "", search_user_response.dump());
 
-        std::cout << "sent: " << search_user_response.dump() << std::endl;
+        // std::cout << "sent: " << search_user_response.dump() << std::endl;
         ws->send(search_user_response.dump(), uWS::TEXT);
     }
 }
@@ -438,7 +442,7 @@ void MessageProcessor::process_friend_req_request(WebSocket *ws,
             std::atoi(data[MessageKeys::RECEIVER_ID].dump().c_str()));
         if (session) // session found
         {
-            std::cout << data.dump() << std::endl;
+            // std::cout << data.dump() << std::endl;
             session->ws->send(data.dump(), uWS::TEXT);
         }
     }

@@ -1,0 +1,20 @@
+[2025-08-31 11:45:59][INFO] Server started...
+[2025-08-31 11:45:59][INFO] Listening on port: 2121
+[2025-08-31 11:47:08][INFO] Client connected with IP: 127.0.0.1
+[2025-08-31 11:47:16][INFO] Client connected with IP: 127.0.0.1
+[2025-08-31 11:47:20][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-08-31T06:17:16.036Z"}
+[2025-08-31 11:47:20][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-08-31T06:17:16.036Z","username":"vaibz"}
+[2025-08-31 11:47:20][DEBUG] {"error_code":0,"message_type":102,"status":0,"user_id":21}
+[2025-08-31 11:47:20][INFO] User 'vaibz' logged in successfully
+[2025-08-31 11:47:31][INFO] Client disconnected. Client is going away, Reason: 
+[2025-08-31 11:47:49][INFO] Client connected with IP: 127.0.0.1
+[2025-08-31 11:48:13][DEBUG] Message received from client{"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-08-31T06:18:08.866Z"}
+[2025-08-31 11:48:13][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-08-31T06:18:08.866Z","username":"vaibz"}
+[2025-08-31 11:48:13][DEBUG] {"error_code":0,"message_type":102,"status":0,"user_id":21}
+[2025-08-31 11:48:13][INFO] User 'vaibz' logged in successfully
+[2025-08-31 11:48:23][DEBUG] Message received from client{"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-08-31 11:48:23][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-08-31 11:48:23][INFO] User 'vaibz' logged out successfully
+[2025-08-31 11:48:23][DEBUG] {"message_type":106,"status":0}
+[2025-08-31 11:48:28][INFO] Client connected with IP: 127.0.0.1
+[2025-08-31 12:19:00][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.

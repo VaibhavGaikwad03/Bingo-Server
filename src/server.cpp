@@ -82,9 +82,9 @@ void Server::connection_closed(const WebSocket *ws, const int code,
 void Server::message_received(WebSocket *ws, const std::string_view data,
                               const uWS::OpCode opCode)
 {
-    log(Log::DEBUG, "", "Message received from client" + std::string(data));
+    log(Log::DEBUG, "", "Message received from client " + std::string(data));
 
-    const DataPacket data_packet = {ws, data, opCode};
+    const DataPacket data_packet = {ws, std::string(data), opCode};
 
     _mtx_queue.enqueue(data_packet);
 
