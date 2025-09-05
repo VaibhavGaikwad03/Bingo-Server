@@ -1,0 +1,32 @@
+[2025-09-06 00:12:45][INFO] Server started...
+[2025-09-06 00:12:45][INFO] Listening on port: 2121
+[2025-09-06 00:13:38][INFO] Client connected with IP: 127.0.0.1
+[2025-09-06 00:13:45][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-09-05T18:43:39.942Z"}
+[2025-09-06 00:13:45][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-05T18:43:39.942Z","username":"vaibz"}
+[2025-09-06 00:13:45][DEBUG] {"error_code":0,"message_type":102,"status":0,"user_id":21}
+[2025-09-06 00:13:45][INFO] User 'vaibz' logged in successfully
+[2025-09-06 00:17:17][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-09-06 00:19:50][INFO] Server started...
+[2025-09-06 00:19:50][INFO] Listening on port: 2121
+[2025-09-06 00:20:12][INFO] Client connected with IP: 127.0.0.1
+[2025-09-06 00:20:17][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-09-05T18:50:12.358Z"}
+[2025-09-06 00:20:17][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-05T18:50:12.358Z","username":"vaibz"}
+[2025-09-06 00:20:17][DEBUG] {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","error_code":0,"message_type":102,"status":0,"user_id":21}
+[2025-09-06 00:20:17][INFO] User 'vaibz' logged in successfully
+[2025-09-06 00:21:21][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-09-06 00:21:23][INFO] Server started...
+[2025-09-06 00:21:23][INFO] Listening on port: 2121
+[2025-09-06 00:21:32][INFO] Client connected with IP: 127.0.0.1
+[2025-09-06 00:21:37][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-09-05T18:51:32.211Z"}
+[2025-09-06 00:21:37][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-05T18:51:32.211Z","username":"vaibz"}
+[2025-09-06 00:22:01][DEBUG] {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","error_code":0,"message_type":102,"status":0,"user_id":21}
+[2025-09-06 00:22:01][INFO] User 'vaibz' logged in successfully
+[2025-09-06 00:22:09][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-09-06 00:22:09][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-09-06 00:22:09][INFO] User 'vaibz' logged out successfully
+[2025-09-06 00:22:09][DEBUG] {"message_type":106,"status":0}
+[2025-09-06 00:22:15][INFO] Client connected with IP: 127.0.0.1
+[2025-09-06 00:22:21][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-05T18:52:15.089Z"}
+[2025-09-06 00:22:21][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-05T18:52:15.089Z","username":"rutuja"}
+[2025-09-06 00:22:35][DEBUG] {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","error_code":0,"message_type":102,"status":0,"user_id":34}
+[2025-09-06 00:22:35][INFO] User 'rutuja' logged in successfully

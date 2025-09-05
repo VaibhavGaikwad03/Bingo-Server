@@ -9,7 +9,8 @@
     "message_type": Login_Response
     "status": "error or success",
     "user_id": "",
-    "error_code": 0
+    "error_code": 0,
+    "auth_token": adfecvdac
   }
 ,
   {

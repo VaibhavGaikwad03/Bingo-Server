@@ -1,13 +1,11 @@
-#include "../include/log.h"
+#include "../include/utils/log.h"
 #include "../include/utils.h"
 #include "../include/error_codes.h"
 #include "../include/message_handler.h"
-
-#include "../include/message_keys.h"
 #include "../include/message_parser.h"
 #include "../include/message_structures.h"
 #include "../include/session_manager.h"
-
+#include "../include/utils/token_generator.h"
 
 MessageHandler::MessageHandler()
 {
@@ -20,10 +18,11 @@ MessageHandler::MessageHandler()
         _friendship_table = std::make_unique<mysqlx::Table>(_database->getTable("friendship"));
         _friend_request_table = std::make_unique<mysqlx::Table>(_database->getTable("friend_request"));
         _message_history_table = std::make_unique<mysqlx::Table>(_database->getTable("message_history"));
+        _auth_tokens_table = std::make_unique<mysqlx::Table>(_database->getTable("auth_tokens"));
     }
     catch (const std::exception &e)
     {
-        log(Log::ERROR, "", e.what());
+        log(Log::ERROR, __func__, e.what());
         exit(EXIT_FAILURE);
     }
 }
@@ -32,13 +31,13 @@ MessageHandler::~MessageHandler()
 = default;
 
 
-UserID MessageHandler::login(const nlohmann::json &message) const
+std::optional<LoginMessageResponse> MessageHandler::login(const nlohmann::json &message) const
 // if successful returns user id else returns error code
 {
     std::optional<LoginMessageRequest> parsed_message = MessageParser::login_message_request(message);
     if (!parsed_message.has_value())
     {
-        return utils::to_underlying(LoginErrorCodes::SOMETHING_WENT_WRONG);
+        return std::nullopt;
     }
 
     auto result = _user_credentials_table->select("user_id", "username", "password")
@@ -49,16 +48,41 @@ UserID MessageHandler::login(const nlohmann::json &message) const
     mysqlx::Row row = result.fetchOne();
     if (!row) // fix it - compare db username and packet username
     {
-        return utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND); // invalid username
+        LoginMessageResponse login_response(Status::ERROR, -1, LoginErrorCodes::USERNAME_NOT_FOUND, "");
+        return login_response; // invalid username
     }
 
     auto db_password = row[utils::to_underlying(UserCredentialsTableIndex::PASSWORD)].get<std::string>();
     if (db_password != parsed_message->password)
     {
-        return utils::to_underlying(LoginErrorCodes::PASSWORD_IS_INCORRECT); // invalid password
+        LoginMessageResponse login_response(Status::ERROR, -1, LoginErrorCodes::PASSWORD_IS_INCORRECT, "");
+        return login_response; // invalid password
     }
 
-    return row[utils::to_underlying(UserCredentialsTableIndex::USER_ID)].get<UserID>();
+    UserID valid_user_id = row[utils::to_underlying(UserCredentialsTableIndex::USER_ID)].get<UserID>();
+
+    auto row_token = _auth_tokens_table->select("token")
+                    .where("user_id = :user_id")
+                    .bind("user_id", valid_user_id)
+                    .execute()
+                    .fetchOne();
+
+    std::string new_token;
+    if (!row_token)
+    {
+        new_token = generate_token(32);
+        _auth_tokens_table->insert("user_id", "token")
+        .values(valid_user_id, new_token)
+        .execute();
+    }
+
+    if (new_token.empty())
+    {
+        new_token = row_token[0].get<std::string>();
+    }
+
+    LoginMessageResponse login_response(Status::SUCCESS, valid_user_id, LoginErrorCodes::NONE, new_token);
+    return login_response;
 }
 
 Status MessageHandler::logout_request(const nlohmann::json &message) const

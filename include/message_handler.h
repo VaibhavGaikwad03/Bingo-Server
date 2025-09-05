@@ -9,6 +9,7 @@
 #include "nlohmann/json.hpp"
 #include "typedefs.h"
 #include "error_codes.h"
+#include "../include/MessageResponseFactory/LoginMessageResponse.h"
 
 struct FoundUser
 {
@@ -27,6 +28,7 @@ class MessageHandler
     std::unique_ptr<mysqlx::Table> _friend_request_table;
     std::unique_ptr<mysqlx::Table> _message_history_table;
     std::unique_ptr<mysqlx::Table> _user_credentials_table;
+    std::unique_ptr<mysqlx::Table> _auth_tokens_table;
 
     [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
     [[nodiscard]] std::optional<UserProfile> get_user_profile(UserID user_id) const;
@@ -39,7 +41,7 @@ public:
 
     ~MessageHandler();
 
-    [[nodiscard]] UserID login(const nlohmann::json &message) const;
+    [[nodiscard]] std::optional<LoginMessageResponse> login(const nlohmann::json &message) const;
     [[nodiscard]] Status logout_request(const nlohmann::json &message) const;
     [[nodiscard]] UserID signup(const nlohmann::json &message) const;
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;

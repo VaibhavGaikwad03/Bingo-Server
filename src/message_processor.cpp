@@ -2,7 +2,7 @@
 // Created by vaibz on 11/6/25.
 //
 
-#include "../include/log.h"
+#include "../include/utils/log.h"
 #include "../include/utils.h"
 #include "../include/error_codes.h"
 #include "../include/message_types.h"
@@ -110,7 +110,7 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
 {
     try
     {
-        // fetch user profile
+        // FETCH USER PROFILE
         auto user_profile = _message_handler.get_user_profile(user_id);
         if (!user_profile)
         {
@@ -132,11 +132,9 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
                                                 user_profile->gender, user_profile->email, user_profile->phone);
         nlohmann::json user_profile_payload = user_profile_message.to_json();
 
-        // std::cout << user_profile_payload.dump() << std::endl;
-
         ws->send(user_profile_payload.dump(), uWS::TEXT);
 
-        // fetch pending friend request list
+        // FETCH PENDING FRIEND REQUESTS
         std::vector<PendingFriendRequest> pending_friend_requests = _message_handler.
                 get_pending_friend_requests(user_id);
         if (!pending_friend_requests.empty())
@@ -154,7 +152,6 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
                     {MessageKeys::REQUEST_STATUS, pending_friend_request.request_status},
                     {MessageKeys::TIMESTAMP, pending_friend_request.timestamp}
                 });
-                // std::cout << request_list.dump() << std::endl;
             }
 
             // nlohmann::json pending_friend_requests_list = {
@@ -165,9 +162,12 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
             PendingFriendRequests pending_frnd_requests(request_list);
             nlohmann::json pending_friend_requests_list = pending_frnd_requests.to_json();
 
-            // std::cout << pending_friend_requests_list.dump() << std::endl;
-
             ws->send(pending_friend_requests_list.dump(), uWS::TEXT);
+
+            // FETCH FRIENDS
+
+
+            // FETCH MESSAGE HISTORY
         }
     }
     catch (nlohmann::detail::exception &ex)
@@ -182,64 +182,37 @@ void MessageProcessor::process_login_request(WebSocket *ws,
     // print_login_request(parsed_message); // debug
 
     // for now, it will send response from current thread
-    UserID result = _message_handler.login(data);
-    if (result == utils::to_underlying(LoginErrorCodes::USERNAME_NOT_FOUND))
+    std::optional<LoginMessageResponse> login_message_response = _message_handler.login(data);
+    if (login_message_response->get_login_error_codes() == LoginErrorCodes::USERNAME_NOT_FOUND)
     {
-        log(Log::ERROR, "",
+        log(Log::ERROR, __func__,
             "Username does not exists: " + std::string(data[MessageKeys::USERNAME]));
 
-        const LoginMessageResponse login_message_response(Status::ERROR,
-                                                          static_cast<UserID>(ErrorCodes::INVALID_USER_ID),
-                                                          LoginErrorCodes::USERNAME_NOT_FOUND);
-        const nlohmann::json login_response = login_message_response.to_json();
-
-        // const nlohmann::json login_response = {
-        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-        //     {MessageKeys::STATUS, Status::ERROR},
-        //     {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-        //     {MessageKeys::ERROR_CODE, LoginErrorCodes::USERNAME_NOT_FOUND}
-        // };
+        const nlohmann::json login_response = login_message_response->to_json();
 
         ws->send(login_response.dump(), uWS::TEXT);
     }
-    else if (result == utils::to_underlying(LoginErrorCodes::PASSWORD_IS_INCORRECT))
+    else if (login_message_response->get_login_error_codes() == LoginErrorCodes::PASSWORD_IS_INCORRECT)
     {
         log(Log::ERROR, "",
             "Password is incorrect for user: " + std::string(data[MessageKeys::USERNAME]));
 
-        const LoginMessageResponse login_message_response(Status::ERROR,
-                                                          static_cast<UserID>(ErrorCodes::INVALID_USER_ID),
-                                                          LoginErrorCodes::PASSWORD_IS_INCORRECT);
-        const nlohmann::json login_response = login_message_response.to_json();
-        // const nlohmann::json login_response = {
-        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-        //     {MessageKeys::STATUS, Status::ERROR},
-        //     {MessageKeys::USER_ID, ErrorCodes::INVALID_USER_ID},
-        //     {MessageKeys::ERROR_CODE, LoginErrorCodes::PASSWORD_IS_INCORRECT}
-        // };
+        const nlohmann::json login_response = login_message_response->to_json();
 
         ws->send(login_response.dump(), uWS::TEXT);
     }
     else
     {
-        const LoginMessageResponse login_message_response(Status::SUCCESS,
-                                                          result,
-                                                          LoginErrorCodes::NONE);
-        const nlohmann::json login_response = login_message_response.to_json();
-        // nlohmann::json login_response = {
-        //     {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
-        //     {MessageKeys::STATUS, Status::SUCCESS},
-        //     {MessageKeys::USER_ID, result},
-        //     {MessageKeys::ERROR_CODE, LoginErrorCodes::NONE}
-        // };
+
+        const nlohmann::json login_response = login_message_response->to_json();
 
         log(Log::DEBUG, "", login_response.dump());
 
         // Only one active session is allowed per user across all devices.
         SessionManager *session_manager = SessionManager::instance();
-        if (session_manager->is_session_exists(result)) // if session already exists
+        if (session_manager->is_session_exists(login_message_response->get_userid())) // if session already exists
         {
-            Session *session = session_manager->get_session(result);
+            Session *session = session_manager->get_session(login_message_response->get_userid());
 
             const LogoutMessageResponse logout_message_response(Status::SUCCESS);
             const nlohmann::json logout_response = logout_message_response.to_json();
@@ -257,7 +230,7 @@ void MessageProcessor::process_login_request(WebSocket *ws,
         else
         {
             // new session created
-            session_manager->create_session(result, data[MessageKeys::USERNAME], ws);
+            session_manager->create_session(login_message_response->get_userid(), data[MessageKeys::USERNAME], ws);
         }
 
         SessionManager::instance()->display_sessions(); // debug purpose
@@ -267,7 +240,7 @@ void MessageProcessor::process_login_request(WebSocket *ws,
 
         ws->send(login_response.dump(), uWS::TEXT);
 
-        send_user_login_payloads(result, ws);
+        send_user_login_payloads(login_message_response->get_userid(), ws);
     }
 }
 

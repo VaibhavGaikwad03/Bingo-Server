@@ -2,8 +2,8 @@
 #include <iostream>
 #include <filesystem>
 
-#include "../include/log.h"
-#include "../include/time.h"
+#include "../../include/utils/log.h"
+#include "../../include/utils/time.h"
 
 void log(Log log_type, const std::string &function_name, const std::string &message)
 {

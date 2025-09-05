@@ -4,19 +4,19 @@ project(BingoServer)
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(BingoServer main.cpp
-        src/time.cpp
+        src/utils/time.cpp
         src/server.cpp
         src/authenticator.cpp
-        src/log.cpp
+        src/utils/log.cpp
         src/message_processor.cpp
         include/nlohmann/json.hpp
         include/authenticator.h
-        include/log.h
+        include/utils/log.h
         include/message_processor.h
         include/message_structures.h
         include/mutex_queue.h
         include/server.h
-        include/time.h
+        include/utils/time.h
         include/utils.h
         include/error_codes.h
         include/message_types.h
@@ -48,6 +48,8 @@ add_executable(BingoServer main.cpp
         src/MessageResponseFactory/PendingFriendRequests.cpp
         src/SignalHandler/handle_signals.cpp
         include/SignalHandler/handle_signals.h
+        src/utils/token_generator.cpp
+        include/utils/token_generator.h
 )
 
 # Link the required libraries
