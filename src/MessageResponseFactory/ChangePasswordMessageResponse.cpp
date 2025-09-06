@@ -2,7 +2,7 @@
 // Created by vaibz on 26/08/25.
 //
 
-#include "../../include/MessageResponseFactory/ChangePasswordResponse.h"
+#include "../../include/MessageResponseFactory/ChangePasswordMessageResponse.h"
 
 #include "../../include/message_keys.h"
 

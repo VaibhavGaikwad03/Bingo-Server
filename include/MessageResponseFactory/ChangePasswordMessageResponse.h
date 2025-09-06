@@ -2,8 +2,8 @@
 // Created by vaibz on 26/08/25.
 //
 
-#ifndef CHANGEPASSWORDRESPONSE_H
-#define CHANGEPASSWORDRESPONSE_H
+#ifndef CHANGEPASSWORDMESSAGERESPONSE_H
+#define CHANGEPASSWORDMESSAGERESPONSE_H
 
 #include "IMessageResponse.h"
 #include "../error_codes.h"
@@ -19,4 +19,4 @@ public:
     [[nodiscard]] nlohmann::json to_json() const override;
 };
 
-#endif //CHANGEPASSWORDRESPONSE_H
+#endif //CHANGEPASSWORDMESSAGERESPONSE_H

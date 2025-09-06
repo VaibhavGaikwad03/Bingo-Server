@@ -142,4 +142,11 @@ struct ChangePassword
     std::string new_password;
 };
 
+struct ReconnectRequest
+{
+    MessageTypes message_type;
+    UserID user_id;
+    std::string auth_token;
+};
+
 #endif //MESSAGE_STRUCTURES_H

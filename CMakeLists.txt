@@ -38,10 +38,10 @@ add_executable(BingoServer main.cpp
         include/MessageResponseFactory/LogoutMessageResponse.h
         src/MessageResponseFactory/SignupMessageResponse.cpp
         include/MessageResponseFactory/SignupMessageResponse.h
-        src/MessageResponseFactory/SearchUserRequestResponse.cpp
-        include/MessageResponseFactory/SearchUserRequestResponse.h
-        include/MessageResponseFactory/ChangePasswordResponse.h
-        src/MessageResponseFactory/ChangePasswordResponse.cpp
+        src/MessageResponseFactory/SearchUserRequestMessageResponse.cpp
+        include/MessageResponseFactory/SearchUserRequestMessageResponse.h
+        include/MessageResponseFactory/ChangePasswordMessageResponse.h
+        src/MessageResponseFactory/ChangePasswordMessageResponse.cpp
         include/MessageResponseFactory/UserProfileMessage.h
         src/MessageResponseFactory/UserProfileMessage.cpp
         include/MessageResponseFactory/PendingFriendRequests.h
@@ -50,6 +50,8 @@ add_executable(BingoServer main.cpp
         include/SignalHandler/handle_signals.h
         src/utils/token_generator.cpp
         include/utils/token_generator.h
+        include/MessageResponseFactory/ReconnectMessageResponse.h
+        src/MessageResponseFactory/ReconnectMessageResponse.cpp
 )
 
 # Link the required libraries

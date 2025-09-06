@@ -4,17 +4,17 @@
 
 #include <utility>
 
-#include "../../include/MessageResponseFactory/SearchUserRequestResponse.h"
+#include "../../include/MessageResponseFactory/SearchUserRequestMessageResponse.h"
 
 #include "../../include/message_keys.h"
 #include "../../include/message_types.h"
 
-SearchUserRequestResponse::SearchUserRequestResponse(const int count, nlohmann::json users) : _count(count),
+SearchUserRequestMessageResponse::SearchUserRequestMessageResponse(const int count, nlohmann::json users) : _count(count),
     _users(std::move(users))
 {
 }
 
-nlohmann::json SearchUserRequestResponse::to_json() const
+nlohmann::json SearchUserRequestMessageResponse::to_json() const
 {
     return {
         {MessageKeys::MESSAGE_TYPE, MessageTypes::SEARCH_USER_RESPONSE},

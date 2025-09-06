@@ -124,3 +124,16 @@ void print_change_password_request(const nlohmann::json &message)
         log(Log::ERROR, __func__, e.what());
     }
 }
+
+void print_reconnect_request(const nlohmann::json& message)
+{
+    try
+    {
+        print_key_value(MessageKeys::MESSAGE_TYPE, message);
+        print_key_value(MessageKeys::AUTH_TOKEN, message);
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+    }
+}

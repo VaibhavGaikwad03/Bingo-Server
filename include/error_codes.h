@@ -31,4 +31,12 @@ enum class ChangePasswordErrorCodes
     NEW_PASSWORD_MUST_BE_DIFFERENT = 3002,
 };
 
+enum class ReconnectErrorCodes
+{
+    NONE = 0,
+    INVALID_AUTH_TOKEN = 4001,
+    AUTH_TOKEN_EXPIRED = 4002,
+    SOMETHING_WENT_WRONG = 4003,
+};
+
 #endif //ERROR_CODES_H

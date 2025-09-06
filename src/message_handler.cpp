@@ -62,18 +62,18 @@ std::optional<LoginMessageResponse> MessageHandler::login(const nlohmann::json &
     UserID valid_user_id = row[utils::to_underlying(UserCredentialsTableIndex::USER_ID)].get<UserID>();
 
     auto row_token = _auth_tokens_table->select("token")
-                    .where("user_id = :user_id")
-                    .bind("user_id", valid_user_id)
-                    .execute()
-                    .fetchOne();
+            .where("user_id = :user_id")
+            .bind("user_id", valid_user_id)
+            .execute()
+            .fetchOne();
 
     std::string new_token;
     if (!row_token)
     {
         new_token = generate_token(32);
         _auth_tokens_table->insert("user_id", "token")
-        .values(valid_user_id, new_token)
-        .execute();
+                .values(valid_user_id, new_token)
+                .execute();
     }
 
     if (new_token.empty())
@@ -330,14 +330,14 @@ void MessageHandler::friend_req_response(const nlohmann::json &message) const
                     .values(request_id, parsed_request->sender_id, parsed_request->sender,
                             parsed_request->name_of_sender, parsed_request->receiver_id, parsed_request->receiver,
                             parsed_request->name_of_receiver)
-            .execute();
+                    .execute();
 
             _friendship_table->insert("friendship_id", "user_id", "user", "name_of_user",
                                       "friend_id", "friend", "name_of_friend")
                     .values(request_id, parsed_request->receiver_id, parsed_request->receiver,
-                    parsed_request->name_of_receiver, parsed_request->sender_id, parsed_request->sender,
-                    parsed_request->name_of_sender)
-            .execute();
+                            parsed_request->name_of_receiver, parsed_request->sender_id, parsed_request->sender,
+                            parsed_request->name_of_sender)
+                    .execute();
         }
     }
     catch (const mysqlx::Error &err)
@@ -481,10 +481,10 @@ ChangePasswordErrorCodes MessageHandler::change_password_request(const nlohmann:
     try
     {
         auto result = _user_credentials_table->select("password")
-        .where("user_id = :user_id")
-        .bind("user_id", parsed_request->user_id)
-        .execute()
-        .fetchOne();
+                .where("user_id = :user_id")
+                .bind("user_id", parsed_request->user_id)
+                .execute()
+                .fetchOne();
 
         if (result)
         {
@@ -493,10 +493,10 @@ ChangePasswordErrorCodes MessageHandler::change_password_request(const nlohmann:
             if (parsed_request->new_password != db_password)
             {
                 _user_credentials_table->update()
-                .set("password", parsed_request->new_password)
-                .where("user_id = :user_id")
-                .bind("user_id", parsed_request->user_id)
-                .execute();
+                        .set("password", parsed_request->new_password)
+                        .where("user_id = :user_id")
+                        .bind("user_id", parsed_request->user_id)
+                        .execute();
 
                 return ChangePasswordErrorCodes::SUCCESS;
             }
@@ -512,13 +512,59 @@ ChangePasswordErrorCodes MessageHandler::change_password_request(const nlohmann:
     }
     catch (const mysqlx::Error &err)
     {
-        log(Log::ERROR, "",
-            std::string("Database error in MessageHandler::change_password_request: ") + err.what());
+        log(Log::ERROR, __func__,
+            std::string("Database error: ") + err.what());
     }
     catch (const std::exception &ex)
     {
-        log(Log::ERROR, "",
-            std::string("Unexpected error in MessageHandler::change_password_request: ") + ex.what());
+        log(Log::ERROR, __func__,
+            std::string("Unexpected error: ") + ex.what());
     }
     return ChangePasswordErrorCodes::SOMETHING_WENT_WRONG;
+}
+
+std::optional<ReconnectResponse> MessageHandler::reconnect_request(const nlohmann::json &message) const
+{
+    try
+    {
+        std::optional<ReconnectRequest> parsed_request = MessageParser::reconnect_request(message);
+        if (!parsed_request.has_value())
+        {
+            ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCodes::SOMETHING_WENT_WRONG);
+            return reconnect_response;
+        }
+
+        auto result = _auth_tokens_table->select("token")
+                .where("user_id = :user_id")
+                .bind("user_id", parsed_request->user_id)
+                .execute()
+                .fetchOne();
+
+        if (result)
+        {
+            if (parsed_request->auth_token != result[0].get<std::string>())
+            {
+                ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCodes::INVALID_AUTH_TOKEN);
+                return reconnect_response;
+            }
+
+            ReconnectResponse reconnect_response(Status::SUCCESS, ReconnectErrorCodes::NONE);
+            return reconnect_response;
+        }
+
+        ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCodes::INVALID_AUTH_TOKEN);
+        return reconnect_response;
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Database error: ") + err.what());
+        return std::nullopt;
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Unexpected error: ") + ex.what());
+        return std::nullopt;
+    }
 }

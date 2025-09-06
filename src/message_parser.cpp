@@ -161,3 +161,20 @@ std::optional<ChangePassword> MessageParser::change_password_request(const nlohm
         return std::nullopt;
     }
 }
+
+std::optional<ReconnectRequest> MessageParser::reconnect_request(const nlohmann::json &message)
+{
+    try
+    {
+        ReconnectRequest parsed_message;
+        parsed_message.message_type = message[MessageKeys::MESSAGE_TYPE];
+        parsed_message.auth_token = message[MessageKeys::AUTH_TOKEN];
+
+        return parsed_message;
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return std::nullopt;
+    }
+}

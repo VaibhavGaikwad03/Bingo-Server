@@ -9,7 +9,8 @@
 #include "nlohmann/json.hpp"
 #include "typedefs.h"
 #include "error_codes.h"
-#include "../include/MessageResponseFactory/LoginMessageResponse.h"
+#include "MessageResponseFactory/LoginMessageResponse.h"
+#include "MessageResponseFactory/ReconnectMessageResponse.h"
 
 struct FoundUser
 {
@@ -48,7 +49,7 @@ public:
     void friend_req_request(const nlohmann::json &message) const;
     void friend_req_response(const nlohmann::json &message) const;
     [[nodiscard]] ChangePasswordErrorCodes change_password_request(const nlohmann::json &message) const;
-
+    [[nodiscard]] std::optional<ReconnectResponse> reconnect_request(const nlohmann::json &message) const;
 
     friend class MessageProcessor;
 };

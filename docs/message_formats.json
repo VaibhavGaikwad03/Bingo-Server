@@ -159,4 +159,39 @@
     "status": ERROR or SUCCESS,
     "error_code": use ChangePasswordErrorCodes here
   }
+  ,
+  {
+    "message_type": FRIEND_LIST
+    "count": <friends_count>
+
+    "friends_list":
+    [
+      {
+        "friend_id": <id>
+        "username": <username>
+        "fullname": <fullname>
+        "gender": <male/female/other>
+        "dob": <12-12-2012>
+      }
+      {
+        "friend_id": <id>
+        "username": <username>
+        "fullname": <fullname>
+        "gender": <male/female/other>
+        "dob": <12-12-2012>
+      }
+    ]
+  }
+  ,
+  {
+    "message_type": RECONNECT_REQUEST,
+    "user_id": <user_id>
+    "auth_token": <token>,
+  }
+  ,
+  {
+    "message_type": RECONNECT_RESPONSE,
+    "status": <success/error>,
+    "error_code": <error code>
+  }
 ]
