@@ -14,10 +14,10 @@ class SignupMessageResponse final : public IMessageResponse
 {
     Status _status;
     UserID _user_id;
-    SignupErrorCodes _signup_error_codes;
+    SignupErrorCode _signup_error_codes;
 
 public:
-    SignupMessageResponse(Status status, UserID user_id, SignupErrorCodes signup_error_codes);
+    SignupMessageResponse(Status status, UserID user_id, SignupErrorCode signup_error_codes);
     [[nodiscard]] nlohmann::json to_json() const override;
 };
 

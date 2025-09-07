@@ -1,24 +1,24 @@
-#include "../include/session_manager.h"
+#include "../include/user_session_manager.h"
 
-SessionManager *SessionManager::_instance = nullptr;
+UserSessionManager *UserSessionManager::_instance = nullptr;
 
-SessionManager::SessionManager()
+UserSessionManager::UserSessionManager()
 = default;
 
-SessionManager::~SessionManager()
+UserSessionManager::~UserSessionManager()
 = default;
 
-SessionManager *SessionManager::instance()
+UserSessionManager *UserSessionManager::instance()
 {
     if (_instance == nullptr)
     {
-        _instance = new SessionManager();
+        _instance = new UserSessionManager();
         return _instance;
     }
     return _instance;
 }
 
-void SessionManager::destroy_instance()
+void UserSessionManager::destroy_instance()
 {
     if (_instance != nullptr)
     {
@@ -27,12 +27,12 @@ void SessionManager::destroy_instance()
     }
 }
 
-void SessionManager::create_session(const UserID &user_id, const std::string &username,
+void UserSessionManager::create_session(const UserID &user_id, const std::string &username,
                                     WebSocket *ws)
 {
     if (!_sessions.contains(user_id)) // if not in map, create new session
     {
-        Session session;
+        UserSession session;
         session.user_id = user_id;
         session.username = username;
         session.ws = ws;
@@ -42,12 +42,12 @@ void SessionManager::create_session(const UserID &user_id, const std::string &us
     }
     else // if already in map, just increment the reference count
     {
-        Session *session = get_session(user_id);
+        UserSession *session = get_session(user_id);
         session->reference_count++;
     }
 }
 
-bool SessionManager::delete_session(Session *session)
+bool UserSessionManager::delete_session(UserSession *session)
 {
     if ((session == nullptr) || (!_sessions.contains(session->user_id)))
     {
@@ -65,7 +65,7 @@ bool SessionManager::delete_session(Session *session)
     return true;
 }
 
-void SessionManager::display_sessions() const
+void UserSessionManager::display_sessions() const
 {
     std::cout << "Users Count: " << _sessions.size() << std::endl;
     std::cout << "Users are: ";
@@ -77,14 +77,14 @@ void SessionManager::display_sessions() const
     std::cout << std::endl;
 }
 
-Session *SessionManager::get_session(const UserID user_id)
+UserSession *UserSessionManager::get_session(const UserID user_id)
 {
     if (!_sessions.contains(user_id))
         return nullptr;
     return &(_sessions[user_id]);
 }
 
-Session *SessionManager::get_session(const std::string &username)
+UserSession *UserSessionManager::get_session(const std::string &username)
 {
     for (auto &session: _sessions)
     {
@@ -96,7 +96,7 @@ Session *SessionManager::get_session(const std::string &username)
     return nullptr;
 }
 
-Session *SessionManager::get_session(const WebSocket *ws)
+UserSession *UserSessionManager::get_session(const WebSocket *ws)
 {
     for (auto &session: _sessions)
     {
@@ -108,17 +108,17 @@ Session *SessionManager::get_session(const WebSocket *ws)
     return nullptr;
 }
 
-bool SessionManager::is_session_exists(const UserID user_id)
+bool UserSessionManager::is_session_exists(const UserID user_id)
 {
     return (get_session(user_id) != nullptr);
 }
 
-bool SessionManager::is_session_exists(const std::string &username)
+bool UserSessionManager::is_session_exists(const std::string &username)
 {
     return (get_session(username) != nullptr);
 }
 
-bool SessionManager::is_session_exists(const WebSocket *ws)
+bool UserSessionManager::is_session_exists(const WebSocket *ws)
 {
     return (get_session(ws) != nullptr);
 }

@@ -12,14 +12,14 @@
 class ReconnectResponse final : public IMessageResponse
 {
     Status _status;
-    ReconnectErrorCodes _reconnect_error_code;
+    ReconnectErrorCode _reconnect_error_code;
 
 public:
-    explicit ReconnectResponse(Status status, ReconnectErrorCodes error_code);
+    explicit ReconnectResponse(Status status, ReconnectErrorCode error_code);
     [[nodiscard]] nlohmann::json to_json() const override;
 
     Status get_status() const;
-    ReconnectErrorCodes get_reconnect_error_code() const;
+    ReconnectErrorCode get_reconnect_error_code() const;
 };
 
 #endif // RECONNECTMESSAGERESPONSE_H

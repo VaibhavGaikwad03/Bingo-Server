@@ -7,22 +7,22 @@ add_executable(BingoServer main.cpp
         src/utils/time.cpp
         src/server.cpp
         src/authenticator.cpp
-        src/utils/log.cpp
+        src/utils/logger.cpp
         src/message_processor.cpp
         include/nlohmann/json.hpp
         include/authenticator.h
-        include/utils/log.h
+        include/utils/logger.h
         include/message_processor.h
         include/message_structures.h
-        include/mutex_queue.h
+        include/thread_safe_queue.h
         include/server.h
         include/utils/time.h
         include/utils.h
         include/error_codes.h
         include/message_types.h
-        include/session_manager.h
-        src/session_manager.cpp
-        include/session.h
+        include/user_session_manager.h
+        src/user_session_manager.cpp
+        include/user_session.h
         include/debug.h
         src/debug.cpp
         include/message_handler.h
@@ -52,6 +52,8 @@ add_executable(BingoServer main.cpp
         include/utils/token_generator.h
         include/MessageResponseFactory/ReconnectMessageResponse.h
         src/MessageResponseFactory/ReconnectMessageResponse.cpp
+        include/MessageResponseFactory/FriendsListMessage.h
+        src/MessageResponseFactory/FriendsListMessage.cpp
 )
 
 # Link the required libraries

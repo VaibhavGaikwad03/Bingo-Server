@@ -1,16 +1,17 @@
 #include <fstream>
 
 #include "include/SignalHandler/handle_signals.h"
-#include "include/utils/log.h"
+#include "include/utils/logger.h"
 #include "include/server.h"
+#include "include/MessageResponseFactory/FriendsListMessage.h"
 
 int main()
 {
-    std::ifstream config_file("/home/vaibz/Desktop/BingoServer/config/server_config.json");
+    std::ifstream config_file("../config/server_config.json");
 
     if (!config_file.is_open())
     {
-        log(Log::CRITICAL, __func__, "Server config file not found");
+        log(Log::CRITICAL, __func__, "Server config file not found.");
         return -1;
     }
 
@@ -31,7 +32,7 @@ int main()
 
         server.run();
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
         log(Log::CRITICAL, __func__, e.what());
     }

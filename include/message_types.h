@@ -13,20 +13,20 @@ enum class Flag
     YES = 1
 };
 
-enum class FriendRequestStatus
+enum class FriendRequestState
 {
     REJECTED = 0,
     ACCEPTED = 1,
 };
 
-enum class FriendshipStatus
+enum class FriendshipState
 {
     FRIEND = 0,
     PENDING = 1,
     NOT_FRIEND = 2,
 };
 
-enum class MessageTypes
+enum class MessageType
 {
     LOGIN_REQUEST = 101,
     LOGIN_RESPONSE = 102,

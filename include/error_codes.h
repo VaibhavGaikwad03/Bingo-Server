@@ -1,13 +1,13 @@
 #ifndef ERROR_CODES_H
 #define ERROR_CODES_H
 
-enum class ErrorCodes // generic error codes
+enum class ErrorCode // generic error codes
 {
     INVALID_USER_ID = -1
 };
 
 // specific error codes
-enum class LoginErrorCodes
+enum class LoginErrorCode
 {
     NONE = 0,
     USERNAME_NOT_FOUND = 1001,
@@ -15,7 +15,7 @@ enum class LoginErrorCodes
     SOMETHING_WENT_WRONG = 1003,
 };
 
-enum class SignupErrorCodes
+enum class SignupErrorCode
 {
     NONE = 0,
     USERNAME_ALREADY_EXISTS = 2001,
@@ -24,14 +24,14 @@ enum class SignupErrorCodes
     SOMETHING_WENT_WRONG = 2004,
 };
 
-enum class ChangePasswordErrorCodes
+enum class ChangePasswordErrorCode
 {
     SUCCESS = 0,
     SOMETHING_WENT_WRONG = 3001,
     NEW_PASSWORD_MUST_BE_DIFFERENT = 3002,
 };
 
-enum class ReconnectErrorCodes
+enum class ReconnectErrorCode
 {
     NONE = 0,
     INVALID_AUTH_TOKEN = 4001,

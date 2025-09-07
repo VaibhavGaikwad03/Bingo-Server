@@ -161,20 +161,19 @@
   }
   ,
   {
-    "message_type": FRIEND_LIST
+    "message_type": USER_FRIENDS_LIST,
     "count": <friends_count>
-
     "friends_list":
     [
       {
-        "friend_id": <id>
+        "user_id": <user_id>
         "username": <username>
         "fullname": <fullname>
         "gender": <male/female/other>
         "dob": <12-12-2012>
       }
       {
-        "friend_id": <id>
+        "user_id": <id>
         "username": <username>
         "fullname": <fullname>
         "gender": <male/female/other>

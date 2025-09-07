@@ -7,7 +7,7 @@
 
 #include <condition_variable>
 
-#include "mutex_queue.h"
+#include "thread_safe_queue.h"
 #include "message_handler.h"
 #include "message_processor.h"
 #include "message_structures.h"
@@ -16,7 +16,7 @@ class MessageProcessor
 {
     std::mutex _mtx;
     std::condition_variable &_cv;
-    MutexQueue<DataPacket> &_mtx_queue;
+    ThreadSafeQueue<DataPacket> &_mtx_queue;
 
     MessageHandler _message_handler;
 
@@ -32,7 +32,7 @@ class MessageProcessor
 
 
 public:
-    explicit MessageProcessor(MutexQueue<DataPacket> &queue, std::condition_variable &cv);
+    explicit MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv);
 
     ~MessageProcessor();
 

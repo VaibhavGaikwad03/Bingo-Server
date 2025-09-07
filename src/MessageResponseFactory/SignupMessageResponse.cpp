@@ -6,7 +6,7 @@
 #include "../../include/MessageResponseFactory/SignupMessageResponse.h"
 
 SignupMessageResponse::SignupMessageResponse(Status status, UserID user_id,
-                                             SignupErrorCodes signup_error_codes) : _status(status), _user_id(user_id),
+                                             SignupErrorCode signup_error_codes) : _status(status), _user_id(user_id),
                                                                                     _signup_error_codes(signup_error_codes)
 {
 }
@@ -14,7 +14,7 @@ SignupMessageResponse::SignupMessageResponse(Status status, UserID user_id,
 nlohmann::json SignupMessageResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageTypes::SIGN_UP_RESPONSE},
+        {MessageKeys::MESSAGE_TYPE, MessageType::SIGN_UP_RESPONSE},
         {MessageKeys::STATUS, _status},
         {MessageKeys::USER_ID, _user_id},
         {MessageKeys::ERROR_CODE, _signup_error_codes}

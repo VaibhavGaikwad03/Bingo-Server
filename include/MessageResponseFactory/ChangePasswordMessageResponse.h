@@ -12,10 +12,10 @@
 class ChangePasswordResponse final : public IMessageResponse
 {
     Status _status;
-    ChangePasswordErrorCodes _error_code;
+    ChangePasswordErrorCode _error_code;
 
 public:
-    ChangePasswordResponse(Status status, ChangePasswordErrorCodes error_code);
+    ChangePasswordResponse(Status status, ChangePasswordErrorCode error_code);
     [[nodiscard]] nlohmann::json to_json() const override;
 };
 

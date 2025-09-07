@@ -17,7 +17,7 @@ UserProfileMessage::UserProfileMessage(std::string full_name, std::string userna
 nlohmann::json UserProfileMessage::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageTypes::USER_PROFILE_INFORMATION},
+        {MessageKeys::MESSAGE_TYPE, MessageType::USER_PROFILE_INFORMATION},
         {MessageKeys::FULLNAME, _full_name},
         {MessageKeys::USERNAME, _username},
         {MessageKeys::DOB, _dob},

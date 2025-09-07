@@ -11,13 +11,16 @@
 #include "error_codes.h"
 #include "MessageResponseFactory/LoginMessageResponse.h"
 #include "MessageResponseFactory/ReconnectMessageResponse.h"
+#include "MessageResponseFactory/FriendsListMessage.h"
+#include "MessageResponseFactory/PendingFriendRequests.h"
+#include "../include/MessageResponseFactory/UserProfileMessage.h"
 
 struct FoundUser
 {
     UserID user_id;
     std::string name;
     std::string username;
-    FriendshipStatus friendship_status;
+    FriendshipState friendship_status;
 };
 
 class MessageHandler
@@ -32,9 +35,9 @@ class MessageHandler
     std::unique_ptr<mysqlx::Table> _auth_tokens_table;
 
     [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
-    [[nodiscard]] std::optional<UserProfile> get_user_profile(UserID user_id) const;
-    [[nodiscard]] std::vector<Friend> get_user_friends(UserID user_id) const;
-    [[nodiscard]] std::vector<PendingFriendRequest> get_pending_friend_requests(UserID user_id) const;
+    [[nodiscard]] std::optional<UserProfileMessage> get_user_profile(UserID user_id) const;
+    [[nodiscard]] std::optional<FriendsListMessage> get_user_friends(UserID user_id) const;
+    [[nodiscard]] std::optional<PendingFriendRequests> get_pending_friend_requests(UserID user_id) const;
     std::vector<ChatMessage> get_chat_messages(UserID user_id);
 
 public:
@@ -48,8 +51,9 @@ public:
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
     void friend_req_request(const nlohmann::json &message) const;
     void friend_req_response(const nlohmann::json &message) const;
-    [[nodiscard]] ChangePasswordErrorCodes change_password_request(const nlohmann::json &message) const;
+    [[nodiscard]] ChangePasswordErrorCode change_password_request(const nlohmann::json &message) const;
     [[nodiscard]] std::optional<ReconnectResponse> reconnect_request(const nlohmann::json &message) const;
+
 
     friend class MessageProcessor;
 };

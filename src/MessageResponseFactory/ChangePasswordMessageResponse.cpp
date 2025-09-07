@@ -6,7 +6,7 @@
 
 #include "../../include/message_keys.h"
 
-ChangePasswordResponse::ChangePasswordResponse(const Status status, const ChangePasswordErrorCodes error_code) : _status(status),
+ChangePasswordResponse::ChangePasswordResponse(const Status status, const ChangePasswordErrorCode error_code) : _status(status),
     _error_code(error_code)
 {
 }
@@ -14,7 +14,7 @@ ChangePasswordResponse::ChangePasswordResponse(const Status status, const Change
 nlohmann::json ChangePasswordResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageTypes::CHANGE_PASSWORD_RESPONSE},
+        {MessageKeys::MESSAGE_TYPE, MessageType::CHANGE_PASSWORD_RESPONSE},
         {MessageKeys::STATUS, Status::ERROR},
         {MessageKeys::ERROR_CODE, _error_code}
     };

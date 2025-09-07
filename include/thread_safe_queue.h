@@ -5,7 +5,7 @@
 #include <mutex>
 
 template <typename T>
-class MutexQueue
+class ThreadSafeQueue
 {
     std::mutex _mtx;
     std::queue<T> _queue;

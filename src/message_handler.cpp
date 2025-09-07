@@ -1,10 +1,10 @@
-#include "../include/utils/log.h"
+#include "../include/utils/logger.h"
 #include "../include/utils.h"
 #include "../include/error_codes.h"
 #include "../include/message_handler.h"
 #include "../include/message_parser.h"
 #include "../include/message_structures.h"
-#include "../include/session_manager.h"
+#include "../include/user_session_manager.h"
 #include "../include/utils/token_generator.h"
 
 MessageHandler::MessageHandler()
@@ -48,14 +48,14 @@ std::optional<LoginMessageResponse> MessageHandler::login(const nlohmann::json &
     mysqlx::Row row = result.fetchOne();
     if (!row) // fix it - compare db username and packet username
     {
-        LoginMessageResponse login_response(Status::ERROR, -1, LoginErrorCodes::USERNAME_NOT_FOUND, "");
+        LoginMessageResponse login_response(Status::ERROR, -1, LoginErrorCode::USERNAME_NOT_FOUND, "");
         return login_response; // invalid username
     }
 
     auto db_password = row[utils::to_underlying(UserCredentialsTableIndex::PASSWORD)].get<std::string>();
     if (db_password != parsed_message->password)
     {
-        LoginMessageResponse login_response(Status::ERROR, -1, LoginErrorCodes::PASSWORD_IS_INCORRECT, "");
+        LoginMessageResponse login_response(Status::ERROR, -1, LoginErrorCode::PASSWORD_IS_INCORRECT, "");
         return login_response; // invalid password
     }
 
@@ -81,7 +81,7 @@ std::optional<LoginMessageResponse> MessageHandler::login(const nlohmann::json &
         new_token = row_token[0].get<std::string>();
     }
 
-    LoginMessageResponse login_response(Status::SUCCESS, valid_user_id, LoginErrorCodes::NONE, new_token);
+    LoginMessageResponse login_response(Status::SUCCESS, valid_user_id, LoginErrorCode::NONE, new_token);
     return login_response;
 }
 
@@ -93,13 +93,13 @@ Status MessageHandler::logout_request(const nlohmann::json &message) const
         return Status::ERROR;
     }
 
-    Session *session = SessionManager::instance()->get_session(parsed_message->user_id);
+    UserSession *session = UserSessionManager::instance()->get_session(parsed_message->user_id);
     if (session == nullptr)
     {
         return Status::ERROR;
     }
 
-    if (!SessionManager::instance()->delete_session(session))
+    if (!UserSessionManager::instance()->delete_session(session))
     {
         return Status::ERROR;
     }
@@ -112,7 +112,7 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
     std::optional<SignUpMessageRequest> parsed_message = MessageParser::signup_message_request(message);
     if (!parsed_message.has_value())
     {
-        return utils::to_underlying(SignupErrorCodes::SOMETHING_WENT_WRONG);
+        return utils::to_underlying(SignupErrorCode::SOMETHING_WENT_WRONG);
     }
 
     // check if username exists
@@ -123,7 +123,7 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
 
     if (result_username.count() > 0)
     {
-        return utils::to_underlying(SignupErrorCodes::USERNAME_ALREADY_EXISTS); // user already exists
+        return utils::to_underlying(SignupErrorCode::USERNAME_ALREADY_EXISTS); // user already exists
     }
 
     // check if email exists
@@ -134,7 +134,7 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
 
     if (result_email.count() > 0)
     {
-        return utils::to_underlying(SignupErrorCodes::EMAIL_ALREADY_EXISTS);
+        return utils::to_underlying(SignupErrorCode::EMAIL_ALREADY_EXISTS);
     }
 
     // check if phone exists
@@ -145,7 +145,7 @@ UserID MessageHandler::signup(const nlohmann::json &message) const
 
     if (result_phone.count() > 0)
     {
-        return utils::to_underlying(SignupErrorCodes::PHONE_ALREADY_EXISTS);
+        return utils::to_underlying(SignupErrorCode::PHONE_ALREADY_EXISTS);
     }
 
     auto insert_result = _user_credentials_table->insert("username", "password", "fullname", "gender", "dob", "email",
@@ -202,7 +202,7 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
 
             if (request_status_result.isNull())
             {
-                found_user.friendship_status = FriendshipStatus::NOT_FRIEND;
+                found_user.friendship_status = FriendshipState::NOT_FRIEND;
             }
             else
             {
@@ -210,15 +210,15 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
 
                 if (request_result == "rejected")
                 {
-                    found_user.friendship_status = FriendshipStatus::NOT_FRIEND;
+                    found_user.friendship_status = FriendshipState::NOT_FRIEND;
                 }
                 else if (request_result == "pending")
                 {
-                    found_user.friendship_status = FriendshipStatus::PENDING;
+                    found_user.friendship_status = FriendshipState::PENDING;
                 }
                 else
                 {
-                    found_user.friendship_status = FriendshipStatus::FRIEND;
+                    found_user.friendship_status = FriendshipState::FRIEND;
                 }
             }
             users.push_back(found_user);
@@ -294,7 +294,7 @@ void MessageHandler::friend_req_response(const nlohmann::json &message) const
     {
         std::string request_status;
 
-        if (parsed_request->status == FriendRequestStatus::ACCEPTED)
+        if (parsed_request->status == FriendRequestState::ACCEPTED)
         {
             request_status = "accepted";
         }
@@ -323,7 +323,7 @@ void MessageHandler::friend_req_response(const nlohmann::json &message) const
             request_id = result[0].get<int>();
         }
 
-        if ((parsed_request->status == FriendRequestStatus::ACCEPTED) && (request_id != -1))
+        if ((parsed_request->status == FriendRequestState::ACCEPTED) && (request_id != -1))
         {
             _friendship_table->insert("friendship_id", "user_id", "user", "name_of_user",
                                       "friend_id", "friend", "name_of_friend")
@@ -351,11 +351,11 @@ void MessageHandler::friend_req_response(const nlohmann::json &message) const
 }
 
 
-std::optional<UserProfile> MessageHandler::get_user_profile(const UserID user_id) const
+std::optional<UserProfileMessage> MessageHandler::get_user_profile(const UserID user_id) const
 {
     try
     {
-        mysqlx::Row result = _user_credentials_table->select("username", "fullname", "CAST(dob AS CHAR)",
+        mysqlx::Row result = _user_credentials_table->select("fullname", "username", "CAST(dob AS CHAR)",
                                                              "gender", "email", "phone")
                 .where("user_id = :user_id")
                 .bind("user_id", user_id)
@@ -364,69 +364,78 @@ std::optional<UserProfile> MessageHandler::get_user_profile(const UserID user_id
 
         if (!result.isNull())
         {
-            UserProfile user_profile;
-            user_profile.username = result[0].get<std::string>();
-            user_profile.name = result[1].get<std::string>();
-            user_profile.dob = result[2].get<std::string>();
-            user_profile.gender = result[3].get<std::string>();
-            user_profile.email = result[4].get<std::string>();
-            user_profile.phone = result[5].get<std::string>();
-
-            return user_profile;
+            UserProfileMessage user_profile_message(result[0].get<std::string>(), result[1].get<std::string>(), result[2].get<std::string>(), result[3].get<std::string>(), result[4].get<std::string>(), result[5].get<std::string>());
+            return user_profile_message;
+        }
+        else
+        {
+            return std::nullopt;
         }
     }
     catch (const mysqlx::Error &err)
     {
-        log(Log::ERROR, "", std::string("Database error in MessageHandler::get_user_profile: ") + err.what());
+        log(Log::ERROR, __func__, std::string("Database error: ") + err.what());
+        return std::nullopt;
     }
     catch (const std::exception &ex)
     {
-        log(Log::ERROR, "", std::string("Unexpected error in MessageHandler::get_user_profile: ") + ex.what());
+        log(Log::ERROR, __func__, std::string("Unexpected error: ") + ex.what());
+        return std::nullopt;
     }
-
-    return std::nullopt;
 }
 
-std::vector<Friend> MessageHandler::get_user_friends(const UserID user_id) const
+std::optional<FriendsListMessage> MessageHandler::get_user_friends(const UserID user_id) const
 {
-    std::vector<Friend> friends;
-
     try
     {
-        mysqlx::RowResult results = _friendship_table->select("friend_id", "friend", "friend_name")
+        std::vector<FriendInfo> friends_list;
+
+        auto friendship_query_result = _friendship_table->select("friend_id", "friend", "name_of_friend")
                 .where("user_id = :user_id")
                 .bind("user_id", user_id)
                 .execute();
 
-        for (auto row: results)
+        for (auto friendship_row: friendship_query_result)
         {
-            Friend friend_obj;
+            auto user_profile_row = _user_credentials_table->select("gender", "CAST(dob AS CHAR)")
+                    .where("user_id = :user_id")
+                    .bind("user_id", friendship_row[0].get<UserID>())
+                    .execute()
+                    .fetchOne();
 
-            friend_obj.friend_id = row[0].get<int>();
-            friend_obj.friend_username = row[1].get<std::string>();
-            friend_obj.name_of_friend = row[2].get<std::string>();
+            FriendInfo friend_info;
 
-            friends.push_back(friend_obj);
+            friend_info.user_id = friendship_row[0].get<UserID>();
+            friend_info.username = friendship_row[1].get<std::string>();
+            friend_info.full_name = friendship_row[2].get<std::string>();
+            friend_info.gender = user_profile_row[0].get<std::string>();
+            friend_info.dob = user_profile_row[1].get<std::string>();
+
+            friends_list.push_back(friend_info);
         }
+
+        FriendsListMessage friends_list_response_message(friends_list.size(), friends_list);
+
+        return friends_list_response_message;
     }
     catch (const mysqlx::Error &err)
     {
-        log(Log::ERROR, "", std::string("Database error in MessageHandler::get_user_friends: ") + err.what());
+        log(Log::ERROR, __func__, std::string("Database error: ") + err.what());
+        return std::nullopt;
     }
     catch (const std::exception &ex)
     {
-        log(Log::ERROR, "", std::string("Unexpected error in MessageHandler::get_user_friends: ") + ex.what());
+        log(Log::ERROR, __func__, std::string("Unexpected error: ") + ex.what());
+        return std::nullopt;
     }
-
-    return friends;
 }
 
-std::vector<PendingFriendRequest> MessageHandler::get_pending_friend_requests(const UserID user_id) const
+std::optional<PendingFriendRequests> MessageHandler::get_pending_friend_requests(const UserID user_id) const
 {
-    std::vector<PendingFriendRequest> pending_friend_requests;
-
     try
     {
+        std::vector<PendingFriendRequestInfo> pending_friend_requests;
+
         mysqlx::RowResult results = _friend_request_table->select("sender_id", "sender", "name_of_sender",
                                                                   "receiver_id",
                                                                   "receiver", "name_of_receiver", "request_status",
@@ -437,45 +446,91 @@ std::vector<PendingFriendRequest> MessageHandler::get_pending_friend_requests(co
 
         for (auto row: results)
         {
-            PendingFriendRequest pending_friend_request;
+            PendingFriendRequestInfo pending_friend_request_info;
 
-            pending_friend_request.sender_id = row[0].get<int>();
-            pending_friend_request.sender = row[1].get<std::string>();
-            pending_friend_request.name_of_sender = row[2].get<std::string>();
-            pending_friend_request.receiver_id = row[3].get<int>();
-            pending_friend_request.receiver = row[4].get<std::string>();
-            pending_friend_request.name_of_receiver = row[5].get<std::string>();
-            pending_friend_request.request_status = row[6].get<std::string>();
-            pending_friend_request.timestamp = row[7].get<std::string>();
+            pending_friend_request_info.sender_id = row[0].get<int>();
+            pending_friend_request_info.sender = row[1].get<std::string>();
+            pending_friend_request_info.name_of_sender = row[2].get<std::string>();
+            pending_friend_request_info.receiver_id = row[3].get<int>();
+            pending_friend_request_info.receiver = row[4].get<std::string>();
+            pending_friend_request_info.name_of_receiver = row[5].get<std::string>();
+            pending_friend_request_info.request_status = row[6].get<std::string>();
+            pending_friend_request_info.timestamp = row[7].get<std::string>();
 
-            pending_friend_requests.push_back(pending_friend_request);
+            pending_friend_requests.push_back(pending_friend_request_info);
         }
+
+        PendingFriendRequests pending_friend_requests_response_message(pending_friend_requests.size(),
+                                                                       pending_friend_requests);
+        return pending_friend_requests_response_message;
     }
     catch (const mysqlx::Error &err)
     {
-        log(Log::ERROR, "",
-            std::string("Database error in MessageHandler::get_pending_friend_requests: ") + err.what());
+        log(Log::ERROR, __func__, std::string("Database error: ") + err.what());
+        return std::nullopt;
     }
     catch (const std::exception &ex)
     {
-        log(Log::ERROR, "",
-            std::string("Unexpected error in MessageHandler::get_pending_friend_requests: ") + ex.what());
+        log(Log::ERROR, __func__, std::string("Unexpected error: ") + ex.what());
+        return std::nullopt;
     }
-
-    return pending_friend_requests;
 }
+
+// std::vector<PendingFriendRequest> MessageHandler::get_pending_friend_requests(const UserID user_id) const
+// {
+//     std::vector<PendingFriendRequest> pending_friend_requests;
+//
+//     try
+//     {
+//         mysqlx::RowResult results = _friend_request_table->select("sender_id", "sender", "name_of_sender",
+//                                                                   "receiver_id",
+//                                                                   "receiver", "name_of_receiver", "request_status",
+//                                                                   "CAST(timestamp AS CHAR)")
+//                 .where("receiver_id = :receiver_id AND request_status = 'pending'")
+//                 .bind("receiver_id", user_id)
+//                 .execute();
+//
+//         for (auto row: results)
+//         {
+//             PendingFriendRequest pending_friend_request;
+//
+//             pending_friend_request.sender_id = row[0].get<int>();
+//             pending_friend_request.sender = row[1].get<std::string>();
+//             pending_friend_request.name_of_sender = row[2].get<std::string>();
+//             pending_friend_request.receiver_id = row[3].get<int>();
+//             pending_friend_request.receiver = row[4].get<std::string>();
+//             pending_friend_request.name_of_receiver = row[5].get<std::string>();
+//             pending_friend_request.request_status = row[6].get<std::string>();
+//             pending_friend_request.timestamp = row[7].get<std::string>();
+//
+//             pending_friend_requests.push_back(pending_friend_request);
+//         }
+//     }
+//     catch (const mysqlx::Error &err)
+//     {
+//         log(Log::ERROR, "",
+//             std::string("Database error in MessageHandler::get_pending_friend_requests: ") + err.what());
+//     }
+//     catch (const std::exception &ex)
+//     {
+//         log(Log::ERROR, "",
+//             std::string("Unexpected error in MessageHandler::get_pending_friend_requests: ") + ex.what());
+//     }
+//
+//     return pending_friend_requests;
+// }
 
 std::vector<ChatMessage> MessageHandler::get_chat_messages(UserID user_id)
 {
     return {};
 }
 
-ChangePasswordErrorCodes MessageHandler::change_password_request(const nlohmann::json &message) const
+ChangePasswordErrorCode MessageHandler::change_password_request(const nlohmann::json &message) const
 {
     std::optional<ChangePassword> parsed_request = MessageParser::change_password_request(message);
     if (!parsed_request.has_value())
     {
-        return ChangePasswordErrorCodes::SOMETHING_WENT_WRONG;
+        return ChangePasswordErrorCode::SOMETHING_WENT_WRONG;
     }
 
     try
@@ -498,16 +553,16 @@ ChangePasswordErrorCodes MessageHandler::change_password_request(const nlohmann:
                         .bind("user_id", parsed_request->user_id)
                         .execute();
 
-                return ChangePasswordErrorCodes::SUCCESS;
+                return ChangePasswordErrorCode::SUCCESS;
             }
             else
             {
-                return ChangePasswordErrorCodes::NEW_PASSWORD_MUST_BE_DIFFERENT;
+                return ChangePasswordErrorCode::NEW_PASSWORD_MUST_BE_DIFFERENT;
             }
         }
         else
         {
-            return ChangePasswordErrorCodes::SOMETHING_WENT_WRONG;
+            return ChangePasswordErrorCode::SOMETHING_WENT_WRONG;
         }
     }
     catch (const mysqlx::Error &err)
@@ -520,7 +575,7 @@ ChangePasswordErrorCodes MessageHandler::change_password_request(const nlohmann:
         log(Log::ERROR, __func__,
             std::string("Unexpected error: ") + ex.what());
     }
-    return ChangePasswordErrorCodes::SOMETHING_WENT_WRONG;
+    return ChangePasswordErrorCode::SOMETHING_WENT_WRONG;
 }
 
 std::optional<ReconnectResponse> MessageHandler::reconnect_request(const nlohmann::json &message) const
@@ -530,7 +585,7 @@ std::optional<ReconnectResponse> MessageHandler::reconnect_request(const nlohman
         std::optional<ReconnectRequest> parsed_request = MessageParser::reconnect_request(message);
         if (!parsed_request.has_value())
         {
-            ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCodes::SOMETHING_WENT_WRONG);
+            ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCode::SOMETHING_WENT_WRONG);
             return reconnect_response;
         }
 
@@ -544,15 +599,15 @@ std::optional<ReconnectResponse> MessageHandler::reconnect_request(const nlohman
         {
             if (parsed_request->auth_token != result[0].get<std::string>())
             {
-                ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCodes::INVALID_AUTH_TOKEN);
+                ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCode::INVALID_AUTH_TOKEN);
                 return reconnect_response;
             }
 
-            ReconnectResponse reconnect_response(Status::SUCCESS, ReconnectErrorCodes::NONE);
+            ReconnectResponse reconnect_response(Status::SUCCESS, ReconnectErrorCode::NONE);
             return reconnect_response;
         }
 
-        ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCodes::INVALID_AUTH_TOKEN);
+        ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCode::INVALID_AUTH_TOKEN);
         return reconnect_response;
     }
     catch (const mysqlx::Error &err)

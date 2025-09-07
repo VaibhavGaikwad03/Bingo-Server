@@ -1,9 +1,9 @@
-#include "../include/utils/log.h"
+#include "../include/utils/logger.h"
 #include "../include/server.h"
 #include "../include/nlohmann/json.hpp"
 #include "../include/message_processor.h"
 #include "../include/message_structures.h"
-#include "../include/session_manager.h"
+#include "../include/user_session_manager.h"
 
 Server::Server(const std::string &ip, const int port)
 {
@@ -70,12 +70,12 @@ void Server::connection_opened(WebSocket *ws)
 void Server::connection_closed(const WebSocket *ws, const int code,
                                const std::string_view reason)
 {
-    Session *session = SessionManager::instance()->get_session(ws);
+    UserSession *session = UserSessionManager::instance()->get_session(ws);
     if (session == nullptr)
         return;
 
-    SessionManager::instance()->delete_session(session); // if user disconnects, destroy the session
-    SessionManager::instance()->display_sessions(); // debug purpose
+    UserSessionManager::instance()->delete_session(session); // if user disconnects, destroy the session
+    UserSessionManager::instance()->display_sessions(); // debug purpose
     log(Log::INFO, "", "Client disconnected. " + get_websocket_close_reason(code) + ", Reason: " + std::string(reason));
 }
 

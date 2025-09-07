@@ -31,7 +31,7 @@ struct DataPacket
 
 struct LoginMessageRequest
 {
-    MessageTypes message_type;
+    MessageType message_type;
     std::string username;
     std::string password;
     std::string timestamp;
@@ -39,14 +39,14 @@ struct LoginMessageRequest
 
 struct LogoutMessageRequest
 {
-    MessageTypes message_type;
+    MessageType message_type;
     int user_id;
     std::string username;
 };
 
 struct SignUpMessageRequest
 {
-    MessageTypes message_type;
+    MessageType message_type;
     std::string username;
     std::string password;
     std::string fullname;
@@ -59,14 +59,14 @@ struct SignUpMessageRequest
 
 struct SearchUserRequest
 {
-    MessageTypes message_type;
+    MessageType message_type;
     std::string username;
     std::string requested_by;
 };
 
 struct FriendReqRequest
 {
-    MessageTypes message_type;
+    MessageType message_type;
     int sender_id;
     std::string sender;
     std::string name_of_sender;
@@ -78,49 +78,49 @@ struct FriendReqRequest
 
 struct FriendReqResponse
 {
-    MessageTypes message_type;
+    MessageType message_type;
     int sender_id;
     std::string sender;
     std::string name_of_sender;
     int receiver_id;
     std::string receiver;
     std::string name_of_receiver;
-    FriendRequestStatus status;
+    FriendRequestState status;
     std::string timestamp;
 };
 
 /// send to the user when logged in
-struct UserProfile
-{
-    std::string name;
-    std::string username;
-    std::string dob;
-    std::string gender;
-    std::string email;
-    std::string phone;
-};
+// struct UserProfile
+// {
+//     std::string name;
+//     std::string username;
+//     std::string dob;
+//     std::string gender;
+//     std::string email;
+//     std::string phone;
+// };
 
-struct Friend
-{
-    // int user_id;
-    // std::string user;
-    // std::string name_of_user;
-    int friend_id;
-    std::string friend_username;
-    std::string name_of_friend;
-};
+// struct Friend
+// {
+//     // int user_id;
+//     // std::string user;
+//     // std::string name_of_user;
+//     int friend_id;
+//     std::string friend_username;
+//     std::string name_of_friend;
+// };
 
-struct PendingFriendRequest
-{
-    int sender_id;
-    std::string sender;
-    std::string name_of_sender;
-    int receiver_id;
-    std::string receiver;
-    std::string name_of_receiver;
-    std::string request_status;
-    std::string timestamp;
-};
+// struct PendingFriendRequest
+// {
+//     int sender_id;
+//     std::string sender;
+//     std::string name_of_sender;
+//     int receiver_id;
+//     std::string receiver;
+//     std::string name_of_receiver;
+//     std::string request_status;
+//     std::string timestamp;
+// };
 
 struct ChatMessage
 {
@@ -136,7 +136,7 @@ struct ChatMessage
 
 struct ChangePassword
 {
-    MessageTypes message_type;
+    MessageType message_type;
     int user_id;
     std::string old_password;
     std::string new_password;
@@ -144,7 +144,7 @@ struct ChangePassword
 
 struct ReconnectRequest
 {
-    MessageTypes message_type;
+    MessageType message_type;
     UserID user_id;
     std::string auth_token;
 };

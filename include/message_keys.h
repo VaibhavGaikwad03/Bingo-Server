@@ -38,6 +38,7 @@ namespace MessageKeys
     inline constexpr auto OLD_PASSWORD = "old_password";
     inline constexpr auto NEW_PASSWORD = "new_password";
     inline constexpr auto AUTH_TOKEN = "auth_token";
+    inline constexpr auto FRIENDS_LIST = "friends_list";
 };
 
 #endif //MESSAGE_KEYS_H

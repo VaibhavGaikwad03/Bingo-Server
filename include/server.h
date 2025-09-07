@@ -6,11 +6,11 @@
 #define SERVER_H
 
 #include <unordered_map>
-#include "../include/mutex_queue.h"
+#include "../include/thread_safe_queue.h"
 #include "../include/uWebSockets/App.h"
 #include "../include/message_processor.h"
 #include "../include/message_structures.h"
-#include "session.h"
+#include "user_session.h"
 
 // struct UserData
 // {
@@ -25,11 +25,11 @@ class Server
     int _port;
 
     uWS::App _app;
-    MutexQueue<DataPacket> _mtx_queue;
+    ThreadSafeQueue<DataPacket> _mtx_queue;
     // MessageProcessor *_message_processor;
     std::unique_ptr<MessageProcessor> _message_processor;
 
-    std::unordered_map<UserID, Session> _sessions; // when user login create the session for that user? when use logout remove the session for that user?
+    std::unordered_map<UserID, UserSession> _sessions; // when user login create the session for that user? when use logout remove the session for that user?
     // issue: client1 sends message to client2, pn tyaveli client2 offline ahe. mg client2 la send kelele messages kuthe store karayche??
     // jr aapn te messages client2 chya session struct madhe store karaych tharavla tr tyach session tr atta nasanar ahe karan client2 offline ahe mg kay karava lagel??
     // ek mysql madhe table create kr offline_messages cha tyamdhe je clients offline ahet tyanchyasathiche messages store kr

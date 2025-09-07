@@ -6,7 +6,7 @@
 #include "message_handler.h"
 #include "uWebSockets/App.h"
 
-struct Session
+struct UserSession
 {
     UserID user_id;
     std::string username;

@@ -8,7 +8,7 @@
 #include "../../include/message_keys.h"
 
 LoginMessageResponse::LoginMessageResponse(const Status status, const UserID user_id,
-                                           const LoginErrorCodes login_error_codes, std::string auth_token) : _status(status),
+                                           const LoginErrorCode login_error_codes, std::string auth_token) : _status(status),
     _user_id(user_id),
     _login_error_codes(login_error_codes),
     _auth_token(std::move(auth_token))
@@ -18,7 +18,7 @@ LoginMessageResponse::LoginMessageResponse(const Status status, const UserID use
 nlohmann::json LoginMessageResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageTypes::LOGIN_RESPONSE},
+        {MessageKeys::MESSAGE_TYPE, MessageType::LOGIN_RESPONSE},
         {MessageKeys::STATUS, _status},
         {MessageKeys::USER_ID, _user_id},
         {MessageKeys::ERROR_CODE, _login_error_codes},
@@ -36,7 +36,7 @@ UserID LoginMessageResponse::get_userid() const
     return _user_id;
 }
 
-LoginErrorCodes LoginMessageResponse::get_login_error_codes() const
+LoginErrorCode LoginMessageResponse::get_login_error_codes() const
 {
     return _login_error_codes;
 }

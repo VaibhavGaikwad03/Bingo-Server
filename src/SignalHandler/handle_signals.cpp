@@ -4,7 +4,7 @@
 
 #include <csignal>
 #include "../../include/SignalHandler/handle_signals.h"
-#include "../../include/utils/log.h"
+#include "../../include/utils/logger.h"
 
 void init_signal_handler()
 {
