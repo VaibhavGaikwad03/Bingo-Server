@@ -177,9 +177,10 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
         mysqlx::RowResult result =
                 _user_credentials_table
                 ->select("*")
-                .where("(username LIKE :pattern OR fullname LIKE :pattern) AND username != :current_username")
+                .where("(username LIKE :username_pattern OR fullname LIKE :fullname_pattern) AND username != :current_username")
                 .limit(30)
-                .bind("pattern", "%" + parsed_request->username + "%")
+                .bind("username_pattern",parsed_request->username + "%")
+                .bind("fullname_pattern",parsed_request->username + "%")
                 .bind("current_username", parsed_request->requested_by) // Set this properly
                 .execute();
 
