@@ -14,6 +14,8 @@ class LogoutMessageResponse final : public IMessageResponse
 public:
     explicit LogoutMessageResponse(Status status);
     [[nodiscard]] nlohmann::json to_json() const override;
+
+    Status get_status() const;
 };
 
 #endif // LOGOUTMESSAGERESPONSE_H

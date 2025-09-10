@@ -16,3 +16,8 @@ nlohmann::json LogoutMessageResponse::to_json() const
         {MessageKeys::STATUS, _status}
     };
 }
+
+Status LogoutMessageResponse::get_status() const
+{
+    return _status;
+}

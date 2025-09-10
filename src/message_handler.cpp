@@ -31,7 +31,7 @@ MessageHandler::~MessageHandler()
 = default;
 
 
-std::optional<LoginMessageResponse> MessageHandler::login(const nlohmann::json &message) const
+std::optional<LoginMessageResponse> MessageHandler::login_request(const nlohmann::json &message) const
 // if successful returns user id else returns error code
 {
     std::optional<LoginMessageRequest> parsed_message = MessageParser::login_message_request(message);
@@ -85,28 +85,33 @@ std::optional<LoginMessageResponse> MessageHandler::login(const nlohmann::json &
     return login_response;
 }
 
-Status MessageHandler::logout_request(const nlohmann::json &message) const
+std::optional<LogoutMessageResponse> MessageHandler::logout_request(const nlohmann::json &message) const
 {
     std::optional<LogoutMessageRequest> parsed_message = MessageParser::logout_message_request(message);
     if (!parsed_message.has_value())
     {
-        return Status::ERROR;
+        LogoutMessageResponse logout_message_response(Status::ERROR);
+        return logout_message_response;
     }
 
     UserSession *session = UserSessionManager::instance()->get_session(parsed_message->user_id);
     if (session == nullptr)
     {
-        return Status::ERROR;
+        LogoutMessageResponse logout_message_response(Status::ERROR);
+        return logout_message_response;
     }
 
     if (!UserSessionManager::instance()->delete_session(session))
     {
-        return Status::ERROR;
+        LogoutMessageResponse logout_message_response(Status::ERROR);
+        return logout_message_response;
     }
-    return Status::SUCCESS;
+
+    LogoutMessageResponse logout_message_response(Status::SUCCESS);
+    return logout_message_response;
 }
 
-UserID MessageHandler::signup(const nlohmann::json &message) const
+UserID MessageHandler::signup_request(const nlohmann::json &message) const
 // if successful returns user id else returns error code
 {
     std::optional<SignUpMessageRequest> parsed_message = MessageParser::signup_message_request(message);

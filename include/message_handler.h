@@ -14,6 +14,7 @@
 #include "MessageResponseFactory/FriendsListMessage.h"
 #include "MessageResponseFactory/PendingFriendRequests.h"
 #include "../include/MessageResponseFactory/UserProfileMessage.h"
+#include "MessageResponseFactory/LogoutMessageResponse.h"
 
 struct FoundUser
 {
@@ -45,9 +46,10 @@ public:
 
     ~MessageHandler();
 
-    [[nodiscard]] std::optional<LoginMessageResponse> login(const nlohmann::json &message) const;
-    [[nodiscard]] Status logout_request(const nlohmann::json &message) const;
-    [[nodiscard]] UserID signup(const nlohmann::json &message) const;
+    [[nodiscard]] std::optional<LoginMessageResponse> login_request(const nlohmann::json &message) const;
+    // [[nodiscard]] Status logout_request(const nlohmann::json &message) const;
+    [[nodiscard]] std::optional<LogoutMessageResponse> logout_request(const nlohmann::json &message) const;
+    [[nodiscard]] UserID signup_request(const nlohmann::json &message) const;
     [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
     void friend_req_request(const nlohmann::json &message) const;
     void friend_req_response(const nlohmann::json &message) const;

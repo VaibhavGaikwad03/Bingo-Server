@@ -162,7 +162,7 @@ void MessageProcessor::process_login_request(WebSocket *ws,
     // print_login_request(parsed_message); // debug
 
     // for now, it will send response from current thread
-    std::optional<LoginMessageResponse> login_message_response = _message_handler.login(data);
+    std::optional<LoginMessageResponse> login_message_response = _message_handler.login_request(data);
     if (login_message_response->get_login_error_codes() == LoginErrorCode::USERNAME_NOT_FOUND)
     {
         log(Log::ERROR, __func__,
@@ -223,8 +223,22 @@ void MessageProcessor::process_logout_request(WebSocket *ws,
 {
     print_logout_request(data);
 
-    const Status status = _message_handler.logout_request(data);
-    if (status == Status::ERROR)
+    std::optional<LogoutMessageResponse> logout_message_response = _message_handler.logout_request(data);
+    if (!logout_message_response.has_value())
+    {
+        log(Log::ERROR, __func__,
+            "Something went wrong while logging out user \'" + std::string(data[MessageKeys::USERNAME]) + "\'");
+
+        LogoutMessageResponse logout_response_response(Status::ERROR);
+        const nlohmann::json logout_response = logout_message_response->to_json();
+
+        log(Log::DEBUG, __func__, logout_response.dump());
+
+        ws->send(logout_response.dump(), uWS::TEXT);
+
+        return;
+    }
+    else if (logout_message_response->get_status() == Status::ERROR)
     {
         log(Log::ERROR, __func__,
             "Failed to log out user \'" + std::string(data[MessageKeys::USERNAME]) + "\'");
@@ -235,8 +249,8 @@ void MessageProcessor::process_logout_request(WebSocket *ws,
             "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out successfully");
     }
 
-    const LogoutMessageResponse logout_message_response(status);
-    const nlohmann::json logout_response = logout_message_response.to_json();
+    // const LogoutMessageResponse logout_message_response(status);
+    const nlohmann::json logout_response = logout_message_response->to_json();
 
     log(Log::DEBUG, __func__, logout_response.dump());
 
@@ -247,7 +261,7 @@ void MessageProcessor::process_signup_request(WebSocket *ws, nlohmann::json &dat
 {
     // print_signup_request(parsed_message); // debug
 
-    UserID result = _message_handler.signup(data);
+    UserID result = _message_handler.signup_request(data);
     if (result == utils::to_underlying(SignupErrorCode::USERNAME_ALREADY_EXISTS))
     {
         log(Log::ERROR, __func__,
