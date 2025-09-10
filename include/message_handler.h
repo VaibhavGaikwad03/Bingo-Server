@@ -2,7 +2,6 @@
 #define MESSAGE_HANDLER_H
 
 #include <vector>
-#include "message_types.h"
 #include <mysqlx/xdevapi.h>
 
 #include "message_structures.h"
@@ -16,14 +15,7 @@
 #include "MessageResponseFactory/UserProfileMessage.h"
 #include "MessageResponseFactory/LogoutMessageResponse.h"
 #include "MessageResponseFactory/SignupMessageResponse.h"
-
-struct FoundUser
-{
-    UserID user_id;
-    std::string name;
-    std::string username;
-    FriendshipState friendship_status;
-};
+#include "MessageResponseFactory/SearchUserRequestMessageResponse.h"
 
 class MessageHandler
 {
@@ -49,9 +41,8 @@ public:
 
     [[nodiscard]] std::optional<LoginMessageResponse> login_request(const nlohmann::json &message) const;
     [[nodiscard]] std::optional<LogoutMessageResponse> logout_request(const nlohmann::json &message) const;
-    // [[nodiscard]] UserID signup_request(const nlohmann::json &message) const;
     [[nodiscard]] std::optional<SignupMessageResponse> signup_request(const nlohmann::json &message) const;
-    [[nodiscard]] std::vector<FoundUser> search_user(const nlohmann::json &message) const;
+    [[nodiscard]] std::optional<SearchUserRequestMessageResponse> search_user_request(const nlohmann::json &message) const;
     void friend_req_request(const nlohmann::json &message) const;
     void friend_req_response(const nlohmann::json &message) const;
     [[nodiscard]] ChangePasswordErrorCode change_password_request(const nlohmann::json &message) const;

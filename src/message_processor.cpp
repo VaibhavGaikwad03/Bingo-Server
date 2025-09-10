@@ -309,32 +309,17 @@ void MessageProcessor::process_search_user_request(WebSocket *ws,
 {
     print_search_user_request(data); // debug
 
-    std::vector<FoundUser> found_users = _message_handler.search_user(data);
-    if (found_users.empty())
+    const std::optional<SearchUserRequestMessageResponse> search_user_request_message_response = _message_handler.
+            search_user_request(data);
+    if (!search_user_request_message_response.has_value())
     {
-        const SearchUserRequestMessageResponse search_user_request_response(0, nlohmann::json::array());
-        const nlohmann::json search_user_response = search_user_request_response.to_json();
-
+        const SearchUserRequestMessageResponse search_user_request_error_response(0, {});
+        const nlohmann::json search_user_response = search_user_request_error_response.to_json();
         ws->send(search_user_response.dump(), uWS::TEXT);
     }
     else
     {
-        nlohmann::json users = nlohmann::json::array();
-
-        for (const auto &found_user: found_users)
-        {
-            // search_user_response[MessageKeys::USERS].push_back({
-            users.push_back({
-                {MessageKeys::USER_ID, found_user.user_id},
-                {MessageKeys::USERNAME, found_user.username},
-                {MessageKeys::DISPLAY_NAME, found_user.name},
-                {MessageKeys::FRIENDSHIP_STATUS, found_user.friendship_status}
-            });
-        }
-
-        const SearchUserRequestMessageResponse
-                search_user_request_response(static_cast<int>(found_users.size()), users);
-        const nlohmann::json search_user_response = search_user_request_response.to_json();
+        const nlohmann::json search_user_response = search_user_request_message_response->to_json();
 
         log(Log::DEBUG, __func__, search_user_response.dump());
 

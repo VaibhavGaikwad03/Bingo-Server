@@ -179,21 +179,22 @@ std::optional<SignupMessageResponse> MessageHandler::signup_request(const nlohma
     // return static_cast<UserID>(insert_result.getAutoIncrementValue());
 }
 
-std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message) const
+std::optional<SearchUserRequestMessageResponse> MessageHandler::search_user_request(const nlohmann::json &message) const
 {
-    std::vector<FoundUser> users;
-
-    std::optional<SearchUserRequest> parsed_request = MessageParser::search_user_request(message);
-    if (!parsed_request.has_value())
+    const std::optional<SearchUserRequest> parsed_request = MessageParser::search_user_request(message);
+    if (!parsed_request.has_value() || parsed_request->username.empty())
     {
-        return {};
+        SearchUserRequestMessageResponse search_user_request_message_response(0, {});
+        return search_user_request_message_response;
     }
 
-    if (parsed_request->username.empty())
-        return {};
+    // if (parsed_request->username.empty())
+    //     return {};
 
     try
     {
+        std::vector<FoundUser> users;
+
         mysqlx::RowResult result =
                 _user_credentials_table
                 ->select("*")
@@ -210,7 +211,7 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
             FoundUser found_user;
             found_user.user_id = row[utils::to_underlying(UserCredentialsTableIndex::USER_ID)];
             found_user.username = row[utils::to_underlying(UserCredentialsTableIndex::USERNAME)].get<std::string>();
-            found_user.name = row[utils::to_underlying(UserCredentialsTableIndex::FULLNAME)].get<std::string>();
+            found_user.display_name = row[utils::to_underlying(UserCredentialsTableIndex::FULLNAME)].get<std::string>();
 
             mysqlx::Row request_status_result = _friend_request_table
                     ->select("request_status")
@@ -243,22 +244,25 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
                     found_user.friendship_status = FriendshipState::FRIEND;
                 }
             }
-            users.push_back(found_user);
+            users.push_back(found_user); // 5. All good → hand results to caller
         }
+
+        SearchUserRequestMessageResponse search_user_request_message_response(users.size(), users);
+        return search_user_request_message_response;
     }
     catch (const mysqlx::Error &err)
     {
         log(Log::ERROR, __func__, std::string("Database error in search_user: ") + err.what());
-        return {};
+        SearchUserRequestMessageResponse search_user_request_message_response(0, {});
+        return search_user_request_message_response;
     }
     catch (const std::exception &ex)
     {
         // Safety net for JSON / std errors
         log(Log::ERROR, __func__, std::string("Unexpected error in search_user: ") + ex.what());
-        return {};
+        SearchUserRequestMessageResponse search_user_request_message_response(0, {});
+        return search_user_request_message_response;
     }
-
-    return users; // 5. All good → hand results to caller
 }
 
 bool MessageHandler::has_pending_friend_request(const int sender_id, const int receiver_id) const
