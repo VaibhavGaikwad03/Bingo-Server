@@ -22,7 +22,7 @@ public:
 
     [[nodiscard]] Status get_status() const;
     [[nodiscard]] UserID get_userid() const;
-    [[nodiscard]] LoginErrorCode get_login_error_codes() const;
+    [[nodiscard]] LoginErrorCode get_login_error_code() const;
     [[nodiscard]] std::string get_token() const;
 };
 

@@ -20,3 +20,18 @@ nlohmann::json SignupMessageResponse::to_json() const
         {MessageKeys::ERROR_CODE, _signup_error_codes}
     };
 }
+
+Status SignupMessageResponse::get_status() const
+{
+    return _status;
+}
+
+UserID SignupMessageResponse::get_userid() const
+{
+    return _user_id;
+}
+
+SignupErrorCode SignupMessageResponse::get_signup_error_code() const
+{
+    return _signup_error_codes;
+}

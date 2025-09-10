@@ -19,6 +19,9 @@ class SignupMessageResponse final : public IMessageResponse
 public:
     SignupMessageResponse(Status status, UserID user_id, SignupErrorCode signup_error_codes);
     [[nodiscard]] nlohmann::json to_json() const override;
+    [[nodiscard]] Status get_status() const;
+    [[nodiscard]] UserID get_userid() const;
+    [[nodiscard]] SignupErrorCode get_signup_error_code() const;
 };
 
 #endif // SIGNUPMESSAGERESPONSE_H

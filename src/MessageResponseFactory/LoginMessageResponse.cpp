@@ -36,7 +36,7 @@ UserID LoginMessageResponse::get_userid() const
     return _user_id;
 }
 
-LoginErrorCode LoginMessageResponse::get_login_error_codes() const
+LoginErrorCode LoginMessageResponse::get_login_error_code() const
 {
     return _login_error_codes;
 }

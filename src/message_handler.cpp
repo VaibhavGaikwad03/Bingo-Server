@@ -111,13 +111,16 @@ std::optional<LogoutMessageResponse> MessageHandler::logout_request(const nlohma
     return logout_message_response;
 }
 
-UserID MessageHandler::signup_request(const nlohmann::json &message) const
+std::optional<SignupMessageResponse> MessageHandler::signup_request(const nlohmann::json &message) const
 // if successful returns user id else returns error code
 {
     std::optional<SignUpMessageRequest> parsed_message = MessageParser::signup_message_request(message);
     if (!parsed_message.has_value())
     {
-        return utils::to_underlying(SignupErrorCode::SOMETHING_WENT_WRONG);
+        SignupMessageResponse signup_message_response(Status::ERROR, static_cast<UserID>(ErrorCode::INVALID_USER_ID),
+                                                      SignupErrorCode::SOMETHING_WENT_WRONG);
+        return signup_message_response;
+        // return utils::to_underlying(SignupErrorCode::SOMETHING_WENT_WRONG);
     }
 
     // check if username exists
@@ -128,7 +131,10 @@ UserID MessageHandler::signup_request(const nlohmann::json &message) const
 
     if (result_username.count() > 0)
     {
-        return utils::to_underlying(SignupErrorCode::USERNAME_ALREADY_EXISTS); // user already exists
+        SignupMessageResponse signup_message_response(Status::ERROR, static_cast<UserID>(ErrorCode::INVALID_USER_ID),
+                                                      SignupErrorCode::USERNAME_ALREADY_EXISTS);
+        return signup_message_response;
+        // return utils::to_underlying(SignupErrorCode::USERNAME_ALREADY_EXISTS); // user already exists
     }
 
     // check if email exists
@@ -139,7 +145,10 @@ UserID MessageHandler::signup_request(const nlohmann::json &message) const
 
     if (result_email.count() > 0)
     {
-        return utils::to_underlying(SignupErrorCode::EMAIL_ALREADY_EXISTS);
+        SignupMessageResponse signup_message_response(Status::ERROR, static_cast<UserID>(ErrorCode::INVALID_USER_ID),
+                                                      SignupErrorCode::EMAIL_ALREADY_EXISTS);
+        return signup_message_response;
+        // return utils::to_underlying(SignupErrorCode::EMAIL_ALREADY_EXISTS);
     }
 
     // check if phone exists
@@ -150,7 +159,10 @@ UserID MessageHandler::signup_request(const nlohmann::json &message) const
 
     if (result_phone.count() > 0)
     {
-        return utils::to_underlying(SignupErrorCode::PHONE_ALREADY_EXISTS);
+        SignupMessageResponse signup_message_response(Status::ERROR, static_cast<UserID>(ErrorCode::INVALID_USER_ID),
+                                                      SignupErrorCode::PHONE_ALREADY_EXISTS);
+        return signup_message_response;
+        // return utils::to_underlying(SignupErrorCode::PHONE_ALREADY_EXISTS);
     }
 
     auto insert_result = _user_credentials_table->insert("username", "password", "fullname", "gender", "dob", "email",
@@ -161,7 +173,10 @@ UserID MessageHandler::signup_request(const nlohmann::json &message) const
                     parsed_message->dob, parsed_message->email, parsed_message->phone/*, timestamp*/)
             .execute();
 
-    return static_cast<UserID>(insert_result.getAutoIncrementValue());
+    SignupMessageResponse signup_message_response(Status::SUCCESS, static_cast<UserID>(insert_result.getAutoIncrementValue()),
+                                                      SignupErrorCode::NONE);
+    return signup_message_response;
+    // return static_cast<UserID>(insert_result.getAutoIncrementValue());
 }
 
 std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message) const
@@ -182,10 +197,11 @@ std::vector<FoundUser> MessageHandler::search_user(const nlohmann::json &message
         mysqlx::RowResult result =
                 _user_credentials_table
                 ->select("*")
-                .where("(username LIKE :username_pattern OR fullname LIKE :fullname_pattern) AND username != :current_username")
+                .where(
+                    "(username LIKE :username_pattern OR fullname LIKE :fullname_pattern) AND username != :current_username")
                 .limit(30)
-                .bind("username_pattern",parsed_request->username + "%")
-                .bind("fullname_pattern",parsed_request->username + "%")
+                .bind("username_pattern", parsed_request->username + "%")
+                .bind("fullname_pattern", parsed_request->username + "%")
                 .bind("current_username", parsed_request->requested_by) // Set this properly
                 .execute();
 
@@ -370,7 +386,9 @@ std::optional<UserProfileMessage> MessageHandler::get_user_profile(const UserID 
 
         if (!result.isNull())
         {
-            UserProfileMessage user_profile_message(result[0].get<std::string>(), result[1].get<std::string>(), result[2].get<std::string>(), result[3].get<std::string>(), result[4].get<std::string>(), result[5].get<std::string>());
+            UserProfileMessage user_profile_message(result[0].get<std::string>(), result[1].get<std::string>(),
+                                                    result[2].get<std::string>(), result[3].get<std::string>(),
+                                                    result[4].get<std::string>(), result[5].get<std::string>());
             return user_profile_message;
         }
         else
