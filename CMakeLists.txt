@@ -54,6 +54,9 @@ add_executable(BingoServer main.cpp
         src/MessageResponseFactory/ReconnectMessageResponse.cpp
         include/MessageResponseFactory/FriendsListMessage.h
         src/MessageResponseFactory/FriendsListMessage.cpp
+        src/utils/config_reader.cpp
+        include/utils/config_reader.h
+        include/file_paths.h
 )
 
 # Link the required libraries

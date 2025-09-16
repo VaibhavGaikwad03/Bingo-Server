@@ -2,11 +2,29 @@
 #include <iostream>
 #include <filesystem>
 
-#include "../../include/utils/logger.h"
 #include "../../include/utils/time.h"
+#include "../../include/file_paths.h"
+#include "../../include/utils/logger.h"
+#include "../../include/utils/config_reader.h"
+
+static bool debug_flag = true;
+static bool is_config_read = false;
 
 void log(Log log_type, const std::string &function_name, const std::string &message)
 {
+    if (!is_config_read)
+    {
+        is_config_read = true;
+        ConfigReader config_reader(CONFIG_FILE_PATH);
+
+        debug_flag = config_reader.get_debug_flag();
+    }
+
+    if ((debug_flag == false) && (log_type == Log::DEBUG)) // log debug messages only if debug flag is ON
+    {
+        return;
+    }
+
     std::string log_type_str, current_time;
     std::filesystem::path fs_log_file_path = std::string("../logs/") + get_date() + std::string(".log");
 

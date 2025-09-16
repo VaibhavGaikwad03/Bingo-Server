@@ -1,29 +1,19 @@
 #include <fstream>
 
+#include "include/file_paths.h"
 #include "include/SignalHandler/handle_signals.h"
 #include "include/utils/logger.h"
 #include "include/server.h"
-#include "include/MessageResponseFactory/FriendsListMessage.h"
+#include "include/utils/config_reader.h"
 
 int main()
 {
-    std::ifstream config_file("../config/server_config.json");
-
-    if (!config_file.is_open())
-    {
-        log(Log::CRITICAL, __func__, "Server config file not found.");
-        return -1;
-    }
-
     try
     {
-        std::ostringstream buffer;
-        buffer << config_file.rdbuf();
+        const ConfigReader config_reader(CONFIG_FILE_PATH);
 
-        nlohmann::json parsed_config = nlohmann::json::parse(buffer.str());
-
-        std::string ip = parsed_config["ip"];
-        int port = parsed_config["port"];
+        const std::string ip = config_reader.get_ip();
+        const int port = config_reader.get_port();
 
         Server server(ip, port);
 

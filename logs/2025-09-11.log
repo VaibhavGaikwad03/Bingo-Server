@@ -286,3 +286,98 @@
 [2025-09-11 00:13:27][INFO][process_logout_request] User 'vaibz' logged out successfully
 [2025-09-11 00:13:27][DEBUG][process_logout_request] {"message_type":106,"status":0}
 [2025-09-11 00:13:39][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-09-11 21:31:26][INFO] Server started...
+[2025-09-11 21:31:26][INFO] Listening on port: 2121
+[2025-09-11 21:31:35][INFO] Client connected with IP: 127.0.0.1
+[2025-09-11 21:31:48][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-09-11T16:01:44.003Z"}
+[2025-09-11 21:31:48][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-11T16:01:44.003Z","username":"vaibz"}
+[2025-09-11 21:31:48][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-09-11 21:31:48][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"+91-7887401312","username":"vaibz"}
+[2025-09-11 21:31:48][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-11 21:31:48][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2025-06-06","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2025-09-09","fullname":"test","gender":"Male","user_id":1265,"username":"test"}],"message_type":112}
+[2025-09-11 22:15:14][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-11 22:15:14][INFO] Client connected with IP: 127.0.0.1
+[2025-09-11 22:46:05][INFO] Client connected with IP: 127.0.0.1
+[2025-09-11 22:46:12][DEBUG] Message received from client {"message_type":101,"username":"vaibz12","password":"12345","timestamp":"2025-09-11T17:16:05.070Z"}
+[2025-09-11 22:46:12][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-11T17:16:05.070Z","username":"vaibz12"}
+[2025-09-11 22:46:12][INFO][process_login_request] User 'vaibz12' logged in successfully
+[2025-09-11 22:46:12][DEBUG][send_user_login_payloads] {"dob":"2025-06-05","email":"ribelib288@forcrack.com","fullname":"vaibhav","gender":"Male","message_type":111,"phone":"2432444352","username":"vaibz12"}
+[2025-09-11 22:46:12][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-11 22:46:12][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-11 22:46:19][DEBUG] Message received from client {"message_type":107,"username":"v","requested_by":"vaibz"}
+[2025-09-11 22:46:19][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"v"}
+[2025-09-11 22:46:19][DEBUG][process_search_user_request] {"count":16,"message_type":108,"users":[{"display_name":"VIjay","friendship_status":2,"user_id":37,"username":"Vijay"},{"display_name":"VIjay","friendship_status":2,"user_id":38,"username":"vijay1234"},{"display_name":"Vaishnavi ","friendship_status":2,"user_id":39,"username":"vaishnavi10"},{"display_name":"vaibhav","friendship_status":2,"user_id":41,"username":"vaibz12"},{"display_name":"Vishal Pawar","friendship_status":2,"user_id":1053,"username":"vpawar008"},{"display_name":"Vaishnavi Inamdar","friendship_status":2,"user_id":1063,"username":"vinamdar778"},{"display_name":"Vaishnavi Apte","friendship_status":2,"user_id":1089,"username":"vapte786"},{"display_name":"Vaishnavi Jadhav","friendship_status":2,"user_id":1092,"username":"vjadhav942"},{"display_name":"Vaishnavi Chavan","friendship_status":2,"user_id":1105,"username":"vchavan805"},{"display_name":"Vaishnavi Kulkarni","friendship_status":2,"user_id":1135,"username":"vkulkarni090"},{"display_name":"Vaishnavi Lokhande","friendship_status":2,"user_id":1168,"username":"vlokhande789"},{"display_name":"Vaishnavi Shinde","friendship_status":2,"user_id":1200,"username":"vshinde770"},{"display_name":"Vaishnavi Pawar","friendship_status":2,"user_id":1210,"username":"vpawar912"},{"display_name":"Vaibhav","friendship_status":2,"user_id":1242,"username":"vaibhav"},{"display_name":"Vaibhav Gaikwad","friendship_status":2,"user_id":1243,"username":"vaibz21"},{"display_name":"vidya","friendship_status":2,"user_id":1255,"username":"vidya_20"}]}
+[2025-09-11 22:46:19][DEBUG] Message received from client {"message_type":107,"username":"va","requested_by":"vaibz"}
+[2025-09-11 22:46:19][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"va"}
+[2025-09-11 22:46:19][DEBUG][process_search_user_request] {"count":12,"message_type":108,"users":[{"display_name":"Vaishnavi ","friendship_status":2,"user_id":39,"username":"vaishnavi10"},{"display_name":"vaibhav","friendship_status":2,"user_id":41,"username":"vaibz12"},{"display_name":"Vaishnavi Inamdar","friendship_status":2,"user_id":1063,"username":"vinamdar778"},{"display_name":"Vaishnavi Apte","friendship_status":2,"user_id":1089,"username":"vapte786"},{"display_name":"Vaishnavi Jadhav","friendship_status":2,"user_id":1092,"username":"vjadhav942"},{"display_name":"Vaishnavi Chavan","friendship_status":2,"user_id":1105,"username":"vchavan805"},{"display_name":"Vaishnavi Kulkarni","friendship_status":2,"user_id":1135,"username":"vkulkarni090"},{"display_name":"Vaishnavi Lokhande","friendship_status":2,"user_id":1168,"username":"vlokhande789"},{"display_name":"Vaishnavi Shinde","friendship_status":2,"user_id":1200,"username":"vshinde770"},{"display_name":"Vaishnavi Pawar","friendship_status":2,"user_id":1210,"username":"vpawar912"},{"display_name":"Vaibhav","friendship_status":2,"user_id":1242,"username":"vaibhav"},{"display_name":"Vaibhav Gaikwad","friendship_status":2,"user_id":1243,"username":"vaibz21"}]}
+[2025-09-11 22:46:19][DEBUG] Message received from client {"message_type":107,"username":"vai","requested_by":"vaibz"}
+[2025-09-11 22:46:19][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"vai"}
+[2025-09-11 22:46:19][DEBUG][process_search_user_request] {"count":12,"message_type":108,"users":[{"display_name":"Vaishnavi ","friendship_status":2,"user_id":39,"username":"vaishnavi10"},{"display_name":"vaibhav","friendship_status":2,"user_id":41,"username":"vaibz12"},{"display_name":"Vaishnavi Inamdar","friendship_status":2,"user_id":1063,"username":"vinamdar778"},{"display_name":"Vaishnavi Apte","friendship_status":2,"user_id":1089,"username":"vapte786"},{"display_name":"Vaishnavi Jadhav","friendship_status":2,"user_id":1092,"username":"vjadhav942"},{"display_name":"Vaishnavi Chavan","friendship_status":2,"user_id":1105,"username":"vchavan805"},{"display_name":"Vaishnavi Kulkarni","friendship_status":2,"user_id":1135,"username":"vkulkarni090"},{"display_name":"Vaishnavi Lokhande","friendship_status":2,"user_id":1168,"username":"vlokhande789"},{"display_name":"Vaishnavi Shinde","friendship_status":2,"user_id":1200,"username":"vshinde770"},{"display_name":"Vaishnavi Pawar","friendship_status":2,"user_id":1210,"username":"vpawar912"},{"display_name":"Vaibhav","friendship_status":2,"user_id":1242,"username":"vaibhav"},{"display_name":"Vaibhav Gaikwad","friendship_status":2,"user_id":1243,"username":"vaibz21"}]}
+[2025-09-11 22:46:20][DEBUG] Message received from client {"message_type":107,"username":"vaib","requested_by":"vaibz"}
+[2025-09-11 22:46:20][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"vaib"}
+[2025-09-11 22:46:20][DEBUG][process_search_user_request] {"count":3,"message_type":108,"users":[{"display_name":"vaibhav","friendship_status":2,"user_id":41,"username":"vaibz12"},{"display_name":"Vaibhav","friendship_status":2,"user_id":1242,"username":"vaibhav"},{"display_name":"Vaibhav Gaikwad","friendship_status":2,"user_id":1243,"username":"vaibz21"}]}
+[2025-09-11 22:46:20][DEBUG] Message received from client {"message_type":107,"username":"vaibz","requested_by":"vaibz"}
+[2025-09-11 22:46:20][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"vaibz"}
+[2025-09-11 22:46:20][DEBUG][process_search_user_request] {"count":2,"message_type":108,"users":[{"display_name":"vaibhav","friendship_status":2,"user_id":41,"username":"vaibz12"},{"display_name":"Vaibhav Gaikwad","friendship_status":2,"user_id":1243,"username":"vaibz21"}]}
+[2025-09-11 22:46:20][DEBUG] Message received from client {"message_type":107,"username":"vaibz1","requested_by":"vaibz"}
+[2025-09-11 22:46:20][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"vaibz1"}
+[2025-09-11 22:46:20][DEBUG][process_search_user_request] {"count":1,"message_type":108,"users":[{"display_name":"vaibhav","friendship_status":2,"user_id":41,"username":"vaibz12"}]}
+[2025-09-11 22:46:20][DEBUG] Message received from client {"message_type":107,"username":"vaibz12","requested_by":"vaibz"}
+[2025-09-11 22:46:20][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"vaibz12"}
+[2025-09-11 22:46:20][DEBUG][process_search_user_request] {"count":1,"message_type":108,"users":[{"display_name":"vaibhav","friendship_status":2,"user_id":41,"username":"vaibz12"}]}
+[2025-09-11 22:46:22][DEBUG] Message received from client {"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":41,"receiver":"vaibz12","name_of_receiver":"vaibhav","timestamp":"2025-09-11T17:16:20.947Z"}
+[2025-09-11 22:46:22][DEBUG] Message received from client {"message_type":107,"username":"vaibz12","requested_by":"vaibz"}
+[2025-09-11 22:46:22][DEBUG][process] in process func: {"message_type":109,"name_of_receiver":"vaibhav","name_of_sender":"Vaibhav Gaikwad","receiver":"vaibz12","receiver_id":41,"sender":"vaibz","sender_id":21,"timestamp":"2025-09-11T17:16:20.947Z"}
+[2025-09-11 22:46:22][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"vaibz12"}
+[2025-09-11 22:46:22][DEBUG][process_search_user_request] {"count":1,"message_type":108,"users":[{"display_name":"vaibhav","friendship_status":1,"user_id":41,"username":"vaibz12"}]}
+[2025-09-11 22:46:34][DEBUG] Message received from client {"message_type":110,"sender_id":41,"sender":"vaibz12","name_of_sender":"vaibhav","receiver_id":21,"receiver":"vaibz","name_of_receiver":"Vaibhav Gaikwad","request_status":1,"timestamp":"2025-09-11T17:16:30.449Z"}
+[2025-09-11 22:46:34][DEBUG][process] in process func: {"message_type":110,"name_of_receiver":"Vaibhav Gaikwad","name_of_sender":"vaibhav","receiver":"vaibz","receiver_id":21,"request_status":1,"sender":"vaibz12","sender_id":41,"timestamp":"2025-09-11T17:16:30.449Z"}
+[2025-09-11 22:47:42][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-09-11 22:47:42][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-09-11 22:47:42][ERROR][process_logout_request] Failed to log out user 'vaibz'
+[2025-09-11 22:47:42][DEBUG][process_logout_request] {"message_type":106,"status":1}
+[2025-09-11 22:47:52][INFO] Client connected with IP: 127.0.0.1
+[2025-09-11 22:47:57][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-09-11T17:17:52.196Z"}
+[2025-09-11 22:47:57][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-11T17:17:52.196Z","username":"vaibz"}
+[2025-09-11 22:47:57][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-09-11 22:47:57][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"+91-7887401312","username":"vaibz"}
+[2025-09-11 22:47:57][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-11 22:47:57][DEBUG][send_user_login_payloads] {"count":5,"friends_list":[{"dob":"2025-06-06","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2025-09-09","fullname":"test","gender":"Male","user_id":1265,"username":"test"},{"dob":"2025-06-05","fullname":"vaibhav","gender":"Male","user_id":41,"username":"vaibz12"}],"message_type":112}
+[2025-09-11 22:48:29][DEBUG] Message received from client {"message_type":107,"username":"g","requested_by":"vaibz"}
+[2025-09-11 22:48:29][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"g"}
+[2025-09-11 22:48:29][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:48:29][DEBUG] Message received from client {"message_type":107,"username":"ga","requested_by":"vaibz"}
+[2025-09-11 22:48:29][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"ga"}
+[2025-09-11 22:48:29][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:48:29][DEBUG] Message received from client {"message_type":107,"username":"g","requested_by":"vaibz"}
+[2025-09-11 22:48:29][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"g"}
+[2025-09-11 22:48:29][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:48:29][DEBUG] Message received from client {"message_type":107,"username":"","requested_by":"vaibz"}
+[2025-09-11 22:48:29][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":""}
+[2025-09-11 22:48:29][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:48:30][DEBUG] Message received from client {"message_type":107,"username":"w","requested_by":"vaibz"}
+[2025-09-11 22:48:30][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"w"}
+[2025-09-11 22:48:30][DEBUG][process_search_user_request] {"count":2,"message_type":108,"users":[{"display_name":"sakk","friendship_status":2,"user_id":1252,"username":"whatever"},{"display_name":"OM","friendship_status":2,"user_id":1261,"username":"wertyuygiuyiuoipoihogufydnyrtsdbvsdacsxdetryeuiopo"}]}
+[2025-09-11 22:48:47][DEBUG] Message received from client {"message_type":109,"sender_id":21,"sender":"vaibz","name_of_sender":"Vaibhav Gaikwad","receiver_id":1252,"receiver":"whatever","name_of_receiver":"sakk","timestamp":"2025-09-11T17:18:30.181Z"}
+[2025-09-11 22:48:47][DEBUG] Message received from client {"message_type":107,"username":"w","requested_by":"vaibz"}
+[2025-09-11 22:48:47][DEBUG][process] in process func: {"message_type":109,"name_of_receiver":"sakk","name_of_sender":"Vaibhav Gaikwad","receiver":"whatever","receiver_id":1252,"sender":"vaibz","sender_id":21,"timestamp":"2025-09-11T17:18:30.181Z"}
+[2025-09-11 22:48:47][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz","username":"w"}
+[2025-09-11 22:48:47][DEBUG][process_search_user_request] {"count":2,"message_type":108,"users":[{"display_name":"sakk","friendship_status":1,"user_id":1252,"username":"whatever"},{"display_name":"OM","friendship_status":2,"user_id":1261,"username":"wertyuygiuyiuoipoihogufydnyrtsdbvsdacsxdetryeuiopo"}]}
+[2025-09-11 22:55:45][DEBUG] Message received from client {"message_type":107,"username":"g","requested_by":"vaibz12"}
+[2025-09-11 22:55:45][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz12","username":"g"}
+[2025-09-11 22:55:45][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:55:45][DEBUG] Message received from client {"message_type":107,"username":"","requested_by":"vaibz12"}
+[2025-09-11 22:55:45][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz12","username":""}
+[2025-09-11 22:55:45][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:55:46][DEBUG] Message received from client {"message_type":107,"username":"i","requested_by":"vaibz12"}
+[2025-09-11 22:55:46][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz12","username":"i"}
+[2025-09-11 22:55:46][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:55:47][DEBUG] Message received from client {"message_type":107,"username":"","requested_by":"vaibz12"}
+[2025-09-11 22:55:47][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz12","username":""}
+[2025-09-11 22:55:47][DEBUG][process_search_user_request] {"count":0,"message_type":108,"users":[]}
+[2025-09-11 22:55:47][DEBUG] Message received from client {"message_type":107,"username":"r","requested_by":"vaibz12"}
+[2025-09-11 22:55:47][DEBUG][process] in process func: {"message_type":107,"requested_by":"vaibz12","username":"r"}
+[2025-09-11 22:55:47][DEBUG][process_search_user_request] {"count":18,"message_type":108,"users":[{"display_name":"Rutuja Dabhade","friendship_status":2,"user_id":34,"username":"Rutuja"},{"display_name":"Rutuja D","friendship_status":2,"user_id":40,"username":"__rutu"},{"display_name":"Rohit Salunkhe","friendship_status":2,"user_id":1044,"username":"rsalunkhe058"},{"display_name":"Rutuja Jadhav","friendship_status":2,"user_id":1051,"username":"rjadhav009"},{"display_name":"Rupali Deshmukh","friendship_status":2,"user_id":1107,"username":"rdeshmukh637"},{"display_name":"Ruturaj More","friendship_status":2,"user_id":1110,"username":"rmore985"},{"display_name":"Ruturaj Pawar","friendship_status":2,"user_id":1122,"username":"rpawar967"},{"display_name":"Rupali Kulkarni","friendship_status":2,"user_id":1125,"username":"rkulkarni109"},{"display_name":"Ruturaj Deshmukh","friendship_status":2,"user_id":1142,"username":"rdeshmukh590"},{"display_name":"Rutuja Bhosale","friendship_status":2,"user_id":1176,"username":"rbhosale161"},{"display_name":"Rupali Pawar","friendship_status":2,"user_id":1186,"username":"rpawar087"},{"display_name":"Rutuja Kadam","friendship_status":2,"user_id":1187,"username":"rkadam339"},{"display_name":"Ruturaj Inamdar","friendship_status":2,"user_id":1204,"username":"rinamdar954"},{"display_name":"Ruturaj Jadhav","friendship_status":2,"user_id":1207,"username":"rjadhav555"},{"display_name":"Ruturaj Phadke","friendship_status":2,"user_id":1214,"username":"rphadke560"},{"display_name":"Rohit Deshmukh","friendship_status":2,"user_id":1228,"username":"rdeshmukh867"},{"display_name":"Rohit Deshmukh","friendship_status":2,"user_id":1233,"username":"rdeshmukh640"},{"display_name":"Rutujs","friendship_status":2,"user_id":1258,"username":"_rutu_"}]}
+[2025-09-11 23:02:21][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-11 23:18:30][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-11 23:28:59][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
