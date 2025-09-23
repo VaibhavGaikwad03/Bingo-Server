@@ -1,0 +1,20 @@
+[2025-09-23 22:29:28][INFO] Server started...
+[2025-09-23 22:29:28][INFO] Listening on port: 2121
+[2025-09-23 22:30:06][INFO] Client connected with IP: 127.0.0.1
+[2025-09-23 22:30:12][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-09-23T17:00:08.054Z"}
+[2025-09-23 22:30:12][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-23T17:00:08.054Z","username":"vaibz"}
+[2025-09-23 22:30:12][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-09-23 22:30:12][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"+91-7887401312","username":"vaibz"}
+[2025-09-23 22:30:12][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-23 22:30:12][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-23 22:32:50][INFO] Client connected with IP: 127.0.0.1
+[2025-09-23 22:34:03][INFO] Client connected with IP: 127.0.0.1
+[2025-09-23 22:34:13][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-23T17:04:04.012Z"}
+[2025-09-23 22:34:13][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-23T17:04:04.012Z","username":"rutuja"}
+[2025-09-23 22:34:13][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-23 22:34:13][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789089","username":"Rutuja"}
+[2025-09-23 22:34:13][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-23 22:34:13][DEBUG][send_user_login_payloads] {"count":1,"friends_list":[{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"}],"message_type":112}
+[2025-09-23 22:34:24][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-23 22:35:43][INFO] Client connected with IP: 127.0.0.1
+[2025-09-23 22:45:43][INFO] Client connected with IP: 127.0.0.1

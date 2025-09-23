@@ -193,4 +193,20 @@
     "status": <success/error>,
     "error_code": <error code>
   }
+  ,
+  {
+    "message_type": UPDATE_PROFILE_REQUEST
+    "user_id": <user_id>
+    "fullname": "<name>"
+    "username": <username>
+    "dob": <dob>
+    "gender": <gender>
+    "email": <email>
+    "phone": <1234567890>
+  },
+  {
+    "message_type": UPDATE_PROFILE_RESPONSE
+    "status": SUCCESS/ERROR
+    "error_code":<err_code>
+  }
 ]

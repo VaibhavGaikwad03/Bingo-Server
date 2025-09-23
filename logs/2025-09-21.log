@@ -1,0 +1,21 @@
+[2025-09-21 16:24:14][INFO] Server started...
+[2025-09-21 16:24:14][INFO] Listening on port: 2121
+[2025-09-21 16:24:14][INFO] Client connected with IP: 127.0.0.1
+[2025-09-21 16:24:22][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-09-21T10:54:16.001Z"}
+[2025-09-21 16:24:22][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-09-21T10:54:16.001Z","username":"vaibz"}
+[2025-09-21 16:24:22][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-09-21 16:24:22][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"+91-7887401312","username":"vaibz"}
+[2025-09-21 16:24:22][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-21 16:24:22][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-21 16:25:01][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-09-21 16:25:01][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-09-21 16:25:01][INFO][process_logout_request] User 'vaibz' logged out successfully
+[2025-09-21 16:25:01][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-09-21 16:25:35][DEBUG] Message received from client {"message_type":101,"username":"so_sasssy","password":"2356","timestamp":"2025-09-21T10:55:01.719Z"}
+[2025-09-21 16:25:35][DEBUG][process] in process func: {"message_type":101,"password":"2356","timestamp":"2025-09-21T10:55:01.719Z","username":"so_sasssy"}
+[2025-09-21 16:25:35][INFO][process_login_request] User 'so_sasssy' logged in successfully
+[2025-09-21 16:25:35][DEBUG][send_user_login_payloads] {"dob":"2004-09-07","email":"sakshirc7@gmail.com","fullname":"sakshi chavan","gender":"Female","message_type":111,"phone":"2365689655","username":"so_sasssy"}
+[2025-09-21 16:25:35][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-21 16:25:35][DEBUG][send_user_login_payloads] {"count":7,"friends_list":[{"dob":"2025-09-01","fullname":"shlok shirke","gender":"Male","user_id":1273,"username":"shlokshirke"},{"dob":"2025-09-01","fullname":"shlok shirke","gender":"Male","user_id":1273,"username":"shlokshirke"},{"dob":"2025-09-15","fullname":"aryan shirke","gender":"Male","user_id":1272,"username":"aryanshirke"},{"dob":"2025-09-15","fullname":"aryan shirke","gender":"Male","user_id":1272,"username":"aryanshirke"},{"dob":"2025-09-13","fullname":"Suyash chavan","gender":"Male","user_id":1270,"username":"suyashchavan"},{"dob":"2025-09-13","fullname":"Suyash chavan","gender":"Male","user_id":1270,"username":"suyashchavan"},{"dob":"2025-09-07","fullname":"kiran shirke","gender":"Female","user_id":1271,"username":"kiranshirke"}],"message_type":112}
+[2025-09-21 16:41:17][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-21 16:41:23][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
