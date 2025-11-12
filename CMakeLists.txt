@@ -57,6 +57,10 @@ add_executable(BingoServer main.cpp
         src/utils/config_reader.cpp
         include/utils/config_reader.h
         include/file_paths.h
+        src/MessageResponseFactory/UpdateProfileResponse.cpp
+        include/MessageResponseFactory/UpdateProfileResponse.h
+        include/MessageResponseFactory/TokenLoginResponse.h
+        src/MessageResponseFactory/TokenLoginResponse.cpp
 )
 
 # Link the required libraries

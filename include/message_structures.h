@@ -40,7 +40,7 @@ struct LoginMessageRequest
 struct LogoutMessageRequest
 {
     MessageType message_type;
-    int user_id;
+    UserID user_id;
     std::string username;
 };
 
@@ -67,10 +67,10 @@ struct SearchUserRequest
 struct FriendReqRequest
 {
     MessageType message_type;
-    int sender_id;
+    UserID sender_id;
     std::string sender;
     std::string name_of_sender;
-    int receiver_id;
+    UserID receiver_id;
     std::string receiver;
     std::string name_of_receiver;
     std::string timestamp;
@@ -79,10 +79,10 @@ struct FriendReqRequest
 struct FriendReqResponse
 {
     MessageType message_type;
-    int sender_id;
+    UserID sender_id;
     std::string sender;
     std::string name_of_sender;
-    int receiver_id;
+    UserID receiver_id;
     std::string receiver;
     std::string name_of_receiver;
     FriendRequestState status;
@@ -124,20 +124,21 @@ struct FriendReqResponse
 
 struct ChatMessage
 {
-    int sender_id;
+    UserID sender_id;
     std::string sender;
-    int receiver_id;
+    UserID receiver_id;
     std::string receiver;
     std::string message;
     std::string message_status;
     std::string timestamp;
 };
+
 ///
 
 struct ChangePassword
 {
     MessageType message_type;
-    int user_id;
+    UserID user_id;
     std::string old_password;
     std::string new_password;
 };
@@ -147,6 +148,18 @@ struct ReconnectRequest
     MessageType message_type;
     UserID user_id;
     std::string auth_token;
+};
+
+struct UpdateProfileRequest
+{
+    MessageType message_type;
+    UserID user_id;
+    std::string username;
+    std::string fullname;
+    std::string dob;
+    std::string gender;
+    std::string email;
+    std::string phone;
 };
 
 #endif //MESSAGE_STRUCTURES_H

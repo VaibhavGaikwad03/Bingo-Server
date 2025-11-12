@@ -26,7 +26,7 @@ enum class SignupErrorCode
 
 enum class ChangePasswordErrorCode
 {
-    SUCCESS = 0,
+    NONE = 0,
     SOMETHING_WENT_WRONG = 3001,
     NEW_PASSWORD_MUST_BE_DIFFERENT = 3002,
 };
@@ -37,6 +37,20 @@ enum class ReconnectErrorCode
     INVALID_AUTH_TOKEN = 4001,
     AUTH_TOKEN_EXPIRED = 4002,
     SOMETHING_WENT_WRONG = 4003,
+};
+
+enum class UpdateProfileErrorCode
+{
+    NONE = 0,
+    SOMETHING_WENT_WRONG = 5001,
+};
+
+enum class TokenLoginErrorCode
+{
+    NONE = 0,
+    INVALID_AUTH_TOKEN = 6001,
+    AUTH_TOKEN_EXPIRED = 6002,
+    SOMETHING_WENT_WRONG = 6003,
 };
 
 #endif //ERROR_CODES_H

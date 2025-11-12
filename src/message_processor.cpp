@@ -46,7 +46,7 @@ void MessageProcessor::process()
 
             log(Log::DEBUG, __func__, std::string("in process func: ") + packet_data.dump());
 
-            auto message_type = static_cast<MessageType>(packet_data[MessageKeys::MESSAGE_TYPE].get<int>());
+            auto message_type = static_cast<MessageType>(packet_data[MessageKey::MESSAGE_TYPE].get<int>());
 
             switch (message_type)
             {
@@ -95,6 +95,12 @@ void MessageProcessor::process()
                 case MessageType::RECONNECT_REQUEST:
                 {
                     process_reconnect_request(packet.ws, packet_data);
+                }
+                break;
+
+                case MessageType::UPDATE_PROFILE_REQUEST:
+                {
+                    process_update_profile_request(packet.ws, packet_data);
                 }
                 break;
 
@@ -165,27 +171,27 @@ void MessageProcessor::process_login_request(WebSocket *ws,
     if (!login_message_response.has_value())
     {
         log(Log::ERROR, __func__,
-            "Something went wrong while logging in: " + std::string(data[MessageKeys::USERNAME]));
+            "Something went wrong while logging in: " + std::string(data[MessageKey::USERNAME]));
 
-        LoginMessageResponse login_message_error_response(Status::ERROR,
+        const LoginMessageResponse login_message_error_response(Status::ERROR,
                                                           static_cast<UserID>(ErrorCode::INVALID_USER_ID),
                                                           LoginErrorCode::SOMETHING_WENT_WRONG, "");
-        nlohmann::json login_response = login_message_error_response.to_json();
+        const nlohmann::json login_response = login_message_error_response.to_json();
 
         ws->send(login_response.dump(), uWS::TEXT);
 
         return;
     }
 
-    if (login_message_response->get_login_error_code() == LoginErrorCode::USERNAME_NOT_FOUND)
+    if (login_message_response->get_error_code() == LoginErrorCode::USERNAME_NOT_FOUND)
     {
         log(Log::ERROR, __func__,
-            "Username does not exists: " + std::string(data[MessageKeys::USERNAME]));
+            "Username does not exists: " + std::string(data[MessageKey::USERNAME]));
     }
-    else if (login_message_response->get_login_error_code() == LoginErrorCode::PASSWORD_IS_INCORRECT)
+    else if (login_message_response->get_error_code() == LoginErrorCode::PASSWORD_IS_INCORRECT)
     {
         log(Log::ERROR, __func__,
-            "Password is incorrect for user: " + std::string(data[MessageKeys::USERNAME]));
+            "Password is incorrect for user: " + std::string(data[MessageKey::USERNAME]));
     }
     else
     {
@@ -198,20 +204,20 @@ void MessageProcessor::process_login_request(WebSocket *ws,
             const nlohmann::json logout_response = logout_message_response.to_json();
 
             log(Log::INFO, __func__,
-                "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out forcefully");
+                "User \'" + std::string(data[MessageKey::USERNAME]) + "\' logged out forcefully");
             session->ws->send(logout_response.dump(), uWS::TEXT);
             session->ws = ws;
         }
         else
         {
             // new session created
-            session_manager->create_session(login_message_response->get_userid(), data[MessageKeys::USERNAME], ws);
+            session_manager->create_session(login_message_response->get_userid(), data[MessageKey::USERNAME], ws);
         }
 
         UserSessionManager::instance()->display_sessions(); // debug purpose
 
         log(Log::INFO, __func__,
-            "User '" + std::string(data[MessageKeys::USERNAME]) + "' logged in successfully");
+            "User '" + std::string(data[MessageKey::USERNAME]) + "' logged in successfully");
     }
 
     const nlohmann::json login_response = login_message_response->to_json();
@@ -232,7 +238,7 @@ void MessageProcessor::process_logout_request(WebSocket *ws,
     if (!logout_message_response.has_value())
     {
         log(Log::ERROR, __func__,
-            "Something went wrong while logging out user \'" + std::string(data[MessageKeys::USERNAME]) + "\'");
+            "Something went wrong while logging out user \'" + std::string(data[MessageKey::USERNAME]) + "\'");
 
         const LogoutMessageResponse logout_message_error_response(Status::ERROR);
         const nlohmann::json logout_response = logout_message_error_response.to_json();
@@ -243,15 +249,27 @@ void MessageProcessor::process_logout_request(WebSocket *ws,
 
         return;
     }
-    else if (logout_message_response->get_status() == Status::ERROR)
+
+    if (logout_message_response->get_status() == Status::ERROR)
     {
         log(Log::ERROR, __func__,
-            "Failed to log out user \'" + std::string(data[MessageKeys::USERNAME]) + "\'");
+            "Failed to log out user \'" + std::string(data[MessageKey::USERNAME]) + "\'");
     }
     else
     {
+        UserSessionManager *session_manager = UserSessionManager::instance();
+        UserSession *session = session_manager->get_session(data[MessageKey::USER_ID].get<UserID>());
+        if (session == nullptr)
+        {
+            log(Log::INFO, __func__,
+            "User \'" + std::string(data[MessageKey::USERNAME]) + "\' failed to logged out. Session not found.");
+        }
+        session_manager->delete_session(session);
+
+        session_manager->display_sessions();
+
         log(Log::INFO, __func__,
-            "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out successfully");
+            "User \'" + std::string(data[MessageKey::USERNAME]) + "\' logged out successfully");
     }
 
     // const LogoutMessageResponse logout_message_response(status);
@@ -270,7 +288,7 @@ void MessageProcessor::process_signup_request(WebSocket *ws, nlohmann::json &dat
     if (!signup_message_response.has_value())
     {
         log(Log::ERROR, __func__,
-            "Something went wrong: " + std::string(data[MessageKeys::USERNAME]));
+            "Something went wrong: " + std::string(data[MessageKey::USERNAME]));
 
         const SignupMessageResponse signup_message_error_response(Status::ERROR,
                                                                   static_cast<UserID>(ErrorCode::INVALID_USER_ID),
@@ -281,22 +299,22 @@ void MessageProcessor::process_signup_request(WebSocket *ws, nlohmann::json &dat
 
         ws->send(signup_response.dump(), uWS::TEXT);
     }
-    else if (signup_message_response->get_signup_error_code() == SignupErrorCode::USERNAME_ALREADY_EXISTS)
+    else if (signup_message_response->get_error_code() == SignupErrorCode::USERNAME_ALREADY_EXISTS)
     {
         log(Log::ERROR, __func__,
-            "Username already exists: " + std::string(data[MessageKeys::USERNAME]));
+            "Username already exists: " + std::string(data[MessageKey::USERNAME]));
     }
-    else if (signup_message_response->get_signup_error_code() == SignupErrorCode::EMAIL_ALREADY_EXISTS)
+    else if (signup_message_response->get_error_code() == SignupErrorCode::EMAIL_ALREADY_EXISTS)
     {
-        log(Log::ERROR, __func__, "Email already exists: " + std::string(data[MessageKeys::EMAIL]));
+        log(Log::ERROR, __func__, "Email already exists: " + std::string(data[MessageKey::EMAIL]));
     }
-    else if (signup_message_response->get_signup_error_code() == SignupErrorCode::PHONE_ALREADY_EXISTS)
+    else if (signup_message_response->get_error_code() == SignupErrorCode::PHONE_ALREADY_EXISTS)
     {
-        log(Log::ERROR, __func__, "Phone already exists: " + std::string(data[MessageKeys::PHONE]));
+        log(Log::ERROR, __func__, "Phone already exists: " + std::string(data[MessageKey::PHONE]));
     }
     else
     {
-        log(Log::INFO, __func__, "Signed up successfully: " + std::string(data[MessageKeys::USERNAME]));
+        log(Log::INFO, __func__, "Signed up successfully: " + std::string(data[MessageKey::USERNAME]));
     }
 
     const nlohmann::json signup_response = signup_message_response->to_json();
@@ -340,7 +358,7 @@ void MessageProcessor::process_friend_req_request(WebSocket *ws,
         //     std::atoi(data[MessageKeys::RECEIVER_ID].dump().c_str()));
 
         const UserSession *session = UserSessionManager::instance()->get_session(
-            std::strtol(data[MessageKeys::RECEIVER_ID].dump().c_str(), nullptr, 10));
+            std::strtol(data[MessageKey::RECEIVER_ID].dump().c_str(), nullptr, 10));
         if (session) // session found
         {
             session->ws->send(data.dump(), uWS::TEXT);
@@ -363,7 +381,7 @@ void MessageProcessor::process_change_password_request(WebSocket *ws, const nloh
 {
     print_change_password_request(data);
 
-    ChangePasswordErrorCode result = _message_handler.change_password_request(data);
+    const ChangePasswordErrorCode result = _message_handler.change_password_request(data);
     if (result == ChangePasswordErrorCode::SOMETHING_WENT_WRONG)
     {
         const ChangePasswordResponse change_password_response(Status::ERROR, result);
@@ -387,7 +405,7 @@ void MessageProcessor::process_change_password_request(WebSocket *ws, const nloh
         const ChangePasswordResponse change_password_response(Status::SUCCESS, result);
         const nlohmann::json change_password = change_password_response.to_json();
 
-        log(Log::ERROR, __func__, "Password changed successfully");
+        log(Log::INFO, __func__, "Password changed successfully");
 
         ws->send(change_password.dump(), uWS::TEXT);
     }
@@ -400,23 +418,43 @@ void MessageProcessor::process_reconnect_request(WebSocket *ws, const nlohmann::
     const std::optional<ReconnectResponse> reconnect_response = _message_handler.reconnect_request(data);
     if (!reconnect_response.has_value())
     {
-        const ReconnectResponse reconnect_response_error(Status::ERROR, ReconnectErrorCode::SOMETHING_WENT_WRONG);
+        const ReconnectResponse reconnect_response_error(Status::ERROR, -1, "", ReconnectErrorCode::SOMETHING_WENT_WRONG);
         const nlohmann::json reconnect_response_error_message = reconnect_response_error.to_json();
 
         ws->send(reconnect_response_error_message.dump(), uWS::TEXT);
     }
 
-    const UserID user_id = data[MessageKeys::USER_ID].get<UserID>();
+    const UserID user_id = data[MessageKey::USER_ID].get<UserID>();
 
     if (reconnect_response->get_status() == Status::SUCCESS)
     {
+        UserSessionManager *session_manager = UserSessionManager::instance();
+        if (session_manager->is_session_exists(user_id))
+        {
+            UserSession *session = session_manager->get_session(user_id);
+
+            const LogoutMessageResponse logout_message_response(Status::SUCCESS);
+            const nlohmann::json logout_response = logout_message_response.to_json();
+
+            // log(Log::INFO, __func__,
+            //     "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out forcefully");
+            session->ws->send(logout_response.dump(), uWS::TEXT);
+            session->ws = ws;
+        }
+        else
+        {
+            session_manager->create_session(user_id, _message_handler.get_username(user_id), ws);
+        }
+
+        UserSessionManager::instance()->display_sessions();
+
         const nlohmann::json reconnect_response_message = reconnect_response->to_json();
 
         ws->send(reconnect_response_message.dump(), uWS::TEXT);
 
         send_user_login_payloads(user_id, ws);
 
-        log(Log::ERROR, __func__, "Reconnect successful of user id: " + std::to_string(user_id));
+        log(Log::INFO, __func__, "Reconnect successful of user id: " + std::to_string(user_id));
     }
     else
     {
@@ -425,5 +463,45 @@ void MessageProcessor::process_reconnect_request(WebSocket *ws, const nlohmann::
         ws->send(reconnect_response_message.dump(), uWS::TEXT);
 
         log(Log::ERROR, __func__, "Reconnect unsuccessful of user id: " + std::to_string(user_id));
+    }
+}
+
+void MessageProcessor::process_update_profile_request(WebSocket *ws, const nlohmann::json &data) const
+{
+    print_update_profile_request(data);
+
+    const std::optional<UpdateProfileResponse> update_profile_response = _message_handler.update_profile_request(data);
+    if (!update_profile_response.has_value())
+    {
+        const UpdateProfileResponse update_profile_response_error(Status::ERROR,
+                                                                  UpdateProfileErrorCode::SOMETHING_WENT_WRONG);
+        const nlohmann::json update_profile_response_error_message = update_profile_response_error.to_json();
+
+        ws->send(update_profile_response_error_message.dump(), uWS::TEXT);
+    }
+
+    if (update_profile_response->get_status() == Status::SUCCESS)
+    {
+        const nlohmann::json update_profile_response_message = update_profile_response->to_json();
+
+        ws->send(update_profile_response_message.dump(), uWS::TEXT);
+
+        UserID user_id = data[MessageKey::USER_ID].get<UserID>();
+
+        std::optional<UserProfileMessage> user_profile_message = _message_handler.get_user_profile(user_id);
+        if (user_profile_message.has_value())
+        {
+            nlohmann::json user_profile = user_profile_message->to_json();
+            log(Log::DEBUG, __func__, user_profile.dump());
+            ws->send(user_profile.dump(), uWS::TEXT);
+        }
+
+        log(Log::INFO, __func__,
+            "Update profile of user '" + data[MessageKey::USERNAME].get<std::string>() + "' is successful");
+    }
+    else
+    {
+        log(Log::ERROR, __func__,
+            "Update profile of user '" + data[MessageKey::USERNAME].get<std::string>() + "' is unsuccessful");
     }
 }

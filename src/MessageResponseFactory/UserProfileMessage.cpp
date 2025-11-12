@@ -17,12 +17,12 @@ UserProfileMessage::UserProfileMessage(std::string full_name, std::string userna
 nlohmann::json UserProfileMessage::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::USER_PROFILE_INFORMATION},
-        {MessageKeys::FULLNAME, _full_name},
-        {MessageKeys::USERNAME, _username},
-        {MessageKeys::DOB, _dob},
-        {MessageKeys::GENDER, _gender},
-        {MessageKeys::EMAIL, _email},
-        {MessageKeys::PHONE, _phone_number},
+        {MessageKey::MESSAGE_TYPE, MessageType::USER_PROFILE_INFORMATION},
+        {MessageKey::FULLNAME, _full_name},
+        {MessageKey::USERNAME, _username},
+        {MessageKey::DOB, _dob},
+        {MessageKey::GENDER, _gender},
+        {MessageKey::EMAIL, _email},
+        {MessageKey::PHONE, _phone_number},
     };
 }

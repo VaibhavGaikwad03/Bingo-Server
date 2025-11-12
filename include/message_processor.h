@@ -29,7 +29,7 @@ class MessageProcessor
     void send_user_login_payloads(UserID user_id, WebSocket *ws) const;
     void process_change_password_request(WebSocket *ws, const nlohmann::json &data) const;
     void process_reconnect_request(WebSocket *ws, const nlohmann::json &data) const;
-
+    void process_update_profile_request(WebSocket *ws, const nlohmann::json &data) const;
 
 public:
     explicit MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv);

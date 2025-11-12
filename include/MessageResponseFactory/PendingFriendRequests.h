@@ -22,14 +22,14 @@ struct PendingFriendRequestInfo
 inline void to_json(nlohmann::json &json, const PendingFriendRequestInfo &pending_friend_request_info)
 {
     json = nlohmann::json{
-        {MessageKeys::SENDER_ID, pending_friend_request_info.sender_id},
-        {MessageKeys::SENDER, pending_friend_request_info.sender},
-        {MessageKeys::NAME_OF_SENDER, pending_friend_request_info.name_of_sender},
-        {MessageKeys::RECEIVER_ID, pending_friend_request_info.receiver_id},
-        {MessageKeys::RECEIVER, pending_friend_request_info.receiver},
-        {MessageKeys::NAME_OF_RECEIVER, pending_friend_request_info.name_of_receiver},
-        {MessageKeys::REQUEST_STATUS, pending_friend_request_info.request_status},
-        {MessageKeys::TIMESTAMP, pending_friend_request_info.timestamp},
+        {MessageKey::SENDER_ID, pending_friend_request_info.sender_id},
+        {MessageKey::SENDER, pending_friend_request_info.sender},
+        {MessageKey::NAME_OF_SENDER, pending_friend_request_info.name_of_sender},
+        {MessageKey::RECEIVER_ID, pending_friend_request_info.receiver_id},
+        {MessageKey::RECEIVER, pending_friend_request_info.receiver},
+        {MessageKey::NAME_OF_RECEIVER, pending_friend_request_info.name_of_receiver},
+        {MessageKey::REQUEST_STATUS, pending_friend_request_info.request_status},
+        {MessageKey::TIMESTAMP, pending_friend_request_info.timestamp},
     };
 }
 

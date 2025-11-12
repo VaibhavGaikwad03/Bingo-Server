@@ -208,5 +208,16 @@
     "message_type": UPDATE_PROFILE_RESPONSE
     "status": SUCCESS/ERROR
     "error_code":<err_code>
+  },
+  {
+    "message_type": TOKEN_LOGIN_REQUEST,
+    "user_id": <user_id>
+    "auth_token": <token>,
+  }
+,
+  {
+    "message_type": TOKEN_LOGIN_RESPONSE,
+    "status": <success/error>,
+    "error_code": <error code>
   }
 ]

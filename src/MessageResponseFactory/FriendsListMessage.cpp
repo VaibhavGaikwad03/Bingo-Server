@@ -14,8 +14,8 @@ FriendsListMessage::FriendsListMessage(size_t count, const std::vector<FriendInf
 nlohmann::json FriendsListMessage::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::USER_FRIENDS_LIST},
-        {MessageKeys::COUNT, _count},
-        {MessageKeys::FRIENDS_LIST, _friends_list},
+        {MessageKey::MESSAGE_TYPE, MessageType::USER_FRIENDS_LIST},
+        {MessageKey::COUNT, _count},
+        {MessageKey::FRIENDS_LIST, _friends_list},
     };
 }

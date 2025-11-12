@@ -14,8 +14,8 @@ ChangePasswordResponse::ChangePasswordResponse(const Status status, const Change
 nlohmann::json ChangePasswordResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::CHANGE_PASSWORD_RESPONSE},
-        {MessageKeys::STATUS, Status::ERROR},
-        {MessageKeys::ERROR_CODE, _error_code}
+        {MessageKey::MESSAGE_TYPE, MessageType::CHANGE_PASSWORD_RESPONSE},
+        {MessageKey::STATUS, Status::ERROR},
+        {MessageKey::ERROR_CODE, _error_code}
     };
 }

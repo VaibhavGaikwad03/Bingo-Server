@@ -8,18 +8,21 @@
 #include "IMessageResponse.h"
 #include "../error_codes.h"
 #include "../message_types.h"
+#include "../typedefs.h"
 
 class ReconnectResponse final : public IMessageResponse
 {
     Status _status;
-    ReconnectErrorCode _reconnect_error_code;
+    UserID _user_id;
+    std::string _auth_token;
+    ReconnectErrorCode _error_code;
 
 public:
-    explicit ReconnectResponse(Status status, ReconnectErrorCode error_code);
+    explicit ReconnectResponse(Status status, UserID user_id, std::string auth_token, ReconnectErrorCode error_code);
     [[nodiscard]] nlohmann::json to_json() const override;
 
-    Status get_status() const;
-    ReconnectErrorCode get_reconnect_error_code() const;
+    [[nodiscard]] Status get_status() const;
+    [[nodiscard]] ReconnectErrorCode get_error_code() const;
 };
 
 #endif // RECONNECTMESSAGERESPONSE_H

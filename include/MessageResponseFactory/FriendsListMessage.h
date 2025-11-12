@@ -21,11 +21,11 @@ struct FriendInfo
 inline void to_json(nlohmann::json& json, const FriendInfo& friend_info)
 {
     json = nlohmann::json{
-        {MessageKeys::USER_ID, friend_info.user_id},
-        {MessageKeys::USERNAME, friend_info.username},
-        {MessageKeys::FULLNAME, friend_info.full_name},
-        {MessageKeys::GENDER, friend_info.gender},
-        {MessageKeys::DOB, friend_info.dob},
+        {MessageKey::USER_ID, friend_info.user_id},
+        {MessageKey::USERNAME, friend_info.username},
+        {MessageKey::FULLNAME, friend_info.full_name},
+        {MessageKey::GENDER, friend_info.gender},
+        {MessageKey::DOB, friend_info.dob},
     };
 }
 

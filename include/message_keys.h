@@ -5,7 +5,7 @@
 #ifndef MESSAGE_KEYS_H
 #define MESSAGE_KEYS_H
 
-namespace MessageKeys
+namespace MessageKey
 {
     inline constexpr auto MESSAGE_TYPE = "message_type";
     inline constexpr auto USERNAME = "username";

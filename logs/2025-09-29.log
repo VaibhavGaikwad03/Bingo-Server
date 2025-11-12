@@ -1,0 +1,354 @@
+[2025-09-29 22:05:28][INFO] Server started...
+[2025-09-29 22:05:28][INFO] Listening on port: 2121
+[2025-09-29 22:06:36][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:06:40][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:06:48][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:36:42.044Z"}
+[2025-09-29 22:06:48][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:36:42.044Z","username":"rutuja"}
+[2025-09-29 22:06:48][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:06:48][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:06:48][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:06:48][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:06:48][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:06:48][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:06:48][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:06:48][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:06:48][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:06:48][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:06:48][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:06:48][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:07:05][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:07:08][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:07:08][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:07:08][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:07:08][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:07:08][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:07:08][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:07:08][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:07:16][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:07:26][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:07:26][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:07:26][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:07:26][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:07:26][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:07:26][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:07:26][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:07:36][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:07:37][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:07:37][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:07:37][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:07:37][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:07:37][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:07:37][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:07:37][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:07:39][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:07:39][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:07:40][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:07:40][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:07:40][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:07:40][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:07:40][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:07:40][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:09:25][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:09:26][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:09:26][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:09:26][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:09:26][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:09:26][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:09:26][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:09:26][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:09:28][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:09:29][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:09:29][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:09:29][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:09:29][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:09:29][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:09:29][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:09:29][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:09:45][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:09:45][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:09:45][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:09:45][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:09:45][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:09:45][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:09:45][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:09:46][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:09:49][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:09:54][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:11:10][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:39:59.353Z"}
+[2025-09-29 22:11:10][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:39:59.353Z","username":"rutuja"}
+[2025-09-29 22:11:10][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:11:10][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:11:10][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:11:10][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:11:10][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:11:11][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:11:11][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:11:11][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:11:11][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:11:11][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:11:11][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:11:11][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:11:18][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:11:19][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:11:19][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:11:19][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:11:19][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:11:19][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:11:19][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:11:19][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:11:26][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:11:30][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:12:15][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:42:04.588Z"}
+[2025-09-29 22:12:15][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:42:04.588Z","username":"rutuja"}
+[2025-09-29 22:12:15][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:12:15][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:12:15][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:12:15][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:12:15][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:12:15][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:12:15][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:12:15][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:12:15][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:12:15][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:12:15][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:12:15][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:12:22][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:12:22][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:12:22][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:12:22][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:12:22][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:12:22][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:12:22][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:12:23][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:12:51][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:12:59][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:14:35][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:44:25.950Z"}
+[2025-09-29 22:14:35][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:44:25.950Z","username":"rutuja"}
+[2025-09-29 22:14:35][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:14:35][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:14:35][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:14:35][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:14:35][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:14:35][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:14:36][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:14:36][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:14:36][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:14:36][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:14:36][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:14:36][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:14:44][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:14:44][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:14:44][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:14:44][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:14:44][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:14:44][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:14:44][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:14:45][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:15:43][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:15:44][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:15:44][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:15:45][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":null}
+[2025-09-29 22:15:45][DEBUG][process] in process func: {"auth_token":null,"message_type":117,"user_id":34}
+[2025-09-29 22:15:45][ERROR][reconnect_request] [json.exception.type_error.302] type must be string, but is null
+[2025-09-29 22:15:45][ERROR][process_reconnect_request] Reconnect unsuccessful of user id: 34
+[2025-09-29 22:15:45][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:15:52][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:15:52][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:16:31][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:45:52.818Z"}
+[2025-09-29 22:16:31][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:45:52.818Z","username":"rutuja"}
+[2025-09-29 22:16:31][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:16:31][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:16:31][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:16:31][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:16:31][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:16:31][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:16:32][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:16:32][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:16:32][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:16:32][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:16:32][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:16:32][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:16:36][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:16:37][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:16:37][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:16:37][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:16:37][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:16:37][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:16:37][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:16:37][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:17:06][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:17:08][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:17:09][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:17:45][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:17:54][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:18:10][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:48:01.879Z"}
+[2025-09-29 22:18:10][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:48:01.879Z","username":"rutuja"}
+[2025-09-29 22:18:10][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:18:10][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:18:10][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:18:10][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:18:10][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:18:10][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:18:10][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:18:10][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:18:10][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:18:10][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:18:10][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:18:10][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:18:18][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:18:19][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:18:19][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:18:19][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:18:19][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:18:19][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:18:19][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:18:19][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:20:28][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:20:29][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:20:29][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":null}
+[2025-09-29 22:20:29][DEBUG][process] in process func: {"auth_token":null,"message_type":117,"user_id":34}
+[2025-09-29 22:20:29][ERROR][reconnect_request] [json.exception.type_error.302] type must be string, but is null
+[2025-09-29 22:20:29][ERROR][process_reconnect_request] Reconnect unsuccessful of user id: 34
+[2025-09-29 22:20:29][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:20:30][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:20:33][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:20:45][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:20:58][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:50:51.561Z"}
+[2025-09-29 22:20:58][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:50:51.561Z","username":"rutuja"}
+[2025-09-29 22:20:58][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:20:58][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:20:58][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:20:58][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:20:58][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:20:59][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:20:59][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:20:59][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:20:59][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:20:59][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:20:59][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:20:59][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:21:07][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:21:07][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:21:07][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:21:07][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:21:07][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:21:07][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:21:07][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:21:08][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:21:15][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:21:19][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:21:20][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:21:59][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:20][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:51:16.600Z"}
+[2025-09-29 22:22:20][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:51:16.600Z","username":"rutuja"}
+[2025-09-29 22:22:20][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:22:20][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:22:20][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:22:20][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:22:21][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:22:21][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:21][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:22:21][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:22:21][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:22:21][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:22:21][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:22:21][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:22:27][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:27][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:22:27][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:22:27][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:22:27][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:22:27][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:22:27][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:22:28][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:32][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:42][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:22:51][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T16:52:33.402Z"}
+[2025-09-29 22:22:51][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T16:52:33.402Z","username":"rutuja"}
+[2025-09-29 22:22:51][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:22:51][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:22:51][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:22:51][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:22:51][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:22:52][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:52][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:22:52][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:22:52][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:22:52][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:22:52][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:22:52][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:22:54][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:22:55][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:55][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:22:55][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:22:55][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:22:55][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:22:55][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:22:55][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:22:56][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:22:57][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:22:57][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:22:57][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:22:57][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:22:57][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:22:57][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:22:57][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:23:00][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:23:01][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:23:01][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:23:01][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:23:01][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:23:01][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:23:01][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:23:01][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:23:07][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:23:07][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:23:07][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:23:07][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:23:07][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:23:07][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:23:07][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:23:08][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:23:12][INFO] Client disconnected. Client is going away, Reason: 
+[2025-09-29 22:23:13][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:03][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:03][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:05][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:05][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:32][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:32][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:59][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:27:59][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:28:01][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:28:01][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:28:43][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-09-29 22:35:21][INFO] Server started...
+[2025-09-29 22:35:21][INFO] Listening on port: 2121
+[2025-09-29 22:35:36][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:35:59][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:36:09][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-09-29T17:06:02.769Z"}
+[2025-09-29 22:36:09][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-09-29T17:06:02.769Z","username":"rutuja"}
+[2025-09-29 22:36:09][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-09-29 22:36:09][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:36:09][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:36:09][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:36:09][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:36:09][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:36:10][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:36:10][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:36:10][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:36:10][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:36:10][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:36:10][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:36:24][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:36:24][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-09-29 22:36:24][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-09-29 22:36:24][DEBUG][send_user_login_payloads] {"dob":"2025-06-06","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Dabhade","gender":"Female","message_type":111,"phone":"9978789080","username":"Rutuja"}
+[2025-09-29 22:36:24][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-09-29 22:36:24][DEBUG][send_user_login_payloads] {"count":0,"friends_list":[],"message_type":112}
+[2025-09-29 22:36:24][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-09-29 22:36:25][INFO] Client disconnected. No status received (no close frame), Reason: 
+[2025-09-29 22:36:25][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:36:25][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:36:32][INFO] Client connected with IP: 127.0.0.1
+[2025-09-29 22:37:29][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.

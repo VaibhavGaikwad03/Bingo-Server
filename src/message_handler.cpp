@@ -30,6 +30,138 @@ MessageHandler::MessageHandler()
 MessageHandler::~MessageHandler()
 = default;
 
+// getters
+std::string MessageHandler::get_username(const UserID user_id) const
+{
+    try
+    {
+        auto result = _user_credentials_table->select("username")
+                .where("user_id=:user_id")
+                .bind("user_id", user_id)
+                .execute()
+                .fetchOne();
+
+        if (!result)
+            return "";
+
+        return result[0].get<std::string>();
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return "";
+    }
+}
+
+std::string MessageHandler::get_fullname(const UserID user_id) const
+{
+    try
+    {
+        auto result = _user_credentials_table->select("fullname")
+                .where("user_id=:user_id")
+                .bind("user_id", user_id)
+                .execute()
+                .fetchOne();
+
+        if (!result)
+            return "";
+
+        return result[0].get<std::string>();
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return "";
+    }
+}
+
+std::string MessageHandler::get_dob(const UserID user_id) const
+{
+    try
+    {
+        auto result = _user_credentials_table->select("dob")
+                .where("user_id=:user_id")
+                .bind("user_id", user_id)
+                .execute()
+                .fetchOne();
+
+        if (!result)
+            return "";
+
+        return result[0].get<std::string>();
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return "";
+    }
+}
+
+std::string MessageHandler::get_gender(const UserID user_id) const
+{
+    try
+    {
+        auto result = _user_credentials_table->select("gender")
+                .where("user_id=:user_id")
+                .bind("user_id", user_id)
+                .execute()
+                .fetchOne();
+
+        if (!result)
+            return "";
+
+        return result[0].get<std::string>();
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return "";
+    }
+}
+
+std::string MessageHandler::get_email(const UserID user_id) const
+{
+    try
+    {
+        auto result = _user_credentials_table->select("email")
+                .where("user_id=:user_id")
+                .bind("user_id", user_id)
+                .execute()
+                .fetchOne();
+
+        if (!result)
+            return "";
+
+        return result[0].get<std::string>();
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return "";
+    }
+}
+
+std::string MessageHandler::get_phone(const UserID user_id) const
+{
+    try
+    {
+        auto result = _user_credentials_table->select("phone")
+                .where("user_id=:user_id")
+                .bind("user_id", user_id)
+                .execute()
+                .fetchOne();
+
+        if (!result)
+            return "";
+
+        return result[0].get<std::string>();
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return "";
+    }
+}
 
 std::optional<LoginMessageResponse> MessageHandler::login_request(const nlohmann::json &message) const
 // if successful returns user id else returns error code
@@ -87,7 +219,7 @@ std::optional<LoginMessageResponse> MessageHandler::login_request(const nlohmann
 
 std::optional<LogoutMessageResponse> MessageHandler::logout_request(const nlohmann::json &message) const
 {
-    std::optional<LogoutMessageRequest> parsed_message = MessageParser::logout_message_request(message);
+    const std::optional<LogoutMessageRequest> parsed_message = MessageParser::logout_message_request(message);
     if (!parsed_message.has_value())
     {
         LogoutMessageResponse logout_message_response(Status::ERROR);
@@ -114,7 +246,7 @@ std::optional<LogoutMessageResponse> MessageHandler::logout_request(const nlohma
 std::optional<SignupMessageResponse> MessageHandler::signup_request(const nlohmann::json &message) const
 // if successful returns user id else returns error code
 {
-    std::optional<SignUpMessageRequest> parsed_message = MessageParser::signup_message_request(message);
+    const std::optional<SignUpMessageRequest> parsed_message = MessageParser::signup_message_request(message);
     if (!parsed_message.has_value())
     {
         SignupMessageResponse signup_message_response(Status::ERROR, static_cast<UserID>(ErrorCode::INVALID_USER_ID),
@@ -165,7 +297,7 @@ std::optional<SignupMessageResponse> MessageHandler::signup_request(const nlohma
         // return utils::to_underlying(SignupErrorCode::PHONE_ALREADY_EXISTS);
     }
 
-    auto insert_result = _user_credentials_table->insert("username", "password", "fullname", "gender", "dob", "email",
+    const auto insert_result = _user_credentials_table->insert("username", "password", "fullname", "gender", "dob", "email",
                                                          "phone"
                                                          /*, "signup_timestamp" client kadun ghyaycha ki mysql madhe auto generate karaycha??*/)
             .values(parsed_message->username, parsed_message->password, parsed_message->fullname,
@@ -173,8 +305,9 @@ std::optional<SignupMessageResponse> MessageHandler::signup_request(const nlohma
                     parsed_message->dob, parsed_message->email, parsed_message->phone/*, timestamp*/)
             .execute();
 
-    SignupMessageResponse signup_message_response(Status::SUCCESS, static_cast<UserID>(insert_result.getAutoIncrementValue()),
-                                                      SignupErrorCode::NONE);
+    SignupMessageResponse signup_message_response(Status::SUCCESS,
+                                                  static_cast<UserID>(insert_result.getAutoIncrementValue()),
+                                                  SignupErrorCode::NONE);
     return signup_message_response;
     // return static_cast<UserID>(insert_result.getAutoIncrementValue());
 }
@@ -572,7 +705,7 @@ ChangePasswordErrorCode MessageHandler::change_password_request(const nlohmann::
 
         if (result)
         {
-            auto db_password = result[0].get<std::string>();
+            const auto db_password = result[0].get<std::string>();
 
             if (parsed_request->new_password != db_password)
             {
@@ -582,7 +715,7 @@ ChangePasswordErrorCode MessageHandler::change_password_request(const nlohmann::
                         .bind("user_id", parsed_request->user_id)
                         .execute();
 
-                return ChangePasswordErrorCode::SUCCESS;
+                return ChangePasswordErrorCode::NONE;
             }
             else
             {
@@ -611,14 +744,14 @@ std::optional<ReconnectResponse> MessageHandler::reconnect_request(const nlohman
 {
     try
     {
-        std::optional<ReconnectRequest> parsed_request = MessageParser::reconnect_request(message);
+        const std::optional<ReconnectRequest> parsed_request = MessageParser::reconnect_request(message);
         if (!parsed_request.has_value())
         {
-            ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCode::SOMETHING_WENT_WRONG);
+            ReconnectResponse reconnect_response(Status::ERROR, -1, "", ReconnectErrorCode::SOMETHING_WENT_WRONG);
             return reconnect_response;
         }
 
-        auto result = _auth_tokens_table->select("token")
+        auto result = _auth_tokens_table->select("token", "user_id")
                 .where("user_id = :user_id")
                 .bind("user_id", parsed_request->user_id)
                 .execute()
@@ -626,18 +759,107 @@ std::optional<ReconnectResponse> MessageHandler::reconnect_request(const nlohman
 
         if (result)
         {
-            if (parsed_request->auth_token != result[0].get<std::string>())
+            const std::string db_auth_token = result[0].get<std::string>();
+            if (parsed_request->auth_token != db_auth_token)
             {
-                ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCode::INVALID_AUTH_TOKEN);
+                ReconnectResponse reconnect_response(Status::ERROR, -1, "", ReconnectErrorCode::INVALID_AUTH_TOKEN);
                 return reconnect_response;
             }
 
-            ReconnectResponse reconnect_response(Status::SUCCESS, ReconnectErrorCode::NONE);
+            ReconnectResponse reconnect_response(Status::SUCCESS, result[1].get<UserID>(), db_auth_token, ReconnectErrorCode::NONE);
             return reconnect_response;
         }
 
-        ReconnectResponse reconnect_response(Status::ERROR, ReconnectErrorCode::INVALID_AUTH_TOKEN);
+        ReconnectResponse reconnect_response(Status::ERROR, -1, "", ReconnectErrorCode::INVALID_AUTH_TOKEN);
         return reconnect_response;
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Database error: ") + err.what());
+        return std::nullopt;
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Unexpected error: ") + ex.what());
+        return std::nullopt;
+    }
+}
+
+std::optional<UpdateProfileResponse> MessageHandler::update_profile_request(const nlohmann::json &message) const
+{
+    try
+    {
+        const std::optional<UpdateProfileRequest> parsed_request = MessageParser::update_profile_request(message);
+        if (!parsed_request.has_value())
+        {
+            UpdateProfileResponse update_profile_response(Status::ERROR, UpdateProfileErrorCode::SOMETHING_WENT_WRONG);
+            return update_profile_response;
+        }
+
+        const auto result = _user_credentials_table->select("username", "fullname", "dob", "gender", "email", "phone")
+                .where("user_id = :user_id")
+                .bind("user_id", parsed_request->user_id)
+                .execute()
+                .fetchOne();
+
+        if (result)
+        {
+            bool is_details_changed = false;
+            mysqlx::TableUpdate update = _user_credentials_table->update()
+                    .where("user_id = :user_id")
+                    .bind("user_id", parsed_request->user_id);
+
+            if (result[0].get<std::string>() != parsed_request->username)
+            {
+                update.set("username", parsed_request->username);
+                is_details_changed = true;
+            }
+
+            if (result[1].get<std::string>() != parsed_request->fullname)
+            {
+                update.set("fullname", parsed_request->fullname);
+                is_details_changed = true;
+            }
+
+            if (result[2].get<std::string>() != parsed_request->dob)
+            {
+                update.set("dob", parsed_request->dob);
+                is_details_changed = true;
+            }
+
+            if (result[3].get<std::string>() != parsed_request->gender)
+            {
+                update.set("gender", parsed_request->gender);
+                is_details_changed = true;
+            }
+
+            if (result[4].get<std::string>() != parsed_request->email)
+            {
+                update.set("email", parsed_request->email);
+                is_details_changed = true;
+            }
+
+            if (result[5].get<std::string>() != parsed_request->phone)
+            {
+                update.set("phone", parsed_request->phone);
+                is_details_changed = true;
+            }
+
+            if (is_details_changed)
+            {
+                update.execute();
+            }
+
+            UpdateProfileResponse update_profile_response(Status::SUCCESS, UpdateProfileErrorCode::NONE);
+            return update_profile_response;
+        }
+        else
+        {
+            UpdateProfileResponse update_profile_response(Status::ERROR, UpdateProfileErrorCode::SOMETHING_WENT_WRONG);
+            return update_profile_response;
+        }
     }
     catch (const mysqlx::Error &err)
     {

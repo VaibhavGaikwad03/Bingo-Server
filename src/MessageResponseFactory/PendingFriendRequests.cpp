@@ -16,8 +16,8 @@ PendingFriendRequests::PendingFriendRequests(const size_t count, const std::vect
 nlohmann::json PendingFriendRequests::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::USER_PENDING_FRIEND_REQUESTS_LIST},
-        {MessageKeys::COUNT, _count},
-        {MessageKeys::PENDING_FRIEND_REQUESTS_LIST, _pending_friend_requests}
+        {MessageKey::MESSAGE_TYPE, MessageType::USER_PENDING_FRIEND_REQUESTS_LIST},
+        {MessageKey::COUNT, _count},
+        {MessageKey::PENDING_FRIEND_REQUESTS_LIST, _pending_friend_requests}
     };
 }

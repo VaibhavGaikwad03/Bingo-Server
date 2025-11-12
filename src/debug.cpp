@@ -12,10 +12,10 @@ void print_login_request(const nlohmann::json &message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::USERNAME, message);
-        print_key_value(MessageKeys::PASSWORD, message);
-        print_key_value(MessageKeys::TIMESTAMP, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USERNAME, message);
+        print_key_value(MessageKey::PASSWORD, message);
+        print_key_value(MessageKey::TIMESTAMP, message);
     }
     catch (const std::exception &e)
     {
@@ -27,9 +27,9 @@ void print_logout_request(const nlohmann::json &message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::USER_ID, message);
-        print_key_value(MessageKeys::USERNAME, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USER_ID, message);
+        print_key_value(MessageKey::USERNAME, message);
     }
     catch (const std::exception &e)
     {
@@ -41,15 +41,15 @@ void print_signup_request(const nlohmann::json &message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::USERNAME, message);
-        print_key_value(MessageKeys::PASSWORD, message);
-        print_key_value(MessageKeys::FULLNAME, message);
-        print_key_value(MessageKeys::GENDER, message);
-        print_key_value(MessageKeys::DOB, message);
-        print_key_value(MessageKeys::EMAIL, message);
-        print_key_value(MessageKeys::PHONE, message);
-        print_key_value(MessageKeys::TIMESTAMP, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USERNAME, message);
+        print_key_value(MessageKey::PASSWORD, message);
+        print_key_value(MessageKey::FULLNAME, message);
+        print_key_value(MessageKey::GENDER, message);
+        print_key_value(MessageKey::DOB, message);
+        print_key_value(MessageKey::EMAIL, message);
+        print_key_value(MessageKey::PHONE, message);
+        print_key_value(MessageKey::TIMESTAMP, message);
     }
     catch (const std::exception &e)
     {
@@ -61,9 +61,9 @@ void print_search_user_request(const nlohmann::json &message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::USERNAME, message);
-        print_key_value(MessageKeys::REQUESTED_BY, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USERNAME, message);
+        print_key_value(MessageKey::REQUESTED_BY, message);
     }
     catch (const std::exception &e)
     {
@@ -75,14 +75,14 @@ void print_friend_req_request(const nlohmann::json &message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::SENDER_ID, message);
-        print_key_value(MessageKeys::SENDER, message);
-        print_key_value(MessageKeys::NAME_OF_SENDER, message);
-        print_key_value(MessageKeys::RECEIVER_ID, message);
-        print_key_value(MessageKeys::RECEIVER, message);
-        print_key_value(MessageKeys::NAME_OF_RECEIVER, message);
-        print_key_value(MessageKeys::TIMESTAMP, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::SENDER_ID, message);
+        print_key_value(MessageKey::SENDER, message);
+        print_key_value(MessageKey::NAME_OF_SENDER, message);
+        print_key_value(MessageKey::RECEIVER_ID, message);
+        print_key_value(MessageKey::RECEIVER, message);
+        print_key_value(MessageKey::NAME_OF_RECEIVER, message);
+        print_key_value(MessageKey::TIMESTAMP, message);
     }
     catch (const std::exception &e)
     {
@@ -94,15 +94,15 @@ void print_friend_req_response(const nlohmann::json &message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::SENDER_ID, message);
-        print_key_value(MessageKeys::SENDER, message);
-        print_key_value(MessageKeys::NAME_OF_SENDER, message);
-        print_key_value(MessageKeys::RECEIVER_ID, message);
-        print_key_value(MessageKeys::RECEIVER, message);
-        print_key_value(MessageKeys::NAME_OF_RECEIVER, message);
-        print_key_value(MessageKeys::REQUEST_STATUS, message);
-        print_key_value(MessageKeys::TIMESTAMP, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::SENDER_ID, message);
+        print_key_value(MessageKey::SENDER, message);
+        print_key_value(MessageKey::NAME_OF_SENDER, message);
+        print_key_value(MessageKey::RECEIVER_ID, message);
+        print_key_value(MessageKey::RECEIVER, message);
+        print_key_value(MessageKey::NAME_OF_RECEIVER, message);
+        print_key_value(MessageKey::REQUEST_STATUS, message);
+        print_key_value(MessageKey::TIMESTAMP, message);
     }
     catch (const std::exception &e)
     {
@@ -114,10 +114,10 @@ void print_change_password_request(const nlohmann::json &message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::USER_ID, message);
-        print_key_value(MessageKeys::OLD_PASSWORD, message);
-        print_key_value(MessageKeys::NEW_PASSWORD, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USER_ID, message);
+        print_key_value(MessageKey::OLD_PASSWORD, message);
+        print_key_value(MessageKey::NEW_PASSWORD, message);
     }
     catch (const std::exception &e)
     {
@@ -129,8 +129,28 @@ void print_reconnect_request(const nlohmann::json& message)
 {
     try
     {
-        print_key_value(MessageKeys::MESSAGE_TYPE, message);
-        print_key_value(MessageKeys::AUTH_TOKEN, message);
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USER_ID, message);
+        print_key_value(MessageKey::AUTH_TOKEN, message);
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+    }
+}
+
+void print_update_profile_request(const nlohmann::json &message)
+{
+    try
+    {
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USER_ID, message);
+        print_key_value(MessageKey::USERNAME, message);
+        print_key_value(MessageKey::FULLNAME, message);
+        print_key_value(MessageKey::DOB, message);
+        print_key_value(MessageKey::GENDER, message);
+        print_key_value(MessageKey::EMAIL, message);
+        print_key_value(MessageKey::PHONE, message);
     }
     catch (const std::exception &e)
     {

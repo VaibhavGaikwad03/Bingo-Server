@@ -3,14 +3,13 @@
 //
 
 #include <utility>
-
-#include "../../include/MessageResponseFactory/LoginMessageResponse.h"
 #include "../../include/message_keys.h"
+#include "../../include/MessageResponseFactory/LoginMessageResponse.h"
 
 LoginMessageResponse::LoginMessageResponse(const Status status, const UserID user_id,
-                                           const LoginErrorCode login_error_codes, std::string auth_token) : _status(status),
+                                           const LoginErrorCode error_code, std::string auth_token) : _status(status),
     _user_id(user_id),
-    _login_error_codes(login_error_codes),
+    _error_code(error_code),
     _auth_token(std::move(auth_token))
 {
 }
@@ -18,11 +17,11 @@ LoginMessageResponse::LoginMessageResponse(const Status status, const UserID use
 nlohmann::json LoginMessageResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::LOGIN_RESPONSE},
-        {MessageKeys::STATUS, _status},
-        {MessageKeys::USER_ID, _user_id},
-        {MessageKeys::ERROR_CODE, _login_error_codes},
-        {MessageKeys::AUTH_TOKEN, _auth_token}
+        {MessageKey::MESSAGE_TYPE, MessageType::LOGIN_RESPONSE},
+        {MessageKey::STATUS, _status},
+        {MessageKey::USER_ID, _user_id},
+        {MessageKey::ERROR_CODE, _error_code},
+        {MessageKey::AUTH_TOKEN, _auth_token}
     };
 }
 
@@ -36,9 +35,9 @@ UserID LoginMessageResponse::get_userid() const
     return _user_id;
 }
 
-LoginErrorCode LoginMessageResponse::get_login_error_code() const
+LoginErrorCode LoginMessageResponse::get_error_code() const
 {
-    return _login_error_codes;
+    return _error_code;
 }
 
 std::string LoginMessageResponse::get_token() const

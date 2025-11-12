@@ -12,8 +12,8 @@ LogoutMessageResponse::LogoutMessageResponse(const Status status) : _status(stat
 nlohmann::json LogoutMessageResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::LOGOUT_RESPONSE},
-        {MessageKeys::STATUS, _status}
+        {MessageKey::MESSAGE_TYPE, MessageType::LOGOUT_RESPONSE},
+        {MessageKey::STATUS, _status}
     };
 }
 

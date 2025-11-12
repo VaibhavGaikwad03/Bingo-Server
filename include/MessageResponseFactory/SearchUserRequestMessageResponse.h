@@ -19,10 +19,10 @@ struct FoundUser
 inline void to_json(nlohmann::json &json, const FoundUser &found_user)
 {
     json = nlohmann::json{
-        {MessageKeys::USER_ID, found_user.user_id},
-        {MessageKeys::USERNAME, found_user.username},
-        {MessageKeys::DISPLAY_NAME, found_user.display_name},
-        {MessageKeys::FRIENDSHIP_STATUS, found_user.friendship_status}
+        {MessageKey::USER_ID, found_user.user_id},
+        {MessageKey::USERNAME, found_user.username},
+        {MessageKey::DISPLAY_NAME, found_user.display_name},
+        {MessageKey::FRIENDSHIP_STATUS, found_user.friendship_status}
     };
 }
 

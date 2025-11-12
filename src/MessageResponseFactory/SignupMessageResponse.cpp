@@ -5,19 +5,19 @@
 #include "../../include/message_keys.h"
 #include "../../include/MessageResponseFactory/SignupMessageResponse.h"
 
-SignupMessageResponse::SignupMessageResponse(Status status, UserID user_id,
-                                             SignupErrorCode signup_error_codes) : _status(status), _user_id(user_id),
-                                                                                    _signup_error_codes(signup_error_codes)
+SignupMessageResponse::SignupMessageResponse(const Status status, const UserID user_id,
+                                             const SignupErrorCode error_code) : _status(status), _user_id(user_id),
+                                                                                    _error_codes(error_code)
 {
 }
 
 nlohmann::json SignupMessageResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::SIGN_UP_RESPONSE},
-        {MessageKeys::STATUS, _status},
-        {MessageKeys::USER_ID, _user_id},
-        {MessageKeys::ERROR_CODE, _signup_error_codes}
+        {MessageKey::MESSAGE_TYPE, MessageType::SIGN_UP_RESPONSE},
+        {MessageKey::STATUS, _status},
+        {MessageKey::USER_ID, _user_id},
+        {MessageKey::ERROR_CODE, _error_codes}
     };
 }
 
@@ -31,7 +31,7 @@ UserID SignupMessageResponse::get_userid() const
     return _user_id;
 }
 
-SignupErrorCode SignupMessageResponse::get_signup_error_code() const
+SignupErrorCode SignupMessageResponse::get_error_code() const
 {
-    return _signup_error_codes;
+    return _error_codes;
 }

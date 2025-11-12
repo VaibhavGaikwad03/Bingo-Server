@@ -15,7 +15,7 @@ public:
     explicit LogoutMessageResponse(Status status);
     [[nodiscard]] nlohmann::json to_json() const override;
 
-    Status get_status() const;
+    [[nodiscard]] Status get_status() const;
 };
 
 #endif // LOGOUTMESSAGERESPONSE_H

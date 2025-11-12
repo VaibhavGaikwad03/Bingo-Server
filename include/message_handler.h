@@ -16,6 +16,7 @@
 #include "MessageResponseFactory/LogoutMessageResponse.h"
 #include "MessageResponseFactory/SignupMessageResponse.h"
 #include "MessageResponseFactory/SearchUserRequestMessageResponse.h"
+#include "MessageResponseFactory/UpdateProfileResponse.h"
 
 class MessageHandler
 {
@@ -34,6 +35,14 @@ class MessageHandler
     [[nodiscard]] std::optional<PendingFriendRequests> get_pending_friend_requests(UserID user_id) const;
     std::vector<ChatMessage> get_chat_messages(UserID user_id);
 
+    // getters
+    [[nodiscard]] std::string get_username(UserID user_id) const;
+    [[nodiscard]] std::string get_fullname(UserID user_id) const;
+    [[nodiscard]] std::string get_dob(UserID user_id) const;
+    [[nodiscard]] std::string get_gender(UserID user_id) const;
+    [[nodiscard]] std::string get_email(UserID user_id) const;
+    [[nodiscard]] std::string get_phone(UserID user_id) const;
+
 public:
     MessageHandler();
 
@@ -47,7 +56,7 @@ public:
     void friend_req_response(const nlohmann::json &message) const;
     [[nodiscard]] ChangePasswordErrorCode change_password_request(const nlohmann::json &message) const;
     [[nodiscard]] std::optional<ReconnectResponse> reconnect_request(const nlohmann::json &message) const;
-
+    [[nodiscard]] std::optional<UpdateProfileResponse> update_profile_request(const nlohmann::json &message) const;
 
     friend class MessageProcessor;
 };

@@ -13,16 +13,16 @@ class LoginMessageResponse final : public IMessageResponse
 {
     Status _status;
     UserID _user_id;
-    LoginErrorCode _login_error_codes;
+    LoginErrorCode _error_code;
     std::string _auth_token;
 
 public:
-    LoginMessageResponse(Status status, UserID user_id, LoginErrorCode login_error_codes, std::string auth_token);
+    LoginMessageResponse(Status status, UserID user_id, LoginErrorCode error_code, std::string auth_token);
     [[nodiscard]] nlohmann::json to_json() const override;
 
     [[nodiscard]] Status get_status() const;
     [[nodiscard]] UserID get_userid() const;
-    [[nodiscard]] LoginErrorCode get_login_error_code() const;
+    [[nodiscard]] LoginErrorCode get_error_code() const;
     [[nodiscard]] std::string get_token() const;
 };
 

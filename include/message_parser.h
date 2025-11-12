@@ -27,6 +27,7 @@ public:
     static std::optional<FriendReqResponse> friend_req_response(const nlohmann::json &message);
     static std::optional<ChangePassword> change_password_request(const nlohmann::json &message);
     static std::optional<ReconnectRequest> reconnect_request(const nlohmann::json &message);
+    static std::optional<UpdateProfileRequest> update_profile_request(const nlohmann::json &message);
 };
 
 #endif //MESSAGE_PARSER_H

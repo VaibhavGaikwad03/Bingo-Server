@@ -18,8 +18,8 @@ SearchUserRequestMessageResponse::SearchUserRequestMessageResponse(const int cou
 nlohmann::json SearchUserRequestMessageResponse::to_json() const
 {
     return {
-        {MessageKeys::MESSAGE_TYPE, MessageType::SEARCH_USER_RESPONSE},
-        {MessageKeys::COUNT, _count},
-        {MessageKeys::USERS, _search_results}
+        {MessageKey::MESSAGE_TYPE, MessageType::SEARCH_USER_RESPONSE},
+        {MessageKey::COUNT, _count},
+        {MessageKey::USERS, _search_results}
     };
 }
