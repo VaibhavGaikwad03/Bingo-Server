@@ -61,6 +61,8 @@ add_executable(BingoServer main.cpp
         include/MessageResponseFactory/UpdateProfileResponse.h
         include/MessageResponseFactory/TokenLoginResponse.h
         src/MessageResponseFactory/TokenLoginResponse.cpp
+        include/MessageResponseFactory/ForcedLogoutMessage.h
+        src/MessageResponseFactory/ForcedLogoutMessage.cpp
 )
 
 # Link the required libraries

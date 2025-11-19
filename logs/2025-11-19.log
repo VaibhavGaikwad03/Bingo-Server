@@ -1,0 +1,27 @@
+[2025-11-19 22:05:37][INFO] Server started...
+[2025-11-19 22:05:37][INFO] Listening on port: 2121
+[2025-11-19 22:07:53][INFO] Client connected with IP: 127.0.0.1
+[2025-11-19 22:07:54][DEBUG] Message received from client {"message_type":117,"user_id":3,"auth_token":"123"}
+[2025-11-19 22:07:54][DEBUG][process] in process func: {"auth_token":"123","message_type":117,"user_id":3}
+[2025-11-19 22:07:54][ERROR][process_reconnect_request] Reconnect unsuccessful of user id: 3
+[2025-11-19 22:08:02][INFO] Client connected with IP: 127.0.0.1
+[2025-11-19 22:08:02][DEBUG] Message received from client {"message_type":117,"user_id":3,"auth_token":"123"}
+[2025-11-19 22:08:02][DEBUG][process] in process func: {"auth_token":"123","message_type":117,"user_id":3}
+[2025-11-19 22:08:02][ERROR][process_reconnect_request] Reconnect unsuccessful of user id: 3
+[2025-11-19 22:08:28][INFO] Client connected with IP: 127.0.0.1
+[2025-11-19 22:08:28][DEBUG] Message received from client {"message_type":117,"user_id":3,"auth_token":"123"}
+[2025-11-19 22:08:28][DEBUG][process] in process func: {"auth_token":"123","message_type":117,"user_id":3}
+[2025-11-19 22:08:28][INFO] Received SIGPIPE (Write to a pipe or socket with no reader). Server terminated.
+[2025-11-19 22:08:35][ERROR][MessageHandler] CDK Error: Connection refused (generic:111)
+[2025-11-19 22:08:53][INFO] Server started...
+[2025-11-19 22:08:53][INFO] Listening on port: 2121
+[2025-11-19 22:11:57][INFO] Client connected with IP: 127.0.0.1
+[2025-11-19 22:11:57][DEBUG] Message received from client {"message_type":117,"user_id":3,"auth_token":"123"}
+[2025-11-19 22:11:57][DEBUG][process] in process func: {"auth_token":"123","message_type":117,"user_id":3}
+[2025-11-19 22:11:57][ERROR][process_reconnect_request] Reconnect unsuccessful of user id: 3
+[2025-11-19 22:12:10][DEBUG] Message received from client {"message_type":101,"username":"achalb11","password":"achu@1101","timestamp":"2025-11-19T16:42:00.772Z"}
+[2025-11-19 22:12:10][DEBUG][process] in process func: {"message_type":101,"password":"achu@1101","timestamp":"2025-11-19T16:42:00.772Z","username":"achalb11"}
+[2025-11-19 22:12:10][INFO][process_login_request] User 'achalb11' logged in successfully
+[2025-11-19 22:12:10][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-19 22:12:10][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-19 22:12:10][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}

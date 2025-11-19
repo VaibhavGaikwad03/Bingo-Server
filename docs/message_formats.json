@@ -220,4 +220,8 @@
     "status": <success/error>,
     "error_code": <error code>
   }
+  ,
+  {
+    "message_type": FORCED_LOGOUT
+  }
 ]
