@@ -104,6 +104,8 @@ void MessageProcessor::process()
                 }
                 break;
 
+                case
+
                 default:
                     log(Log::ERROR, __func__, "Invalid Message Type");
                     break;

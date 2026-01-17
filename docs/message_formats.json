@@ -224,4 +224,17 @@
   {
     "message_type": FORCED_LOGOUT
   }
+  ,
+  {
+    "message_type": CHAT_MESSAGE,
+    "coversation_type": Enum{personal = 0, group = 1, broadcast = 2},
+    "sender_id": <user_id>,
+    "receiver_id": <user_id>,
+    "content_type": Enum {text = 0, image = 1, video = 2, file = 3, audio = 4, poll = 5},
+    "content": TEXT/links,
+    "message_status": Enum {sent = 0, delivered = 1, read = 2},
+    "is_reply_message": BOOL {0, 1},
+    "replied_message_id": <message_id>,
+    "timestamp":, "2025-06-14T00:30:00Z"
+  }
 ]

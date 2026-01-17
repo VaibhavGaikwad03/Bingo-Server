@@ -1,0 +1,224 @@
+[2025-11-24 21:09:17][INFO] Server started...
+[2025-11-24 21:09:17][INFO] Listening on port: 2121
+[2025-11-24 21:09:29][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-11-24 21:09:30][INFO] Server started...
+[2025-11-24 21:09:30][INFO] Listening on port: 2121
+[2025-11-24 21:16:38][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:16:38][DEBUG] Message received from client {"message_type":117,"user_id":3,"auth_token":"123"}
+[2025-11-24 21:16:38][DEBUG][process] in process func: {"auth_token":"123","message_type":117,"user_id":3}
+[2025-11-24 21:16:38][ERROR][process_reconnect_request] Reconnect unsuccessful of user id: 3
+[2025-11-24 21:17:04][DEBUG] Message received from client {"message_type":101,"username":"achalb11","password":"achu@1101","timestamp":"2025-11-24T15:46:47.071Z"}
+[2025-11-24 21:17:04][DEBUG][process] in process func: {"message_type":101,"password":"achu@1101","timestamp":"2025-11-24T15:46:47.071Z","username":"achalb11"}
+[2025-11-24 21:17:04][INFO][process_login_request] User 'achalb11' logged in successfully
+[2025-11-24 21:17:04][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:17:04][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:17:04][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:17:41][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:17:41][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-24 21:17:41][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-24 21:17:41][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-24 21:17:41][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:17:41][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-24 21:17:41][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-24 21:18:59][INFO] Client disconnected. Abnormal closure (no close frame received), Reason: Received TCP FIN before WebSocket close frame
+[2025-11-24 21:19:11][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:26:24][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:26:24][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-24 21:26:24][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-24 21:26:24][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-24 21:26:24][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:26:24][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-24 21:26:24][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-24 21:33:06][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:34:31][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:34:31][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:34:31][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:34:31][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:34:31][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:34:31][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:34:31][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:36:33][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:36:34][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:36:34][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:36:34][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:36:34][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:36:34][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:36:34][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:36:34][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:36:47][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:36:48][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:36:48][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:36:48][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:36:48][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:36:48][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:36:48][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:36:48][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:42:26][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:42:27][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:42:27][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:42:27][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:42:27][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:42:27][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:42:27][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:42:27][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:44:21][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:44:22][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:44:22][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:44:22][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:44:22][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:44:22][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:44:22][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:44:22][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:44:46][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:44:47][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:44:47][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:44:47][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:44:47][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:44:47][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:44:47][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:44:47][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:47:27][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:47:28][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:47:28][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:47:28][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:47:28][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:47:28][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:47:28][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:47:28][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:52:23][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:52:24][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:52:24][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:52:24][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:52:24][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:52:24][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:52:24][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:52:24][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:54:27][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:54:28][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:54:28][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:54:28][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:54:28][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:54:28][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:54:28][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:54:28][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:54:40][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:54:41][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:54:41][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:54:41][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:54:41][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:54:41][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:54:41][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:54:41][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:54:43][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:54:44][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:54:44][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:54:44][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:54:44][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:54:44][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:54:44][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:54:44][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:55:14][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:55:18][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:55:18][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:55:18][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:55:18][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:55:18][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:55:18][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:55:18][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:55:18][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:55:19][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:55:19][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:55:19][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:55:19][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:55:19][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:55:19][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:55:19][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:55:22][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:55:23][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:55:23][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:55:23][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:55:23][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:55:23][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:55:23][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:55:23][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:55:27][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:55:28][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:55:28][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:55:28][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:55:28][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:55:28][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:55:28][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:55:28][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:55:29][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:55:30][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:55:30][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:55:30][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:55:30][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:55:30][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:55:30][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:55:30][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:55:32][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:55:33][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:55:33][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:55:33][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:55:33][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:55:33][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:55:33][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:55:33][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:57:25][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:57:27][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:57:27][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:57:27][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:57:27][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:57:27][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:57:27][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:57:27][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:57:28][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:57:29][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:57:29][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:57:29][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:57:29][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:57:29][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:57:29][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:57:29][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:57:34][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:57:35][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:57:35][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:57:35][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:57:35][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:57:35][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:57:35][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:57:35][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:57:37][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:57:38][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:57:38][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:57:38][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:57:38][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:57:38][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:57:38][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:57:38][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 21:57:57][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 21:57:59][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 21:57:59][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 21:57:59][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 21:57:59][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 21:57:59][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 21:57:59][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 21:57:59][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 22:00:09][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 22:00:13][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 22:00:14][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 22:00:14][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 22:00:14][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 22:00:14][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 22:00:14][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 22:00:14][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 22:03:13][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-24 22:03:14][INFO] Client connected with IP: 127.0.0.1
+[2025-11-24 22:03:15][DEBUG] Message received from client {"message_type":117,"user_id":1266,"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a"}
+[2025-11-24 22:03:15][DEBUG][process] in process func: {"auth_token":"d0f7cca920ee7ff431cd13dc75759e7a","message_type":117,"user_id":1266}
+[2025-11-24 22:03:15][DEBUG][send_user_login_payloads] {"dob":"2001-02-11","email":"achalb12@gmail.com","fullname":"Achal Bhamare","gender":"Female","message_type":111,"phone":"9876543111","username":"achalb11"}
+[2025-11-24 22:03:15][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-24 22:03:15][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"sakshi chavan","gender":"Other","user_id":1244,"username":"so_sasssy"}],"message_type":112}
+[2025-11-24 22:03:15][INFO][process_reconnect_request] Reconnect successful of user id: 1266
+[2025-11-24 22:04:12][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.

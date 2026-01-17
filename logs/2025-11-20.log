@@ -1,0 +1,263 @@
+[2025-11-20 00:12:01][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-11-20 19:51:15][INFO] Server started...
+[2025-11-20 19:51:15][INFO] Listening on port: 2121
+[2025-11-20 19:53:44][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 19:53:54][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-11-20T14:23:47.465Z"}
+[2025-11-20 19:53:54][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-11-20T14:23:47.465Z","username":"rutuja"}
+[2025-11-20 19:53:54][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-11-20 19:53:54][DEBUG][send_user_login_payloads] {"dob":"2004-05-31","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Vijay Dabhade","gender":"Female","message_type":111,"phone":"8668470451","username":"rutuja"}
+[2025-11-20 19:53:54][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 19:53:54][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"}],"message_type":112}
+[2025-11-20 19:54:00][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 19:54:14][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T14:24:02.435Z"}
+[2025-11-20 19:54:14][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T14:24:02.435Z","username":"vaibz"}
+[2025-11-20 19:54:14][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 19:54:14][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 19:54:14][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 19:54:14][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 19:56:01][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 19:56:02][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 19:56:04][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:00:51][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 20:01:47][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:01:49][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:01:56][DEBUG] Message received from client {"message_type":101,"username":"rutuja","password":"1234","timestamp":"2025-11-20T14:31:52.338Z"}
+[2025-11-20 20:01:56][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-11-20T14:31:52.338Z","username":"rutuja"}
+[2025-11-20 20:01:56][INFO][process_login_request] User 'rutuja' logged in successfully
+[2025-11-20 20:01:56][DEBUG][send_user_login_payloads] {"dob":"2004-05-31","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Vijay Dabhade","gender":"Female","message_type":111,"phone":"8668470451","username":"rutuja"}
+[2025-11-20 20:01:56][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 20:01:56][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"}],"message_type":112}
+[2025-11-20 20:02:01][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:01][DEBUG] Message received from client {"message_type":117,"user_id":34,"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4"}
+[2025-11-20 20:02:01][DEBUG][process] in process func: {"auth_token":"c81e037d3ad7f57c115e88e7c11deaf4","message_type":117,"user_id":34}
+[2025-11-20 20:02:01][DEBUG][send_user_login_payloads] {"dob":"2004-05-31","email":"rutuja04dabhade@gmail.com","fullname":"Rutuja Vijay Dabhade","gender":"Female","message_type":111,"phone":"8668470451","username":"rutuja"}
+[2025-11-20 20:02:01][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 20:02:01][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"}],"message_type":112}
+[2025-11-20 20:02:01][INFO][process_reconnect_request] Reconnect successful of user id: 34
+[2025-11-20 20:02:05][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 20:02:05][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:13][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T14:32:07.839Z"}
+[2025-11-20 20:02:13][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T14:32:07.839Z","username":"vaibz"}
+[2025-11-20 20:02:13][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 20:02:13][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 20:02:13][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 20:02:13][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 20:02:19][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 20:02:20][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:20][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 20:02:20][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 20:02:20][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 20:02:20][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 20:02:20][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 20:02:20][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 20:02:22][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 20:02:23][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:24][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:24][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 20:02:24][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 20:02:24][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 20:02:24][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 20:02:24][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 20:02:24][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 20:02:27][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:27][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 20:02:27][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 20:02:27][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 20:02:27][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 20:02:27][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 20:02:27][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 20:02:27][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 20:02:28][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:29][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:31][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:39][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:02:40][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 20:09:23][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
+[2025-11-20 21:29:32][INFO] Server started...
+[2025-11-20 21:29:32][INFO] Listening on port: 2121
+[2025-11-20 21:29:51][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:29:51][DEBUG] Message received from client {"message_type":117,"user_id":1245,"auth_token":"8ee93f947109d15a3211d0f67f874646"}
+[2025-11-20 21:29:51][DEBUG][process] in process func: {"auth_token":"8ee93f947109d15a3211d0f67f874646","message_type":117,"user_id":1245}
+[2025-11-20 21:29:51][DEBUG][send_user_login_payloads] {"dob":"2005-01-27","email":"chetanap2005@gmail.com","fullname":"Chetana Patil","gender":"Female","message_type":111,"phone":"1234567890","username":"chetanap"}
+[2025-11-20 21:29:51][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:29:51][DEBUG][send_user_login_payloads] {"count":5,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"},{"dob":"2002-03-20","fullname":"Vaibhav Gaikwad","gender":"Male","user_id":21,"username":"vaibz"}],"message_type":112}
+[2025-11-20 21:29:51][INFO][process_reconnect_request] Reconnect successful of user id: 1245
+[2025-11-20 21:30:07][DEBUG] Message received from client {"message_type":105,"user_id":1245,"username":"chetanap"}
+[2025-11-20 21:30:07][DEBUG][process] in process func: {"message_type":105,"user_id":1245,"username":"chetanap"}
+[2025-11-20 21:30:07][INFO][process_logout_request] User 'chetanap' failed to logged out. Session not found.
+[2025-11-20 21:30:07][INFO][process_logout_request] User 'chetanap' logged out successfully
+[2025-11-20 21:30:07][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:30:16][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:00:07.829Z"}
+[2025-11-20 21:30:16][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:00:07.829Z","username":"vaibz"}
+[2025-11-20 21:30:16][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:30:16][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:30:16][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:30:16][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:30:24][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:30:24][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 21:30:24][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 21:30:24][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:30:24][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:30:24][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:30:24][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 21:30:31][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 21:30:31][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:30:31][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 21:30:31][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 21:30:31][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:30:31][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:30:31][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:30:31][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 21:31:04][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:31:04][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 21:31:04][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 21:31:04][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:31:04][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:31:04][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:31:04][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 21:31:15][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:00:24.359Z"}
+[2025-11-20 21:31:15][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:00:24.359Z","username":"vaibz"}
+[2025-11-20 21:31:15][INFO][process_login_request] User 'vaibz' logged out forcefully
+[2025-11-20 21:31:15][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:31:15][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:31:15][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:31:15][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:32:46][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:32:46][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 21:32:46][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 21:32:46][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:32:46][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:32:46][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:32:46][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 21:32:53][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 21:32:53][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:32:53][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 21:32:53][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 21:32:53][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:32:53][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:32:53][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:32:53][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 21:33:34][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:33:34][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:33:34][INFO][process_logout_request] User 'vaibz' failed to logged out. Session not found.
+[2025-11-20 21:33:34][INFO][process_logout_request] User 'vaibz' logged out successfully
+[2025-11-20 21:33:34][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:33:45][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:02:46.093Z"}
+[2025-11-20 21:33:45][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:02:46.093Z","username":"vaibz"}
+[2025-11-20 21:33:45][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:33:45][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:33:45][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:33:45][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:33:58][DEBUG] Message received from client {"message_type":101,"username":"chetanap","password":"5678","timestamp":"2025-11-20T16:03:34.273Z"}
+[2025-11-20 21:33:58][DEBUG][process] in process func: {"message_type":101,"password":"5678","timestamp":"2025-11-20T16:03:34.273Z","username":"chetanap"}
+[2025-11-20 21:33:58][INFO][process_login_request] User 'chetanap' logged in successfully
+[2025-11-20 21:33:58][DEBUG][send_user_login_payloads] {"dob":"2005-01-27","email":"chetanap2005@gmail.com","fullname":"Chetana Patil","gender":"Female","message_type":111,"phone":"1234567890","username":"chetanap"}
+[2025-11-20 21:33:58][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:33:58][DEBUG][send_user_login_payloads] {"count":5,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"},{"dob":"2002-03-20","fullname":"Vaibhav Gaikwad","gender":"Male","user_id":21,"username":"vaibz"}],"message_type":112}
+[2025-11-20 21:34:12][DEBUG] Message received from client {"message_type":105,"user_id":1245,"username":"chetanap"}
+[2025-11-20 21:34:12][DEBUG][process] in process func: {"message_type":105,"user_id":1245,"username":"chetanap"}
+[2025-11-20 21:34:12][INFO][process_logout_request] User 'chetanap' failed to logged out. Session not found.
+[2025-11-20 21:34:12][INFO][process_logout_request] User 'chetanap' logged out successfully
+[2025-11-20 21:34:12][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:34:16][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:34:16][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:34:16][INFO][process_logout_request] User 'vaibz' failed to logged out. Session not found.
+[2025-11-20 21:34:16][INFO][process_logout_request] User 'vaibz' logged out successfully
+[2025-11-20 21:34:16][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:34:32][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:04:16.752Z"}
+[2025-11-20 21:34:32][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:04:16.752Z","username":"vaibz"}
+[2025-11-20 21:34:32][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:34:32][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:34:32][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:34:32][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:34:43][DEBUG] Message received from client {"message_type":101,"username":"chetanap","password":"5678","timestamp":"2025-11-20T16:04:12.918Z"}
+[2025-11-20 21:34:43][DEBUG][process] in process func: {"message_type":101,"password":"5678","timestamp":"2025-11-20T16:04:12.918Z","username":"chetanap"}
+[2025-11-20 21:34:43][INFO][process_login_request] User 'chetanap' logged in successfully
+[2025-11-20 21:34:43][DEBUG][send_user_login_payloads] {"dob":"2005-01-27","email":"chetanap2005@gmail.com","fullname":"Chetana Patil","gender":"Female","message_type":111,"phone":"1234567890","username":"chetanap"}
+[2025-11-20 21:34:43][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:34:43][DEBUG][send_user_login_payloads] {"count":5,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"},{"dob":"2002-03-20","fullname":"Vaibhav Gaikwad","gender":"Male","user_id":21,"username":"vaibz"}],"message_type":112}
+[2025-11-20 21:34:49][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 21:34:50][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:34:50][DEBUG] Message received from client {"message_type":117,"user_id":1245,"auth_token":"8ee93f947109d15a3211d0f67f874646"}
+[2025-11-20 21:34:50][DEBUG][process] in process func: {"auth_token":"8ee93f947109d15a3211d0f67f874646","message_type":117,"user_id":1245}
+[2025-11-20 21:34:50][DEBUG][send_user_login_payloads] {"dob":"2005-01-27","email":"chetanap2005@gmail.com","fullname":"Chetana Patil","gender":"Female","message_type":111,"phone":"1234567890","username":"chetanap"}
+[2025-11-20 21:34:50][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:34:50][DEBUG][send_user_login_payloads] {"count":5,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"},{"dob":"2002-03-20","fullname":"Vaibhav Gaikwad","gender":"Male","user_id":21,"username":"vaibz"}],"message_type":112}
+[2025-11-20 21:34:50][INFO][process_reconnect_request] Reconnect successful of user id: 1245
+[2025-11-20 21:35:13][DEBUG] Message received from client {"message_type":105,"user_id":1245,"username":"chetanap"}
+[2025-11-20 21:35:13][DEBUG][process] in process func: {"message_type":105,"user_id":1245,"username":"chetanap"}
+[2025-11-20 21:35:13][INFO][process_logout_request] User 'chetanap' failed to logged out. Session not found.
+[2025-11-20 21:35:13][INFO][process_logout_request] User 'chetanap' logged out successfully
+[2025-11-20 21:35:13][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:35:19][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:36:15][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:05:53.474Z"}
+[2025-11-20 21:36:15][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:05:53.474Z","username":"vaibz"}
+[2025-11-20 21:36:15][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:36:15][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:36:15][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:36:15][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:36:48][DEBUG] Message received from client {"message_type":101,"username":"chetanap","password":"5678","timestamp":"2025-11-20T16:06:34.074Z"}
+[2025-11-20 21:36:48][DEBUG][process] in process func: {"message_type":101,"password":"5678","timestamp":"2025-11-20T16:06:34.074Z","username":"chetanap"}
+[2025-11-20 21:36:48][INFO][process_login_request] User 'chetanap' logged in successfully
+[2025-11-20 21:36:48][DEBUG][send_user_login_payloads] {"dob":"2005-01-27","email":"chetanap2005@gmail.com","fullname":"Chetana Patil","gender":"Female","message_type":111,"phone":"1234567890","username":"chetanap"}
+[2025-11-20 21:36:48][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:36:48][DEBUG][send_user_login_payloads] {"count":5,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"},{"dob":"2002-03-20","fullname":"Vaibhav Gaikwad","gender":"Male","user_id":21,"username":"vaibz"}],"message_type":112}
+[2025-11-20 21:37:30][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:37:30][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:37:30][INFO][process_logout_request] User 'vaibz' failed to logged out. Session not found.
+[2025-11-20 21:37:30][INFO][process_logout_request] User 'vaibz' logged out successfully
+[2025-11-20 21:37:30][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:37:43][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:37:44][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:37:44][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:37:44][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:37:45][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:38:42][INFO] Client disconnected. Client is going away, Reason: 
+[2025-11-20 21:38:43][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:47:14][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:47:26][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:47:53][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:17:45.630Z"}
+[2025-11-20 21:47:53][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:17:45.630Z","username":"vaibz"}
+[2025-11-20 21:47:53][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:47:53][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:47:53][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:47:53][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:47:59][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:47:59][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:47:59][INFO][process_logout_request] User 'vaibz' failed to logged out. Session not found.
+[2025-11-20 21:47:59][INFO][process_logout_request] User 'vaibz' logged out successfully
+[2025-11-20 21:47:59][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:48:02][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:48:12][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"1234","timestamp":"2025-11-20T16:17:59.253Z"}
+[2025-11-20 21:48:12][DEBUG][process] in process func: {"message_type":101,"password":"1234","timestamp":"2025-11-20T16:17:59.253Z","username":"vaibz"}
+[2025-11-20 21:48:12][ERROR][process_login_request] Password is incorrect for user: vaibz
+[2025-11-20 21:48:13][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:18:13.218Z"}
+[2025-11-20 21:48:13][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:18:13.218Z","username":"vaibz"}
+[2025-11-20 21:48:13][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:48:13][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:48:13][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:48:13][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:48:25][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:48:25][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2025-11-20 21:48:25][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2025-11-20 21:48:25][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:48:25][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:48:25][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:48:25][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2025-11-20 21:48:55][DEBUG] Message received from client {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:48:55][DEBUG][process] in process func: {"message_type":105,"user_id":21,"username":"vaibz"}
+[2025-11-20 21:48:55][INFO][process_logout_request] User 'vaibz' failed to logged out. Session not found.
+[2025-11-20 21:48:55][INFO][process_logout_request] User 'vaibz' logged out successfully
+[2025-11-20 21:48:55][DEBUG][process_logout_request] {"message_type":106,"status":0}
+[2025-11-20 21:48:57][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:48:57][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:48:57][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:48:58][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:48:58][INFO] Client connected with IP: 127.0.0.1
+[2025-11-20 21:56:35][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2025-11-20T16:26:03.510Z"}
+[2025-11-20 21:56:35][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2025-11-20T16:26:03.510Z","username":"vaibz"}
+[2025-11-20 21:56:35][INFO][process_login_request] User 'vaibz' logged in successfully
+[2025-11-20 21:56:35][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2025-11-20 21:56:35][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2025-11-20 21:56:35][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2025-11-20 21:56:45][INFO] Client disconnected. Client is going away, Reason: 
