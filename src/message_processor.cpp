@@ -12,6 +12,7 @@
 #include "../include/message_keys.h"
 #include "../include/user_session_manager.h"
 #include "../include/MessageResponseFactory/ChangePasswordMessageResponse.h"
+#include "../include/MessageResponseFactory/GetChatMessageIDResponse.h"
 #include "../include/MessageResponseFactory/LoginMessageResponse.h"
 #include "../include/MessageResponseFactory/LogoutMessageResponse.h"
 #include "../include/MessageResponseFactory/PendingFriendRequests.h"
@@ -104,7 +105,17 @@ void MessageProcessor::process()
                 }
                 break;
 
-                case
+                case MessageType::CHAT_MESSAGE:
+                {
+                    process_chat_message(packet.ws, packet_data);
+                }
+                break;
+
+                case MessageType::GET_CHAT_MESSAGE_ID_REQUEST:
+                {
+                    process_get_message_id_request(packet.ws, packet_data);
+                }
+                break;
 
                 default:
                     log(Log::ERROR, __func__, "Invalid Message Type");
@@ -506,4 +517,23 @@ void MessageProcessor::process_update_profile_request(WebSocket *ws, const nlohm
         log(Log::ERROR, __func__,
             "Update profile of user '" + data[MessageKey::USERNAME].get<std::string>() + "' is unsuccessful");
     }
+}
+
+void MessageProcessor::process_chat_message(WebSocket *ws, const nlohmann::json &data) const
+{
+    print_chat_message(data);
+
+
+}
+
+void MessageProcessor::process_get_message_id_request(WebSocket *ws, const nlohmann::json &data) const
+{
+    print_get_message_id_request(data);
+
+    const MessageID message_id = _message_handler.get_message_id_request();
+
+    const GetChatMessageIDResponse get_chat_message_id_response(message_id);
+    const nlohmann::json get_chat_message_response_message = get_chat_message_id_response.to_json();
+
+    ws->send(get_chat_message_response_message.dump(), uWS::TEXT);
 }

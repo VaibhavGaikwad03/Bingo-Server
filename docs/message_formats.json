@@ -237,4 +237,14 @@
     "replied_message_id": <message_id>,
     "timestamp":, "2025-06-14T00:30:00Z"
   }
+  ,
+  {
+    "message_type": GET_CHAT_MESSAGE_ID_REQUEST,
+    "user_id": 1
+  }
+  ,
+  {
+    "message_type": GET_CHAT_MESSAGE_ID_RESPONSE,
+    "chat_message_id": 2233
+  }
 ]

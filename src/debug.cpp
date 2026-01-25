@@ -8,7 +8,7 @@ static void print_key_value(std::string_view key, const nlohmann::json &message)
     std::cout << key << ": " << message[key] << std::endl;
 }
 
-void print_login_request(const nlohmann::json &message)
+inline void print_login_request(const nlohmann::json &message)
 {
     try
     {
@@ -151,6 +151,39 @@ void print_update_profile_request(const nlohmann::json &message)
         print_key_value(MessageKey::GENDER, message);
         print_key_value(MessageKey::EMAIL, message);
         print_key_value(MessageKey::PHONE, message);
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+    }
+}
+
+void print_chat_message(const nlohmann::json &message)
+{
+    try
+    {
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::CONVERSATION_TYPE, message);
+        print_key_value(MessageKey::SENDER_ID, message);
+        print_key_value(MessageKey::RECEIVER_ID, message);
+        print_key_value(MessageKey::CONTENT_TYPE, message);
+        print_key_value(MessageKey::CONTENT, message);
+        print_key_value(MessageKey::MESSAGE_STATUS, message);
+        print_key_value(MessageKey::IS_REPLY_MESSAGE, message);
+        print_key_value(MessageKey::REPLIED_MESSAGE_ID, message);
+        print_key_value(MessageKey::TIMESTAMP, message);
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+    }
+}
+void print_get_message_id_request(const nlohmann::json &message)
+{
+    try
+    {
+        print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::USER_ID, message);
     }
     catch (const std::exception &e)
     {

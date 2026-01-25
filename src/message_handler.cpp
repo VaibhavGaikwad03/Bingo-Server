@@ -1,5 +1,5 @@
 #include "../include/utils/logger.h"
-#include "../include/utils.h"
+#include "../include/utils/utils.h"
 #include "../include/error_codes.h"
 #include "../include/message_handler.h"
 #include "../include/message_parser.h"
@@ -17,8 +17,8 @@ MessageHandler::MessageHandler()
         _user_credentials_table = std::make_unique<mysqlx::Table>(_database->getTable("user_credentials", true));
         _friendship_table = std::make_unique<mysqlx::Table>(_database->getTable("friendship"));
         _friend_request_table = std::make_unique<mysqlx::Table>(_database->getTable("friend_request"));
-        _message_history_table = std::make_unique<mysqlx::Table>(_database->getTable("message_history"));
         _auth_tokens_table = std::make_unique<mysqlx::Table>(_database->getTable("auth_tokens"));
+        _chat_history_table = std::make_unique<mysqlx::Table>(_database->getTable("chat_history"));
     }
     catch (const std::exception &e)
     {
@@ -871,5 +871,59 @@ std::optional<UpdateProfileResponse> MessageHandler::update_profile_request(cons
         log(Log::ERROR, __func__,
             std::string("Unexpected error: ") + ex.what());
         return std::nullopt;
+    }
+}
+
+void MessageHandler::chat_message(const nlohmann::json &message) const
+{
+    try
+    {
+
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Database error: ") + err.what());
+        return;
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Unexpected error: ") + ex.what());
+        return;
+    }
+}
+
+MessageID MessageHandler::get_message_id_request() const
+{
+    try
+    {
+        _session->sql(
+            "UPDATE message_id_counter "
+                    "SET value = LAST_INSERT_ID(value + 1) "
+                    "WHERE id = 1").execute();
+
+        mysqlx::RowResult result = static_cast<mysqlx::RowResult>(_session->sql("SELECT LAST_INSERT_ID()").execute());
+        mysqlx::Row row = result.fetchOne();
+
+        if (!row)
+        {
+            log(Log::ERROR, __func__, "Failed to fetch new message ID");
+            return -1;
+        }
+
+        return row[0].get<MessageID>();
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Database error: ") + err.what());
+        return -1;
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Unexpected error: ") + ex.what());
+        return -1;
     }
 }

@@ -25,9 +25,9 @@ class MessageHandler
 
     std::unique_ptr<mysqlx::Table> _friendship_table;
     std::unique_ptr<mysqlx::Table> _friend_request_table;
-    std::unique_ptr<mysqlx::Table> _message_history_table;
     std::unique_ptr<mysqlx::Table> _user_credentials_table;
     std::unique_ptr<mysqlx::Table> _auth_tokens_table;
+    std::unique_ptr<mysqlx::Table> _chat_history_table;
 
     [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
     [[nodiscard]] std::optional<UserProfileMessage> get_user_profile(UserID user_id) const;
@@ -57,6 +57,8 @@ public:
     [[nodiscard]] ChangePasswordErrorCode change_password_request(const nlohmann::json &message) const;
     [[nodiscard]] std::optional<ReconnectResponse> reconnect_request(const nlohmann::json &message) const;
     [[nodiscard]] std::optional<UpdateProfileResponse> update_profile_request(const nlohmann::json &message) const;
+    void chat_message(const nlohmann::json &message) const;
+    [[nodiscard]] MessageID get_message_id_request() const;
 
     friend class MessageProcessor;
 };

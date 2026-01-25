@@ -17,7 +17,7 @@ add_executable(BingoServer main.cpp
         include/thread_safe_queue.h
         include/server.h
         include/utils/time.h
-        include/utils.h
+        include/utils/utils.h
         include/error_codes.h
         include/message_types.h
         include/user_session_manager.h
@@ -63,6 +63,9 @@ add_executable(BingoServer main.cpp
         src/MessageResponseFactory/TokenLoginResponse.cpp
         include/MessageResponseFactory/ForcedLogoutMessage.h
         src/MessageResponseFactory/ForcedLogoutMessage.cpp
+        include/enums.h
+        include/MessageResponseFactory/GetChatMessageIDResponse.h
+        src/MessageResponseFactory/GetChatMessageIDResponse.cpp
 )
 
 # Link the required libraries

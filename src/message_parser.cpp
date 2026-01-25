@@ -204,3 +204,21 @@ std::optional<UpdateProfileRequest> MessageParser::update_profile_request(const 
         return std::nullopt;
     }
 }
+
+std::optional<GetChatMessageIDRequest> MessageParser::get_chat_message_id_request(const nlohmann::json &message)
+{
+    try
+    {
+        GetChatMessageIDRequest parsed_message;
+
+        parsed_message.message_type = message[MessageKey::MESSAGE_TYPE];
+        parsed_message.user_id = message[MessageKey::USER_ID];
+
+        return parsed_message;
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return std::nullopt;
+    }
+}

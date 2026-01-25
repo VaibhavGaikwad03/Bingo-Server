@@ -9,5 +9,6 @@
 
 typedef unsigned int UserID;
 typedef uWS::WebSocket<false, uWS::SERVER, std::string> WebSocket;
+typedef unsigned int MessageID;
 
 #endif //TYPEDEFS_H

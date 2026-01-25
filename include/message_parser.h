@@ -28,6 +28,8 @@ public:
     static std::optional<ChangePassword> change_password_request(const nlohmann::json &message);
     static std::optional<ReconnectRequest> reconnect_request(const nlohmann::json &message);
     static std::optional<UpdateProfileRequest> update_profile_request(const nlohmann::json &message);
+    static std::optional<ChatMessage> chat_message_request(const nlohmann::json &message);
+    static std::optional<GetChatMessageIDRequest> get_chat_message_id_request(const nlohmann::json &message);
 };
 
 #endif //MESSAGE_PARSER_H

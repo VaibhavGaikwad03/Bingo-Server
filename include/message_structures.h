@@ -5,6 +5,7 @@
 #ifndef MESSAGE_STRUCTURES_H
 #define MESSAGE_STRUCTURES_H
 
+#include "enums.h"
 #include "message_types.h"
 #include "uWebSockets/App.h"
 #include "typedefs.h"
@@ -124,13 +125,15 @@ struct FriendReqResponse
 
 struct ChatMessage
 {
+    MessageType message_type;
+    ConversationType conversation_type;
     UserID sender_id;
-    std::string sender;
     UserID receiver_id;
-    std::string receiver;
-    std::string message;
-    std::string message_status;
-    std::string timestamp;
+    ContentType content_type;
+    std::string content;
+    MessageStatus message_status;
+    bool is_reply_message;
+    MessageID replied_message_id;
 };
 
 ///
@@ -160,6 +163,12 @@ struct UpdateProfileRequest
     std::string gender;
     std::string email;
     std::string phone;
+};
+
+struct GetChatMessageIDRequest
+{
+    MessageType message_type;
+    UserID user_id;
 };
 
 #endif //MESSAGE_STRUCTURES_H

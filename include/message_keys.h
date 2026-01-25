@@ -39,6 +39,13 @@ namespace MessageKey
     inline constexpr auto NEW_PASSWORD = "new_password";
     inline constexpr auto AUTH_TOKEN = "auth_token";
     inline constexpr auto FRIENDS_LIST = "friends_list";
+    inline constexpr auto CONVERSATION_TYPE = "conversation_type";
+    inline constexpr auto CONTENT_TYPE = "content_type";
+    inline constexpr auto CONTENT = "content";
+    inline constexpr auto MESSAGE_STATUS = "message_status";
+    inline constexpr auto IS_REPLY_MESSAGE = "is_reply_message";
+    inline constexpr auto REPLIED_MESSAGE_ID = "replied_message_id";
+    inline constexpr auto CHAT_MESSAGE_ID = "chat_message_id";
 };
 
 #endif //MESSAGE_KEYS_H
