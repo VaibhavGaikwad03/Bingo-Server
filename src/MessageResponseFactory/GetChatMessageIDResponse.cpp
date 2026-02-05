@@ -15,7 +15,7 @@ nlohmann::json GetChatMessageIDResponse::to_json() const
 {
     return {
             {MessageKey::MESSAGE_TYPE, MessageType::GET_CHAT_MESSAGE_ID_RESPONSE},
-            {MessageKey::CHAT_MESSAGE_ID}
+            {MessageKey::CHAT_MESSAGE_ID, _message_id}
     };
 }
 

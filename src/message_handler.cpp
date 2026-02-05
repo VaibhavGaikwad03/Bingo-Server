@@ -7,12 +7,15 @@
 #include "../include/user_session_manager.h"
 #include "../include/utils/token_generator.h"
 
-MessageHandler::MessageHandler()
+MessageHandler::MessageHandler(const DatabaseConfig& db_config)
 {
     try
     {
-        _session = std::make_unique<mysqlx::Session>("localhost", 33060, "vaibz", "p@ssw0rd", "bingo_server_db");
-        _database = std::make_unique<mysqlx::Schema>(_session->getSchema("bingo_server_db"));
+        _session = std::make_unique<mysqlx::Session>(
+            db_config.host, db_config.port, 
+            db_config.username, db_config.password, 
+            db_config.name);
+        _database = std::make_unique<mysqlx::Schema>(_session->getSchema(db_config.name));
 
         _user_credentials_table = std::make_unique<mysqlx::Table>(_database->getTable("user_credentials", true));
         _friendship_table = std::make_unique<mysqlx::Table>(_database->getTable("friendship"));
@@ -226,14 +229,8 @@ std::optional<LogoutMessageResponse> MessageHandler::logout_request(const nlohma
         return logout_message_response;
     }
 
-    UserSession *session = UserSessionManager::instance()->get_session(parsed_message->user_id);
+    UserSession *session = UserSessionManager::instance().get_session(parsed_message->user_id);
     if (session == nullptr)
-    {
-        LogoutMessageResponse logout_message_response(Status::ERROR);
-        return logout_message_response;
-    }
-
-    if (!UserSessionManager::instance()->delete_session(session))
     {
         LogoutMessageResponse logout_message_response(Status::ERROR);
         return logout_message_response;

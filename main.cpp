@@ -14,8 +14,9 @@ int main()
 
         const std::string ip = config_reader.get_ip();
         const int port = config_reader.get_port();
+        const DatabaseConfig& db_config = config_reader.get_database_config();
 
-        Server server(ip, port);
+        Server server(ip, port, db_config);
 
         // init signal handlers
         init_signal_handler();

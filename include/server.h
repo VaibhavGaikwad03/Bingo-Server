@@ -11,6 +11,7 @@
 #include "../include/message_processor.h"
 #include "../include/message_structures.h"
 #include "user_session.h"
+#include "utils/config_reader.h"
 
 // struct UserData
 // {
@@ -54,7 +55,7 @@ class Server
     static std::string get_websocket_close_reason(int code);
 
 public:
-    Server(const std::string& ip, int port);
+    Server(const std::string& ip, int port, const DatabaseConfig& db_config);
 
     ~Server();
 

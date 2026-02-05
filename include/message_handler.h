@@ -8,6 +8,7 @@
 #include "nlohmann/json.hpp"
 #include "typedefs.h"
 #include "error_codes.h"
+#include "utils/config_reader.h"
 #include "MessageResponseFactory/LoginMessageResponse.h"
 #include "MessageResponseFactory/ReconnectMessageResponse.h"
 #include "MessageResponseFactory/FriendsListMessage.h"
@@ -44,7 +45,7 @@ class MessageHandler
     [[nodiscard]] std::string get_phone(UserID user_id) const;
 
 public:
-    MessageHandler();
+    explicit MessageHandler(const DatabaseConfig& db_config);
 
     ~MessageHandler();
 

@@ -7,7 +7,7 @@
 template <typename T>
 class ThreadSafeQueue
 {
-    std::mutex _mtx;
+    mutable std::mutex _mtx;  // mutable to allow locking in const methods
     std::queue<T> _queue;
 
 public:
@@ -28,11 +28,13 @@ public:
 
     [[nodiscard]] size_t size() const
     {
+        std::lock_guard<std::mutex> lock(_mtx);
         return _queue.size();
     }
 
     [[nodiscard]] bool empty() const
     {
+        std::lock_guard<std::mutex> lock(_mtx);
         return _queue.empty();
     }
 };

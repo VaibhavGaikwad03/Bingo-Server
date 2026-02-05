@@ -5,12 +5,12 @@
 #include "../include/message_structures.h"
 #include "../include/user_session_manager.h"
 
-Server::Server(const std::string &ip, const int port)
+Server::Server(const std::string &ip, const int port, const DatabaseConfig& db_config)
 {
     _ip = ip;
     _port = port;
 
-    _message_processor = std::make_unique<MessageProcessor>(_mtx_queue, _cv);
+    _message_processor = std::make_unique<MessageProcessor>(_mtx_queue, _cv, db_config);
 
     uWS::App::WebSocketBehavior<std::string> behavior;
     behavior.open = [this](auto *ws)
@@ -70,12 +70,12 @@ void Server::connection_opened(WebSocket *ws)
 void Server::connection_closed(const WebSocket *ws, const int code,
                                const std::string_view reason)
 {
-    UserSession *session = UserSessionManager::instance()->get_session(ws);
+    UserSession *session = UserSessionManager::instance().get_session(ws);
     if (session == nullptr)
         return;
 
-    UserSessionManager::instance()->delete_session(session); // if user disconnects, destroy the session
-    UserSessionManager::instance()->display_sessions(); // debug purpose
+    UserSessionManager::instance().delete_session(session); // if user disconnects, destroy the session
+    UserSessionManager::instance().display_sessions(); // debug purpose
     log(Log::INFO, "", "Client disconnected. " + get_websocket_close_reason(code) + ", Reason: " + std::string(reason));
 }
 

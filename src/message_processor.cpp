@@ -21,8 +21,10 @@
 #include "../include/MessageResponseFactory/UserProfileMessage.h"
 
 
-MessageProcessor::MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv) : _cv(cv),
-    _mtx_queue(queue)
+MessageProcessor::MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv, const DatabaseConfig& db_config) 
+    : _cv(cv),
+    _mtx_queue(queue),
+    _message_handler(db_config)
 {
 }
 
@@ -208,10 +210,10 @@ void MessageProcessor::process_login_request(WebSocket *ws,
     }
     else
     {
-        UserSessionManager *session_manager = UserSessionManager::instance();
-        if (session_manager->is_session_exists(login_message_response->get_userid())) // if session already exists
+        UserSessionManager &session_manager = UserSessionManager::instance();
+        if (session_manager.is_session_exists(login_message_response->get_userid())) // if session already exists
         {
-            UserSession *session = session_manager->get_session(login_message_response->get_userid());
+            UserSession *session = session_manager.get_session(login_message_response->get_userid());
 
             const LogoutMessageResponse logout_message_response(Status::SUCCESS);
             const nlohmann::json logout_response = logout_message_response.to_json();
@@ -224,10 +226,10 @@ void MessageProcessor::process_login_request(WebSocket *ws,
         else
         {
             // new session created
-            session_manager->create_session(login_message_response->get_userid(), data[MessageKey::USERNAME], ws);
+            session_manager.create_session(login_message_response->get_userid(), data[MessageKey::USERNAME], ws);
         }
 
-        UserSessionManager::instance()->display_sessions(); // debug purpose
+        UserSessionManager::instance().display_sessions(); // debug purpose
 
         log(Log::INFO, __func__,
             "User '" + std::string(data[MessageKey::USERNAME]) + "' logged in successfully");
@@ -270,16 +272,17 @@ void MessageProcessor::process_logout_request(WebSocket *ws,
     }
     else
     {
-        UserSessionManager *session_manager = UserSessionManager::instance();
-        UserSession *session = session_manager->get_session(data[MessageKey::USER_ID].get<UserID>());
+        UserSessionManager &session_manager = UserSessionManager::instance();
+        UserSession *session = session_manager.get_session(data[MessageKey::USER_ID].get<UserID>());
         if (session == nullptr)
         {
             log(Log::INFO, __func__,
             "User \'" + std::string(data[MessageKey::USERNAME]) + "\' failed to logged out. Session not found.");
+            return;  // CRITICAL: was missing, caused use-after-null
         }
-        session_manager->delete_session(session);
+        session_manager.delete_session(session);
 
-        session_manager->display_sessions();
+        session_manager.display_sessions();
 
         log(Log::INFO, __func__,
             "User \'" + std::string(data[MessageKey::USERNAME]) + "\' logged out successfully");
@@ -370,8 +373,8 @@ void MessageProcessor::process_friend_req_request(WebSocket *ws,
         // const UserSession *session = UserSessionManager::instance()->get_session(
         //     std::atoi(data[MessageKeys::RECEIVER_ID].dump().c_str()));
 
-        const UserSession *session = UserSessionManager::instance()->get_session(
-            std::strtol(data[MessageKey::RECEIVER_ID].dump().c_str(), nullptr, 10));
+        const UserSession *session = UserSessionManager::instance().get_session(
+            data[MessageKey::RECEIVER_ID].get<UserID>());
         if (session) // session found
         {
             session->ws->send(data.dump(), uWS::TEXT);
@@ -435,16 +438,17 @@ void MessageProcessor::process_reconnect_request(WebSocket *ws, const nlohmann::
         const nlohmann::json reconnect_response_error_message = reconnect_response_error.to_json();
 
         ws->send(reconnect_response_error_message.dump(), uWS::TEXT);
+        return;  // CRITICAL: was missing, caused dereference of nullopt below
     }
 
     const UserID user_id = data[MessageKey::USER_ID].get<UserID>();
 
     if (reconnect_response->get_status() == Status::SUCCESS)
     {
-        UserSessionManager *session_manager = UserSessionManager::instance();
-        if (session_manager->is_session_exists(user_id))
+        UserSessionManager &session_manager = UserSessionManager::instance();
+        if (session_manager.is_session_exists(user_id))
         {
-            UserSession *session = session_manager->get_session(user_id);
+            UserSession *session = session_manager.get_session(user_id);
 
             const LogoutMessageResponse logout_message_response(Status::SUCCESS);
             const nlohmann::json logout_response = logout_message_response.to_json();
@@ -456,10 +460,10 @@ void MessageProcessor::process_reconnect_request(WebSocket *ws, const nlohmann::
         }
         else
         {
-            session_manager->create_session(user_id, _message_handler.get_username(user_id), ws);
+            session_manager.create_session(user_id, _message_handler.get_username(user_id), ws);
         }
 
-        UserSessionManager::instance()->display_sessions();
+        UserSessionManager::instance().display_sessions();
 
         const nlohmann::json reconnect_response_message = reconnect_response->to_json();
 
@@ -491,6 +495,7 @@ void MessageProcessor::process_update_profile_request(WebSocket *ws, const nlohm
         const nlohmann::json update_profile_response_error_message = update_profile_response_error.to_json();
 
         ws->send(update_profile_response_error_message.dump(), uWS::TEXT);
+        return;  // CRITICAL: was missing, caused dereference of nullopt below
     }
 
     if (update_profile_response->get_status() == Status::SUCCESS)
@@ -534,6 +539,8 @@ void MessageProcessor::process_get_message_id_request(WebSocket *ws, const nlohm
 
     const GetChatMessageIDResponse get_chat_message_id_response(message_id);
     const nlohmann::json get_chat_message_response_message = get_chat_message_id_response.to_json();
+
+    std::string str = get_chat_message_response_message.dump();
 
     ws->send(get_chat_message_response_message.dump(), uWS::TEXT);
 }

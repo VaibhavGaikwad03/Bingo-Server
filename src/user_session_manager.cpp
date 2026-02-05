@@ -1,35 +1,16 @@
 #include "../include/user_session_manager.h"
 
-UserSessionManager *UserSessionManager::_instance = nullptr;
-
-UserSessionManager::UserSessionManager()
-= default;
-
-UserSessionManager::~UserSessionManager()
-= default;
-
-UserSessionManager *UserSessionManager::instance()
+UserSessionManager& UserSessionManager::instance()
 {
-    if (_instance == nullptr)
-    {
-        _instance = new UserSessionManager();
-        return _instance;
-    }
-    return _instance;
-}
-
-void UserSessionManager::destroy_instance()
-{
-    if (_instance != nullptr)
-    {
-        delete _instance;
-        _instance = nullptr;
-    }
+    static UserSessionManager instance;  // Thread-safe in C++11 (Meyer's Singleton)
+    return instance;
 }
 
 void UserSessionManager::create_session(const UserID &user_id, const std::string &username,
                                     WebSocket *ws)
 {
+    std::lock_guard<std::mutex> lock(_mtx);
+    
     if (!_sessions.contains(user_id)) // if not in map, create new session
     {
         UserSession session;
@@ -42,13 +23,14 @@ void UserSessionManager::create_session(const UserID &user_id, const std::string
     }
     else // if already in map, just increment the reference count
     {
-        UserSession *session = get_session(user_id);
-        session->reference_count++;
+        _sessions[user_id].reference_count++;
     }
 }
 
 bool UserSessionManager::delete_session(UserSession *session)
 {
+    std::lock_guard<std::mutex> lock(_mtx);
+    
     if ((session == nullptr) || (!_sessions.contains(session->user_id)))
     {
         return false;
@@ -67,6 +49,8 @@ bool UserSessionManager::delete_session(UserSession *session)
 
 void UserSessionManager::display_sessions() const
 {
+    std::lock_guard<std::mutex> lock(_mtx);
+    
     std::cout << "Users Count: " << _sessions.size() << std::endl;
     std::cout << "Users are: ";
     for (auto &session: _sessions)
@@ -79,6 +63,8 @@ void UserSessionManager::display_sessions() const
 
 UserSession *UserSessionManager::get_session(const UserID user_id)
 {
+    std::lock_guard<std::mutex> lock(_mtx);
+    
     if (!_sessions.contains(user_id))
         return nullptr;
     return &(_sessions[user_id]);
@@ -86,6 +72,8 @@ UserSession *UserSessionManager::get_session(const UserID user_id)
 
 UserSession *UserSessionManager::get_session(const std::string &username)
 {
+    std::lock_guard<std::mutex> lock(_mtx);
+    
     for (auto &session: _sessions)
     {
         if (session.second.username == username)
@@ -98,6 +86,8 @@ UserSession *UserSessionManager::get_session(const std::string &username)
 
 UserSession *UserSessionManager::get_session(const WebSocket *ws)
 {
+    std::lock_guard<std::mutex> lock(_mtx);
+    
     for (auto &session: _sessions)
     {
         if (session.second.ws == ws)
@@ -110,15 +100,34 @@ UserSession *UserSessionManager::get_session(const WebSocket *ws)
 
 bool UserSessionManager::is_session_exists(const UserID user_id)
 {
-    return (get_session(user_id) != nullptr);
+    std::lock_guard<std::mutex> lock(_mtx);
+    return _sessions.contains(user_id);
 }
 
 bool UserSessionManager::is_session_exists(const std::string &username)
 {
-    return (get_session(username) != nullptr);
+    std::lock_guard<std::mutex> lock(_mtx);
+    
+    for (auto &session: _sessions)
+    {
+        if (session.second.username == username)
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 bool UserSessionManager::is_session_exists(const WebSocket *ws)
 {
-    return (get_session(ws) != nullptr);
+    std::lock_guard<std::mutex> lock(_mtx);
+    
+    for (auto &session: _sessions)
+    {
+        if (session.second.ws == ws)
+        {
+            return true;
+        }
+    }
+    return false;
 }

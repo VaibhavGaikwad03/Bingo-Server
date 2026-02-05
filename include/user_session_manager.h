@@ -3,18 +3,19 @@
 
 #include "user_session.h"
 #include <unordered_map>
+#include <mutex>
 #include "authenticator.h"
 
 class UserSessionManager
 {
-    static UserSessionManager *_instance;
+    mutable std::mutex _mtx;  // Mutex for thread-safe session operations
     std::unordered_map<UserID, UserSession> _sessions;
 
-    UserSessionManager();
-    ~UserSessionManager();
+    UserSessionManager() = default;
+    ~UserSessionManager() = default;
 public:
-    static UserSessionManager *instance();
-    static void destroy_instance();
+    // Meyer's Singleton - thread-safe in C++11
+    static UserSessionManager& instance();
 
     UserSessionManager(const UserSessionManager&) = delete;
     UserSessionManager& operator=(const UserSessionManager&) = delete;

@@ -11,6 +11,7 @@
 #include "message_handler.h"
 #include "message_processor.h"
 #include "message_structures.h"
+#include "utils/config_reader.h"
 
 class MessageProcessor
 {
@@ -34,7 +35,7 @@ class MessageProcessor
     void process_get_message_id_request(WebSocket *ws, const nlohmann::json &data) const;
 
 public:
-    explicit MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv);
+    explicit MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv, const DatabaseConfig& db_config);
 
     ~MessageProcessor();
 
