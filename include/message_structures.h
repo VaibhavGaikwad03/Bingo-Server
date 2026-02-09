@@ -126,6 +126,7 @@ struct FriendReqResponse
 struct ChatMessage
 {
     MessageType message_type;
+    MessageID message_id;
     ConversationType conversation_type;
     UserID sender_id;
     UserID receiver_id;
@@ -134,6 +135,7 @@ struct ChatMessage
     MessageStatus message_status;
     bool is_reply_message;
     MessageID replied_message_id;
+    std::string timestamp;
 };
 
 ///

@@ -30,6 +30,58 @@ class MessageHandler
     std::unique_ptr<mysqlx::Table> _auth_tokens_table;
     std::unique_ptr<mysqlx::Table> _chat_history_table;
 
+    // Inline enum-to-string converters for database storage
+    [[nodiscard]] static inline std::string conversation_type_to_string(ConversationType type) 
+    {
+        switch (type) 
+        {
+            case ConversationType::PERSONAL: 
+                return "personal";
+            case ConversationType::GROUP: 
+                return "group";
+            case ConversationType::BROADCAST: 
+                return "broadcast";
+            default: 
+                return "personal";
+        }
+    }
+
+    [[nodiscard]] static inline std::string content_type_to_string(ContentType type) 
+    {
+        switch (type) 
+        {
+            case ContentType::TEXT: 
+                return "text";
+            case ContentType::IMAGE: 
+                return "image";
+            case ContentType::VIDEO: 
+                return "video";
+            case ContentType::FILE: 
+                return "file";
+            case ContentType::AUDIO: 
+                return "audio";
+            case ContentType::POLL: 
+                return "poll";
+            default: 
+                return "text";
+        }
+    }
+
+    [[nodiscard]] static inline std::string message_status_to_string(MessageStatus status) 
+    {
+        switch (status) 
+        {
+            case MessageStatus::SENT: 
+                return "sent";
+            case MessageStatus::RECEIVED: 
+                return "received";
+            case MessageStatus::READ: 
+                return "read";
+            default: 
+                return "sent";
+        }
+    }
+
     [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
     [[nodiscard]] std::optional<UserProfileMessage> get_user_profile(UserID user_id) const;
     [[nodiscard]] std::optional<FriendsListMessage> get_user_friends(UserID user_id) const;

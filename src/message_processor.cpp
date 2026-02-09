@@ -165,6 +165,7 @@ void MessageProcessor::send_user_login_payloads(const UserID user_id,
         }
 
         // FETCH MESSAGE HISTORY
+
     }
     catch (nlohmann::detail::exception &ex)
     {
@@ -528,7 +529,13 @@ void MessageProcessor::process_chat_message(WebSocket *ws, const nlohmann::json 
 {
     print_chat_message(data);
 
+    _message_handler.chat_message(data);
 
+    UserSession *session = UserSessionManager::instance().get_session(data[MessageKey::RECEIVER_ID].get<UserID>());
+    if (session != nullptr)
+    {
+        session->ws->send(data.dump(), uWS::TEXT);
+    }
 }
 
 void MessageProcessor::process_get_message_id_request(WebSocket *ws, const nlohmann::json &data) const

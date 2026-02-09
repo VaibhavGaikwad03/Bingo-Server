@@ -875,7 +875,43 @@ void MessageHandler::chat_message(const nlohmann::json &message) const
 {
     try
     {
+        std::optional<ChatMessage> parsed_message = MessageParser::chat_message(message);
+        if (!parsed_message.has_value())
+        {
+            log(Log::ERROR, __func__, "Failed to parse chat message");
+            return;
+        }
 
+        log(Log::DEBUG, __func__, "Inserting message_id: " + std::to_string(parsed_message->message_id) +
+            " from sender_id: " + std::to_string(parsed_message->sender_id) +
+            " to receiver_id: " + std::to_string(parsed_message->receiver_id));
+
+        // Use NULL for replied_message_id when it's -1 (not a reply message)
+        // The database column is UNSIGNED INT, so -1 is out of range
+        mysqlx::Value replied_msg_id_value = (parsed_message->replied_message_id == -1) 
+            ? mysqlx::Value() 
+            : mysqlx::Value(parsed_message->replied_message_id);
+
+        _chat_history_table->insert(
+            "message_id", "conversation_type", "sender_id", "receiver_id",
+            "content_type", "content", "message_status", "is_reply_message",
+            "replied_message_id", "is_edited", "is_pinned", "is_starred",
+            "is_deleted", "sent_timestamp", "delivered_timestamp", "read_timestamp")
+        .values(
+            parsed_message->message_id,
+            conversation_type_to_string(parsed_message->conversation_type),
+            parsed_message->sender_id,
+            parsed_message->receiver_id,
+            content_type_to_string(parsed_message->content_type),
+            parsed_message->content,
+            message_status_to_string(parsed_message->message_status),
+            parsed_message->is_reply_message,
+            replied_msg_id_value,
+            false, false, false, false,
+            parsed_message->timestamp, "", "")
+        .execute();
+
+        log(Log::DEBUG, __func__, "Message inserted successfully");
     }
     catch (const mysqlx::Error &err)
     {

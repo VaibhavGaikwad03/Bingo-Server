@@ -163,6 +163,7 @@ void print_chat_message(const nlohmann::json &message)
     try
     {
         print_key_value(MessageKey::MESSAGE_TYPE, message);
+        print_key_value(MessageKey::CHAT_MESSAGE_ID, message);
         print_key_value(MessageKey::CONVERSATION_TYPE, message);
         print_key_value(MessageKey::SENDER_ID, message);
         print_key_value(MessageKey::RECEIVER_ID, message);

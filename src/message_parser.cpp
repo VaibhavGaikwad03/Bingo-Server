@@ -222,3 +222,30 @@ std::optional<GetChatMessageIDRequest> MessageParser::get_chat_message_id_reques
         return std::nullopt;
     }
 }
+
+std::optional<ChatMessage> MessageParser::chat_message(const nlohmann::json &message)
+{
+    try
+    {
+        ChatMessage parsed_message;
+
+        parsed_message.message_type = static_cast<MessageType>(message[MessageKey::MESSAGE_TYPE].get<int>());
+        parsed_message.message_id = message[MessageKey::CHAT_MESSAGE_ID].get<MessageID>();
+        parsed_message.conversation_type = static_cast<ConversationType>(message[MessageKey::CONVERSATION_TYPE].get<int>());
+        parsed_message.sender_id = message[MessageKey::SENDER_ID].get<UserID>();
+        parsed_message.receiver_id = message[MessageKey::RECEIVER_ID].get<UserID>();
+        parsed_message.content_type = static_cast<ContentType>(message[MessageKey::CONTENT_TYPE].get<int>());
+        parsed_message.content = message[MessageKey::CONTENT].get<std::string>();
+        parsed_message.message_status = static_cast<MessageStatus>(message[MessageKey::MESSAGE_STATUS].get<int>());
+        parsed_message.is_reply_message = message[MessageKey::IS_REPLY_MESSAGE].get<int>();
+        parsed_message.replied_message_id = message[MessageKey::REPLIED_MESSAGE_ID].get<MessageID>();
+        parsed_message.timestamp = message[MessageKey::TIMESTAMP].get<std::string>();
+
+        return parsed_message;
+    }
+    catch (const std::exception &e)
+    {
+        log(Log::ERROR, __func__, e.what());
+        return std::nullopt;
+    }
+}

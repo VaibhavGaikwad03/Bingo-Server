@@ -227,6 +227,7 @@
   ,
   {
     "message_type": CHAT_MESSAGE,
+    "message_id": 12
     "coversation_type": Enum{personal = 0, group = 1, broadcast = 2},
     "sender_id": <user_id>,
     "receiver_id": <user_id>,
