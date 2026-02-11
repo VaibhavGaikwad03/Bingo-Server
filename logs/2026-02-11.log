@@ -1,0 +1,3 @@
+[2026-02-11 22:20:58][INFO] Server started...
+[2026-02-11 22:20:58][INFO] Listening on port: 2121
+[2026-02-11 22:21:00][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
