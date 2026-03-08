@@ -534,7 +534,7 @@ void MessageProcessor::process_chat_message(WebSocket *ws, const nlohmann::json 
     UserSession *session = UserSessionManager::instance().get_session(data[MessageKey::RECEIVER_ID].get<UserID>());
     if (session != nullptr)
     {
-        session->ws->send(data.dump(), uWS::TEXT);
+         session->ws->send(data.dump(), uWS::TEXT);
     }
 }
 

@@ -1,0 +1,292 @@
+[2026-02-25 23:31:10][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:10][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:10][DEBUG] Message received from client {"chat_message_id":207,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"Hello","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T23:31:07.974Z"}
+[2026-02-25 23:31:10][DEBUG][process] in process func: {"chat_message_id":207,"content":"Hello","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T23:31:07.974Z"}
+[2026-02-25 23:31:10][DEBUG][chat_message] Inserting message_id: 207 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:10][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:13][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:13][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:13][DEBUG] Message received from client {"chat_message_id":208,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"adsad","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:10.799Z"}
+[2026-02-25 23:31:13][DEBUG][process] in process func: {"chat_message_id":208,"content":"adsad","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:01:10.799Z"}
+[2026-02-25 23:31:13][DEBUG][chat_message] Inserting message_id: 208 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:13][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:13][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:13][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:13][DEBUG] Message received from client {"chat_message_id":209,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"asd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:13.671Z"}
+[2026-02-25 23:31:13][DEBUG][process] in process func: {"chat_message_id":209,"content":"asd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:01:13.671Z"}
+[2026-02-25 23:31:13][DEBUG][chat_message] Inserting message_id: 209 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:13][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:13][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:13][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:13][DEBUG] Message received from client {"chat_message_id":210,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:13.839Z"}
+[2026-02-25 23:31:13][DEBUG][process] in process func: {"chat_message_id":210,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:01:13.839Z"}
+[2026-02-25 23:31:13][DEBUG][chat_message] Inserting message_id: 210 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:13][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:14][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG] Message received from client {"chat_message_id":211,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:13.973Z"}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"chat_message_id":211,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:01:13.973Z"}
+[2026-02-25 23:31:14][DEBUG][chat_message] Inserting message_id: 211 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:14][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:14][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG] Message received from client {"chat_message_id":212,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:14.091Z"}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"chat_message_id":212,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:01:14.091Z"}
+[2026-02-25 23:31:14][DEBUG][chat_message] Inserting message_id: 212 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:14][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:14][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG] Message received from client {"chat_message_id":213,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:14.213Z"}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"chat_message_id":213,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:01:14.213Z"}
+[2026-02-25 23:31:14][DEBUG][chat_message] Inserting message_id: 213 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:14][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:14][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:31:14][DEBUG] Message received from client {"chat_message_id":214,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"asd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:14.329Z"}
+[2026-02-25 23:31:14][DEBUG][process] in process func: {"chat_message_id":214,"content":"asd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:01:14.329Z"}
+[2026-02-25 23:31:14][DEBUG][chat_message] Inserting message_id: 214 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:31:14][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:16][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:16][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:16][DEBUG] Message received from client {"chat_message_id":215,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"asdasdASdas","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:14.440Z"}
+[2026-02-25 23:31:16][DEBUG][process] in process func: {"chat_message_id":215,"content":"asdasdASdas","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:14.440Z"}
+[2026-02-25 23:31:16][DEBUG][chat_message] Inserting message_id: 215 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:16][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:16][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:16][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:16][DEBUG] Message received from client {"chat_message_id":216,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:16.682Z"}
+[2026-02-25 23:31:16][DEBUG][process] in process func: {"chat_message_id":216,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:16.682Z"}
+[2026-02-25 23:31:16][DEBUG][chat_message] Inserting message_id: 216 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:16][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:16][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:16][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:16][DEBUG] Message received from client {"chat_message_id":217,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:16.796Z"}
+[2026-02-25 23:31:16][DEBUG][process] in process func: {"chat_message_id":217,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:16.796Z"}
+[2026-02-25 23:31:16][DEBUG][chat_message] Inserting message_id: 217 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:16][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:17][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG] Message received from client {"chat_message_id":218,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:16.926Z"}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"chat_message_id":218,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:16.926Z"}
+[2026-02-25 23:31:17][DEBUG][chat_message] Inserting message_id: 218 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:17][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:17][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG] Message received from client {"chat_message_id":219,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"asd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:17.055Z"}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"chat_message_id":219,"content":"asd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:17.055Z"}
+[2026-02-25 23:31:17][DEBUG][chat_message] Inserting message_id: 219 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:17][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:17][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG] Message received from client {"chat_message_id":220,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:17.173Z"}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"chat_message_id":220,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:17.173Z"}
+[2026-02-25 23:31:17][DEBUG][chat_message] Inserting message_id: 220 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:17][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:17][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG] Message received from client {"chat_message_id":221,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:17.303Z"}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"chat_message_id":221,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:17.303Z"}
+[2026-02-25 23:31:17][DEBUG][chat_message] Inserting message_id: 221 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:17][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:17][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG] Message received from client {"chat_message_id":222,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"asd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:17.426Z"}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"chat_message_id":222,"content":"asd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:17.426Z"}
+[2026-02-25 23:31:17][DEBUG][chat_message] Inserting message_id: 222 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:17][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:17][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:31:17][DEBUG] Message received from client {"chat_message_id":223,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:01:17.581Z"}
+[2026-02-25 23:31:17][DEBUG][process] in process func: {"chat_message_id":223,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:01:17.581Z"}
+[2026-02-25 23:31:17][DEBUG][chat_message] Inserting message_id: 223 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:31:17][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:31:20][INFO] Client disconnected. Client is going away, Reason: 
+[2026-02-25 23:31:21][INFO] Client disconnected. Client is going away, Reason: 
+[2026-02-25 23:31:53][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:31:53][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2026-02-25 23:31:53][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2026-02-25 23:31:53][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2026-02-25 23:31:53][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:31:53][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2026-02-25 23:31:53][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2026-02-25 23:31:53][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2026-02-25 23:31:53][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:31:53][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":null}
+[2026-02-25 23:31:53][DEBUG][process] in process func: {"auth_token":null,"message_type":117,"user_id":21}
+[2026-02-25 23:31:53][ERROR][reconnect_request] [json.exception.type_error.302] type must be string, but is null
+[2026-02-25 23:31:53][ERROR][process_reconnect_request] Reconnect unsuccessful of user id: 21
+[2026-02-25 23:31:53][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:31:53][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2026-02-25 23:31:53][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2026-02-25 23:31:53][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2026-02-25 23:31:53][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2026-02-25 23:31:55][INFO] Client disconnected. Client is going away, Reason: 
+[2026-02-25 23:32:00][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:32:01][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:32:01][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:32:01][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:32:01][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:32:10][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:32:18][DEBUG] Message received from client {"message_type":101,"username":"chetanap","password":"5678","timestamp":"2026-02-25T18:02:10.201Z"}
+[2026-02-25 23:32:18][DEBUG][process] in process func: {"message_type":101,"password":"5678","timestamp":"2026-02-25T18:02:10.201Z","username":"chetanap"}
+[2026-02-25 23:32:18][INFO][process_login_request] User 'chetanap' logged in successfully
+[2026-02-25 23:32:18][DEBUG][send_user_login_payloads] {"dob":"2005-01-27","email":"chetanap2005@gmail.com","fullname":"Chetana Patil","gender":"Female","message_type":111,"phone":"1234567890","username":"chetanap"}
+[2026-02-25 23:32:18][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2026-02-25 23:32:18][DEBUG][send_user_login_payloads] {"count":5,"friends_list":[{"dob":"2001-02-11","fullname":"Achal Bhamare","gender":"Female","user_id":1266,"username":"achalb11"},{"dob":"2004-05-31","fullname":"Rutuja Dabhade","gender":"Female","user_id":34,"username":"Rutuja"},{"dob":"2025-06-03","fullname":"Vaishnavi ","gender":"Female","user_id":39,"username":"vaishnavi10"},{"dob":"2017-08-26","fullname":"Anvi Dabhade","gender":"Female","user_id":1247,"username":"kuhu"},{"dob":"2002-03-20","fullname":"Vaibhav Gaikwad","gender":"Male","user_id":21,"username":"vaibz"}],"message_type":112}
+[2026-02-25 23:32:29][DEBUG] Message received from client {"message_type":101,"username":"vaibz","password":"12345","timestamp":"2026-02-25T18:02:01.647Z"}
+[2026-02-25 23:32:29][DEBUG][process] in process func: {"message_type":101,"password":"12345","timestamp":"2026-02-25T18:02:01.647Z","username":"vaibz"}
+[2026-02-25 23:32:29][INFO][process_login_request] User 'vaibz' logged in successfully
+[2026-02-25 23:32:29][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2026-02-25 23:32:29][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2026-02-25 23:32:29][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2026-02-25 23:32:33][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:33][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:33][DEBUG] Message received from client {"chat_message_id":224,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"Hii","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:31.869Z"}
+[2026-02-25 23:32:33][DEBUG][process] in process func: {"chat_message_id":224,"content":"Hii","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:31.869Z"}
+[2026-02-25 23:32:33][DEBUG][chat_message] Inserting message_id: 224 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:33][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:38][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:38][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:38][DEBUG] Message received from client {"chat_message_id":225,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"GHii","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:35.471Z"}
+[2026-02-25 23:32:38][DEBUG][process] in process func: {"chat_message_id":225,"content":"GHii","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:35.471Z"}
+[2026-02-25 23:32:38][DEBUG][chat_message] Inserting message_id: 225 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:38][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:41][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:41][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:41][DEBUG] Message received from client {"chat_message_id":226,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"asddsa","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:38.714Z"}
+[2026-02-25 23:32:41][DEBUG][process] in process func: {"chat_message_id":226,"content":"asddsa","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:38.714Z"}
+[2026-02-25 23:32:41][DEBUG][chat_message] Inserting message_id: 226 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:41][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:43][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:43][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:43][DEBUG] Message received from client {"chat_message_id":227,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"ddasdasd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:41.032Z"}
+[2026-02-25 23:32:43][DEBUG][process] in process func: {"chat_message_id":227,"content":"ddasdasd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:41.032Z"}
+[2026-02-25 23:32:43][DEBUG][chat_message] Inserting message_id: 227 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:43][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:44][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:44][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:44][DEBUG] Message received from client {"chat_message_id":228,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"das","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:43.690Z"}
+[2026-02-25 23:32:44][DEBUG][process] in process func: {"chat_message_id":228,"content":"das","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:43.690Z"}
+[2026-02-25 23:32:44][DEBUG][chat_message] Inserting message_id: 228 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:44][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:44][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:44][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:44][DEBUG] Message received from client {"chat_message_id":229,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:44.212Z"}
+[2026-02-25 23:32:44][DEBUG][process] in process func: {"chat_message_id":229,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:44.212Z"}
+[2026-02-25 23:32:44][DEBUG][chat_message] Inserting message_id: 229 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:44][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:44][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:44][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:44][DEBUG] Message received from client {"chat_message_id":230,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"asd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:44.360Z"}
+[2026-02-25 23:32:44][DEBUG][process] in process func: {"chat_message_id":230,"content":"asd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:44.360Z"}
+[2026-02-25 23:32:44][DEBUG][chat_message] Inserting message_id: 230 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:44][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:47][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG] Message received from client {"chat_message_id":231,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"dasdas","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:44.484Z"}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"chat_message_id":231,"content":"dasdas","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:44.484Z"}
+[2026-02-25 23:32:47][DEBUG][chat_message] Inserting message_id: 231 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:47][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:47][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG] Message received from client {"chat_message_id":232,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:47.260Z"}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"chat_message_id":232,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:47.260Z"}
+[2026-02-25 23:32:47][DEBUG][chat_message] Inserting message_id: 232 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:47][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:47][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG] Message received from client {"chat_message_id":233,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:47.381Z"}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"chat_message_id":233,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:47.381Z"}
+[2026-02-25 23:32:47][DEBUG][chat_message] Inserting message_id: 233 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:47][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:47][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG] Message received from client {"chat_message_id":234,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:47.513Z"}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"chat_message_id":234,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:47.513Z"}
+[2026-02-25 23:32:47][DEBUG][chat_message] Inserting message_id: 234 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:47][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:47][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG] Message received from client {"chat_message_id":235,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:47.641Z"}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"chat_message_id":235,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:47.641Z"}
+[2026-02-25 23:32:47][DEBUG][chat_message] Inserting message_id: 235 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:47][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:47][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:47][DEBUG] Message received from client {"chat_message_id":236,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"da","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:47.766Z"}
+[2026-02-25 23:32:47][DEBUG][process] in process func: {"chat_message_id":236,"content":"da","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:47.766Z"}
+[2026-02-25 23:32:47][DEBUG][chat_message] Inserting message_id: 236 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:47][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:48][DEBUG] Message received from client {"message_type":125,"user_id":21}
+[2026-02-25 23:32:48][DEBUG][process] in process func: {"message_type":125,"user_id":21}
+[2026-02-25 23:32:48][DEBUG] Message received from client {"chat_message_id":237,"message_type":124,"conversation_type":0,"sender_id":21,"receiver_id":1245,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:47.903Z"}
+[2026-02-25 23:32:48][DEBUG][process] in process func: {"chat_message_id":237,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":1245,"replied_message_id":-1,"sender_id":21,"timestamp":"2026-02-25T18:02:47.903Z"}
+[2026-02-25 23:32:48][DEBUG][chat_message] Inserting message_id: 237 from sender_id: 21 to receiver_id: 1245
+[2026-02-25 23:32:48][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:50][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:50][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:50][DEBUG] Message received from client {"chat_message_id":238,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"asd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:48.016Z"}
+[2026-02-25 23:32:50][DEBUG][process] in process func: {"chat_message_id":238,"content":"asd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:48.016Z"}
+[2026-02-25 23:32:50][DEBUG][chat_message] Inserting message_id: 238 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:50][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:50][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:50][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:50][DEBUG] Message received from client {"chat_message_id":239,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:50.769Z"}
+[2026-02-25 23:32:50][DEBUG][process] in process func: {"chat_message_id":239,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:50.769Z"}
+[2026-02-25 23:32:50][DEBUG][chat_message] Inserting message_id: 239 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:50][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:51][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG] Message received from client {"chat_message_id":240,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:50.929Z"}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"chat_message_id":240,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:50.929Z"}
+[2026-02-25 23:32:51][DEBUG][chat_message] Inserting message_id: 240 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:51][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:51][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG] Message received from client {"chat_message_id":241,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:51.040Z"}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"chat_message_id":241,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:51.040Z"}
+[2026-02-25 23:32:51][DEBUG][chat_message] Inserting message_id: 241 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:51][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:51][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG] Message received from client {"chat_message_id":242,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"a","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:51.194Z"}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"chat_message_id":242,"content":"a","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:51.194Z"}
+[2026-02-25 23:32:51][DEBUG][chat_message] Inserting message_id: 242 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:51][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:51][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG] Message received from client {"chat_message_id":243,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"sd","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:51.301Z"}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"chat_message_id":243,"content":"sd","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:51.301Z"}
+[2026-02-25 23:32:51][DEBUG][chat_message] Inserting message_id: 243 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:51][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:51][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG] Message received from client {"chat_message_id":244,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"as","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:51.410Z"}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"chat_message_id":244,"content":"as","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:51.410Z"}
+[2026-02-25 23:32:51][DEBUG][chat_message] Inserting message_id: 244 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:51][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:51][DEBUG] Message received from client {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"message_type":125,"user_id":1245}
+[2026-02-25 23:32:51][DEBUG] Message received from client {"chat_message_id":245,"message_type":124,"conversation_type":0,"sender_id":1245,"receiver_id":21,"content_type":0,"content":"d","message_status":0,"is_reply_message":0,"replied_message_id":-1,"timestamp":"2026-02-25T18:02:51.544Z"}
+[2026-02-25 23:32:51][DEBUG][process] in process func: {"chat_message_id":245,"content":"d","content_type":0,"conversation_type":0,"is_reply_message":0,"message_status":0,"message_type":124,"receiver_id":21,"replied_message_id":-1,"sender_id":1245,"timestamp":"2026-02-25T18:02:51.544Z"}
+[2026-02-25 23:32:51][DEBUG][chat_message] Inserting message_id: 245 from sender_id: 1245 to receiver_id: 21
+[2026-02-25 23:32:51][DEBUG][chat_message] Message inserted successfully
+[2026-02-25 23:32:54][INFO] Client disconnected. Client is going away, Reason: 
+[2026-02-25 23:32:55][INFO] Client disconnected. Client is going away, Reason: 
+[2026-02-25 23:33:05][INFO] Client connected with IP: 127.0.0.1
+[2026-02-25 23:33:05][DEBUG] Message received from client {"message_type":117,"user_id":21,"auth_token":"af412c26ef4431b0c1143fdb4fb17d67"}
+[2026-02-25 23:33:05][DEBUG][process] in process func: {"auth_token":"af412c26ef4431b0c1143fdb4fb17d67","message_type":117,"user_id":21}
+[2026-02-25 23:33:05][DEBUG][send_user_login_payloads] {"dob":"2002-03-20","email":"vaibhav@google.com","fullname":"Vaibhav Gaikwad","gender":"Male","message_type":111,"phone":"7887401312","username":"vaibz"}
+[2026-02-25 23:33:05][DEBUG][send_user_login_payloads] {"count":0,"message_type":113,"pending_friend_requests_list":[]}
+[2026-02-25 23:33:05][DEBUG][send_user_login_payloads] {"count":4,"friends_list":[{"dob":"2005-01-27","fullname":"Chetana Patil","gender":"Female","user_id":1245,"username":"chetanap"},{"dob":"2025-09-03","fullname":"yashwardhan patil","gender":"Male","user_id":1274,"username":"merayashu"},{"dob":"2004-09-07","fullname":"Sakshi Chavan","gender":"Other","user_id":1244,"username":"so_sasssy"},{"dob":"2003-09-17","fullname":"Om Hanumansahay Sharma","gender":"Male","user_id":1283,"username":"omsharma6"}],"message_type":112}
+[2026-02-25 23:33:05][INFO][process_reconnect_request] Reconnect successful of user id: 21
+[2026-02-25 23:40:39][INFO] Client disconnected. Client is going away, Reason: 
+[2026-02-25 23:40:42][INFO] Received SIGTERM (Termination request, e.g. 'kill' command). Server terminated.
