@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.22)
 project(BingoServer)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -66,6 +66,35 @@ add_executable(BingoServer main.cpp
         include/enums.h
         include/MessageResponseFactory/GetChatMessageIDResponse.h
         src/MessageResponseFactory/GetChatMessageIDResponse.cpp
+        include/handlers/IRequestHandler.h
+        include/handlers/LoginRequestHandler.h
+        src/handlers/LoginRequestHandler.cpp
+        include/handlers/LogoutRequestHandler.h
+        src/handlers/LogoutRequestHandler.cpp
+        include/handlers/SignupRequestHandler.h
+        src/handlers/SignupRequestHandler.cpp
+        include/handlers/SearchUserRequestHandler.h
+        src/handlers/SearchUserRequestHandler.cpp
+        include/handlers/FriendReqRequestHandler.h
+        src/handlers/FriendReqRequestHandler.cpp
+        include/handlers/FriendReqResponseHandler.h
+        src/handlers/FriendReqResponseHandler.cpp
+        include/handlers/ChangePasswordRequestHandler.h
+        src/handlers/ChangePasswordRequestHandler.cpp
+        include/handlers/ReconnectRequestHandler.h
+        src/handlers/ReconnectRequestHandler.cpp
+        include/handlers/UpdateProfileRequestHandler.h
+        src/handlers/UpdateProfileRequestHandler.cpp
+        include/handlers/ChatMessageHandler.h
+        src/handlers/ChatMessageHandler.cpp
+        include/handlers/GetMessageIdRequestHandler.h
+        src/handlers/GetMessageIdRequestHandler.cpp
+        include/handlers/HandlerUtils.h
+        src/handlers/HandlerUtils.cpp
+        include/MessageResponseFactory/ChatMessageResponse.h
+        src/MessageResponseFactory/ChatMessageResponse.cpp
+        include/MessageResponseFactory/ChatHistoryListMessage.h
+        src/MessageResponseFactory/ChatHistoryListMessage.cpp
 )
 
 # Link the required libraries

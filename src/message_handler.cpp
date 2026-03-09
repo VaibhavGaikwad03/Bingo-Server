@@ -678,11 +678,6 @@ std::optional<PendingFriendRequests> MessageHandler::get_pending_friend_requests
 //     return pending_friend_requests;
 // }
 
-std::vector<ChatMessage> MessageHandler::get_chat_messages(UserID user_id)
-{
-    return {};
-}
-
 ChangePasswordErrorCode MessageHandler::change_password_request(const nlohmann::json &message) const
 {
     std::optional<ChangePassword> parsed_request = MessageParser::change_password_request(message);
@@ -958,5 +953,51 @@ MessageID MessageHandler::get_message_id_request() const
         log(Log::ERROR, __func__,
             std::string("Unexpected error: ") + ex.what());
         return -1;
+    }
+}
+
+std::optional<ChatHistoryListMessage> MessageHandler::get_chat_messages(UserID user_id) const
+{
+    try
+    {
+        std::vector<ChatMessage> chat_messages;
+        
+        mysqlx::RowResult result = _chat_history_table->select("*")
+                .where("sender_id = :sender_id OR receiver_id = :receiver_id")
+                .bind("sender_id", user_id)
+                .bind("receiver_id", user_id)
+                .execute();
+
+        for (const auto& row : result)
+        {
+            chat_messages.push_back(
+                {MessageType::CHAT_MESSAGE, // message_type is not stored, defaults to CHAT_MESSAGE
+                row[0].get<MessageID>(),
+                string_to_conversation_type(row[1].get<std::string>()),
+                row[2].get<UserID>(),
+                row[3].get<UserID>(),
+                string_to_content_type(row[4].get<std::string>()),
+                row[5].get<std::string>(),
+                string_to_message_status(row[6].get<std::string>()),
+                row[7].get<bool>(),
+                row[8].isNull() ? -1 : row[8].get<MessageID>(),
+                row[13].get<std::string>()});
+        }
+
+        ChatHistoryListMessage chat_history_list_message(chat_messages.size(), chat_messages);
+
+        return chat_history_list_message;
+    }
+    catch (const mysqlx::Error &err)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Database error: ") + err.what());
+        return {};
+    }
+    catch (const std::exception &ex)
+    {
+        log(Log::ERROR, __func__,
+            std::string("Unexpected error: ") + ex.what());
+        return {};
     }
 }

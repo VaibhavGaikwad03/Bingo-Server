@@ -12,6 +12,9 @@
 #include "message_processor.h"
 #include "message_structures.h"
 #include "utils/config_reader.h"
+#include <unordered_map>
+#include <memory>
+#include "handlers/IRequestHandler.h"
 
 class MessageProcessor
 {
@@ -20,19 +23,7 @@ class MessageProcessor
     ThreadSafeQueue<DataPacket> &_mtx_queue;
 
     MessageHandler _message_handler;
-
-    void process_login_request(WebSocket *ws, nlohmann::json &data) const;
-    void process_logout_request(WebSocket *ws, nlohmann::json &data) const;
-    void process_signup_request(WebSocket *ws, nlohmann::json &data) const;
-    void process_search_user_request(WebSocket *ws, const nlohmann::json &data) const;
-    void process_friend_req_request(WebSocket *ws, nlohmann::json &data) const;
-    void process_friend_req_response(WebSocket *ws, const nlohmann::json &data) const;
-    void send_user_login_payloads(UserID user_id, WebSocket *ws) const;
-    void process_change_password_request(WebSocket *ws, const nlohmann::json &data) const;
-    void process_reconnect_request(WebSocket *ws, const nlohmann::json &data) const;
-    void process_update_profile_request(WebSocket *ws, const nlohmann::json &data) const;
-    void process_chat_message(WebSocket *ws, const nlohmann::json &data) const;
-    void process_get_message_id_request(WebSocket *ws, const nlohmann::json &data) const;
+    std::unordered_map<MessageType, std::unique_ptr<IRequestHandler>> _handlers;
 
 public:
     explicit MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv, const DatabaseConfig& db_config);

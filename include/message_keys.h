@@ -46,6 +46,7 @@ namespace MessageKey
     inline constexpr auto IS_REPLY_MESSAGE = "is_reply_message";
     inline constexpr auto REPLIED_MESSAGE_ID = "replied_message_id";
     inline constexpr auto CHAT_MESSAGE_ID = "chat_message_id";
+    inline constexpr auto CHAT_HISTORY_LIST = "chat_history_list";
 };
 
 #endif //MESSAGE_KEYS_H

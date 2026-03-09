@@ -8,6 +8,7 @@
 #include "nlohmann/json.hpp"
 #include "typedefs.h"
 #include "error_codes.h"
+#include "MessageResponseFactory/ChatHistoryListMessage.h"
 #include "utils/config_reader.h"
 #include "MessageResponseFactory/LoginMessageResponse.h"
 #include "MessageResponseFactory/ReconnectMessageResponse.h"
@@ -82,12 +83,32 @@ class MessageHandler
         }
     }
 
-    [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
-    [[nodiscard]] std::optional<UserProfileMessage> get_user_profile(UserID user_id) const;
-    [[nodiscard]] std::optional<FriendsListMessage> get_user_friends(UserID user_id) const;
-    [[nodiscard]] std::optional<PendingFriendRequests> get_pending_friend_requests(UserID user_id) const;
-    std::vector<ChatMessage> get_chat_messages(UserID user_id);
+    [[nodiscard]] static inline ConversationType string_to_conversation_type(const std::string& str) 
+    {
+        if (str == "group") return ConversationType::GROUP;
+        if (str == "broadcast") return ConversationType::BROADCAST;
+        return ConversationType::PERSONAL;
+    }
 
+    [[nodiscard]] static inline ContentType string_to_content_type(const std::string& str) 
+    {
+        if (str == "image") return ContentType::IMAGE;
+        if (str == "video") return ContentType::VIDEO;
+        if (str == "file") return ContentType::FILE;
+        if (str == "audio") return ContentType::AUDIO;
+        if (str == "poll") return ContentType::POLL;
+        return ContentType::TEXT;
+    }
+
+    [[nodiscard]] static inline MessageStatus string_to_message_status(const std::string& str) 
+    {
+        if (str == "received") return MessageStatus::RECEIVED;
+        if (str == "read") return MessageStatus::READ;
+        return MessageStatus::SENT;
+    }
+
+    [[nodiscard]] bool has_pending_friend_request(int sender_id, int receiver_id) const;
+public:
     // getters
     [[nodiscard]] std::string get_username(UserID user_id) const;
     [[nodiscard]] std::string get_fullname(UserID user_id) const;
@@ -96,7 +117,11 @@ class MessageHandler
     [[nodiscard]] std::string get_email(UserID user_id) const;
     [[nodiscard]] std::string get_phone(UserID user_id) const;
 
-public:
+    [[nodiscard]] std::optional<UserProfileMessage> get_user_profile(UserID user_id) const;
+    [[nodiscard]] std::optional<FriendsListMessage> get_user_friends(UserID user_id) const;
+    [[nodiscard]] std::optional<PendingFriendRequests> get_pending_friend_requests(UserID user_id) const;
+    [[nodiscard]] std::optional<ChatHistoryListMessage> get_chat_messages(UserID user_id) const;
+
     explicit MessageHandler(const DatabaseConfig& db_config);
 
     ~MessageHandler();
