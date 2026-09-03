@@ -26,22 +26,12 @@ void ReconnectRequestHandler::handle(WebSocket* ws, const nlohmann::json& data) 
     if (reconnect_response->get_status() == Status::SUCCESS)
     {
         UserSessionManager &session_manager = UserSessionManager::instance();
-        if (session_manager.is_session_exists(user_id))
-        {
-            UserSession *session = session_manager.get_session(user_id);
 
-            const LogoutMessageResponse logout_message_response(Status::SUCCESS);
-            const nlohmann::json logout_response = logout_message_response.to_json();
-
-            // log(Log::INFO, __func__,
-            //     "User \'" + std::string(data[MessageKeys::USERNAME]) + "\' logged out forcefully");
-            session->ws->send(logout_response.dump(), uWS::TEXT);
-            session->ws = ws;
-        }
-        else
-        {
-            session_manager.create_session(user_id, _message_handler.get_username(user_id), ws);
-        }
+        // Attach this socket to the user. If a session already exists on another
+        // socket, it is forcibly logged out and replaced, atomically.
+        const LogoutMessageResponse logout_message_response(Status::SUCCESS);
+        const std::string kick_payload = logout_message_response.to_json().dump();
+        session_manager.attach_session(user_id, _message_handler.get_username(user_id), ws, kick_payload);
 
         UserSessionManager::instance().display_sessions();
 

@@ -5,32 +5,47 @@
 #ifndef MESSAGE_PROCESSOR_H
 #define MESSAGE_PROCESSOR_H
 
-#include <condition_variable>
+#include <thread>
 
 #include "thread_safe_queue.h"
 #include "message_handler.h"
-#include "message_processor.h"
 #include "message_structures.h"
 #include "utils/config_reader.h"
 #include <unordered_map>
 #include <memory>
 #include "handlers/IRequestHandler.h"
 
+// A single worker in the processing pool.
+//
+// Each MessageProcessor owns its own inbound queue, its own MessageHandler (and
+// therefore its own MySQL connection), and its own worker thread. Running N of
+// these gives both a thread pool and a DB connection pool of size N. The server
+// pins each socket to one worker (see Server::message_received) so that all
+// messages from a given connection are processed in order by a single thread.
 class MessageProcessor
 {
-    std::mutex _mtx;
-    std::condition_variable &_cv;
-    ThreadSafeQueue<DataPacket> &_mtx_queue;
+    ThreadSafeQueue<DataPacket> _queue;
 
     MessageHandler _message_handler;
     std::unordered_map<MessageType, std::unique_ptr<IRequestHandler>> _handlers;
 
+    std::thread _worker;
+
+    void process();
+
 public:
-    explicit MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv, const DatabaseConfig& db_config);
+    explicit MessageProcessor(const DatabaseConfig& db_config);
 
     ~MessageProcessor();
 
-    void process();
+    MessageProcessor(const MessageProcessor&) = delete;
+    MessageProcessor& operator=(const MessageProcessor&) = delete;
+
+    // Spawns the worker thread. Call once after construction.
+    void start();
+
+    // Hands a packet to this worker's queue.
+    void enqueue(const DataPacket& packet);
 };
 
 #endif //MESSAGE_PROCESSOR_H

@@ -25,10 +25,8 @@
 #include "../include/handlers/ChatMessageHandler.h"
 #include "../include/handlers/GetMessageIdRequestHandler.h"
 
-MessageProcessor::MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::condition_variable &cv, const DatabaseConfig& db_config) 
-    : _cv(cv),
-    _mtx_queue(queue),
-    _message_handler(db_config)
+MessageProcessor::MessageProcessor(const DatabaseConfig& db_config)
+    : _message_handler(db_config)
 {
     // Register all message handlers
     _handlers[MessageType::LOGIN_REQUEST] = std::make_unique<LoginRequestHandler>(_message_handler);
@@ -45,20 +43,27 @@ MessageProcessor::MessageProcessor(ThreadSafeQueue<DataPacket> &queue, std::cond
 }
 
 MessageProcessor::~MessageProcessor()
-= default;
+{
+    _queue.stop();
+    if (_worker.joinable())
+        _worker.join();
+}
+
+void MessageProcessor::start()
+{
+    _worker = std::thread([this] { process(); });
+}
+
+void MessageProcessor::enqueue(const DataPacket& packet)
+{
+    _queue.enqueue(packet);
+}
 
 void MessageProcessor::process()
 {
-    while (true)
+    DataPacket packet{};
+    while (_queue.wait_and_pop(packet))
     {
-        std::unique_lock<std::mutex> lock(_mtx);
-        _cv.wait(lock, [this]
-        {
-            return !_mtx_queue.empty();
-        });
-
-        const DataPacket packet = _mtx_queue.dequeue();
-
         try
         {
             nlohmann::json packet_data = nlohmann::json::parse(packet.data);

@@ -6,7 +6,8 @@
 #define SERVER_H
 
 #include <unordered_map>
-#include "../include/thread_safe_queue.h"
+#include <vector>
+#include <memory>
 #include "../include/uWebSockets/App.h"
 #include "../include/message_processor.h"
 #include "../include/message_structures.h"
@@ -26,9 +27,13 @@ class Server
     int _port;
 
     uWS::App _app;
-    ThreadSafeQueue<DataPacket> _mtx_queue;
-    // MessageProcessor *_message_processor;
-    std::unique_ptr<MessageProcessor> _message_processor;
+
+    // Pool of worker threads. Each worker owns its own queue and its own MySQL
+    // connection; a socket is pinned to one worker so its messages stay ordered.
+    std::vector<std::unique_ptr<MessageProcessor>> _workers;
+
+    // Routes a socket to a fixed worker index by hashing the socket pointer.
+    [[nodiscard]] size_t worker_index_for(const WebSocket *ws) const;
 
     std::unordered_map<UserID, UserSession> _sessions; // when user login create the session for that user? when use logout remove the session for that user?
     // issue: client1 sends message to client2, pn tyaveli client2 offline ahe. mg client2 la send kelele messages kuthe store karayche??
@@ -41,8 +46,6 @@ class Server
     // tevha pn server client1 la ek reponse pathvel ki message deliver zala ahe.
     // ajun ek bhari idea ahe.. chat_message wala format ahe tyamdhe message_status field add karaychi tyamadhe sagla message_status
     // store karaych.
-
-    std::condition_variable _cv; // for notifying the message processor thread
 
     static void connection_opened(WebSocket *ws);
 

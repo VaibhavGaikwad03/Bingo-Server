@@ -15,12 +15,7 @@ void FriendReqRequestHandler::handle(WebSocket* ws, const nlohmann::json& data) 
 
     try
     {
-        const UserSession *session = UserSessionManager::instance().get_session(
-            data[MessageKey::RECEIVER_ID].get<UserID>());
-        if (session) // session found
-        {
-            session->ws->send(data.dump(), uWS::TEXT);
-        }
+        UserSessionManager::instance().send_to_user(data[MessageKey::RECEIVER_ID].get<UserID>(), data.dump());
     }
     catch (std::exception &e)
     {

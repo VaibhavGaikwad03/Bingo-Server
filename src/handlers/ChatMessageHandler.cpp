@@ -10,9 +10,5 @@ void ChatMessageHandler::handle(WebSocket* ws, const nlohmann::json& data) const
 
     _message_handler.chat_message(data);
 
-    UserSession *session = UserSessionManager::instance().get_session(data[MessageKey::RECEIVER_ID].get<UserID>());
-    if (session != nullptr)
-    {
-         session->ws->send(data.dump(), uWS::TEXT);
-    }
+    UserSessionManager::instance().send_to_user(data[MessageKey::RECEIVER_ID].get<UserID>(), data.dump());
 }

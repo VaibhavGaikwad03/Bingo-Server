@@ -229,8 +229,7 @@ std::optional<LogoutMessageResponse> MessageHandler::logout_request(const nlohma
         return logout_message_response;
     }
 
-    UserSession *session = UserSessionManager::instance().get_session(parsed_message->user_id);
-    if (session == nullptr)
+    if (!UserSessionManager::instance().is_online(parsed_message->user_id))
     {
         LogoutMessageResponse logout_message_response(Status::ERROR);
         return logout_message_response;

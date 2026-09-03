@@ -179,6 +179,7 @@ void print_chat_message(const nlohmann::json &message)
         log(Log::ERROR, __func__, e.what());
     }
 }
+
 void print_get_message_id_request(const nlohmann::json &message)
 {
     try

@@ -35,14 +35,12 @@ void LogoutRequestHandler::handle(WebSocket* ws, const nlohmann::json& data) con
     else
     {
         UserSessionManager &session_manager = UserSessionManager::instance();
-        UserSession *session = session_manager.get_session(data[MessageKey::USER_ID].get<UserID>());
-        if (session == nullptr)
+        if (!session_manager.remove_session(data[MessageKey::USER_ID].get<UserID>()))
         {
             log(Log::INFO, __func__,
             "User \'" + std::string(data[MessageKey::USERNAME]) + "\' failed to logged out. Session not found.");
-            return;  // CRITICAL: was missing, caused use-after-null
+            return;
         }
-        session_manager.delete_session(session);
 
         session_manager.display_sessions();
 

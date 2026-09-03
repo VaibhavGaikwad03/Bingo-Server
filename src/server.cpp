@@ -5,12 +5,24 @@
 #include "../include/message_structures.h"
 #include "../include/user_session_manager.h"
 
+#include <thread>
+
 Server::Server(const std::string &ip, const int port, const DatabaseConfig& db_config)
 {
     _ip = ip;
     _port = port;
 
-    _message_processor = std::make_unique<MessageProcessor>(_mtx_queue, _cv, db_config);
+    // Size the pool to the hardware, with a floor of 1. Each worker opens its
+    // own MySQL connection, so this is also the DB connection-pool size.
+    const unsigned int hw = std::thread::hardware_concurrency();
+    const size_t worker_count = hw > 0 ? hw : 1;
+
+    _workers.reserve(worker_count);
+    for (size_t i = 0; i < worker_count; ++i)
+    {
+        _workers.push_back(std::make_unique<MessageProcessor>(db_config));
+    }
+    log(Log::INFO, "", "Worker pool size: " + std::to_string(worker_count));
 
     uWS::App::WebSocketBehavior<std::string> behavior;
     behavior.open = [this](auto *ws)
@@ -38,12 +50,17 @@ Server::~Server()
     log(Log::INFO, "", "Server stopped...");
 }
 
+size_t Server::worker_index_for(const WebSocket *ws) const
+{
+    return std::hash<const void *>{}(ws) % _workers.size();
+}
+
 void Server::run()
 {
-    std::thread message_processor_thread([this]()
+    for (auto &worker : _workers)
     {
-        _message_processor->process();
-    });
+        worker->start();
+    }
 
     _app.listen(_ip, _port, [this](const auto *token)
     {
@@ -59,7 +76,7 @@ void Server::run()
         }
     }).run();
 
-    message_processor_thread.join();
+    // On loop exit, worker destructors stop and join their threads.
 }
 
 void Server::connection_opened(WebSocket *ws)
@@ -70,11 +87,9 @@ void Server::connection_opened(WebSocket *ws)
 void Server::connection_closed(const WebSocket *ws, const int code,
                                const std::string_view reason)
 {
-    UserSession *session = UserSessionManager::instance().get_session(ws);
-    if (session == nullptr)
+    if (!UserSessionManager::instance().remove_session_by_ws(ws)) // if user disconnects, destroy the session
         return;
 
-    UserSessionManager::instance().delete_session(session); // if user disconnects, destroy the session
     UserSessionManager::instance().display_sessions(); // debug purpose
     log(Log::INFO, "", "Client disconnected. " + get_websocket_close_reason(code) + ", Reason: " + std::string(reason));
 }
@@ -86,9 +101,8 @@ void Server::message_received(WebSocket *ws, const std::string_view data,
 
     const DataPacket data_packet = {ws, std::string(data), opCode};
 
-    _mtx_queue.enqueue(data_packet);
-
-    _cv.notify_one();
+    // Pin this socket to a fixed worker so its messages are processed in order.
+    _workers[worker_index_for(ws)]->enqueue(data_packet);
 }
 
 std::string Server::get_websocket_close_reason(const int code)

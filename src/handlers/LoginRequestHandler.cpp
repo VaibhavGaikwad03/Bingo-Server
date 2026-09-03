@@ -36,23 +36,13 @@ void LoginRequestHandler::handle(WebSocket* ws, const nlohmann::json& data) cons
     else
     {
         UserSessionManager &session_manager = UserSessionManager::instance();
-        if (session_manager.is_session_exists(login_message_response->get_userid())) // if session already exists
-        {
-            UserSession *session = session_manager.get_session(login_message_response->get_userid());
 
-            const LogoutMessageResponse logout_message_response(Status::SUCCESS);
-            const nlohmann::json logout_response = logout_message_response.to_json();
-
-            log(Log::INFO, __func__,
-                "User \'" + std::string(data[MessageKey::USERNAME]) + "\' logged out forcefully");
-            session->ws->send(logout_response.dump(), uWS::TEXT);
-            session->ws = ws;
-        }
-        else
-        {
-            // new session created
-            session_manager.create_session(login_message_response->get_userid(), data[MessageKey::USERNAME], ws);
-        }
+        // Attach this socket to the user. If a session already exists on another
+        // socket, it is forcibly logged out and replaced, atomically.
+        const LogoutMessageResponse logout_message_response(Status::SUCCESS);
+        const std::string kick_payload = logout_message_response.to_json().dump();
+        session_manager.attach_session(login_message_response->get_userid(),
+                                       data[MessageKey::USERNAME], ws, kick_payload);
 
         UserSessionManager::instance().display_sessions(); // debug purpose
 
